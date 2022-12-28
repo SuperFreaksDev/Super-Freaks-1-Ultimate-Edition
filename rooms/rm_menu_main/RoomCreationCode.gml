@@ -1,0 +1,1 @@
+room_header(game_states.NA, msc_menu);

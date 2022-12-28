@@ -1,0 +1,143 @@
+/// @description Game Step
+
+var _pause;
+var _frames_game, _frames_player, _frames_level;
+var _despawn = false;
+
+framerate_step();
+
+_frames_game = frame_amount;
+frame_amount = 0;
+
+global.game_frame_new = true;
+
+while (_frames_game > 0)
+{
+	_pause = game_pause_get();
+	
+	frame_machine_step();
+	_frames_player = global.frame_machine_player.frame_amount;
+	_frames_level = global.frame_machine_level.frame_amount;
+	global.animate = (global.animate + 0.25) mod 8;
+	
+	//Step 1
+	with (obj_master)
+	{
+		EVENT_FRAMEBEGIN;
+		run_frame = false;
+		hitbox_check_done = false;
+	}
+	
+	with (obj_system)
+		instance_step();
+		
+	if (!_pause)
+	{
+		with (obj_gameplay_manager)
+			instance_step();
+		with (obj_gameplay_obj)
+			instance_step();
+	}
+	
+	while (_frames_player > 0 || _frames_level > 0)
+	{
+		global.frame++;
+		//Step 1
+		if (_frames_player > 0)
+		{
+			players_rubberband_step();
+			with (obj_player_parent)
+				instance_step();
+		}
+
+		if (_frames_level > 0)
+		{
+			with (obj_level_obj)
+				instance_step();
+		}
+		
+		//Collision
+		with (obj_master)
+		{
+			comp_list_collider_step();
+			comp_list_hitbox_step();
+		}
+		with (obj_master)
+		{
+			collisions_check();
+			collisions_resolve();
+			x_previous = x;
+			y_previous = y;
+		}
+
+		//Step 2
+		if (_frames_player > 0)
+		{
+			with (obj_player_parent)
+				instance_step_2();
+		
+			_frames_player--;
+		}
+
+		if (_frames_level > 0)
+		{
+			global.instance_despawn_timer = max(global.instance_despawn_timer - 1, 0);
+			if (global.instance_despawn_timer == 0)
+			{
+				global.instance_despawn_timer = 16;
+				zones_despawn_check();
+				_despawn = true;
+			}
+				
+			with (obj_level_obj)
+			{
+				instance_step_2();
+				if (_despawn)
+					instance_despawn_check();
+			}
+		
+			_frames_level--;
+		}
+	}
+	global.frame_machine_player.frame_amount = 0;
+	global.frame_machine_level.frame_amount = 0;
+
+	//Step 2
+	with (obj_system)
+		instance_step_2();
+	
+	if (!_pause)
+	{
+		with (obj_gameplay_obj)
+			instance_step_2();
+			
+		game_timer_step();
+		water_step();
+		room_transition_step();
+		global.lightbulb_timer = max(global.lightbulb_timer - 1, 0);
+	}
+	
+	comp_list_camera_step();
+	view_prestep();
+	if (!_pause)
+		view_step();
+		
+	//Step Camera and Zones
+	zones_step();
+	zone_main_step();
+	
+	//show_debug_message("Spawn Area: " + string(global.view.zone_main_spawn_area));
+		
+	global.game_frame_new = false;
+	gc_timer++;
+	if (gc_timer >= GC_TIMER_MAX)
+	{
+		gc_timer = 0;
+		gc_collect();
+	}
+	_frames_game--;
+}
+
+view_step_delta();
+
+room_destination_step();

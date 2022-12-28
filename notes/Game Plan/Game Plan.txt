@@ -1,0 +1,144 @@
+SUPER FREAKS 1 ULTIMATE EDITION
+
+GAMEPLAY
+	Super Freaks 1 Ultimate Edition is a 2D platformer. The game can be played in single player, or two-player co-op.
+	In every level, you'll need to get to the end and/or fight a boss.
+	The players share hearts--they begin each level with 0, but can find more. 
+	When hit without a heart, a player will die, and in co-op will be placed in a bubble.
+	If all players die or are in a bubble at once, they will respawn at the beginning of the level or the nearest checkpoint.
+	
+	CHARACTERS
+		Scruffy
+		King Quincy
+		Gambi
+		Tikiman
+		Brick
+			The unlockable character, an inanimate brick.
+	
+	MOVES
+		Curl Jump
+			The act of jumping will curl the player into a ball, even in mid-air. This is your main method of attack. 
+			Jumping into an enemy will uncurl you, and if the enemy is big enough, you will bounce off.
+		Wall Jump
+			Pressing against a wall in mid-air will cause you to slide down it. Jumping will wall sliding will make you jump away from the wall.
+		Skid Jump
+			Jumping while skidding will reset your horizontal speed back to zero and make you jump slightly higher. Good for quick readjustments
+		Bubble
+			Only in co-op, the player can place themselves in a bubble, and they will float around the screen, bouncing off of the edges.
+			Pressing the jump button in bubble form will cause you to move towards the nearest player. The other player can touch the bubble to free you.
+			Holding the bubble button will drop the player from the game; pressing any button will put them back in, in bubble form.
+			
+	COLLECTIBLES
+		Yorbs
+			Rainbow orbs full of Unlimit Energy. Collecting 50 of them will give the players an extra heart.
+		Happy Hearts
+			These will give the players another heart.
+		Trophies
+			Each level has five trophies that can be found.
+			Three are found within the level, one is obtained by beating the level with enough hearts, and one is obtained by beating the level within a certain time limit.
+			Boss levels only have the Heart/Time trophies.
+		Stopper Watch
+			Slows down everything in the level for a limited time.
+
+MODES
+	Adventure
+	Challenge
+		Free Play - Casually play any level that you've beaten
+		Randomizer - Play every level and boss in random order until you die or quit
+		Speedrun
+			Normal - Beat the game as fast as possible; trophies do not appear
+			100% - Beat the game 100% as fast as possible
+		Boss Rush
+	Museum
+		Movie Theater - Watch cutscenes you've unlocked
+		Character Cards - View cards with descriptions of every character encountered in the game
+	Exit
+
+LEVELS
+	Mystic Island
+		Super Freaks Stadium
+			The intro level. It has a simple layout that makes you use all of your basic moves.
+		Exciting Encore
+			The secret level, which can only be unlocked by beating the game and getting all of the trophies.
+			It combines obstacles throughout the entire game into one big gauntlet.
+			Gimmicks:
+				Slime
+				Wind
+				Water
+				Lightning
+				Giant Cracker Barrel
+	Normal World
+		Fruit Juice Factory
+			An apple juice factory.
+			Gimmicks:
+				Juice (functionally the same as water)
+				Jelly Blocks
+		Skyway Highway
+			Sky level with mechanical platforms.
+			Gimmicks:
+				
+				Wind
+		Vs. Cinge
+			Cinge is fought by a brick wall with flames behind it.
+			He can shoot fireballs in an up/down pattern before cooling off, when he becomes vulnerable.
+	Crazy World
+		Toy Block Bridge
+			Gimmicks:
+				
+			Mini Boss:
+				Colonel Popgun
+		Playful Park
+			Gimmicks:
+				Pinwheel platforms
+		Vs. Milk Man
+	Ludicrous World
+		Barrel Canyon Cliffs
+			Enemies:
+				Fusedropper
+				Cracker Barrel
+			Gimmicks:
+				Slime
+				Giant Cracker Barrel
+		Shipwreck Poopdeck
+			Gimmicks:
+				Water
+		Vs. Mega Klaw
+	Insane World
+		Forever Flowery Fields
+			Gimmicks:
+				Wind
+		Lightning Rod Lake
+			Gimmicks:
+				Lightning
+				Slime
+				Water
+			Mini Boss:
+				Thundercracker
+		Vs. Larry McPeel
+	Freaky World
+		Cool n' Chill Caverns	
+			Gimmicks:
+				Ice
+				Water
+			Mini Boss:
+				Ice Eyeball
+		Starscraper
+			Gimmicks:
+				Rising floor
+		Vs. Francis
+	Castle Kranion
+		Conveyor Castle
+			Enemies:
+				Boneblaster
+				Heavy Metal
+			Gimmicks:
+				Conveyor Belts
+				Crushing Spike Wall
+		Mecha Moon
+			Enemies:
+				Fusedropper
+				Cracker Barrel
+			Gimmicks:
+				Gravity Areas
+		Vs. Dino
+		Vs. Kranion

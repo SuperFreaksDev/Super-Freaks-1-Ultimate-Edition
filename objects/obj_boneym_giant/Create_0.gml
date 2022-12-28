@@ -1,0 +1,27 @@
+/// @description 
+
+// Inherit the parent event
+event_inherited();
+
+hp_init(2);
+
+image_xscale *= 2;
+image_yscale *= 2;
+
+collider_detector_up_set(0, 0, 0, 0, -20);
+collider_detector_down_set(0, 0, 0, 0, 36);
+collider_detector_sides_set(-16, 0, 16, 0, 24);
+
+hitbox.shape_x1 = -32;
+hitbox.shape_y1 = -32;
+hitbox.shape_x2 = 32;
+hitbox.shape_y2 = 32;
+hitbox.behavior = enemy_hitbox_behaviors.heavy;
+
+speed_walk = 0.5;
+animate_speed = 0.125;
+
+despawn_area[0] = sprite_get_bbox_left(sprite_index) * 2;
+despawn_area[1] = sprite_get_bbox_top(sprite_index) * 2;
+despawn_area[2] = sprite_get_bbox_right(sprite_index) * 2;
+despawn_area[3] = sprite_get_bbox_bottom(sprite_index) * 2;

@@ -1,0 +1,52 @@
+MAIN MENU
+
+	Adventure -- Goes to World Map
+	Challenge -- Goes to Challenge menu screen
+	Museum -- Goes to Museum menu screen
+	Options -- Opens Options menu
+	Exit Game
+
+CHALLENGE
+	
+	Free Play
+	Remix
+	Speedrun
+		Normal
+		100%
+	Boss Rush
+	
+MUSEUM
+
+	Movie Theater
+	Character Cards
+
+OPTIONS
+
+	Controls
+		<-- Player # -->
+		[One option for each button]
+		Reset to Default
+	Audio
+		Music Volume <-- 0% - 100% -->
+		SFX Volume <-- 0% - 100% -->
+	Visual
+		Aspect Ratio: (4:3, 16:9, 16:10, 21:9, 21:10)
+		Screen Size: (Fullscreen, 1x, 2x, 3x, 4x)
+		Framerate: (Unlocked, 30fps, 48fps, 50fps, 60fps, 90fps, 120fps, 144fps, 165fps, 240fps)
+		Screen Shake: On / Off
+	Other
+		Delete Save File
+	Debug (only visible when debug mode is on)
+		Debug Viewers
+			Hitbox
+			Collider
+			Zone
+			Hashmap
+		Cheats
+			Unlock Everything
+
+PAUSE
+
+	Continue
+	Restart Level
+	Exit Level

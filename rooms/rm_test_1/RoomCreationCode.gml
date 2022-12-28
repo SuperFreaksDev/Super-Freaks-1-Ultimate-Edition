@@ -1,0 +1,1 @@
+room_header(game_states.gameplay, MUSIC_NA);

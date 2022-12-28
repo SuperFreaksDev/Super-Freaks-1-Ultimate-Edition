@@ -1,0 +1,1 @@
+#macro GC_TIMER_MAX 24

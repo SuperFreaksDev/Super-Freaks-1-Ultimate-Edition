@@ -1,0 +1,43 @@
+/// @description Init
+
+state_machine_init();
+
+hashmap_hitbox_cells = [];
+hashmap_collider_cells = [];
+
+comp_list_hitbox_init();
+
+comp_list_collider_init();
+collider_attach_init();
+collider_detectors_init();
+collider_detector_up_set();
+collider_detector_down_set();
+collider_detector_sides_set();
+collision_flags = 0;
+
+comp_list_timer_init();
+
+instance_attach = undefined;
+instance_attach_list = [];
+
+speed_h = 0;
+speed_v = 0;
+speed_x = 0;
+speed_y = 0;
+speed_path = 0;
+x_previous = x;
+y_previous = y;
+x_start_frame = x;
+y_start_frame = y;
+start_room = room;
+owner = undefined;
+
+face_spawn = sign(image_xscale);
+face = face_spawn;
+
+image_speed = 0;
+animate_speed = 0; //Updates animation once a frame
+
+run_frame = false;
+
+//show_debug_message("CREATE " + string(id) + " " + string(object_get_name(object_index)));
