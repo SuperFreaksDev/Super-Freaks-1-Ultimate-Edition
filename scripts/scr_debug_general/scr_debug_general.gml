@@ -1,6 +1,7 @@
 /// @function debug_init
-function debug_init()
+/// @param {Boolean} _flag = false
+function debug_init(_flag = false)
 {
-	global.debug = true;
+	global.debug = _flag;
 	global.debug_viewer = array_create(4, false);
 }

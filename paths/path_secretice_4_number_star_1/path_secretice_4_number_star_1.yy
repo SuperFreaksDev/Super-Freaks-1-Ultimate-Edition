@@ -1,0 +1,22 @@
+{
+  "resourceType": "GMPath",
+  "resourceVersion": "1.0",
+  "name": "path_secretice_4_number_star_1",
+  "kind": 0,
+  "closed": false,
+  "precision": 4,
+  "points": [
+    {"speed":100.0,"x":688.0,"y":1120.0,},
+    {"speed":100.0,"x":928.0,"y":1120.0,},
+    {"speed":100.0,"x":1184.0,"y":1120.0,},
+    {"speed":100.0,"x":1440.0,"y":1120.0,},
+    {"speed":100.0,"x":1328.0,"y":1424.0,},
+    {"speed":100.0,"x":1040.0,"y":1584.0,},
+    {"speed":100.0,"x":688.0,"y":1456.0,},
+    {"speed":100.0,"x":496.0,"y":1600.0,},
+  ],
+  "parent": {
+    "name": "Cool n Chill Secret",
+    "path": "folders/Rooms/Levels/Freaky World/Cool n Chill Secret.yy",
+  },
+}
