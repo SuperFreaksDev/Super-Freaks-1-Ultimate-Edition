@@ -2,6 +2,7 @@
 
 var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 var _attack, _attack_speed = drop_speed * sign(image_xscale);
+var _zone = zone_index;
 
 hurt_timer_step();
 
@@ -19,7 +20,10 @@ if (timer == 0)
 	sprite_index = spr_plughead_attack;
 	animate_speed = 0.5;
 	timer = timer_frequency;
-	_attack = instance_create_layer(x, y + 24, "layer_instances", obj_enemy_electric_ball);
+	_attack = instance_create_layer(x, y + 24, "layer_instances", obj_enemy_electric_ball, 
+	{
+		zone_index: _zone
+	});
 	_attack.speed_move = _attack_speed;
 }
 else if (timer < timer_frequency - 8)

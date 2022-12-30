@@ -13,10 +13,20 @@ state_next_set(0);
 
 collider_horizontal = new comp_collider_AABB(,, -32, -48, 32, 48);
 with (collider_horizontal)
-	collision_flags_set_all(true, true, true, true);
+{
+	solid_x1 = collider_solidity.solid;
+	solid_y1 = collider_solidity.solid;
+	solid_x2 = collider_solidity.solid;
+	solid_y2 = collider_solidity.solid;
+}
 collider_vertical = new comp_collider_AABB(,, -32, -48, 32, 48);
 with (collider_vertical)
-	collision_flags_set_all(true, true, true, true);
+{
+	solid_x1 = collider_solidity.solid;
+	solid_y1 = collider_solidity.solid;
+	solid_x2 = collider_solidity.solid;
+	solid_y2 = collider_solidity.solid;
+}
 
 for (_i = 0; _i < array_length(card_direction); ++_i)
 {

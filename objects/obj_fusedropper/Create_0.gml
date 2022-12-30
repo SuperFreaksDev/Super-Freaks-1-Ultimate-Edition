@@ -11,6 +11,7 @@ timer = new comp_timer(timer_delay, function()
 	var _face = sign(image_xscale);
 	var _drop_speed = drop_speed;
 	var _object;
+	var _zone = zone_index;
 	
 	switch (drop_type)
 	{

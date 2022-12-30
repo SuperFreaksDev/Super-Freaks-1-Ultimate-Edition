@@ -1,6 +1,7 @@
 /// @description Step
 
 var _fireball, _shoot_direction;
+var _zone = zone_index;
 
 // Inherit the parent event
 event_inherited();
@@ -63,7 +64,7 @@ switch (state)
 			{
 				speed: 4,
 				direction: _shoot_direction,
-				zone_index: -3
+				zone_index: _zone
 			});
 			state_next_set(enemy_buckler_states.shoot_2);
 		}

@@ -41,27 +41,27 @@ function tile_data_array_level_park()
 	tile_data_set(_tile_data_array, 32, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 0, 31, 15); //Slope 337.5 Degrees Top Left to Bottom Right (1/2)
 	tile_data_set(_tile_data_array, 33, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 16, 31, 31); //Slope 337.5 Degrees Top Left to Bottom Right (2/2)
 	tile_data_set(_tile_data_array, 34, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Slope 337.5 Degrees Top Left to Bottom Right - Top
-	tile_data_set(_tile_data_array, 35, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Single
-	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
-	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
-	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
+	tile_data_set(_tile_data_array, 35, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Single
+	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
+	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
+	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
 	tile_data_set(_tile_data_array, 39, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Block - Top
 	tile_data_set(_tile_data_array, 40, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Left Corner - Top
 	tile_data_set(_tile_data_array, 41, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor - Top
 	tile_data_set(_tile_data_array, 42, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Right Corner - Top
-	tile_data_set(_tile_data_array, 43, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Rail Right
-	tile_data_set(_tile_data_array, 44, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, true, false, false); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right - Support
-	tile_data_set(_tile_data_array, 45, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 0, 31, 15); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right (1/2)
-	tile_data_set(_tile_data_array, 46, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 16, 31, 31); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right (2/2)
-	tile_data_set(_tile_data_array, 47, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 31, 31, 16); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right (1/2)
+	tile_data_set(_tile_data_array, 43, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Rail Right
+	tile_data_set(_tile_data_array, 44, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, collider_solidity.semi_solid, false, false); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right - Support
+	tile_data_set(_tile_data_array, 45, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 0, 31, 15); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right (1/2)
+	tile_data_set(_tile_data_array, 46, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 16, 31, 31); //Rail Right Slope 337.5 Degrees Top Left to Bottom Right (2/2)
+	tile_data_set(_tile_data_array, 47, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 31, 31, 16); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right (1/2)
 	
-	tile_data_set(_tile_data_array, 48, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 15, 31, 0); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right (2/2)
-	tile_data_set(_tile_data_array, 49, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, true, false, false); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right - Support
-	tile_data_set(_tile_data_array, 50, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Rail Left
-	tile_data_set(_tile_data_array, 51, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, true, false, false); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right - Support
-	tile_data_set(_tile_data_array, 52, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 0, 31, 15); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right (1/2)
-	tile_data_set(_tile_data_array, 53, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 16, 31, 31); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right (2/2)
-	tile_data_set(_tile_data_array, 54, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 31, 31, 16); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right (1/2)
-	tile_data_set(_tile_data_array, 55, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 15, 31, 0); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right (2/2)
-	tile_data_set(_tile_data_array, 56, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, true, false, false); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right - Support
+	tile_data_set(_tile_data_array, 48, collider_behaviors_solid.rail_right, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 15, 31, 0); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right (2/2)
+	tile_data_set(_tile_data_array, 49, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, collider_solidity.semi_solid, false, false); //Rail Right Slope 22.5 Degrees Bottom Left to Top Right - Support
+	tile_data_set(_tile_data_array, 50, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Rail Left
+	tile_data_set(_tile_data_array, 51, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, collider_solidity.semi_solid, false, false); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right - Support
+	tile_data_set(_tile_data_array, 52, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 0, 31, 15); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right (1/2)
+	tile_data_set(_tile_data_array, 53, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 16, 31, 31); //Rail Left Slope 337.5 Degrees Top Left to Bottom Right (2/2)
+	tile_data_set(_tile_data_array, 54, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 31, 31, 16); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right (1/2)
+	tile_data_set(_tile_data_array, 55, collider_behaviors_solid.rail_left, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false, tile_shapes.line, 0, 15, 31, 0); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right (2/2)
+	tile_data_set(_tile_data_array, 56, collider_behaviors_non_solid.NA, tile_solidity.solid_support, false, collider_solidity.semi_solid, false, false); //Rail Left Slope 22.5 Degrees Bottom Left to Top Right - Support
 }

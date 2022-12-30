@@ -10,7 +10,7 @@ event_inherited();
 
 collider = new comp_collider_AABB(,, -_width_half, -_height_half + 4, _width_half, _height_half);
 with (collider)
-	collision_flag_set_up();
+	solid_y1 = collider_solidity.semi_solid;
 despawn_area[0] = -_width_half;
 despawn_area[1] = -_height_half;
 despawn_area[2] = _width_half;

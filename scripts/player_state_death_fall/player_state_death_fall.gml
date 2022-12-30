@@ -13,11 +13,8 @@ function player_state_death_fall()
 		collider_attach_clear();
 		global.hearts = max(global.hearts--, 0);
 		with (hitbox)
-		{
-			flags = 0;
-			flags_to_check = 0;
 			active = hitbox_active.inactive;
-		}
+			
 		sfx_play_global(sfx_yell_goofy);
 		
 		if (!players_alive())

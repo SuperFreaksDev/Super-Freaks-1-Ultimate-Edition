@@ -5,7 +5,7 @@ event_inherited();
 
 collider = new comp_collider_AABB(,, -1000, 0, 1000, 32);
 with (collider)
-	collision_flag_set_up();
+	solid_y1 = collider_solidity.solid;
 
 camera_blocker = instance_create_layer(x, y + 192, "layer_instances", obj_view_blocker);
 with (camera_blocker)

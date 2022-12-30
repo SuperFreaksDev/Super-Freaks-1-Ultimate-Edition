@@ -14,11 +14,6 @@ function player_state_hurt()
 		angle = 0;
 		instance_attach = undefined;
 		animate_speed = 0;
-		with (hitbox)
-		{
-			flags_to_check = 0;
-			hitbox_bitmask_to_check_set(,,, true);
-		}
 		rubber_band_can_slingshot = true;
 		physics = player_physics_modifiers.normal;
 	}
@@ -43,6 +38,7 @@ function player_state_hurt()
 	switch sign(x - x_previous)
 	{
 		case -1:
+			collision_right(,,,,,, false);
 			collision_left();
 			break;
 		case 0:
@@ -50,6 +46,7 @@ function player_state_hurt()
 			collision_right();
 			break;
 		case 1:
+			collision_left(,,,,,, false);
 			collision_right();
 			break;
 	}
@@ -57,6 +54,7 @@ function player_state_hurt()
 	switch sign(y - y_previous)
 	{
 		case -1:
+			collision_down(,,,,,, false);
 			collision_up();
 			break;
 		case 0:

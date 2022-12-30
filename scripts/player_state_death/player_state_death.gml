@@ -14,11 +14,7 @@ function player_state_death()
 		
 		collider_attach_clear();
 		with (hitbox)
-		{
-			flags = 0;
-			flags_to_check = 0;
 			active = hitbox_active.inactive;
-		}
 		sfx_play_global(sfx_yell_wilhelm);
 		
 		if (!players_alive())

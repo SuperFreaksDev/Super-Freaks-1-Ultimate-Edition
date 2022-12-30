@@ -17,6 +17,7 @@ y += speed_v;
 switch sign(x - x_previous)
 {
 	case -1:
+		collision_right(,,,,,, false);
 		collision_left();
 		break;
 	case 0:
@@ -24,6 +25,7 @@ switch sign(x - x_previous)
 		collision_right();
 		break;
 	case 1:
+		collision_left(,,,,,, false);
 		collision_right();
 		break;
 }
@@ -31,6 +33,7 @@ switch sign(x - x_previous)
 switch sign(y - y_previous)
 {
 	case -1:
+		collision_down(,,,,,, false);
 		collision_up();
 		break;
 	case 0:

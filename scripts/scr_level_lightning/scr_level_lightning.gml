@@ -41,10 +41,10 @@ function tile_data_array_level_lightning()
 	tile_data_set(_tile_data_array, 32, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 0, 31, 15); //Slope 337.5 Degrees Top Left to Bottom Right (1/2)
 	tile_data_set(_tile_data_array, 33, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 16, 31, 31); //Slope 337.5 Degrees Top Left to Bottom Right (2/2)
 	tile_data_set(_tile_data_array, 34, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Slope 337.5 Degrees Top Left to Bottom Right - Top
-	tile_data_set(_tile_data_array, 35, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Single
-	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
-	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
-	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
+	tile_data_set(_tile_data_array, 35, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Single
+	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
+	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
+	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
 	tile_data_set(_tile_data_array, 39, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Block - Top
 	tile_data_set(_tile_data_array, 40, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Left Corner - Top
 	tile_data_set(_tile_data_array, 41, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor - Top
@@ -82,10 +82,10 @@ function tile_data_array_level_lightning()
 	tile_data_set(_tile_data_array, 80, collider_behaviors_solid.sticky, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 0, 31, 15); //Slope 337.5 Degrees Top Left to Bottom Right (1/2)
 	tile_data_set(_tile_data_array, 81, collider_behaviors_solid.sticky, tile_solidity.solid_slope, false, true, false, false, tile_shapes.line, 0, 16, 31, 31); //Slope 337.5 Degrees Top Left to Bottom Right (2/2)
 	tile_data_set(_tile_data_array, 82, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Slope 337.5 Degrees Top Left to Bottom Right - Top
-	tile_data_set(_tile_data_array, 83, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Single
-	tile_data_set(_tile_data_array, 84, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
-	tile_data_set(_tile_data_array, 85, collider_behaviors_solid.sticky, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
-	tile_data_set(_tile_data_array, 86, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
+	tile_data_set(_tile_data_array, 83, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Single
+	tile_data_set(_tile_data_array, 84, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
+	tile_data_set(_tile_data_array, 85, collider_behaviors_solid.sticky, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
+	tile_data_set(_tile_data_array, 86, collider_behaviors_solid.sticky, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
 	tile_data_set(_tile_data_array, 87, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Block - Top
 	tile_data_set(_tile_data_array, 88, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor Left Corner - Top
 	tile_data_set(_tile_data_array, 89, collider_behaviors_non_solid.floor_top, tile_solidity.NA, false, false, false, false); //Floor - Top

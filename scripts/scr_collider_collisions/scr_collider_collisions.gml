@@ -42,7 +42,8 @@ function collider_collision_global_clear()
 		/// @param _y_slope = y
 		/// @param _extend = 0
 		/// @param _attach = false
-		function collision_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false, _check_semi_solid = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -71,30 +72,14 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_left(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_left(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-				else
-				{
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
-				{
-					if (collision_tile_flat_left(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
-						_collision = true;
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
@@ -134,13 +119,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_x2 == false)
-									//	continue;
+									switch (_comp.solid_x2)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_right())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										_behavior = behavior[2];
@@ -246,7 +239,8 @@ function collider_collision_global_clear()
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
 		/// @param _extend = 0
-		function collision_exists_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
 		{
 			var _x1 = clamp(_x - _extend, 0, room_width - 1);
 			var _tilemap, _tile_data_array;
@@ -273,30 +267,14 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_left(_x1, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_left(_x1, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_left(_x1, _y_slope, true, true, _tilemap, _tile_data_array))
-						return true;
-				}
-				else
-				{
-					if (collision_tile_slope_left(_x1, _y_slope, false, true, _tilemap, _tile_data_array))
-						return true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
-				{
-					if (collision_tile_flat_left(_x1, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
-						return true;
-					if (collision_tile_slope_left(_x1, _y_slope, true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_left(_x1, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_left(_x1, _y_slope, false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_left(_x1, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
@@ -336,13 +314,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_x2 == false)
-									//	continue;
+									switch (_comp.solid_x2)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_right())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										switch (instanceof(_comp))
@@ -413,7 +399,8 @@ function collider_collision_global_clear()
 		/// @param _y = y + collider_detector_up[collider_detector_vertical_data.y]
 		/// @param _extend = 0
 		/// @param _attach = false
-		function collision_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up[collider_detector_vertical_data.y], _extend = 0, _attach = false)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up[collider_detector_vertical_data.y], _extend = 0, _attach = false, _check_semi_solid = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -442,30 +429,14 @@ function collider_collision_global_clear()
 	
 				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
 				{
-					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-				else
-				{
-					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
-				{
-					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array))
-						_collision = true;
-					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_up(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
@@ -505,13 +476,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_y2 == false)
-									//	continue;
+									switch (_comp.solid_y2)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_down())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										_behavior = behavior[3];
@@ -615,7 +594,8 @@ function collider_collision_global_clear()
 		/// @param _x_slope = x
 		/// @param _y = y + collider_detector_up[collider_detector_vertical_data.y]
 		/// @param _extend = 0
-		function collision_exists_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up[collider_detector_vertical_data.y], _extend = 0)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up[collider_detector_vertical_data.y], _extend = 0, _check_semi_solid = true)
 		{
 			var _y1 = clamp(_y - _extend, 0, room_height - 1);
 			var _tilemap, _tile_data_array;
@@ -642,30 +622,14 @@ function collider_collision_global_clear()
 	
 				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
 				{
-					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array))
+					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_up(_x_slope, _y1, true, false, _tilemap, _tile_data_array))
-						return true;
-				}
-				else
-				{
-					if (collision_tile_slope_up(_x_slope, _y1, false, false, _tilemap, _tile_data_array))
-						return true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
-				{
-					if (collision_tile_flat_up(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array))
-						return true;
-					if (collision_tile_slope_up(_x_slope, _y1, true, false, _tilemap, _tile_data_array))
+					if (collision_tile_slope_up(_x_slope, _y1, true, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_up(_x_slope, _y1, false, false, _tilemap, _tile_data_array))
+					if (collision_tile_slope_up(_x_slope, _y1, false, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
@@ -705,13 +669,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_y2 == false)
-									//	continue;
+									switch (_comp.solid_y2)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_down())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										switch (instanceof(_comp))
@@ -777,7 +749,8 @@ function collider_collision_global_clear()
 		/// @param _y_slope = y
 		/// @param _extend = 0
 		/// @param _attach = false
-		function collision_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false, _check_semi_solid = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -806,30 +779,14 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_right(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_right(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-				else
-				{
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
-				{
-					if (collision_tile_flat_right(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
-						_collision = true;
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
@@ -839,8 +796,6 @@ function collider_collision_global_clear()
 				_cell_y1 = _y1_flat div HASHMAP_BUCKET_SIZE;
 				_cell_x2 = max(_x, _collider_collision[collider_collision.x]) div HASHMAP_BUCKET_SIZE;
 				_cell_y2 = _y2_flat div HASHMAP_BUCKET_SIZE;
-				
-				//show_debug_message("START");
 		
 				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
 				{
@@ -851,8 +806,6 @@ function collider_collision_global_clear()
 						for (_instance_list_pos = 0; _instance_list_pos < array_length(_instance_list); ++_instance_list_pos)
 						{
 							_instance = _instance_list[_instance_list_pos];
-							
-							//show_debug_message(_instance);
 				
 							if (!instance_exists(_instance) || _instance == id || array_contains(_blacklist, _instance))
 								continue;
@@ -873,13 +826,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_x1 == false)
-									//	continue;
+									switch (_comp.solid_x1)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_left())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										_behavior = behavior[0];
@@ -985,7 +946,8 @@ function collider_collision_global_clear()
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
 		/// @param _extend = 0
-		function collision_exists_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
 		{
 			var _x2 = clamp(_x + _extend, 0, room_width - 1);
 			var _tilemap, _tile_data_array;
@@ -1012,30 +974,14 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_right(_x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_right(_x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_right(_x2, _y_slope, true, true, _tilemap, _tile_data_array))
-						return true;
-				}
-				else
-				{
-					if (collision_tile_slope_right(_x2, _y_slope, false, true, _tilemap, _tile_data_array))
-						return true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
-				{
-					if (collision_tile_flat_right(_x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array))
-						return true;
-					if (collision_tile_slope_right(_x2, _y_slope, true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_right(_x2, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_right(_x2, _y_slope, false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_right(_x2, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
@@ -1075,13 +1021,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_x1 == false)
-									//	continue;
+									switch (_comp.solid_x1)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_left())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										switch (instanceof(_comp))
@@ -1152,7 +1106,8 @@ function collider_collision_global_clear()
 		/// @param _y = y + collider_detector_down[collider_detector_vertical_data.y]
 		/// @param _extend = 0
 		/// @param _attach = false
-		function collision_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down[collider_detector_vertical_data.y], _extend = 0, _attach = false)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down[collider_detector_vertical_data.y], _extend = 0, _attach = false, _check_semi_solid = true)
 		{
 			var _my_id = id;
 			var _collider_collision;
@@ -1182,30 +1137,14 @@ function collider_collision_global_clear()
 	
 				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
 				{
-					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array))
+					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-				else
-				{
-					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array))
-						_collision = true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
-				{
-					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, true, _tilemap, _tile_data_array))
-						_collision = true;
-					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array))
+					if (collision_tile_slope_down(_x_slope, _collider_collision[collider_collision.y], false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
@@ -1245,13 +1184,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_y1 == false)
-									//	continue;
+									switch (_comp.solid_y1)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_up())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										_behavior = behavior[1];
@@ -1355,7 +1302,8 @@ function collider_collision_global_clear()
 		/// @param _x_slope = x
 		/// @param _y = y + collider_detector_down[collider_detector_vertical_data.y]
 		/// @param _extend = 0
-		function collision_exists_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down[collider_detector_vertical_data.y], _extend = 0)
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down[collider_detector_vertical_data.y], _extend = 0, _check_semi_solid = true)
 		{
 			var _y2 = clamp(_y + _extend, 0, room_height - 1);
 			var _tilemap, _tile_data_array;
@@ -1382,30 +1330,14 @@ function collider_collision_global_clear()
 			
 				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
 				{
-					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array))
+					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_down(_x_slope, _y2, true, false, _tilemap, _tile_data_array))
-						return true;
-				}
-				else
-				{
-					if (collision_tile_slope_down(_x_slope, _y2, false, false, _tilemap, _tile_data_array))
-						return true;
-				}
-	
-				_tilemap = layer_tilemap_get_id("layer_tiles_special");
-				_tile_data_array = global.tile_data_array_special;
-	
-				if (_x1_flat != _x_slope || _x2_flat != _x_slope)
-				{
-					if (collision_tile_flat_down(_x1_flat, _x2_flat, _y, false, _tilemap, _tile_data_array))
-						return true;
-					if (collision_tile_slope_down(_x_slope, _y2, true, false, _tilemap, _tile_data_array))
+					if (collision_tile_slope_down(_x_slope, _y2, true, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_down(_x_slope, _y2, false, false, _tilemap, _tile_data_array))
+					if (collision_tile_slope_down(_x_slope, _y2, false, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
@@ -1445,13 +1377,21 @@ function collider_collision_global_clear()
 							
 									_comp = _comp.ref;
 									
-									//if (_comp.solid_y1 == false)
-									//	continue;
+									switch (_comp.solid_y1)
+									{
+										case collider_solidity.solid:
+											break;
+										case collider_solidity.semi_solid:
+											if (!_check_semi_solid)
+												continue;
+											break;
+										default:
+											continue;
+											break;
+									}
 						
 									with (_comp)
 									{
-										if (!collision_flag_get_up())
-											continue;
 										_comp_x = _instance_x + x_offset;
 										_comp_y = _instance_y + y_offset;
 										switch (instanceof(_comp))

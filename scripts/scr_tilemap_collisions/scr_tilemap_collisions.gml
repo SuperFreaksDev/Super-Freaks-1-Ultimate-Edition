@@ -6,7 +6,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_slope_left(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_slope_left(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y = _y >> TILE_SIZE_DIV;
@@ -20,7 +21,7 @@
 		_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 		_solid = _tile_data[tile_data.solid_x2];
 		
-		if (_solid == false)
+		if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 			return false;
 			
 		_solid_type = _tile_data[tile_data.solid_type];
@@ -34,7 +35,7 @@
 					_solid_type = _tile_data[tile_data.solid_type];
 					_solid = _tile_data[tile_data.solid_x2];
 				
-					if (_solid == false)
+					if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 						return false;
 					break;
 				}
@@ -138,7 +139,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_flat_left(_x = x, _y1 = y, _y2 = y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_flat_left(_x = x, _y1 = y, _y2 = y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y;
@@ -157,7 +159,7 @@
 			_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 			_solid = _tile_data[tile_data.solid_x2];
 		
-			if (_solid == false)
+			if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 				continue;
 			
 			_solid_type = _tile_data[tile_data.solid_type];
@@ -264,7 +266,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_slope_up(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_slope_up(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y = _y >> TILE_SIZE_DIV;
@@ -278,7 +281,7 @@
 		_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 		_solid = _tile_data[tile_data.solid_y2];
 		
-		if (_solid == false)
+		if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 			return false;
 			
 		_solid_type = _tile_data[tile_data.solid_type];
@@ -292,7 +295,7 @@
 					_solid_type = _tile_data[tile_data.solid_type];
 					_solid = _tile_data[tile_data.solid_y2];
 				
-					if (_solid == false)
+					if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 						return false;
 					break;
 				}
@@ -396,7 +399,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_flat_up(_x1 = x, _x2 = x, _y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_flat_up(_x1 = x, _x2 = x, _y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x;
 		var _cell_x1 = _x1 >> TILE_SIZE_DIV;
@@ -415,7 +419,7 @@
 			_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 			_solid = _tile_data[tile_data.solid_y2];
 		
-			if (_solid == false)
+			if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 				continue;
 			
 			_solid_type = _tile_data[tile_data.solid_type];
@@ -522,7 +526,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_slope_right(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_slope_right(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y = _y >> TILE_SIZE_DIV;
@@ -535,7 +540,7 @@
 		_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 		_solid = _tile_data[tile_data.solid_x1];
 		
-		if (_solid == false)
+		if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 			return false;
 			
 		_solid_type = _tile_data[tile_data.solid_type];
@@ -549,7 +554,7 @@
 					_solid_type = _tile_data[tile_data.solid_type];
 					_solid = _tile_data[tile_data.solid_x1];
 				
-					if (_solid == false)
+					if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 						return false;
 					break;
 				}
@@ -653,7 +658,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_flat_right(_x = x, _y1 = y, _y2 = y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_flat_right(_x = x, _y1 = y, _y2 = y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y;
@@ -672,7 +678,7 @@
 			_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 			_solid = _tile_data[tile_data.solid_x1];
 		
-			if (_solid == false)
+			if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 				continue;
 			
 			_solid_type = _tile_data[tile_data.solid_type];
@@ -779,7 +785,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_slope_down(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_slope_down(_x = x, _y = y, _slope_only = false, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x = _x >> TILE_SIZE_DIV;
 		var _cell_y = _y >> TILE_SIZE_DIV;
@@ -792,7 +799,7 @@
 		_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 		_solid = _tile_data[tile_data.solid_y1];
 		
-		if (_solid == false)
+		if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 			return false;
 			
 		_solid_type = _tile_data[tile_data.solid_type];
@@ -806,7 +813,7 @@
 					_solid_type = _tile_data[tile_data.solid_type];
 					_solid = _tile_data[tile_data.solid_y1];
 				
-					if (_solid == false)
+					if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 						return false;
 					break;
 				}
@@ -910,7 +917,8 @@
 	/// @param {boolean} _collide = true
 	/// @param _tilemap
 	/// @param _tile_data_array = global.tile_data_array_level
-	function collision_tile_flat_down(_x1 = x, _x2 = x, _y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level)
+	/// @param {Boolean} _check_semi_solid = true
+	function collision_tile_flat_down(_x1 = x, _x2 = x, _y, _collide = true, _tilemap, _tile_data_array = global.tile_data_array_level, _check_semi_solid = true)
 	{
 		var _cell_x;
 		var _cell_x1 = _x1 >> TILE_SIZE_DIV;
@@ -929,7 +937,7 @@
 			_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 			_solid = _tile_data[tile_data.solid_y1];
 		
-			if (_solid == false)
+			if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
 				continue;
 			
 			_solid_type = _tile_data[tile_data.solid_type];

@@ -8,3 +8,4 @@ with (hitbox)
 	hitbox_bitmask_set(,,,, true);
 	
 animate_speed = 0.125;
+flashlight_radius = 48;

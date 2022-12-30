@@ -2,6 +2,7 @@
 
 var _target = player_nearest_alive();
 var _fireball;
+var _zone = zone_index;
 
 if (!is_undefined(_target))
 {
@@ -22,7 +23,7 @@ if (timer == 0)
 		{
 			speed: 2,
 			direction: point_direction(x, y, _target.x, _target.y),
-			zone_index: -3
+			zone_index: _zone
 		});
 	}
 	

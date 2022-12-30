@@ -9,12 +9,22 @@ switch (image_index == global.redblueplatformswap)
 {
 	case false:
 		with (collider)
-			collision_flags_set_all(false, false, false, false);
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.NA;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.NA;
+		}
 		alpha = 0.25;
 		break;
 	case true:
 		with (collider)
-			collision_flags_set_all(true, true, true, true);
+		{
+			solid_x1 = collider_solidity.solid;
+			solid_y1 = collider_solidity.solid;
+			solid_x2 = collider_solidity.solid;
+			solid_y2 = collider_solidity.solid;
+		}
 		alpha = 1;
 		
 		if (global.redblueplatformtimer < 64 && (global.redblueplatformtimer mod 16 == 0))

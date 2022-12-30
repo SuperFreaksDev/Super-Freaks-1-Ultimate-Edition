@@ -2,6 +2,7 @@
 
 var _target = player_nearest_alive();
 var _fireball;
+var _zone = zone_index;
 
 // Inherit the parent event
 event_inherited();
@@ -213,7 +214,7 @@ switch (state)
 			{
 				speed: 4,
 				direction: face * 90,
-				zone_index: -3
+				zone_index: _zone
 			});
 		}
 		break;

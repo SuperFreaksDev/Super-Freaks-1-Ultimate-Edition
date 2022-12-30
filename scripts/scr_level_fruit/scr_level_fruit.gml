@@ -43,10 +43,10 @@ function tile_data_array_level_fruit()
 	tile_data_set(_tile_data_array, 34, collider_behaviors_solid.NA, tile_solidity.solid_flat, true, false, true, true,,,,,, ANGLE_FLAT, 0); //Block Vertical Bottom
 	tile_data_set(_tile_data_array, 35, collider_behaviors_non_solid.NA, tile_solidity.NA, false, false, false, false); //Bottom Right Inner Corner
 	
-	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
-	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
-	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
-	tile_data_set(_tile_data_array, 39, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, false,,,,,, 0, 0); //Floor Semi Solid Single
+	tile_data_set(_tile_data_array, 36, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Left Corner
+	tile_data_set(_tile_data_array, 37, collider_behaviors_solid.NA, tile_solidity.solid_slope, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Middle
+	tile_data_set(_tile_data_array, 38, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Right Corner
+	tile_data_set(_tile_data_array, 39, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, collider_solidity.semi_solid, false, false,,,,,, 0, 0); //Floor Semi Solid Single
 	tile_data_set(_tile_data_array, 40, collider_behaviors_solid.NA, tile_solidity.solid_flat, true, true, false, true,,,,,, ANGLE_FLAT, 0); //Block Horizontal Left
 	tile_data_set(_tile_data_array, 41, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, false, true,,,,,, ANGLE_FLAT, 0); //Block Horizontal Middle
 	tile_data_set(_tile_data_array, 42, collider_behaviors_solid.NA, tile_solidity.solid_flat, false, true, true, true,,,,,, ANGLE_FLAT, 0); //Block Horizontal Right

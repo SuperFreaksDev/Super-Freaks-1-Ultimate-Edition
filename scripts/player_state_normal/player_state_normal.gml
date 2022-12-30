@@ -11,11 +11,7 @@ function player_state_normal()
 		camera.active = true;
 		rubber_band_can_slingshot = true;
 		with (hitbox)
-		{
 			active = hitbox_active.active;
-			hitbox_bitmask_set(true);
-			hitbox_bitmask_to_check_set(true, true, true, true, true);
-		}
 	}
 	
 	behavior_ceiling = 0;
@@ -166,6 +162,7 @@ function player_state_normal()
 	switch sign(x - x_previous)
 	{
 		case -1:
+			collision_right(,,,,,, false);
 			collision_left();
 			behavior_wall_left = global.collider_collision[collider_collision.behavior];
 			break;
@@ -176,6 +173,7 @@ function player_state_normal()
 			behavior_wall_right = global.collider_collision[collider_collision.behavior];
 			break;
 		case 1:
+			collision_left(,,,,,, false);
 			collision_right();
 			behavior_wall_right = global.collider_collision[collider_collision.behavior];
 			break;
@@ -194,6 +192,7 @@ function player_state_normal()
 		switch sign(y - y_previous)
 		{
 			case -1:
+				collision_down(,,,,,, false);
 				collision_up();
 				behavior_ceiling = global.collider_collision[collider_collision.behavior];
 				break;

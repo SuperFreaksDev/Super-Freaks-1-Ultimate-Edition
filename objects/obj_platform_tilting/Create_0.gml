@@ -8,7 +8,7 @@ event_inherited();
 
 collider = new comp_collider_line(,, -_width_half, 0, _width_half, 0);
 with (collider)
-	collision_flag_set_up();
+	solid_y1 = collider_solidity.semi_solid;
 if (ice)
 	collider.behavior[1] = collider_behaviors_solid.ice;
 despawn_area[0] = -_width_half;

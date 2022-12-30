@@ -57,60 +57,80 @@ collider_step = function(_id)
 	_line.shape_x2 = lengthdir_x(_width, _angle_new);
 	_line.shape_y2 = lengthdir_y(_width, _angle_new);
 	
-	if (_angle_new == clamp(_angle_new, 0, 180))
-	{
-		with (_line)
-		{
-			collision_flag_set_left();
-			collision_flag_clear_right();
-		}
-	}
-	else
-	{
-		with (_line)
-		{
-			collision_flag_clear_left();
-			collision_flag_set_right();
-		}
-	}
-	
-	if (_angle_new == clamp(_angle_new, 90, 270))
-	{
-		with (_line)
-		{
-			collision_flag_set_down();
-			collision_flag_clear_up();
-		}
-	}
-	else
-	{
-		with (_line)
-		{
-			collision_flag_clear_down();
-			collision_flag_set_up();
-		}
-	}
-	
-	//if (_angle_new <= 67.5 || _angle_new >= 292.5)
+	//if (_angle_new == clamp(_angle_new, 0, 180))
 	//{
 	//	with (_line)
-	//		collision_flags_set_all(false, true, false, false);
-	//}
-	//else if (_angle_new < 112.5)
-	//{
-	//	with (_line)
-	//		collision_flags_set_all(true, true, false, false);
-	//}
-	//else if (_angle_new < 202.5)
-	//{
-	//	with (_line)
-	//		collision_flags_set_all(false, false, false, true);
+	//	{
+	//		collision_flag_set_left();
+	//		collision_flag_clear_right();
+	//	}
 	//}
 	//else
 	//{
 	//	with (_line)
-	//		collision_flags_set_all(false, true, true, false);
+	//	{
+	//		collision_flag_clear_left();
+	//		collision_flag_set_right();
+	//	}
 	//}
+	
+	//if (_angle_new == clamp(_angle_new, 90, 270))
+	//{
+	//	with (_line)
+	//	{
+	//		collision_flag_set_down();
+	//		collision_flag_clear_up();
+	//	}
+	//}
+	//else
+	//{
+	//	with (_line)
+	//	{
+	//		collision_flag_clear_down();
+	//		collision_flag_set_up();
+	//	}
+	//}
+	
+	if (_angle_new <= 67.5 || _angle_new >= 292.5)
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.solid;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.NA;
+		}
+	}
+	else if (_angle_new < 112.5)
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.solid;
+			solid_y1 = collider_solidity.solid;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.NA;
+		}
+	}
+	else if (_angle_new < 202.5)
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.NA;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.solid;
+		}
+	}
+	else
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.solid;
+			solid_x2 = collider_solidity.solid;
+			solid_y2 = collider_solidity.NA;
+		}
+	}
 }
 
 collider_create(0, -_width_half + 8, -_height_half, _width - 16, 0);

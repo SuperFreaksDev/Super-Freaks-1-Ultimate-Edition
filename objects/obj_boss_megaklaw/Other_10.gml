@@ -85,7 +85,7 @@ switch (state)
 			{
 				x_offset = 0;
 				y_offset = 10;
-				collision_flag_clear_up();
+				solid_y1 = collider_solidity.NA;
 			}
 		}
 		
@@ -122,7 +122,7 @@ switch (state)
 			counter = 32;
 			animate_speed = 0;
 			with (arm_platform)
-				collision_flag_set_up();
+				solid_y1 = collider_solidity.semi_solid;
 		}
 		
 		timer = min(timer + 1, 420);
@@ -171,7 +171,8 @@ switch (state)
 		if (timer == 420 || hit_counter >= 2)
 		{
 			state_next_set(boss_megaklaw_states.punch_4);
-			arm_platform.solid_y1 = false;
+			with (arm_platform)
+				solid_y1 = collider_solidity.NA;
 			
 			if (global.boss_phase == 0 && hp <= 7)
 			{
@@ -186,7 +187,7 @@ switch (state)
 			timer = 0;
 			animate_speed = 0;
 			with (arm_platform)
-				collision_flag_clear_up();
+				solid_y1 = collider_solidity.NA;
 		}
 		
 		arm_length = max(arm_length - 16, 0);
@@ -209,7 +210,8 @@ switch (state)
 		
 		if (arm_length == 0)
 		{
-			arm_platform.solid_y1 = false;
+			with (arm_platform)
+				solid_y1 = collider_solidity.NA;
 			state_next_set(boss_megaklaw_states.float);
 		}
 		break;
@@ -222,7 +224,7 @@ switch (state)
 			sprite_index = spr_megaklaw_stuck;
 			music_stop();
 			with (arm_platform)
-				collision_flag_clear_up();
+				solid_y1 = collider_solidity.NA;
 		}
 		
 		arm_length = max(arm_length - 16, 64);

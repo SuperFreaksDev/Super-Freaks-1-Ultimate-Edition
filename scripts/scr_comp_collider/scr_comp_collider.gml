@@ -30,13 +30,23 @@ enum collider_behaviors_solid
 	rail_right,
 }
 
+enum collider_solidity
+{
+	NA = 0,
+	solid,
+	semi_solid,
+}
+
 /// @function comp_collider
 /// @param _x_offset = 0
 /// @param _y_offset = 0
 function comp_collider(_x_offset = 0, _y_offset = 0) constructor
 {
 	owner = other;
-	collision_flags_set_all();
+	solid_x1 = collider_solidity.NA;
+	solid_y1 = collider_solidity.NA;
+	solid_x2 = collider_solidity.NA;
+	solid_y2 = collider_solidity.NA;
 	x_offset = _x_offset;
 	y_offset = _y_offset;
 	x_offset_previous = _x_offset;

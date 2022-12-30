@@ -42,14 +42,10 @@ function tile_data_arrays_init()
 {
 	var _i;
 	global.tile_data_array_level = array_create(255);
-	global.tile_data_array_special = array_create(255);
-	global.tile_data_array_front = array_create(255);
 		
 	for (_i = 0; _i < 256; ++_i)
 	{
 		global.tile_data_array_level[_i] = array_create(14, 0);
-		global.tile_data_array_special[_i] = array_create(14, 0);
-		global.tile_data_array_front[_i] = array_create(14, 0);
 	}
 }
 

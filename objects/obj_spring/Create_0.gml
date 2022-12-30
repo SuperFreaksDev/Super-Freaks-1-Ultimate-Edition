@@ -16,7 +16,7 @@ animate_speed = 0;
 collider = new comp_collider_AABB(,, -_width_half, -24, _width_half, 1);
 with (collider)
 {
-	collision_flag_set_up();
+	solid_y1 = collider_solidity.semi_solid;
 	callback[1] = function()
 	{
 		var _collider = global.collider_collision[collider_collision.collider];

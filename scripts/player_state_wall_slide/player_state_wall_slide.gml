@@ -98,11 +98,11 @@ function player_state_wall_slide()
 	switch sign(y - y_previous)
 	{
 		case -1:
-			//collision_up();
+			collision_up();
 			break;
 		case 0:
 		case 1:
-			//collision_up();
+			collision_up();
 			collision_down(,,,,, true);
 			break;
 	}

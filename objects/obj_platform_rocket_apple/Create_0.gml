@@ -18,7 +18,7 @@ timer = -1;
 
 collider = new comp_collider_AABB(,, -_width_half + 8, -32, _width_half - 8, 0);
 with (collider)
-	collision_flag_set_up();
+	solid_y1 = collider_solidity.semi_solid;
 despawn_area[0] = -_width_half;
 despawn_area[1] = -40;
 despawn_area[2] = _width_half;

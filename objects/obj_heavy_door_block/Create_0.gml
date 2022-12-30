@@ -10,7 +10,12 @@ event_inherited();
 
 collider = new comp_collider_AABB(,, -_width_half, -_height_half + 8, _width_half, _height_half);
 with (collider)
-	collision_flags_set_all(true, true, true, true);
+{
+	solid_x1 = collider_solidity.solid;
+	solid_y1 = collider_solidity.solid;
+	solid_x2 = collider_solidity.solid;
+	solid_y2 = collider_solidity.solid;
+}
 
 start_x = x;
 start_y = y;

@@ -37,8 +37,6 @@ hitbox.shape_y2 = 56;
 hitbox.behavior = enemy_hitbox_behaviors.heavy;
 
 arm_platform = new comp_collider_line();
-with (arm_platform)
-	collision_flags_set_all();
 
 switch (global.boss_phase)
 {

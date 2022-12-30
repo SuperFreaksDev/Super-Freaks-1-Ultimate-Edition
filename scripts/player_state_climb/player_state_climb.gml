@@ -18,11 +18,7 @@ function player_state_climb()
 		lock_gravity = 0;
 		collider_attach_clear();
 		with (hitbox)
-		{
 			active = hitbox_active.active;
-			hitbox_bitmask_set(true);
-			hitbox_bitmask_to_check_set(true, true, true, true, true);
-		}
 		rubber_band_can_slingshot = false;
 		physics = player_physics_modifiers.normal;
 	}
@@ -108,6 +104,7 @@ function player_state_climb()
 				if (!place_meeting(instance_attach.bbox_left - 24, y, obj_climb_mesh))
 					x = max(x, instance_attach.bbox_left + 24);
 			}
+			collision_right(,,,,,, false);
 			collision_left();
 			behavior_wall_left = global.collider_collision[collider_collision.behavior];
 			break;
@@ -123,6 +120,7 @@ function player_state_climb()
 				if (!place_meeting(instance_attach.bbox_right + 24, y, obj_climb_mesh))
 					x = min(x, instance_attach.bbox_right - 24);
 			}
+			collision_left(,,,,,, false);
 			collision_right();
 			behavior_wall_right = global.collider_collision[collider_collision.behavior];
 			break;
@@ -136,6 +134,7 @@ function player_state_climb()
 				if (!place_meeting(x, instance_attach.bbox_top - 32, obj_climb_mesh))
 					y = max(y, instance_attach.bbox_top + 32);
 			}
+			collision_down(,,,,,, false);
 			collision_up();
 			behavior_ceiling = global.collider_collision[collider_collision.behavior];
 			break;
@@ -151,6 +150,7 @@ function player_state_climb()
 				if (!place_meeting(x, instance_attach.bbox_bottom + 32, obj_climb_mesh))
 					y = min(y, instance_attach.bbox_bottom - 32);
 			}
+			collision_up(,,,,,, false);
 			collision_down();
 			behavior_floor = global.collider_collision[collider_collision.behavior];
 			break;
