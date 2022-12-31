@@ -193,17 +193,17 @@ function levels_init()
 	{
 		return (level_perfect_get(20) && level_perfect_get(21));
 	});
-	level_create(23,, rm_comingsoon, "Freaky World", "Vs Francis", function()
+	level_create(23,, rm_boss_francis, "Freaky World", "Vs Francis", function()
 	{
 		return (level_complete_get(20) && level_complete_get(21));
 	}, 0);
 	
 	//Castle Kranion
-	level_create(24,, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
+	level_create(24,, rm_comingsoon, "Castle Kranion", "Conveyor Castle", function()
 	{
 		return level_complete_get(23);
 	});
-	level_create(25,,, "Castle Kranion", "Mecha Moon", function()
+	level_create(25,, rm_comingsoon, "Castle Kranion", "Mecha Moon", function()
 	{
 		return level_complete_get(23);
 	});

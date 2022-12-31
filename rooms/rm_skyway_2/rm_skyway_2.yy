@@ -140,6 +140,15 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1C2DC8F0","properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"checkpoint_id","path":"objects/obj_yorb_star/obj_yorb_star.yy",},"objectId":{"name":"obj_yorb_star","path":"objects/obj_yorb_star/obj_yorb_star.yy",},"value":"1",},
           ],"isDnd":false,"objectId":{"name":"obj_yorb_star","path":"objects/obj_yorb_star/obj_yorb_star.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":720.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_53533B85","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"my_path","path":"objects/obj_path_visual/obj_path_visual.yy",},"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"value":"sky_mesh_path_1",},
+          ],"isDnd":false,"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":224.0,"y":752.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_56586CDD","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"my_path","path":"objects/obj_path_visual/obj_path_visual.yy",},"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"value":"sky_mesh_path_2",},
+          ],"isDnd":false,"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":816.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1FFC7C54","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"my_path","path":"objects/obj_path_visual/obj_path_visual.yy",},"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"value":"sky_mesh_path_3",},
+          ],"isDnd":false,"objectId":{"name":"obj_path_visual","path":"objects/obj_path_visual/obj_path_visual.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2112.0,"y":816.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"inheritVisibility":true,"inheritSubLayers":true,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"layer_tiles_special","tilesetId":{"name":"tileset_special","path":"tilesets/tileset_special/tileset_special.yy",},"x":0,"y":0,"tiles":{"TileDataFormat":1,"SerialiseWidth":79,"SerialiseHeight":30,"TileCompressedData":[
 -2370,-2147483648,],},"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
@@ -240,6 +249,9 @@
     {"name":"inst_696F656D","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
     {"name":"inst_FBC840D","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
     {"name":"inst_1C2DC8F0","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
+    {"name":"inst_53533B85","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
+    {"name":"inst_56586CDD","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
+    {"name":"inst_1FFC7C54","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},
   ],
   "inheritCreationOrder": true,
   "sequenceId": null,

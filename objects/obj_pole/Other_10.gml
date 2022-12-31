@@ -25,4 +25,17 @@ for (_i = array_length(_list) - 1; _i >= 0; --_i)
 	}
 }
 
-image_index += rotate_speed * 0.5;
+//image_index += rotate_speed * 0.5;
+offset_previous = offset;
+offset = offset - rotate_speed;
+
+if (offset < 0)
+{
+	offset += 16;
+	offset_previous += 16;
+}
+else if (offset >= 16)
+{
+	offset -= 16;
+	offset_previous -= 16;
+}

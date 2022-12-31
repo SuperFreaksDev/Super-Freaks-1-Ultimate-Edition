@@ -1,5 +1,7 @@
 /// @description 
 
+var _y = y;
+
 switch (other.state)
 {
 	case player_states.bubble:
@@ -16,6 +18,7 @@ switch (other.state)
 					state_next_set(player_states.normal, 99999);
 					speed_h = 0;
 					speed_v = -4;
+					y = min(y, _y);
 					hurt_timer_set(120);
 					sfx_play_global(sfx_pop);
 				}

@@ -41,7 +41,7 @@ function player_state_wall_slide()
 	if (physics == player_physics_modifiers.slime)
 		speed_v = 0;
 	else
-		speed_v = min(speed_v + speed_grv, 1);
+		speed_v = min(speed_v + speed_grv, 0.25);
 	coyote_time = max(coyote_time - 1, 0);
 	angle = 0;
 		

@@ -117,7 +117,7 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
-		museum_character_create(22,, "Gallopin' Goob", "The Freak Fathers' beloved Freak dog. He is just as attuned to Unlimit Energy as the fathers are, but his keen dog senses take this to a whole other level. His full name is Goobert.", function()
+		museum_character_create(22,, "Goob", "The Freak Fathers' beloved Freak dog. He is just as attuned to Unlimit Energy as the fathers are, but his keen dog senses take this to a whole other level. His full name is Goobert.", function()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
