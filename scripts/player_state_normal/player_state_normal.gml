@@ -4,6 +4,7 @@ function player_state_normal()
 	var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 	var _move_h = 0, _move_v = 0;
 	var _speed_fall = speed_fall;
+	var _speed_acc = speed_acc, _speed_dec = speed_dec, _speed_frc = speed_frc;
 	
 	if (state_begin)
 	{
@@ -67,53 +68,58 @@ function player_state_normal()
 		}
 		coyote_time = max(coyote_time - 1, 0);
 		angle = 0;
+		_speed_acc = speed_acc_air;
+		_speed_dec = speed_dec_air;
+		_speed_frc = speed_frc_air;
 	}
 			
-	switch (_move_h)
-	{
-		case -1:
-			if (speed_h > 0)
-			{
-				speed_h += -speed_dec;
-				platform_jump_off = false;
-				if (ground_on)
-					skid = true;
-			}
-			else
-			{
-				if (speed_h > -speed_run)
-					speed_h = max(speed_h - speed_acc, -speed_run);
-					//speed_h += max(-speed_acc, -speed_run - (speed_h));
+	#region Horizontal Movement
+		switch (_move_h)
+		{
+			case -1:
+				if (speed_h > 0)
+				{
+					speed_h += -_speed_dec;
+					platform_jump_off = false;
+					if (ground_on)
+						skid = true;
+				}
 				else
+				{
+					if (speed_h > -speed_run)
+						speed_h = max(speed_h - _speed_acc, -speed_run);
+						//speed_h += max(-speed_acc, -speed_run - (speed_h));
+					else
+						player_friction_normal();
+					face = -1;
+					skid = false;
+				}
+				break;
+			case 0:
+				if (physics != player_physics_modifiers.rail)
 					player_friction_normal();
-				face = -1;
-				skid = false;
-			}
-			break;
-		case 0:
-			if (physics != player_physics_modifiers.rail)
-				player_friction_normal();
-			break;
-		case 1:
-			if (speed_h < 0)
-			{
-				speed_h += speed_dec;
-				platform_jump_off = false;
-				if (ground_on)
-					skid = true;
-			}
-			else
-			{
-				if (speed_h < speed_run)
-					speed_h = min(speed_h + speed_acc, speed_run);
-					//speed_h += min(speed_acc, speed_run - (speed_h));
+				break;
+			case 1:
+				if (speed_h < 0)
+				{
+					speed_h += _speed_dec;
+					platform_jump_off = false;
+					if (ground_on)
+						skid = true;
+				}
 				else
-					player_friction_normal();
-				face = 1;
-				skid = false;
-			}
-			break;
-	}
+				{
+					if (speed_h < speed_run)
+						speed_h = min(speed_h + _speed_acc, speed_run);
+						//speed_h += min(speed_acc, speed_run - (speed_h));
+					else
+						player_friction_normal();
+					face = 1;
+					skid = false;
+				}
+				break;
+		}
+	#endregion
 		
 	if (jump_buffer > 0)
 	{
@@ -181,9 +187,9 @@ function player_state_normal()
 		
 	if (ground_on)
 	{
-		collision_up();
+		collision_up_simple();
 		behavior_ceiling = global.collider_collision[collider_collision.behavior];
-		collision_down(,,,, 12, true);
+		collision_down_simple(,,,, 16,, true);
 		angle_ground = global.collider_collision[collider_collision.angle];
 		behavior_floor = global.collider_collision[collider_collision.behavior];
 	}
@@ -192,15 +198,15 @@ function player_state_normal()
 		switch sign(y - y_previous)
 		{
 			case -1:
-				collision_down(,,,,,, false);
-				collision_up();
+				collision_down_simple(,,,,,,, false);
+				collision_up(,,, y_start_frame + collider_detector_up_y_get(), y + collider_detector_up_y_get());
 				behavior_ceiling = global.collider_collision[collider_collision.behavior];
 				break;
 			case 0:
 			case 1:
-				collision_up();
+				collision_up_simple();
 				behavior_ceiling = global.collider_collision[collider_collision.behavior];
-				collision_down(,,,,, true);
+				collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
 				angle_ground = global.collider_collision[collider_collision.angle];
 				behavior_floor = global.collider_collision[collider_collision.behavior];
 				break;

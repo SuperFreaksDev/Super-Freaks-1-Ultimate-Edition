@@ -87,14 +87,14 @@ function player_state_hang()
 	switch sign(y - y_previous)
 	{
 		case -1:
-			collision_up();
+			collision_up_simple();
 			break;
 		case 0:
-			collision_up();
-			collision_down();
+			collision_up_simple();
+			collision_down_simple();
 			break;
 		case 1:
-			collision_down();
+			collision_down_simple();
 			break;
 	}
 	

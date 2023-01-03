@@ -136,14 +136,14 @@ function player_state_climb_pole()
 				if (!place_meeting(instance_attach.x, instance_attach.bbox_top + 32, obj_pole))
 					y = max(y, instance_attach.bbox_top + 32);
 			}
-			collision_up();
+			collision_up_simple();
 			break;
 		case 0:
-			collision_up();
-			collision_down();
+			collision_up_simple();
+			collision_down_simple();
 			break;
 		case 1:
-			collision_down();
+			collision_down_simple();
 			break;
 	}
 	

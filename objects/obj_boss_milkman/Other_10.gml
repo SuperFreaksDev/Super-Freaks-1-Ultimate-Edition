@@ -56,7 +56,7 @@ switch (state)
 		
 		y += 12;
 		
-		if (collision_down())
+		if (collision_down_simple())
 		{
 			sfx_play_global(sfx_crash_1);
 			state_next_set(boss_milkman_states.normal);
@@ -100,7 +100,7 @@ switch (state)
 			speed_v = min(speed_v + 0.125, 2);
 			y += speed_v;
 			
-			if (collision_down())
+			if (collision_down_simple())
 			{
 				sfx_play_global(sfx_crash_1);
 				speed_v = 0;
@@ -171,7 +171,7 @@ switch (state)
 		
 		y += speed_v;
 		
-		if (collision_down())
+		if (collision_down_simple())
 		{
 			sfx_play_global(sfx_crash_1);
 			state_next_set(boss_milkman_states.normal);

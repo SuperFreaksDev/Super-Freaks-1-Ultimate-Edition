@@ -16,6 +16,7 @@ if (!is_undefined(_target))
 }
 
 deform_x_previous = deform_x;
+deform_y_previous = deform_y;
 
 switch (state)
 {

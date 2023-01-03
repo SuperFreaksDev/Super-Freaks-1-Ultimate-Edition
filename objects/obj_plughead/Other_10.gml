@@ -36,8 +36,8 @@ collision_flags = 0;
 
 if (ground_on)
 {
-	collision_up();
-	collision_down(,,,, 16, true);
+	collision_up_simple();
+	collision_down_simple(,,,,,, true);
 	angle_ground = global.collider_collision[collider_collision.angle];
 }
 else
@@ -45,12 +45,13 @@ else
 	switch sign(y - y_previous)
 	{
 		case -1:
-			collision_up();
+			collision_down_simple(,,,,,,, false);
+			collision_up_simple();
 			break;
 		case 0:
 		case 1:
-			collision_up();
-			collision_down(,,,,, true);
+			collision_up_simple();
+			collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
 			angle_ground = global.collider_collision[collider_collision.angle];
 			break;
 	}

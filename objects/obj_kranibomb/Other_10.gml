@@ -23,13 +23,13 @@ switch (sign(_speed_h))
 switch (sign(_speed_v))
 {
 	case -1:
-		if (collision_up())
+		if (collision_up_simple())
 			event_user(5);
 		break;
 	case 0:
 		break;
 	case 1:
-		if (collision_down())
+		if (collision_down_simple())
 			event_user(5);
 		break;
 }

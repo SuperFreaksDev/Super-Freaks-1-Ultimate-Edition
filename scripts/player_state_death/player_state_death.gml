@@ -26,7 +26,6 @@ function player_state_death()
 		timer_death.frames = 64;
 		rubber_band_can_slingshot = false;
 		physics = player_physics_modifiers.normal;
-		flashlight_radius = 64;
 	}
 	
 	if (speed_v < speed_fall)

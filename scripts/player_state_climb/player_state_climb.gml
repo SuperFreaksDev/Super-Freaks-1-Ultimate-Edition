@@ -134,14 +134,14 @@ function player_state_climb()
 				if (!place_meeting(x, instance_attach.bbox_top - 32, obj_climb_mesh))
 					y = max(y, instance_attach.bbox_top + 32);
 			}
-			collision_down(,,,,,, false);
-			collision_up();
+			collision_down_simple(,,,,,,, false);
+			collision_up_simple();
 			behavior_ceiling = global.collider_collision[collider_collision.behavior];
 			break;
 		case 0:
-			collision_up();
+			collision_up_simple();
 			behavior_ceiling = global.collider_collision[collider_collision.behavior];
-			collision_down();
+			collision_down_simple();
 			behavior_floor = global.collider_collision[collider_collision.behavior];
 			break;
 		case 1:
@@ -150,8 +150,8 @@ function player_state_climb()
 				if (!place_meeting(x, instance_attach.bbox_bottom + 32, obj_climb_mesh))
 					y = min(y, instance_attach.bbox_bottom - 32);
 			}
-			collision_up(,,,,,, false);
-			collision_down();
+			collision_up_simple(,,,,,, false);
+			collision_down_simple();
 			behavior_floor = global.collider_collision[collider_collision.behavior];
 			break;
 	}

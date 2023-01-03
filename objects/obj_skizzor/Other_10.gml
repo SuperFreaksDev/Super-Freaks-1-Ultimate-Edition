@@ -80,33 +80,33 @@ switch (state)
 		
 		#region Collision Detection
 			y += speed_v;
+			enemy_collisions_ground(false);
+			//switch sign(x - x_previous)
+			//{
+			//	case -1:
+			//		collision_left();
+			//		break;
+			//	case 0:
+			//		collision_left();
+			//		collision_right();
+			//		break;
+			//	case 1:
+			//		collision_right();
+			//		break;
+			//}
 			
-			switch sign(x - x_previous)
-			{
-				case -1:
-					collision_left();
-					break;
-				case 0:
-					collision_left();
-					collision_right();
-					break;
-				case 1:
-					collision_right();
-					break;
-			}
-			
-			switch sign(y - y_previous)
-			{
-				case -1:
-					collision_up(x, x, x);
-					break;
-				case 0:
-				case 1:
-					collision_up(x, x, x);
-					collision_down(x, x, x,,, true);
-					angle_ground = global.collider_collision[collider_collision.angle];
-					break;
-			}
+			//switch sign(y - y_previous)
+			//{
+			//	case -1:
+			//		collision_up(x, x, x);
+			//		break;
+			//	case 0:
+			//	case 1:
+			//		collision_up(x, x, x);
+			//		collision_down(x, x, x,,,, true);
+			//		angle_ground = global.collider_collision[collider_collision.angle];
+			//		break;
+			//}
 		#endregion
 		#region Collision Reaction
 			_collision_left = collision_flag_get_left();

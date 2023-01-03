@@ -21,11 +21,11 @@ switch sign(x - x_previous)
 switch sign(y - y_previous)
 {
 	case -1:
-		collision_up();
+		collision_up_simple();
 		break;
 	case 0:
 	case 1:
-		collision_down();
+		collision_down_simple();
 		break;
 }
 

@@ -40,7 +40,7 @@ character_index = 0;
 	water_meter = 100;
 	hang_on = false;
 	invincible = false;
-	flashlight_radius = 64;
+	flashlight_radius = 72;
 
 	ground_on = false;
 	platform_jump_off = false;

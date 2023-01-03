@@ -11,7 +11,7 @@ switch (wall_direction)
 	case 0: //Ground
 		x += speed_move;
 		
-		if (!collision_down(x, x, x, y, 16, true))
+		if (!collision_down_simple(x, x, x, y, 16,, true))
 		{
 			y += abs(speed_move);
 			switch sign(x - x_previous)
@@ -54,13 +54,13 @@ switch (wall_direction)
 			switch sign(y - y_previous)
 			{
 				case -1: //Up
-					if (collision_down(x, x, x, y, 16, true))
+					if (collision_down_simple(x, x, x, y, 16,, true))
 						wall_direction = 0;
 					else
 						instance_destroy();
 					break;
 				case 1: //Down
-					if (collision_up(x, x, x, y, 16, true))
+					if (collision_up_simple(x, x, x, y, 16,, true))
 						wall_direction = 2;
 					else
 						instance_destroy();
@@ -72,11 +72,11 @@ switch (wall_direction)
 			switch sign(y - y_previous)
 			{
 				case -1: //Up
-					if (collision_up(x - 8, x - 8, x - 8, y, 16, true))
+					if (collision_up_simple(x - 8, x - 8, x - 8, y, 16,, true))
 						wall_direction = 2;
 					break;
 				case 1: //Down
-					if (collision_down(x - 8, x - 8, x - 8, y, 16, true))
+					if (collision_down_simple(x - 8, x - 8, x - 8, y, 16,, true))
 						wall_direction = 0;
 					break;
 			}
@@ -128,13 +128,13 @@ switch (wall_direction)
 			switch sign(y - y_previous)
 			{
 				case -1: //Up
-					if (collision_down(x, x, x, y, 16, true))
+					if (collision_down_simple(x, x, x, y, 16,, true))
 						wall_direction = 0;
 					else
 						instance_destroy();
 					break;
 				case 1: //Down
-					if (collision_up(x, x, x, y, 16, true))
+					if (collision_up_simple(x, x, x, y, 16,, true))
 						wall_direction = 2;
 					else
 						instance_destroy();
@@ -146,11 +146,11 @@ switch (wall_direction)
 			switch sign(y - y_previous)
 			{
 				case -1: //Up
-					if (collision_up(x - 8, x - 8, x - 8, y, 16, true))
+					if (collision_up_simple(x - 8, x - 8, x - 8, y, 16,, true))
 						wall_direction = 2;
 					break;
 				case 1: //Down
-					if (collision_down(x - 8, x - 8, x - 8, y, 16, true))
+					if (collision_down_simple(x - 8, x - 8, x - 8, y, 16,, true))
 						wall_direction = 0;
 					break;
 			}

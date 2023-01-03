@@ -49,8 +49,6 @@ else
 	water_meter = 100;
 }
 
-flashlight_radius = max(flashlight_radius - 0.125, 64);
-
 switch (state)
 {
 	case player_states.inactive:

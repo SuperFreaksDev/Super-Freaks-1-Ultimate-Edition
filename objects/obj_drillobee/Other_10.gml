@@ -107,7 +107,7 @@ switch (state)
 		//x += speed_h;
 		y += speed_v;
 		
-		if (collision_down(,,,,, true))
+		if (collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true))
 			state_next_set(3);
 		break;
 	case 3: //Stuck
@@ -127,7 +127,7 @@ switch (state)
 		
 		timer++;
 		
-		if (!collision_down(,,,, 8, true) || timer >= 72)
+		if (!collision_down_simple(,,,, 16,, true) || timer >= 72)
 			state_next_set(0);
 		break;
 }

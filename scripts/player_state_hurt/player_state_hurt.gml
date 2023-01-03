@@ -54,14 +54,17 @@ function player_state_hurt()
 	switch sign(y - y_previous)
 	{
 		case -1:
-			collision_down(,,,,,, false);
-			collision_up();
+			collision_down_simple(,,,,,,, false);
+			collision_up_simple();
+			behavior_ceiling = global.collider_collision[collider_collision.behavior];
 			break;
 		case 0:
 		case 1:
-			collision_up();
-			collision_down(,,,,, true);
+			collision_up_simple();
+			behavior_ceiling = global.collider_collision[collider_collision.behavior];
+			collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
 			angle_ground = global.collider_collision[collider_collision.angle];
+			behavior_floor = global.collider_collision[collider_collision.behavior];
 			break;
 	}
 		

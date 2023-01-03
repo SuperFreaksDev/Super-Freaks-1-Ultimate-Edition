@@ -10,7 +10,9 @@ enum player_physics_modifiers
 function player_physics_set_normal()
 {
 	speed_acc = 0.3;
+	speed_acc_air = 0.3;
 	speed_dec = 0.25;
+	speed_dec_air = 0.25;
 	speed_frc = 0.3;
 	speed_frc_air = 0.96875;
 	speed_grv = 0.25;
@@ -26,7 +28,9 @@ function player_physics_set_normal()
 function player_physics_set_ice()
 {
 	speed_acc = 0.05;
+	speed_acc_air = 0.05;
 	speed_dec = 0.05;
+	speed_dec_air = 0.25;
 	speed_frc = 0.05;
 	speed_frc_air = 0.96875;
 	speed_grv = 0.25;

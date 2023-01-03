@@ -27,41 +27,7 @@ else
 x += speed_x;
 y += speed_y;
 		
-switch sign(x - x_previous)
-{
-	case -1:
-		collision_left();
-		break;
-	case 0:
-		collision_left();
-		collision_right();
-		break;
-	case 1:
-		collision_right();
-		break;
-}
-		
-if (ground_on)
-{
-	collision_up();
-	collision_down(,,,, 16, true);
-	angle_ground = global.collider_collision[collider_collision.angle];
-}
-else
-{
-	switch sign(y - y_previous)
-	{
-		case -1:
-			collision_up();
-			break;
-		case 0:
-		case 1:
-			collision_up();
-			collision_down(,,,,, true);
-			angle_ground = global.collider_collision[collider_collision.angle];
-			break;
-	}
-}
+enemy_collisions_ground(false);
 
 _collision_left = collision_flag_get_left();
 _collision_up = collision_flag_get_up();

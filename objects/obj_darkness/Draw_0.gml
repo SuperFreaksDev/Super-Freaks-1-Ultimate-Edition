@@ -32,6 +32,9 @@ if (instance_exists(obj_player))
 				_circle_y = lerp(y_start_frame, y, _frame_delta) - camera_get_view_y(view_camera[0]);
 				_circle_radius = flashlight_radius;
 		
+				draw_set_alpha(0.5);
+				draw_circle(_circle_x, _circle_y, _circle_radius + 10, false);
+				draw_set_alpha(1);
 				draw_circle(_circle_x, _circle_y, _circle_radius, false);
 				break;
 		}
@@ -47,6 +50,9 @@ if (instance_exists(obj_level_obj))
 		_circle_y = lerp(y_start_frame, y, _frame_delta) - camera_get_view_y(view_camera[0]);
 		_circle_radius = flashlight_radius;
 		
+		draw_set_alpha(0.5);
+		draw_circle(_circle_x, _circle_y, _circle_radius + 10, false);
+		draw_set_alpha(1);
 		draw_circle(_circle_x, _circle_y, _circle_radius, false);
 	}
 }

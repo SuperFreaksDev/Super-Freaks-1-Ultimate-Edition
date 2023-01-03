@@ -58,6 +58,7 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 	switch sign(x - x_previous)
 	{
 		case -1:
+			collision_right(,,,,,, false);
 			collision_left();
 			break;
 		case 0:
@@ -65,16 +66,17 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 			collision_right();
 			break;
 		case 1:
+			collision_left(,,,,,, false);
 			collision_right();
 			break;
 	}
 		
 	if (ground_on)
 	{
-		collision_up();
-		if (!collision_down(,,,, 8, true) && _ledge_reverse)
+		collision_up_simple();
+		if (!collision_down_simple(,,,, 16,, true) && _ledge_reverse)
 		{
-			if (collision_down(x + collider_detector_down[collider_detector_vertical_data.flat_x1] - (_speed_run * face), x + collider_detector_down[collider_detector_vertical_data.flat_x2] - (_speed_run * face), x - (_speed_run * face),, 8, true))
+			if (collision_down_simple(x + collider_detector_down[collider_detector_vertical_data.flat_x1] - (_speed_run * face), x + collider_detector_down[collider_detector_vertical_data.flat_x2] - (_speed_run * face), x - (_speed_run * face),, 16,, true))
 			{
 				x = x - (_speed_run * face);
 				face = -face;
@@ -87,12 +89,64 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 		switch sign(y - y_previous)
 		{
 			case -1:
-				collision_up();
+				collision_down(,,, y + collider_detector_down_y_get(), y_start_frame + collider_detector_down_y_get(),,, false);
+				collision_up_simple();
 				break;
 			case 0:
 			case 1:
-				collision_up();
-				collision_down(,,,,, true);
+				collision_up_simple();
+				collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
+				angle_ground = global.collider_collision[collider_collision.angle];
+				break;
+		}
+	}
+}
+
+/// @function enemy_collisions_ground
+/// @param _ledge_reverse = true
+function enemy_collisions_ground(_ledge_reverse = true)
+{
+	switch sign(x - x_previous)
+	{
+		case -1:
+			collision_right(,,,,,, false);
+			collision_left();
+			break;
+		case 0:
+			collision_left();
+			collision_right();
+			break;
+		case 1:
+			collision_left(,,,,,, false);
+			collision_right();
+			break;
+	}
+		
+	if (ground_on)
+	{
+		collision_up_simple();
+		if (!collision_down_simple(,,,, 16,, true) && _ledge_reverse)
+		{
+			if (collision_down_simple(x + collider_detector_down[collider_detector_vertical_data.flat_x1] - (_speed_run * face), x + collider_detector_down[collider_detector_vertical_data.flat_x2] - (_speed_run * face), x - (_speed_run * face),, 16,, true))
+			{
+				x = x - (_speed_run * face);
+				face = -face;
+			}
+		}
+		angle_ground = global.collider_collision[collider_collision.angle];
+	}
+	else
+	{
+		switch sign(y - y_previous)
+		{
+			case -1:
+				collision_down(,,, y + collider_detector_down_y_get(), y_start_frame + collider_detector_down_y_get(),,, false);
+				collision_up_simple();
+				break;
+			case 0:
+			case 1:
+				collision_up_simple();
+				collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
 				angle_ground = global.collider_collision[collider_collision.angle];
 				break;
 		}

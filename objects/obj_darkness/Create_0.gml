@@ -5,5 +5,5 @@ event_inherited();
 
 can_despawn = false;
 surface = -1;
-draw_alpha = 1;
+draw_alpha = 0.95;
 depth = -9994;

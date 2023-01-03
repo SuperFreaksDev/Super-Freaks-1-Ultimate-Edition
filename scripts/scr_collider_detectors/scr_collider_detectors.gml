@@ -12,7 +12,7 @@ enum collider_detector_vertical_data
 	slope_x1,
 	flat_x2,
 	slope_x2,
-	y
+	y,
 }
 
 /// @function collider_detectors_init
@@ -38,6 +38,14 @@ function collider_detector_up_set(_flat_x1 = 0, _slope_x1 = 0, _flat_x2 = 0, _sl
 	collider_detector_up[collider_detector_vertical_data.y] = _y;
 }
 
+/// @function collider_detector_up_y_get
+function collider_detector_up_y_get()
+{
+	return collider_detector_up[collider_detector_vertical_data.y];
+	
+	gml_pragma("forceinline");
+}
+
 /// @function collider_detector_down_set
 /// @param _flat_x1 = 0
 /// @param _slope_x1 = 0
@@ -51,6 +59,14 @@ function collider_detector_down_set(_flat_x1 = 0, _slope_x1 = 0, _flat_x2 = 0, _
 	collider_detector_down[collider_detector_vertical_data.flat_x2] = _flat_x2;
 	collider_detector_down[collider_detector_vertical_data.slope_x2] = _slope_x2;
 	collider_detector_down[collider_detector_vertical_data.y] = _y;
+}
+
+/// @function collider_detector_down_y_get
+function collider_detector_down_y_get()
+{
+	return collider_detector_down[collider_detector_vertical_data.y];
+	
+	gml_pragma("forceinline");
 }
 
 /// @function collider_detector_sides_set

@@ -33,13 +33,13 @@ switch sign(x - x_previous)
 switch sign(y - y_previous)
 {
 	case -1:
-		collision_down(,,,,,, false);
-		collision_up();
+		collision_down_simple(,,,,,,, false);
+		collision_up_simple();
 		break;
 	case 0:
 	case 1:
-		collision_up();
-		collision_down(,,,,, true);
+		collision_up_simple();
+		collision_down_simple();
 		break;
 }
 
@@ -121,7 +121,7 @@ switch (state)
 		{
 			image_index = 2;
 			hitbox.active = hitbox_active.inactive;
-			speed_h *= 4;
+			speed_h *= -4;
 			music_stop();
 			timer = 0;
 		}
