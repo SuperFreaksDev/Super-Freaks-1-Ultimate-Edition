@@ -17,13 +17,13 @@ switch (wall_direction)
 			switch sign(x - x_previous)
 			{
 				case -1: //Left
-					if (collision_right(x, y, y, y, 16, true))
+					if (collision_right_simple(x, y, y, y, 16,, true))
 						wall_direction = 1;
 					else
 						instance_destroy();
 					break;
 				case 1: //Right
-					if (collision_left(x, y, y, y, 16, true))
+					if (collision_left_simple(x, y, y, y, 16,, true))
 						wall_direction = 3;
 					else
 						instance_destroy();
@@ -35,11 +35,11 @@ switch (wall_direction)
 			switch sign(x - x_previous)
 			{
 				case -1: //Left
-					if (collision_left(x, y - 8, y - 8, y - 8, 16, true))
+					if (collision_left_simple(x, y - 8, y - 8, y - 8, 16,, true))
 						wall_direction = 3;
 					break;
 				case 1: //Right
-					if (collision_right(x, y - 8, y - 8, y - 8, 16, true))
+					if (collision_right_simple(x, y - 8, y - 8, y - 8, 16,, true))
 						wall_direction = 1;
 					break;
 			}
@@ -48,7 +48,7 @@ switch (wall_direction)
 	case 1: //Wall to Right
 		y -= speed_move;
 		
-		if (!collision_right(x, y, y, y, 16, true))
+		if (!collision_right_simple(x, y, y, y, 16,, true))
 		{
 			x += abs(speed_move);
 			switch sign(y - y_previous)
@@ -91,13 +91,13 @@ switch (wall_direction)
 			switch sign(x - x_previous)
 			{
 				case -1: //Left
-					if (collision_right(x, y, y, y, 16, true))
+					if (collision_right_simple(x, y, y, y, 16,, true))
 						wall_direction = 1;
 					else
 						instance_destroy();
 					break;
 				case 1: //Right
-					if (collision_left(x, y, y, y, 16, true))
+					if (collision_left_simple(x, y, y, y, 16,, true))
 						wall_direction = 3;
 					else
 						instance_destroy();
@@ -109,11 +109,11 @@ switch (wall_direction)
 			switch sign(x - x_previous)
 			{
 				case -1: //Left
-					if (collision_left(x, y - 8, y - 8, y - 8, 16, true))
+					if (collision_left_simple(x, y - 8, y - 8, y - 8, 16,, true))
 						wall_direction = 3;
 					break;
 				case 1: //Right
-					if (collision_right(x, y - 8, y - 8, y - 8, 16, true))
+					if (collision_right_simple(x, y - 8, y - 8, y - 8, 16,, true))
 						wall_direction = 1;
 					break;
 			}
@@ -122,7 +122,7 @@ switch (wall_direction)
 	case 3: //Wall to Left
 		y += speed_move;
 		
-		if (!collision_left(x, y, y, y, 16, true))
+		if (!collision_left_simple(x, y, y, y, 16,, true))
 		{
 			x -= abs(speed_move);
 			switch sign(y - y_previous)

@@ -24,6 +24,7 @@ enum unlocks
 	speedrun_kranion,
 	speedrun_stadium,
 	museum,
+	character_superior,
 }
 
 /// @function unlocks_init
@@ -104,6 +105,13 @@ function unlocks_init()
 	unlock_create(unlocks.museum, "Unlock Museum", "Museum Mode is now available!", function()
 	{
 		return level_complete_get(level_ids.level_stadium);
+	});
+	unlock_create(unlocks.character_superior, "Unlock Superior", "You can now play as Scruffy's Anti Freaks counterpart, Superior! He's alright I guess.", function()
+	{
+		return level_perfect_get(level_ids.level_normal_fruit_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.superior] = true;
 	});
 	
 	unlocks_load();

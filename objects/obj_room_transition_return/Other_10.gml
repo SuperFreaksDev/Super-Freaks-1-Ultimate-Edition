@@ -55,6 +55,7 @@ switch (state)
 		}
 		
 		frame = min(frame + 1, 10);
+		draw_set_font(global.font_16);
 		dialog_width = lerp(dialog_width, target_width, frame / 10);
 		dialog_height = lerp(dialog_height, target_height, frame / 10);
 		

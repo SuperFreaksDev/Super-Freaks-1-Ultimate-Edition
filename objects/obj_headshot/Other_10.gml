@@ -42,7 +42,7 @@ switch (state)
 						case -1:
 							collision_up_simple();
 							
-							if !collision_exists_left(,,,, 8)
+							if !collision_exists_left_simple(,,,, 16)
 							{
 								y = y_previous;
 								speed_move = 0;
@@ -53,7 +53,7 @@ switch (state)
 						case 1:
 							collision_down_simple();
 							
-							if !collision_exists_left(,,,, 8)
+							if !collision_exists_left_simple(,,,, 16)
 							{
 								y = y_previous;
 								speed_move = 0;
@@ -81,9 +81,9 @@ switch (state)
 					switch (sign(x - x_previous))
 					{
 						case -1:
-							collision_left();
+							collision_left_simple();
 							
-							if !collision_exists_down_simple(,,,, 8)
+							if !collision_exists_down_simple(,,,, 16)
 							{
 								x = x_previous;
 								speed_move = 0;
@@ -92,9 +92,9 @@ switch (state)
 						case 0:
 							break;
 						case 1:
-							collision_right();
+							collision_right_simple();
 							
-							if !collision_exists_down_simple(,,,, 8)
+							if !collision_exists_down_simple(,,,, 16)
 							{
 								x = x_previous;
 								speed_move = 0;
@@ -124,7 +124,7 @@ switch (state)
 						case -1:
 							collision_up_simple();
 							
-							if !collision_exists_right(,,,, 8)
+							if !collision_exists_right_simple(,,,, 16)
 							{
 								y = y_previous;
 								speed_move = 0;
@@ -135,7 +135,7 @@ switch (state)
 						case 1:
 							collision_down_simple();
 							
-							if !collision_exists_right(,,,, 8)
+							if !collision_exists_right_simple(,,,, 16)
 							{
 								y = y_previous;
 								speed_move = 0;
@@ -163,7 +163,7 @@ switch (state)
 					switch (sign(x - x_previous))
 					{
 						case -1:
-							collision_left();
+							collision_left_simple();
 							
 							if !collision_exists_up_simple(,,,, 16)
 							{
@@ -174,7 +174,7 @@ switch (state)
 						case 0:
 							break;
 						case 1:
-							collision_right();
+							collision_right_simple();
 							
 							if !collision_exists_up_simple(,,,, 16)
 							{

@@ -168,19 +168,19 @@ function player_state_normal()
 	switch sign(x - x_previous)
 	{
 		case -1:
-			collision_right(,,,,,, false);
-			collision_left();
+			collision_right_simple(,,,,,,, false);
+			collision_left(x_start_frame - collider_detector_sides_width_get(), x - collider_detector_sides_width_get());
 			behavior_wall_left = global.collider_collision[collider_collision.behavior];
 			break;
 		case 0:
-			collision_left();
+			collision_left_simple();
 			behavior_wall_left = global.collider_collision[collider_collision.behavior];
-			collision_right();
+			collision_right_simple();
 			behavior_wall_right = global.collider_collision[collider_collision.behavior];
 			break;
 		case 1:
-			collision_left(,,,,,, false);
-			collision_right();
+			collision_left_simple(,,,,,,, false);
+			collision_right(x_start_frame + collider_detector_sides_width_get(), x + collider_detector_sides_width_get());
 			behavior_wall_right = global.collider_collision[collider_collision.behavior];
 			break;
 	}

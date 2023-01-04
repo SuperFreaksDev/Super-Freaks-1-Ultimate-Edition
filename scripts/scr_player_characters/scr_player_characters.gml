@@ -8,6 +8,12 @@ enum character_indexes
 	negative_quincy,
 	geyzer,
 	trash_can_man,
+	slaypool,
+	cyquops,
+	gloverine,
+	professor_t,
+	dino,
+	uncle_swordsman,
 	brick,
 	
 	count,
@@ -41,11 +47,23 @@ function characters_init()
 	
 	global.character_names = [];
 	global.player_animation = [];
+	global.characters_unlocked = [];
+	
+	for (_i = 0; _i < character_indexes.count; ++_i)
+	{
+		global.character_names[_i] = "";
+		global.characters_unlocked[_i] = false;
+	}
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
 	{
 		array_push(global.player_animation, array_create(character_indexes.count));
 	}
+	
+	global.characters_unlocked[character_indexes.scruffy] = true;
+	global.characters_unlocked[character_indexes.quincy] = true;
+	global.characters_unlocked[character_indexes.gambi] = true;
+	global.characters_unlocked[character_indexes.tikiman] = true;
 	
 	#region Scruffy
 		_character = character_indexes.scruffy;
@@ -121,6 +139,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_tikiman);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_tikiman);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_tikiman);
+	#endregion
+	
+	#region Superior
+		_character = character_indexes.superior;
+		global.character_names[_character] = "Superior";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_superior);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_superior);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_superior);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_superior);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_superior);
+		player_animation_create(_character, player_animations.death, spr_player_death_superior);
+		player_animation_create(_character, player_animations.air, spr_player_air_superior);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_superior);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_superior);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_superior);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_superior);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_superior);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_superior);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_superior);
 	#endregion
 }
 

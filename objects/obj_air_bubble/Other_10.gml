@@ -12,8 +12,8 @@ if (size == 1)
 		instance_destroy();
 	else
 	{
-		collision_left();
-		collision_right();
+		collision_left_simple();
+		collision_right_simple();
 		collision_up_simple();
 		collision_down_simple();
 	

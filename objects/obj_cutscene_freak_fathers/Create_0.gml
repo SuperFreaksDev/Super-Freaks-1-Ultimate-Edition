@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-cutscene_segment_set(0, "When the Super Freaks reached Insane World, they recieved a psychic message.", spr_cutscene_freakfathers_1,,, msc_cutscene_normal);
+cutscene_segment_set(0, "When the Super Freaks reached Freaky World, they recieved a psychic message.", spr_cutscene_freakfathers_1,,, msc_cutscene_normal);
 cutscene_segment_set(1, "No Bodee: 'Super Freaks...I bring an urgent message from the Freak Fathers.'");
 
 cutscene_segment_set(2, "Scruffy: 'Yo! How's it hangin' my dudes?'", spr_cutscene_freakfathers_2);

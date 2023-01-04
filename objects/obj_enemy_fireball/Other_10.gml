@@ -9,13 +9,13 @@ y += _speed_v;
 switch (sign(_speed_h))
 {
 	case -1:
-		if (collision_left())
+		if (collision_left_simple())
 			instance_destroy();
 		break;
 	case 0:
 		break;
 	case 1:
-		if (collision_right())
+		if (collision_right_simple())
 			instance_destroy();
 		break;
 }

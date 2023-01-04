@@ -17,13 +17,13 @@ if (my_path == -1)
 	switch (sign(x - x_previous))
 	{
 		case -1:
-			if (collision_exists_left(x - _width_half, y + _collider_y1, y + _collider_y2, y + _collider_y2))
+			if (collision_exists_left_simple(x - _width_half, y + _collider_y1, y + _collider_y2, y + _collider_y2))
 				speed_path = -speed_path;
 			break;
 		case 0:
 			break;
 		case 1:
-			if (collision_exists_right(x + _width_half, y + _collider_y1, y + _collider_y2, y + _collider_y2))
+			if (collision_exists_right_simple(x + _width_half, y + _collider_y1, y + _collider_y2, y + _collider_y2))
 				speed_path = -speed_path;
 			break;
 	}

@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-text = "DEMO 5\n12/31/2022\nBy SuperFreaksDev\nOriginal Game: 2006 - 2016";
+text = "DEMO 5.0.1\n1/4/2023\nBy SuperFreaksDev\nOriginal Game: 2006 - 2016";
 music_set(msc_title);
 music_play();
 camera = new comp_camera(x, y);

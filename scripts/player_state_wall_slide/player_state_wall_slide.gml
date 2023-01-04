@@ -14,7 +14,7 @@ function player_state_wall_slide()
 		if (physics == player_physics_modifiers.slime)
 			speed_v = 0;
 		else
-			speed_v = max(speed_v, -2);
+			speed_v = clamp(speed_v, -2, 0);
 		instance_attach = undefined;
 		lock_gravity = 0;
 		rubber_band_can_slingshot = false;
@@ -41,7 +41,7 @@ function player_state_wall_slide()
 	if (physics == player_physics_modifiers.slime)
 		speed_v = 0;
 	else
-		speed_v = min(speed_v + speed_grv, 0.25);
+		speed_v = min(speed_v + 0.025, 1);
 	coyote_time = max(coyote_time - 1, 0);
 	angle = 0;
 		
@@ -83,13 +83,13 @@ function player_state_wall_slide()
 		switch sign(face)
 		{
 			case -1:
-				collision_left(,,,, 8, true);
+				collision_left_simple(,,,, 16,, true);
 				behavior_wall = global.collider_collision[collider_collision.behavior];
 				break;
 			case 0:
 				break;
 			case 1:
-				collision_right(,,,, 8, true);
+				collision_right_simple(,,,, 16,, true);
 				behavior_wall = global.collider_collision[collider_collision.behavior];
 				break;
 		}

@@ -52,93 +52,62 @@ collider_step = function(_id)
 	var _offset_y_new = lengthdir_y(_distance, _direction);
 	var _line = colliders[_id][platform_rotate_collider_info.line];
 	
+	if (_angle_new < 0)
+		_angle_new += 360;
+	
 	_line.x_offset = _offset_x_new;
 	_line.y_offset = _offset_y_new;
 	_line.shape_x2 = lengthdir_x(_width, _angle_new);
 	_line.shape_y2 = lengthdir_y(_width, _angle_new);
 	
-	with (_line)
+	//with (_line)
+	//{
+	//	solid_x1 = collider_solidity.solid;
+	//	solid_y1 = collider_solidity.solid;
+	//	solid_x2 = collider_solidity.solid;
+	//	solid_y2 = collider_solidity.solid;
+	//}
+	
+	if (_angle_new <= 67.5 || _angle_new >= 292.5)
 	{
-		solid_x1 = collider_solidity.solid;
-		solid_y1 = collider_solidity.solid;
-		solid_x2 = collider_solidity.solid;
-		solid_y2 = collider_solidity.solid;
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.solid;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.NA;
+		}
 	}
-	
-	//if (_angle_new == clamp(_angle_new, 0, 180))
-	//{
-	//	with (_line)
-	//	{
-	//		collision_flag_set_left();
-	//		collision_flag_clear_right();
-	//	}
-	//}
-	//else
-	//{
-	//	with (_line)
-	//	{
-	//		collision_flag_clear_left();
-	//		collision_flag_set_right();
-	//	}
-	//}
-	
-	//if (_angle_new == clamp(_angle_new, 90, 270))
-	//{
-	//	with (_line)
-	//	{
-	//		collision_flag_set_down();
-	//		collision_flag_clear_up();
-	//	}
-	//}
-	//else
-	//{
-	//	with (_line)
-	//	{
-	//		collision_flag_clear_down();
-	//		collision_flag_set_up();
-	//	}
-	//}
-	
-	//if (_angle_new <= 67.5 || _angle_new >= 292.5)
-	//{
-	//	with (_line)
-	//	{
-	//		solid_x1 = collider_solidity.NA;
-	//		solid_y1 = collider_solidity.solid;
-	//		solid_x2 = collider_solidity.NA;
-	//		solid_y2 = collider_solidity.NA;
-	//	}
-	//}
-	//else if (_angle_new < 112.5)
-	//{
-	//	with (_line)
-	//	{
-	//		solid_x1 = collider_solidity.solid;
-	//		solid_y1 = collider_solidity.solid;
-	//		solid_x2 = collider_solidity.NA;
-	//		solid_y2 = collider_solidity.NA;
-	//	}
-	//}
-	//else if (_angle_new < 202.5)
-	//{
-	//	with (_line)
-	//	{
-	//		solid_x1 = collider_solidity.NA;
-	//		solid_y1 = collider_solidity.NA;
-	//		solid_x2 = collider_solidity.NA;
-	//		solid_y2 = collider_solidity.solid;
-	//	}
-	//}
-	//else
-	//{
-	//	with (_line)
-	//	{
-	//		solid_x1 = collider_solidity.NA;
-	//		solid_y1 = collider_solidity.solid;
-	//		solid_x2 = collider_solidity.solid;
-	//		solid_y2 = collider_solidity.NA;
-	//	}
-	//}
+	else if (_angle_new < 112.5)
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.solid;
+			solid_y1 = collider_solidity.NA;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.NA;
+		}
+	}
+	else if (_angle_new < 202.5)
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.NA;
+			solid_x2 = collider_solidity.NA;
+			solid_y2 = collider_solidity.solid;
+		}
+	}
+	else
+	{
+		with (_line)
+		{
+			solid_x1 = collider_solidity.NA;
+			solid_y1 = collider_solidity.NA;
+			solid_x2 = collider_solidity.solid;
+			solid_y2 = collider_solidity.NA;
+		}
+	}
 }
 
 collider_create(0, -_width_half + 8, -_height_half, _width - 16, 0);

@@ -10,11 +10,11 @@ collision_flags = 0;
 switch sign(x - x_previous)
 {
 	case -1:
-		collision_left();
+		collision_left_simple();
 		break;
 	case 0:
 	case 1:
-		collision_right();
+		collision_right_simple();
 		break;
 }
 

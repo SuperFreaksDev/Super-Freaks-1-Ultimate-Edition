@@ -43,13 +43,13 @@ y += speed_v;
 switch (sign(x - x_previous))
 {
 	case -1:
-		if (collision_exists_left(x - _width_half, y, y, y))
+		if (collision_exists_left_simple(x - _width_half, y, y, y))
 			speed_h = -speed_h;
 		break;
 	case 0:
 		break;
 	case 1:
-		if (collision_exists_right(x + _width_half, y, y, y))
+		if (collision_exists_right_simple(x + _width_half, y, y, y))
 			speed_h = -speed_h;
 		break;
 }

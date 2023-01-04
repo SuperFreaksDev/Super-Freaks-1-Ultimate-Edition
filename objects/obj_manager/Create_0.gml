@@ -9,7 +9,7 @@ randomize();
 
 audio_init();
 controls_init();
-debug_init(true);
+debug_init();
 framerate_init();
 gameplay_init();
 room_transition_init();

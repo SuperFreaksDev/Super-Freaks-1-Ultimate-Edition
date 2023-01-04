@@ -38,16 +38,16 @@ function player_state_hurt()
 	switch sign(x - x_previous)
 	{
 		case -1:
-			collision_right(,,,,,, false);
-			collision_left();
+			collision_right_simple(,,,,,,, false);
+			collision_left_simple();
 			break;
 		case 0:
-			collision_left();
-			collision_right();
+			collision_left_simple();
+			collision_right_simple();
 			break;
 		case 1:
-			collision_left(,,,,,, false);
-			collision_right();
+			collision_left_simple(,,,,,,, false);
+			collision_right_simple();
 			break;
 	}
 		

@@ -36,14 +36,15 @@ function collider_collision_global_clear()
 #region Collision Checks
 	#region Left
 		/// @function collision_left
-		/// @param _x = x - collider_detector_sides[collider_detector_sides_data.width]
+		/// @param _x2 = x - collider_detector_sides_width_get()
+		/// @param _x1 = _x2
 		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
-		/// @param _extend = 0
+		/// @param _push_out_by = -collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false, _check_semi_solid = true)
+		function collision_left(_x2 = x - collider_detector_sides_width_get(), _x1 = _x2, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -57,14 +58,9 @@ function collider_collision_global_clear()
 			var _new_pos;
 			var _blacklist = [];
 	
-			_collider_collision = global.collider_collision;
 			collider_collision_global_clear();
-	
-			_x = clamp(_x, 0, room_width - 1);
-			_y1_flat = clamp(_y1_flat, 0, room_height - 1);
-			_y2_flat = clamp(_y2_flat, 0, room_height - 1);
-			_y_slope = clamp(_y_slope, 0, room_height - 1);
-			_collider_collision[collider_collision.x] = clamp(_x - _extend, 0, room_width - 1);
+			_collider_collision = global.collider_collision;
+			_collider_collision[collider_collision.x] = -infinity;
 	
 			#region Tilemap Collisions
 				_tilemap = layer_tilemap_get_id("layer_tiles_normal");
@@ -72,25 +68,25 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_left(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_flat_left(_x1, _x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_left(_x1, _x2, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_left(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_left(_x1, _x2, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
 	
 			#region Collider Collisions
-				_cell_x1 = min(_x, _collider_collision[collider_collision.x]) div HASHMAP_BUCKET_SIZE;
-				_cell_y1 = _y1_flat div HASHMAP_BUCKET_SIZE;
-				_cell_x2 = max(_x, _collider_collision[collider_collision.x]) div HASHMAP_BUCKET_SIZE;
-				_cell_y2 = _y2_flat div HASHMAP_BUCKET_SIZE;
+				_cell_x1 = clamp(_x1, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y1 = clamp(_y1_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_x2 = clamp(_x2, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y2 = clamp(_y2_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
 		
-				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
+				for (_cell_x = _cell_x2; _cell_x >= _cell_x1; --_cell_x)
 				{
 					for (_cell_y = _cell_y1; _cell_y <= _cell_y2; ++_cell_y)
 					{
@@ -144,7 +140,7 @@ function collider_collision_global_clear()
 												_shape_y1 = _comp_y + shape_y1;
 												_shape_x2 = _comp_x + shape_x2;
 												_shape_y2 = _comp_y + shape_y2;
-												if (rectangle_in_rectangle(_collider_collision[collider_collision.x], _y1_flat, _x, _y2_flat, _shape_x2 - 16, _shape_y1, _shape_x2, _shape_y2))
+												if (rectangle_in_rectangle(_x1, _y1_flat, _x2, _y2_flat, _shape_x2 - 16, _shape_y1, _shape_x2, _shape_y2))
 												{
 													if (_collider_collision[collider_collision.x] <= _shape_x2)
 													{
@@ -190,7 +186,7 @@ function collider_collision_global_clear()
 													_new_pos = (_y_slope - _y_intercept) / _slope;
 												}
 										
-												if (_collider_collision[collider_collision.x] == clamp(_collider_collision[collider_collision.x], _new_pos - 16, _new_pos))
+												if (_new_pos >= _collider_collision[collider_collision.x] && rectangle_in_rectangle(_x1, 0, _x2, 0, _new_pos - 16, 0, _new_pos, 0))
 												{
 													_collision = true;
 													_collider_collision[collider_collision.collider] = self;
@@ -214,7 +210,7 @@ function collider_collision_global_clear()
 	
 			if (_collision)
 			{
-				x -= _x - _collider_collision[collider_collision.x];
+				x = _collider_collision[collider_collision.x] - _push_out_by;
 				collision_flag_set_left();
 		
 				if (_collider_collision[collider_collision.collider] != undefined)
@@ -233,16 +229,32 @@ function collider_collision_global_clear()
 			return _collision;
 		}
 
-		/// @function collision_exists_left
-		/// @param _x = x - collider_detector_sides[collider_detector_sides_data.width]
+		/// @function collision_left_simple
+		/// @param _x = x - collider_detector_sides_width_get()
 		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
 		/// @param _extend = 0
+		/// @param _push_out_by = -collider_detector_sides_width_get()
+		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_exists_left(_x = x - collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
+		/// @description An easier to use collision method that extends leftward by a certain amount. This is useful for simple wall collision checks!
+		function collision_left_simple(_x = x - collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
 		{
-			var _x1 = clamp(_x - _extend, 0, room_width - 1);
+			return collision_left(_x, _x - _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid);
+			
+			gml_pragma("forceinline");
+		}
+
+		/// @function collision_exists_left
+		/// @param _x2 = x - collider_detector_sides_width_get()
+		/// @param _x1 = _x2
+		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
+		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
+		/// @param _y_slope = y
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_left(_x2 = x - collider_detector_sides_width_get(), _x1 = _x2, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _check_semi_solid = true)
+		{
 			var _tilemap, _tile_data_array;
 			var _hashmap = global.hashmap_collision;
 			var _hashmap_width = global.hashmap_collision_width;
@@ -254,12 +266,7 @@ function collider_collision_global_clear()
 			var _blacklist = [];
 	
 			collider_collision_global_clear();
-			global.collider_collision[collider_collision.x] = _x1;
-	
-			_x = clamp(_x, 0, room_width - 1);
-			_y1_flat = clamp(_y1_flat, 0, room_height - 1);
-			_y2_flat = clamp(_y2_flat, 0, room_height - 1);
-			_y_slope = clamp(_y_slope, 0, room_height - 1);
+			global.collider_collision[collider_collision.x] = -infinity;
 	
 			#region Tilemap Collisions
 				_tilemap = layer_tilemap_get_id("layer_tiles_normal");
@@ -267,23 +274,23 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_left(_x1, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_flat_left(_x1, _x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_left(_x1, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_left(_x1, _x2, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_left(_x1, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_left(_x1, _x2, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
 	
 			#region Collider Collisions
-				_cell_x1 = _x1 div HASHMAP_BUCKET_SIZE;
-				_cell_y1 = _y1_flat div HASHMAP_BUCKET_SIZE;
-				_cell_x2 = _x div HASHMAP_BUCKET_SIZE;
-				_cell_y2 = _y2_flat div HASHMAP_BUCKET_SIZE;
+				_cell_x1 = clamp(_x1, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y1 = clamp(_y1_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_x2 = clamp(_x2, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y2 = clamp(_y2_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
 		
 				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
 				{
@@ -338,7 +345,7 @@ function collider_collision_global_clear()
 												_shape_y1 = _comp_y + shape_y1;
 												_shape_x2 = _comp_x + shape_x2;
 												_shape_y2 = _comp_y + shape_y2;
-												if (rectangle_in_rectangle(_x1, _y1_flat, _x, _y2_flat, _shape_x2 - 16, _shape_y1, _shape_x2, _shape_y2))
+												if (rectangle_in_rectangle(_x1, _y1_flat, _x2, _y2_flat, _shape_x2 - 16, _shape_y1, _shape_x2, _shape_y2))
 													return true;
 												break;
 											case "comp_collider_line":
@@ -373,7 +380,7 @@ function collider_collision_global_clear()
 													_new_pos = (_y_slope - _y_intercept) / _slope;
 												}
 												
-												if (rectangle_in_rectangle(_x1, _y_slope, _x, _y_slope, _new_pos - 16, _shape_y1, _new_pos, _shape_x2))
+												if (rectangle_in_rectangle(_x1, _y_slope, _x2, _y_slope, _new_pos - 16, _shape_y1, _new_pos, _shape_x2))
 													return true;
 												break;
 											case "comp_collider_circle":
@@ -389,6 +396,21 @@ function collider_collision_global_clear()
 	
 			return false;
 		}
+	
+		/// @function collision_exists_left_simple
+		/// @param _x = x - collider_detector_sides_width_get()
+		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
+		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
+		/// @param _y_slope = y
+		/// @param _extend = 0
+		/// @param {Boolean} _check_semi_solid = true
+		/// @description An easier to use collision method that extends rightward by a certain amount. This is useful for simple wall collision checks!
+		function collision_exists_left_simple(_x = x - collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
+		{
+			return collision_exists_left(_x - _extend, _x, _y1_flat, _y2_flat, _y_slope, _check_semi_solid);
+			
+			gml_pragma("forceinline");
+		}
 	#endregion
 
 	#region Up
@@ -403,7 +425,6 @@ function collider_collision_global_clear()
 		/// @param {Boolean} _check_semi_solid = true
 		function collision_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y2 = y + collider_detector_up_y_get(), _y1 = _y2, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true)
 		{
-			var _my_id = id;
 			var _collider_collision;
 			var _collision = false;
 			var _tilemap, _tile_data_array;
@@ -770,14 +791,15 @@ function collider_collision_global_clear()
 	
 	#region Right
 		/// @function collision_right
-		/// @param _x = x + collider_detector_sides[collider_detector_sides_data.width]
+		/// @param _x1 = x + collider_detector_sides_width_get()
+		/// @param _x2 = _x1
 		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
-		/// @param _extend = 0
+		/// @param _push_out_by = collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _attach = false, _check_semi_solid = true)
+		function collision_right(_x1 = x + collider_detector_sides_width_get(), _x2 = _x1, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -791,14 +813,9 @@ function collider_collision_global_clear()
 			var _new_pos;
 			var _blacklist = [];
 	
-			_collider_collision = global.collider_collision;
 			collider_collision_global_clear();
-	
-			_x = clamp(_x, 0, room_width - 1);
-			_y1_flat = clamp(_y1_flat, 0, room_height - 1);
-			_y2_flat = clamp(_y2_flat, 0, room_height - 1);
-			_y_slope = clamp(_y_slope, 0, room_height - 1);
-			_collider_collision[collider_collision.x] = clamp(_x + _extend, 0, room_width - 1);
+			_collider_collision = global.collider_collision;
+			_collider_collision[collider_collision.x] = infinity;
 	
 			#region Tilemap Collisions
 				_tilemap = layer_tilemap_get_id("layer_tiles_normal");
@@ -806,23 +823,23 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_right(_x, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_flat_right(_x1, _x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_right(_x1, _x2, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 				else
 				{
-					if (collision_tile_slope_right(_collider_collision[collider_collision.x], _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_right(_x1, _x2, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
 						_collision = true;
 				}
 			#endregion
 	
 			#region Collider Collisions
-				_cell_x1 = min(_x, _collider_collision[collider_collision.x]) div HASHMAP_BUCKET_SIZE;
-				_cell_y1 = _y1_flat div HASHMAP_BUCKET_SIZE;
-				_cell_x2 = max(_x, _collider_collision[collider_collision.x]) div HASHMAP_BUCKET_SIZE;
-				_cell_y2 = _y2_flat div HASHMAP_BUCKET_SIZE;
+				_cell_x1 = clamp(min(_x1, _collider_collision[collider_collision.x]), 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y1 = clamp(_y1_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_x2 = clamp(max(_x2, _collider_collision[collider_collision.x]), 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y2 = clamp(_y2_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
 		
 				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
 				{
@@ -878,9 +895,9 @@ function collider_collision_global_clear()
 												_shape_y1 = _comp_y + shape_y1;
 												_shape_x2 = _comp_x + shape_x2;
 												_shape_y2 = _comp_y + shape_y2;
-												if (rectangle_in_rectangle(_x, _y1_flat, _collider_collision[collider_collision.x], _y2_flat, _shape_x1, _shape_y1, _shape_x1 + 16, _shape_y2))
+												if (rectangle_in_rectangle(_x1, _y1_flat, _x2, _y2_flat, _shape_x1, _shape_y1, _shape_x1 + 16, _shape_y2))
 												{
-													if (_collider_collision[collider_collision.x] <= _shape_x2)
+													if (_collider_collision[collider_collision.x] >= _shape_x1)
 													{
 														_collision = true;
 														_collider_collision[collider_collision.collider] = self;
@@ -924,7 +941,7 @@ function collider_collision_global_clear()
 													_new_pos = (_y_slope - _y_intercept) / _slope;
 												}
 										
-												if (_collider_collision[collider_collision.x] == clamp(_collider_collision[collider_collision.x], _new_pos, _new_pos + 16))
+												if (_new_pos <= _collider_collision[collider_collision.x] && rectangle_in_rectangle(_x1, 0, _x2, 0, _new_pos, 0, _new_pos + 16, 0))
 												{
 													_collision = true;
 													_collider_collision[collider_collision.collider] = self;
@@ -948,7 +965,7 @@ function collider_collision_global_clear()
 	
 			if (_collision)
 			{
-				x -= _x - _collider_collision[collider_collision.x];
+				x = _collider_collision[collider_collision.x] - _push_out_by;
 				collision_flag_set_right();
 		
 				if (!is_undefined(_collider_collision[collider_collision.collider]))
@@ -966,17 +983,33 @@ function collider_collision_global_clear()
 	
 			return _collision;
 		}
-
-		/// @function collision_exists_right
-		/// @param _x = x + collider_detector_sides[collider_detector_sides_data.width]
+		
+		/// @function collision_right_simple
+		/// @param _x = x + collider_detector_sides_width_get()
 		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
 		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
 		/// @param _y_slope = y
 		/// @param _extend = 0
+		/// @param _push_out_by = collider_detector_down_y_get()
+		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_exists_right(_x = x + collider_detector_sides[collider_detector_sides_data.width], _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
+		/// @description An easier to use collision method that extends rightward by a certain amount. This is useful for simple wall collision checks!
+		function collision_right_simple(_x = x + collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
 		{
-			var _x2 = clamp(_x + _extend, 0, room_width - 1);
+			return collision_right(_x, _x + _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid);
+			
+			gml_pragma("forceinline");
+		}
+
+		/// @function collision_exists_right
+		/// @param _x1 = x + collider_detector_sides_width_get()
+		/// @param _x2 = _x1
+		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
+		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
+		/// @param _y_slope = y
+		/// @param {Boolean} _check_semi_solid = true
+		function collision_exists_right(_x1 = x + collider_detector_sides_width_get(), _x2 = _x1, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _check_semi_solid = true)
+		{
 			var _tilemap, _tile_data_array;
 			var _hashmap = global.hashmap_collision;
 			var _hashmap_width = global.hashmap_collision_width;
@@ -988,12 +1021,7 @@ function collider_collision_global_clear()
 			var _blacklist = [];
 	
 			collider_collision_global_clear();
-			global.collider_collision[collider_collision.x] = _x2;
-	
-			_x = clamp(_x, 0, room_width - 1);
-			_y1_flat = clamp(_y1_flat, 0, room_height - 1);
-			_y2_flat = clamp(_y2_flat, 0, room_height - 1);
-			_y_slope = clamp(_y_slope, 0, room_height - 1);
+			global.collider_collision[collider_collision.x] = infinity;
 	
 			#region Tilemap Collisions
 				_tilemap = layer_tilemap_get_id("layer_tiles_normal");
@@ -1001,23 +1029,23 @@ function collider_collision_global_clear()
 	
 				if (_y1_flat != _y_slope || _y2_flat != _y_slope)
 				{
-					if (collision_tile_flat_right(_x2, _y1_flat, _y2_flat, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_flat_right(_x1, _x2, _y1_flat, _y2_flat, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
-					if (collision_tile_slope_right(_x2, _y_slope, true, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_right(_x1, _x2, _y_slope, true, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 				else
 				{
-					if (collision_tile_slope_right(_x2, _y_slope, false, true, _tilemap, _tile_data_array, _check_semi_solid))
+					if (collision_tile_slope_right(_x1, _x2, _y_slope, false, false, _tilemap, _tile_data_array, _check_semi_solid))
 						return true;
 				}
 			#endregion
 	
 			#region Collider Collisions
-				_cell_x1 = _x div HASHMAP_BUCKET_SIZE;
-				_cell_y1 = _y1_flat div HASHMAP_BUCKET_SIZE;
-				_cell_x2 = _x2 div HASHMAP_BUCKET_SIZE;
-				_cell_y2 = _y2_flat div HASHMAP_BUCKET_SIZE;
+				_cell_x1 = clamp(_x1, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y1 = clamp(_y1_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_x2 = clamp(_x2, 0, room_width - 1) div HASHMAP_BUCKET_SIZE;
+				_cell_y2 = clamp(_y2_flat, 0, room_height - 1) div HASHMAP_BUCKET_SIZE;
 		
 				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
 				{
@@ -1072,7 +1100,7 @@ function collider_collision_global_clear()
 												_shape_y1 = _comp_y + shape_y1;
 												_shape_x2 = _comp_x + shape_x2;
 												_shape_y2 = _comp_y + shape_y2;
-												if (rectangle_in_rectangle(_x, _y1_flat, _x2, _y2_flat, _shape_x1, _shape_y1, _shape_x1 + 16, _shape_y2))
+												if (rectangle_in_rectangle(_x1, _y1_flat, _x2, _y2_flat, _shape_x1, _shape_y1, _shape_x1 + 16, _shape_y2))
 													return true;
 												break;
 											case "comp_collider_line":
@@ -1107,7 +1135,7 @@ function collider_collision_global_clear()
 													_new_pos = (_y_slope - _y_intercept) / _slope;
 												}
 												
-												if (rectangle_in_rectangle(_x, _y_slope, _x2, _y_slope, _new_pos, _shape_y1, _new_pos + 16, _shape_x2))
+												if (rectangle_in_rectangle(_x1, _y_slope, _x2, _y_slope, _new_pos, _shape_y1, _new_pos + 16, _shape_x2))
 													return true;
 												break;
 											case "comp_collider_circle":
@@ -1123,21 +1151,35 @@ function collider_collision_global_clear()
 	
 			return false;
 		}
+	
+		/// @function collision_exists_right_simple
+		/// @param _x = x + collider_detector_sides_width_get()
+		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
+		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
+		/// @param _y_slope = y
+		/// @param _extend = 0
+		/// @param {Boolean} _check_semi_solid = true
+		/// @description An easier to use collision method that extends rightward by a certain amount. This is useful for simple wall collision checks!
+		function collision_exists_right_simple(_x = x + collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _check_semi_solid = true)
+		{
+			return collision_exists_right(_x, _x + _extend, _y1_flat, _y2_flat, _y_slope, _check_semi_solid);
+			
+			gml_pragma("forceinline");
+		}
 	#endregion
 
 	#region Down
 		/// @function collision_down
-		/// @param _x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1]
-		/// @param _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2]
-		/// @param _x_slope = x
-		/// @param _y1 = y + collider_detector_down_y_get()
-		/// @param _y2 = _y1
-		/// @param _push_out_by = collider_detector_down_y_get()
+		/// @param _x1 = x + collider_detector_sides_width_get()
+		/// @param _x2 = _x1
+		/// @param _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1]
+		/// @param _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2]
+		/// @param _y_slope = y
+		/// @param _push_out_by = collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
 		function collision_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y1 = y + collider_detector_down_y_get(), _y2 = _y1, _push_out_by = collider_detector_down_y_get(), _attach = false, _check_semi_solid = true)
 		{
-			var _my_id = id;
 			var _collider_collision;
 			var _collision = false;
 			var _tilemap, _tile_data_array;
@@ -1188,7 +1230,7 @@ function collider_collision_global_clear()
 						{
 							_instance = _instance_list[_instance_list_pos];
 				
-							if (!instance_exists(_instance) || _instance == _my_id || array_contains(_blacklist, _instance))
+							if (!instance_exists(_instance) || _instance == id || array_contains(_blacklist, _instance))
 								continue;
 				
 							array_push(_blacklist, _instance);
