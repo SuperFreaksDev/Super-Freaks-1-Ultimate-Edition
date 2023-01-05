@@ -9,10 +9,9 @@ state_next_set(0);
 
 text = "";
 dialog_animate = 0;
-dialog_width = 0;
-dialog_height = 0;
-target_width = 0;
-target_height = 0;
+dialog_size = 0;
+button_confirm = controls_action_states.NA;
+button_prompt = false;
 
 unlock = 0;
 unlock_id = 0;

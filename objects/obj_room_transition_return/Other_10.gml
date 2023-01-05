@@ -2,6 +2,9 @@
 
 var _func;
 
+controls_step(0);
+button_confirm = controls_action_state_get(controls_actions.jump, 0);
+
 switch (state)
 {
 	case 0: //Fade In
@@ -49,15 +52,12 @@ switch (state)
 		if (state_begin)
 		{
 			text = global.unlocks[unlock_id][unlock_data.text];
-			target_width = min((string_length(text) * font_get_size(font_normal)) + 64, 512);
-			target_height = (string_height(text)) + 32;
+			dialog_size = 0;
 			frame = 0;
 		}
 		
 		frame = min(frame + 1, 10);
-		draw_set_font(global.font_16);
-		dialog_width = lerp(dialog_width, target_width, frame / 10);
-		dialog_height = lerp(dialog_height, target_height, frame / 10);
+		dialog_size = lerp(dialog_size, 1, frame / 10);
 		
 		if (frame == 10)
 			state_next_set(3);
@@ -65,27 +65,27 @@ switch (state)
 	case 3: //Unlock Text
 		if (state_begin)
 		{
-			dialog_width = target_width;
-			dialog_height = target_height;
+			dialog_size = 1;
 			frame = 0;
+			button_prompt = true;
+			audio_stop_all();
 			sfx_play_global(sfx_fanfare);
 		}
 		
 		frame = min(frame + 1, 120);
-		if (frame == 120)
+		
+		if (button_confirm == controls_action_states.hold || button_confirm == controls_action_states.press)
 			state_next_set(4);
 		break;
 	case 4: //Unlock Text Close
 		if (state_begin)
 		{
-			target_width = 0;
-			target_height = 0;
 			frame = 0;
+			button_prompt = false;
 		}
 		
 		frame = min(frame + 1, 10);
-		dialog_width = lerp(dialog_width, target_width, frame / 10);
-		dialog_height = lerp(dialog_height, target_height, frame / 10);
+		dialog_size = lerp(dialog_size, 0, frame / 10);
 		
 		if (frame == 10)
 			state_next_set(1);
