@@ -14,11 +14,12 @@ function player_state_wall_slide()
 		if (physics == player_physics_modifiers.slime)
 			speed_v = 0;
 		else
-			speed_v = clamp(speed_v, -2, 0);
+			speed_v = clamp(speed_v, -1, 0);
 		instance_attach = undefined;
 		lock_gravity = 0;
 		rubber_band_can_slingshot = false;
 		etc_buffer = 12;
+		walljump_auto = false;
 	}
 	
 	hurt_timer_step();
@@ -41,7 +42,7 @@ function player_state_wall_slide()
 	if (physics == player_physics_modifiers.slime)
 		speed_v = 0;
 	else
-		speed_v = min(speed_v + 0.025, 1);
+		speed_v = min(speed_v + 0.025, 0.5);
 	coyote_time = max(coyote_time - 1, 0);
 	angle = 0;
 		
@@ -58,6 +59,7 @@ function player_state_wall_slide()
 		lock_controls_horizontal = 12;
 		lock_friction = 12;
 		face = -face;
+		walljump_auto = WALLJUMP_AUTO_MAX;
 		_stick_to_wall = false;
 	}
 	else

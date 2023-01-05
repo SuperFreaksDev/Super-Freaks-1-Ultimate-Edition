@@ -34,6 +34,8 @@ character_index = 0;
 #region Abilities
 	ball = false;
 	skid = false;
+	walljump_auto = 0;
+	#macro WALLJUMP_AUTO_MAX 32
 	rubber_band = false;
 	rubber_band_can_slingshot = false;
 	underwater = false;
@@ -51,28 +53,8 @@ character_index = 0;
 	etc_buffer = 0;
 #endregion
 
-#region Visuals
-	#region Sprites
-		sprite_stand = spr_player_stand_scruffy;
-		sprite_walk = spr_player_walk_scruffy;
-		sprite_skid = spr_player_skid_scruffy;
-		sprite_air = spr_player_air_scruffy;
-		sprite_jump_ball = spr_player_jump_scruffy;
-		sprite_wall_slide = spr_player_wall_slide_scruffy;
-		sprite_hurt = spr_player_hurt_scruffy;
-		sprite_death = spr_player_death_scruffy;
-		sprite_climb = spr_player_climb_scruffy;
-	#endregion
-#endregion
-
 #region Collision
 	hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, -8, -12, 8, 20);
-	hitbox.flags = bit_set(hitbox.flags, hitbox_flags.player);
-	hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.player);
-	hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.enemy);
-	hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.attack);
-	hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.collectible);
-	hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.misc);
 	hurt_timer_set(0);
 	
 	collider_detector_up_set(-6, 0, 6, 0, -16);

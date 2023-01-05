@@ -89,13 +89,13 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 		switch sign(y - y_previous)
 		{
 			case -1:
-				collision_down(,,, y + collider_detector_down_y_get(), y_start_frame + collider_detector_down_y_get(),,, false);
+				collision_down_simple(,,,,,,, false);
 				collision_up_simple();
 				break;
 			case 0:
 			case 1:
-				collision_up_simple();
-				collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
+				collision_up_simple(,,,,,,, false);
+				collision_down_simple()
 				angle_ground = global.collider_collision[collider_collision.angle];
 				break;
 		}
@@ -140,13 +140,13 @@ function enemy_collisions_ground(_ledge_reverse = true)
 		switch sign(y - y_previous)
 		{
 			case -1:
-				collision_down(,,, y + collider_detector_down_y_get(), y_start_frame + collider_detector_down_y_get(),,, false);
+				collision_down_simple(,,,,,,, false);
 				collision_up_simple();
 				break;
 			case 0:
 			case 1:
-				collision_up_simple();
-				collision_down(,,, y_start_frame + collider_detector_down_y_get(), y + collider_detector_down_y_get(),, true);
+				collision_up_simple(,,,,,,, false);
+				collision_down_simple()
 				angle_ground = global.collider_collision[collider_collision.angle];
 				break;
 		}

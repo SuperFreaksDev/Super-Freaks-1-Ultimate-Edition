@@ -39,7 +39,7 @@
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"layer_background","spriteId":null,"colour":4278190118,"x":0,"y":0,"htiled":true,"vtiled":true,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":60.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
   ],
   "inheritLayers": true,
-  "creationCodeFile": "${project_dir}/rooms/rm_boss_milkman/RoomCreationCode.gml",
+  "creationCodeFile": "${project_dir}/rooms/rm_boss_francis/RoomCreationCode.gml",
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_49EC6FA7_8_2","path":"rooms/rm_boss_francis/rm_boss_francis.yy",},

@@ -38,9 +38,9 @@ collider_create = function(_id, _offset_x, _offset_y, _width, _angle)
 }
 
 
-/// @function collider_step
+/// @function collider_side_step
 /// @param _id
-collider_step = function(_id)
+collider_side_step = function(_id)
 {
 	var _angle_new = (colliders[_id][platform_rotate_collider_info.angle] + angle) mod 360;
 	var _width = colliders[_id][platform_rotate_collider_info.width];
@@ -60,15 +60,8 @@ collider_step = function(_id)
 	_line.shape_x2 = lengthdir_x(_width, _angle_new);
 	_line.shape_y2 = lengthdir_y(_width, _angle_new);
 	
-	//with (_line)
-	//{
-	//	solid_x1 = collider_solidity.solid;
-	//	solid_y1 = collider_solidity.solid;
-	//	solid_x2 = collider_solidity.solid;
-	//	solid_y2 = collider_solidity.solid;
-	//}
 	
-	if (_angle_new <= 67.5 || _angle_new >= 292.5)
+	if (_angle_new <= 67.5 || _angle_new >= 292.5) //Up
 	{
 		with (_line)
 		{
@@ -78,7 +71,7 @@ collider_step = function(_id)
 			solid_y2 = collider_solidity.NA;
 		}
 	}
-	else if (_angle_new < 112.5)
+	else if (_angle_new < 112.5) //Left
 	{
 		with (_line)
 		{
@@ -88,7 +81,7 @@ collider_step = function(_id)
 			solid_y2 = collider_solidity.NA;
 		}
 	}
-	else if (_angle_new < 202.5)
+	else if (_angle_new < 202.5) //Down
 	{
 		with (_line)
 		{
@@ -98,7 +91,7 @@ collider_step = function(_id)
 			solid_y2 = collider_solidity.solid;
 		}
 	}
-	else
+	else //Right
 	{
 		with (_line)
 		{
@@ -107,6 +100,51 @@ collider_step = function(_id)
 			solid_x2 = collider_solidity.solid;
 			solid_y2 = collider_solidity.NA;
 		}
+	}
+}
+
+/// @function collider_corner_step
+/// @param _id
+collider_corner_step = function(_id)
+{
+	var _angle_new = (colliders[_id][platform_rotate_collider_info.angle] + angle) mod 360;
+	var _width = colliders[_id][platform_rotate_collider_info.width];
+	var _offset_x = colliders[_id][platform_rotate_collider_info.offset_x];
+	var _offset_y = colliders[_id][platform_rotate_collider_info.offset_y];
+	var _distance = point_distance(0, 0, _offset_x, _offset_y);
+	var _direction = (point_direction(0, 0, _offset_x, _offset_y) + angle) mod 360;
+	var _offset_x_new = lengthdir_x(_distance, _direction);
+	var _offset_y_new = lengthdir_y(_distance, _direction);
+	var _line = colliders[_id][platform_rotate_collider_info.line];
+	
+	if (_angle_new < 0)
+		_angle_new += 360;
+	
+	_line.x_offset = _offset_x_new;
+	_line.y_offset = _offset_y_new;
+	_line.shape_x2 = lengthdir_x(_width, _angle_new);
+	_line.shape_y2 = lengthdir_y(_width, _angle_new);
+	
+	if (_line.shape_x1 < _line.shape_x2)
+	{
+		_line.solid_x1 = collider_solidity.solid;
+		_line.solid_x2 = collider_solidity.NA;
+	}
+	else
+	{
+		_line.solid_x1 = collider_solidity.NA;
+		_line.solid_x2 = collider_solidity.solid;
+	}
+	
+	if (_line.shape_y2 < _line.shape_y1)
+	{
+		_line.solid_y1 = collider_solidity.solid;
+		_line.solid_y2 = collider_solidity.NA;
+	}
+	else
+	{
+		_line.solid_y1 = collider_solidity.NA;
+		_line.solid_y2 = collider_solidity.solid;
 	}
 }
 

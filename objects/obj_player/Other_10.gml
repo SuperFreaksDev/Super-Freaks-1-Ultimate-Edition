@@ -24,6 +24,8 @@ if (lock_friction > 0)
 	lock_friction = max(lock_friction - 1, 0);
 if (lock_gravity > 0)
 	lock_gravity = max(lock_gravity - 1, 0);
+if (walljump_auto > 0)
+	walljump_auto = max(walljump_auto - 1, 0);
 	
 if (global.water_active && y > global.water_height)
 {

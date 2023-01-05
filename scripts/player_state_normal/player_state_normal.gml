@@ -224,7 +224,7 @@ function player_state_normal()
 		if (speed_h < 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_left != collider_behaviors_solid.ice && !underwater && _move_h == -1 && !ground_on && speed_y > -2)
+			if (behavior_wall_left != collider_behaviors_solid.ice && !underwater && !ground_on && (((_move_h == -1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = -1;
 				state_next_set(player_states.wall_slide);
@@ -247,7 +247,7 @@ function player_state_normal()
 		if (speed_h > 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_right != collider_behaviors_solid.ice && !underwater && _move_h == 1 && !ground_on && speed_y > -2)
+			if (behavior_wall_right != collider_behaviors_solid.ice && !underwater && !ground_on && (((_move_h == 1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = 1;
 				state_next_set(player_states.wall_slide);
@@ -287,6 +287,7 @@ function player_state_normal()
 				ground_on = true;
 				platform_jump_off = false;
 				ball = false;
+				walljump_auto = 0;
 			}
 			switch (behavior_floor)
 			{
