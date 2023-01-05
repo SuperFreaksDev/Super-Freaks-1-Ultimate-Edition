@@ -8,7 +8,5 @@ image_xscale = 4;
 image_yscale = 4;
 music_stop();
 game_timer_pause(true);
-timer = new comp_timer(32, function()
-{
-	level_beat();
-});
+screen_shake(0, 16);
+timer = 32;

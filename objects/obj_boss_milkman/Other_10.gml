@@ -67,6 +67,7 @@ switch (state)
 			_shockwave = instance_create_layer(x, y, "layer_instances", obj_enemy_shockwave);
 			_shockwave.speed_h = 6;
 			global.boss_phase = 1;
+			screen_shake(0, 16);
 		}
 		break;
 	case boss_milkman_states.normal:
@@ -109,6 +110,7 @@ switch (state)
 				_shockwave.speed_h = -6;
 				_shockwave = instance_create_layer(x, y, "layer_instances", obj_enemy_shockwave);
 				_shockwave.speed_h = 6;
+				screen_shake(0, 8);
 			}
 		}
 		break;
@@ -181,6 +183,7 @@ switch (state)
 			_shockwave.speed_h = -6;
 			_shockwave = instance_create_layer(x, y, "layer_instances", obj_enemy_shockwave);
 			_shockwave.speed_h = 6;
+			screen_shake(0, 16);
 		}
 		break;
 	case boss_milkman_states.death:

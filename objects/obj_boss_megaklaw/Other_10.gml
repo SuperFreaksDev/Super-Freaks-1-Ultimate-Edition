@@ -113,6 +113,7 @@ switch (state)
 			state_next_set(boss_megaklaw_states.punch_3);
 			_shockwave = instance_create_layer(x + (arm_length * face), y + arm_length + 24, "layer_instances", obj_enemy_shockwave);
 			_shockwave.speed_h = 6 * face;
+			screen_shake(0, 16);
 		}
 		break;
 	case boss_megaklaw_states.punch_3:

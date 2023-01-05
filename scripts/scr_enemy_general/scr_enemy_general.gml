@@ -23,6 +23,12 @@ function enemy_hurt(_hp = 1, _hurt_timer = 32)
 {
 	hp = max(hp - _hp, 0);
 	hurt_timer_set(_hurt_timer);
+	sfx_play_global(sfx_hit);
+	hit_counter++;
+	if (hp == 0)
+		event_user(5);
+	else
+		event_user(6);
 }
 
 /// @function enemy_killed_create

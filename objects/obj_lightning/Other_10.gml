@@ -53,6 +53,7 @@ switch (state)
 			sfx_play_global(sfx_lightning, false);
 			hitbox.active = hitbox_active.passive;
 			global.water_electric_timer = 8;
+			screen_shake(0, 6);
 		}
 		
 		image_alpha = max(image_alpha - 0.05, 0);

@@ -159,6 +159,7 @@ switch (state)
 			speed_v = -4;
 			state_next_set(boss_cinge_states.stun);
 			audio_stop_sound(sfx_run_1);
+			screen_shake(12, 0);
 		}
 		break;
 	case boss_cinge_states.stun:

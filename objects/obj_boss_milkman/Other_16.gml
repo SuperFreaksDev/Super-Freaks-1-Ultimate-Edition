@@ -8,4 +8,5 @@ if (global.boss_phase == 1 && hp <= 10)
 	sfx_play_global(sfx_explode);
 	global.boss_phase = 2;
 	arm_active = true;
+	screen_shake(0, 16);
 }

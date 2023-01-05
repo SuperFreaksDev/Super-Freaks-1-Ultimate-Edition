@@ -115,12 +115,6 @@ if (_enemy_hurt)
 			player_physics_set_normal();
 	}
 	enemy_hurt();
-	sfx_play_global(sfx_hit);
-	hit_counter++;
-	if (hp == 0)
-		event_user(5);
-	else
-		event_user(6);
 }
 
 if (_player_hurt)

@@ -19,6 +19,8 @@ function view(_x = 0, _y = 0) constructor
 	speed_x = 8;
 	speed_y = 8;
 	speed_z = 0.005;
+	screen_shake_x = 0;
+	screen_shake_y = 0;
 	
 	zone_main_spawn_area = array_create(4, 0);
 	spawn_area = array_create(4, 0);
@@ -286,6 +288,9 @@ function view_step()
 		_view_height = (_screen_height_max * z);
 		_view_width_half = _view_width * 0.5;
 		_view_height_half = _view_height * 0.5;
+		
+		screen_shake_x = max(abs(screen_shake_x) - 1, 0) * choose(1, -1);
+		screen_shake_y = max(abs(screen_shake_y) - 1, 0) * choose(1, -1);
 			
 		array_copy(spawn_area_previous, 0, spawn_area, 0, 4);
 		spawn_area[0] = x - _view_width_half;
@@ -304,9 +309,16 @@ function view_step_delta(_frame_delta = global.frame_delta)
 	
 	var _screen_width = screen_width_get();
 	var _screen_height = screen_height_get();
+	
+	var _screen_shake_x = 0, _screen_shake_y = 0;
 
 	with (_view)
 	{
+		if (screen_shake_get())
+		{
+			_screen_shake_x = screen_shake_x;
+			_screen_shake_y = screen_shake_y;
+		}
 		_view_x = lerp(xprevious, x, _frame_delta);
 		_view_y = lerp(yprevious, y, _frame_delta);
 		_view_z = lerp(zprevious, z, _frame_delta);
@@ -315,7 +327,7 @@ function view_step_delta(_frame_delta = global.frame_delta)
 		_view_width_half = _view_width * 0.5;
 		_view_height_half = _view_height * 0.5;
 		camera_set_view_size(view_camera[0], _view_width, _view_height);
-		camera_set_view_pos(view_camera[0], clamp(_view_x - _view_width_half, 0, room_width - _view_width), clamp(_view_y - _view_height_half, 0, room_height - _view_height));
+		camera_set_view_pos(view_camera[0], clamp(_view_x - _view_width_half, 0, room_width - _view_width) + _screen_shake_x, clamp(_view_y - _view_height_half, 0, room_height - _view_height) + _screen_shake_y);
 	}
 }
 
@@ -335,6 +347,9 @@ function view_reset(_x = 0, _y = 0, _z = 1)
 	
 	with (_view)
 	{
+		screen_shake_x = 0;
+		screen_shake_y = 0;
+		
 		if (instance_exists(obj_view_trapper))
 		{
 			with (obj_view_trapper)
@@ -521,4 +536,16 @@ function in_view(_x1 = x, _y1 = y, _x2 = x, _y2 = y)
 	return false;
 	
 	gml_pragma("forceinline");
+}
+
+/// @function screen_shake
+/// @param _x = 6
+/// @param _y = 6
+function screen_shake(_x = 6, _y = 6)
+{
+	with (global.view)
+	{
+		screen_shake_x = _x;
+		screen_shake_y = _y;
+	}
 }
