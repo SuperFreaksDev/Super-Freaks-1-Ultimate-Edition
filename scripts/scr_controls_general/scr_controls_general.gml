@@ -10,8 +10,9 @@ enum controls_actions
 	attack,
 	bubble,
 	rubberband,
+	rubberband_color,
 	
-	count = 9,
+	count = 10,
 }
 
 enum controls_devices
@@ -79,13 +80,22 @@ function controls_load()
 {
 	var _json;
 	var _array;
+	var _action_number, _player_number;
 	
 	if (file_exists("controls.settings"))
 	{
 		_json = string_load("controls.settings");
 		_array = json_parse(_json);
 		
-		global.controls_settings = _array;
+		for (_action_number = 0; _action_number < array_length(_array); ++_action_number)
+		{
+			//global.controls_settings[_action_number] = _array[_action_number];
+			
+			for (_player_number = 0; _player_number < array_length(_array[_action_number]); ++_player_number)
+			{
+				global.controls_settings[_action_number][_player_number] = _array[_action_number][_player_number];
+			}
+		}
 	}
 	else
 		controls_save();
@@ -106,7 +116,8 @@ function controls_default()
 	controls_action_create(controls_actions.jump, "Jump / Confirm");
 	controls_action_create(controls_actions.attack, "Deny");
 	controls_action_create(controls_actions.bubble, "Bubble");
-	controls_action_create(controls_actions.rubberband, "Elastiband");
+	controls_action_create(controls_actions.rubberband, "Elastiband Toggle");
+	controls_action_create(controls_actions.rubberband_color, "Elastiband Color");
 	
 	controls_action_button_key_add(controls_actions.left, player_numbers.player_1, vk_left);
 	controls_action_button_key_add(controls_actions.right, player_numbers.player_1, vk_right);
@@ -118,6 +129,7 @@ function controls_default()
 	controls_action_button_key_add(controls_actions.attack, player_numbers.player_1, ord("X"));
 	controls_action_button_key_add(controls_actions.bubble, player_numbers.player_1, ord("C"));
 	controls_action_button_key_add(controls_actions.rubberband, player_numbers.player_1, ord("D"));
+	controls_action_button_key_add(controls_actions.rubberband, player_numbers.player_1, ord("E"));
 	
 	for (_player_number = 0; _player_number <= player_numbers.count; ++_player_number)
 	{
@@ -130,11 +142,12 @@ function controls_default()
 		controls_action_button_gamepad_add(controls_actions.down, _player_number, gp_padd);
 		controls_action_button_gamepad_add(controls_actions.down, _player_number, gp_axisl_down);
 		controls_action_button_gamepad_add(controls_actions.start, _player_number, gp_start);
-		controls_action_button_gamepad_add(controls_actions.drop_out, _player_number, gp_shoulderlb);
+		controls_action_button_gamepad_add(controls_actions.drop_out, _player_number, gp_select);
 		controls_action_button_gamepad_add(controls_actions.jump, _player_number, gp_face1);
 		controls_action_button_gamepad_add(controls_actions.attack, _player_number, gp_face2);
 		controls_action_button_gamepad_add(controls_actions.bubble, _player_number, gp_face4);
-		controls_action_button_gamepad_add(controls_actions.rubberband, _player_number, gp_face3);
+		controls_action_button_gamepad_add(controls_actions.rubberband, _player_number, gp_shoulderlb);
+		controls_action_button_gamepad_add(controls_actions.rubberband_color, _player_number, gp_shoulderrb);
 	}
 }
 

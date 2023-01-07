@@ -16,6 +16,7 @@ character_index = 0;
 	button_jump = controls_action_states.NA;
 	button_bubble = controls_action_states.NA;
 	button_rubberband = controls_action_states.NA;
+	button_rubberband_color = controls_action_states.NA;
 
 	lock_controls_horizontal = 0;
 	lock_controls_vertical = 0;
@@ -36,12 +37,19 @@ character_index = 0;
 	skid = false;
 	walljump_auto = 0;
 	#macro WALLJUMP_AUTO_MAX 32
+	
 	rubber_band = false;
 	rubber_band_can_slingshot = false;
+	rubber_band_color = 0;
+	rubber_band_average_x = x;
+	rubber_band_average_y = y;
+	
 	underwater = false;
 	water_meter = 100;
+	
 	hang_on = false;
 	invincible = false;
+	
 	flashlight_radius = 72;
 
 	ground_on = false;

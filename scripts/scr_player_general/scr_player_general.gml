@@ -2,8 +2,10 @@ enum player_numbers
 {
 	player_1 = 0,
 	player_2 = 1,
+	player_3 = 2,
+	player_4 = 3,
 	
-	count = 1,
+	count = 3,
 }
 
 enum player_data

@@ -73,7 +73,7 @@ var _offset = 0;
 				draw_set_color(c_white);
 				for (_list_pos = 0; _list_pos < array_length(_player_list); ++_list_pos)
 				{
-					_offset = (_list_pos * (screen_width_get() / 2));
+					_offset = (_list_pos * (screen_width_get() / 4));
 					_list_thing = _player_list[_list_pos];
 					_player_instance = _list_thing[player_data.instance];
 					draw_sprite(spr_player_numbers, _list_pos, _view_x1 + 16 + _offset, _view_y1 + 16);
