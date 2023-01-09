@@ -18,9 +18,6 @@ hitbox.shape_x2 = 32;
 hitbox.shape_y2 = 32;
 hitbox.behavior = enemy_hitbox_behaviors.heavy;
 
-speed_walk = 0.5;
-animate_speed = 0.125;
-
 despawn_area[0] = sprite_get_bbox_left(sprite_index) * 2;
 despawn_area[1] = sprite_get_bbox_top(sprite_index) * 2;
 despawn_area[2] = sprite_get_bbox_right(sprite_index) * 2;

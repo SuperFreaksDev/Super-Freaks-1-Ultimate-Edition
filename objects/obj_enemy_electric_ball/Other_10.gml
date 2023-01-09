@@ -24,7 +24,10 @@ switch (wall_direction)
 					break;
 				case 1: //Right
 					if (collision_left_simple(x, y, y, y, 16,, true))
+					{
 						wall_direction = 3;
+						speed_move = abs(speed_move);
+					}
 					else
 						instance_destroy();
 					break;
@@ -135,7 +138,10 @@ switch (wall_direction)
 					break;
 				case 1: //Down
 					if (collision_up_simple(x, x, x, y, 16,, true))
+					{
 						wall_direction = 2;
+						speed_move = abs(speed_move);
+					}
 					else
 						instance_destroy();
 					break;

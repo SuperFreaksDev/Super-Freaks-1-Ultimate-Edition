@@ -25,6 +25,7 @@ enum unlocks
 	speedrun_stadium,
 	museum,
 	character_superior,
+	character_negative_quincy,
 }
 
 /// @function unlocks_init
@@ -112,6 +113,13 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.superior] = true;
+	});
+	unlock_create(unlocks.character_negative_quincy, "Unlock Negative Quincy", "You can now play as King Quincy's Anti Freaks counterpart, Negative Quincy! Be very glad you're not playing against him.", function()
+	{
+		return level_perfect_get(level_ids.level_crazy_toy_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.negative_quincy] = true;
 	});
 	
 	unlocks_load();

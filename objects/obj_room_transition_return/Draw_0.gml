@@ -9,7 +9,7 @@ var _view_height = view_height_get();
 var _screen_width_half = _screen_width / 2;
 var _screen_height_half = _screen_height / 2;
 var _text = text;
-var _dialog_width, _dialog_height
+var _dialog_width, _dialog_height;
 
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 
