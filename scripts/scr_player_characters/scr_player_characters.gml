@@ -178,6 +178,44 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_negative_quincy);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_negative_quincy);
 	#endregion
+	
+	#region Geyzer
+		_character = character_indexes.geyzer;
+		global.character_names[_character] = "Geyzer";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_geyzer);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_geyzer);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_geyzer);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_geyzer);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_geyzer);
+		player_animation_create(_character, player_animations.death, spr_player_death_geyzer);
+		player_animation_create(_character, player_animations.air, spr_player_air_geyzer);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_geyzer);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_geyzer);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_geyzer);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_geyzer);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_geyzer);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_geyzer);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_geyzer);
+	#endregion
+	
+	#region Trash Can Man
+		_character = character_indexes.trash_can_man;
+		global.character_names[_character] = "Trash Can Man";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_trash_can_man);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_trash_can_man);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_trash_can_man);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_trash_can_man);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_trash_can_man);
+		player_animation_create(_character, player_animations.death, spr_player_death_trash_can_man);
+		player_animation_create(_character, player_animations.air, spr_player_air_trash_can_man);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_trash_can_man);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_trash_can_man);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_trash_can_man);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_trash_can_man);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_trash_can_man);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_trash_can_man);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_trash_can_man);
+	#endregion
 }
 
 /// @function player_character_set

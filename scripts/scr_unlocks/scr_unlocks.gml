@@ -26,6 +26,8 @@ enum unlocks
 	museum,
 	character_superior,
 	character_negative_quincy,
+	character_geyzer,
+	character_trash_can_man,
 }
 
 /// @function unlocks_init
@@ -77,7 +79,7 @@ function unlocks_init()
 	});
 	unlock_create(unlocks.speedrun_freaky, "Unlock Freaky Run", "Freaky Run is now available in the Speedrun Challenge Menu!", function()
 	{
-		return level_complete_get(level_ids.level_insane_hippie_secret) && level_complete_get(level_ids.level_freaky_boss);
+		return level_complete_get(level_ids.level_freaky_ice_secret) && level_complete_get(level_ids.level_freaky_boss);
 	});	
 	unlock_create(unlocks.speedrun_kranion, "Unlock Kranion Run", "Kranion Run is now available in the Speedrun Challenge Menu!", function()
 	{
@@ -120,6 +122,20 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.negative_quincy] = true;
+	});
+	unlock_create(unlocks.character_geyzer, "Unlock Geyzer", "You can now play as Gambi's Anti Freaks counterpart, Geyzer! But don't touch him, what with all that edge he's got.", function()
+	{
+		return level_perfect_get(level_ids.level_insane_hippie_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.geyzer] = true;
+	});
+	unlock_create(unlocks.character_trash_can_man, "Unlock Trash Can Man", "You can now play as Tikiman's Anti Freaks counterpart, Trash Can Man! If he had it his way, you'd have to buy him.", function()
+	{
+		return level_perfect_get(level_ids.level_freaky_ice_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.trash_can_man] = true;
 	});
 	
 	unlocks_load();
