@@ -45,7 +45,8 @@ while (_frames_game > 0)
 		//Step 1
 		if (_frames_player > 0)
 		{
-			players_rubberband_step();
+			players_rubberband_step(0);
+			players_rubberband_step(1);
 			with (obj_player_parent)
 				instance_step();
 		}

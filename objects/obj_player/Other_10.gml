@@ -11,6 +11,7 @@ button_drop_out = controls_action_state_get(controls_actions.drop_out, player_nu
 button_jump = controls_action_state_get(controls_actions.jump, player_number);
 button_bubble = controls_action_state_get(controls_actions.bubble, player_number);
 button_rubberband = controls_action_state_get(controls_actions.rubberband, player_number);
+button_rubberband_color = controls_action_state_get(controls_actions.rubberband_color, player_number);
 
 collision_flags = 0;
 crush_flags = 0;

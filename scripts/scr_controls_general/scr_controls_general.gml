@@ -129,7 +129,7 @@ function controls_default()
 	controls_action_button_key_add(controls_actions.attack, player_numbers.player_1, ord("X"));
 	controls_action_button_key_add(controls_actions.bubble, player_numbers.player_1, ord("C"));
 	controls_action_button_key_add(controls_actions.rubberband, player_numbers.player_1, ord("D"));
-	controls_action_button_key_add(controls_actions.rubberband, player_numbers.player_1, ord("E"));
+	controls_action_button_key_add(controls_actions.rubberband_color, player_numbers.player_1, ord("E"));
 	
 	for (_player_number = 0; _player_number <= player_numbers.count; ++_player_number)
 	{

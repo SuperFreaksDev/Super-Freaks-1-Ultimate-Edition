@@ -1,17 +1,12 @@
 /// @description 
 
 var _x, _y, _xprevious, _yprevious, _height;
-var _average_x, _average_y;
-var _rubber_band_distance, _rubber_band_direction;
-_average_x = global.player_rubberband_average[0];
-_average_y = global.player_rubberband_average[1];
-
-if (rubber_band && !is_undefined(_average_x))
-{
-	_rubber_band_distance = point_distance(x, y, _average_x, _average_y);
-	_rubber_band_direction = point_direction(x, y, _average_x, _average_y);
-	draw_sprite_ext(spr_elastiband, 0, x, y, _rubber_band_distance / 32, clamp(32 / _rubber_band_distance, 0.5, 1), _rubber_band_direction, c_white, 1);
-}
+var _average_x, _average_y, _average_x_previous, _average_y_previous;
+var _rubber_band_distance, _rubber_band_direction, _rubber_band_draw = true;
+_average_x = global.player_rubberband_average[rubber_band_color][0];
+_average_y = global.player_rubberband_average[rubber_band_color][1];
+_average_x_previous = global.player_rubberband_average_previous[rubber_band_color][0];
+_average_y_previous = global.player_rubberband_average_previous[rubber_band_color][1];
 
 switch (state)
 {
@@ -32,8 +27,18 @@ switch (state)
 		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
 		draw_sprite_interpolated(spr_player_bubble, 0, x, y,,, 1, 1,,, 0,, c_white, 0.5);
 		draw_action(player_number, controls_actions.jump, x + 36, y - 48);
+		_rubber_band_draw = false;
 		break;
 	default:
 		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
 		break;
+}
+
+if (_rubber_band_draw == true && rubber_band && !is_undefined(_average_x) && !is_undefined(_average_x_previous))
+{
+	_average_x = lerp(_average_x_previous, _average_x, frame_delta_player_get());
+	_average_y = lerp(_average_y_previous, _average_y, frame_delta_player_get());
+	_rubber_band_distance = point_distance(x, y, _average_x, _average_y);
+	_rubber_band_direction = point_direction(x, y, _average_x, _average_y);
+	draw_sprite_ext(spr_elastiband, rubber_band_color, x, y, _rubber_band_distance / 32, clamp(32 / _rubber_band_distance, 0.5, 1), _rubber_band_direction, c_white, 1);
 }

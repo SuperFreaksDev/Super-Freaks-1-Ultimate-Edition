@@ -82,7 +82,9 @@ var _offset = 0;
 					{
 						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 48 + _offset, _view_y1 + 16);
 						if (_player_instance.rubber_band == true)
-							draw_sprite(spr_HUD_elastiband, 0, _view_x1 + 80 + _offset, _view_y1 + 16);
+							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 80 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 1);
+						else
+							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 80 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 0.5);
 					}
 					else
 					{

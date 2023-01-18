@@ -14,6 +14,7 @@ deform_x = 1;
 deform_y = 1;
 deform_x_previous = 1;
 deform_y_previous = 1;
+yorb_amount = 10;
 hp_init(2);
 state_next_set(0);
 

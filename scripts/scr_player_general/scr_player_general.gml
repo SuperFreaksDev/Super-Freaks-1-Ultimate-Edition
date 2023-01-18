@@ -43,8 +43,8 @@ function players_init()
 	var _player_number;
 	
 	global.player_list = [];
-	global.player_rubberband_average = [0, 0];
-	global.player_rubberband_average_previous = [0, 0];
+	global.player_rubberband_average = [[0, 0], [0, 0]];
+	global.player_rubberband_average_previous = [[0, 0], [0, 0]];
 	characters_init();
 		
 	for (_player_number = 0; _player_number <= player_numbers.count; ++_player_number)
@@ -55,7 +55,6 @@ function players_init()
 	}
 		
 	global.player_list[0][player_data.active] = true;
-	//global.player_list[1][player_data.active] = true;
 }
 
 /// @function players_start
@@ -121,16 +120,17 @@ function players_end()
 }
 
 /// @function players_rubberband_step
-function players_rubberband_step()
+/// @param _rubberband_id = 0
+function players_rubberband_step(_rubberband_id = 0)
 {
 	var _average_x, _average_y, _count = 0;
 	
-	global.player_rubberband_average_previous[0] = global.player_rubberband_average[0];
-	global.player_rubberband_average_previous[1] = global.player_rubberband_average[1];
+	global.player_rubberband_average_previous[_rubberband_id][0] = global.player_rubberband_average[_rubberband_id][0];
+	global.player_rubberband_average_previous[_rubberband_id][1] = global.player_rubberband_average[_rubberband_id][1];
 	
 	with (obj_player)
 	{
-		if (player_is_alive() && rubber_band == true)
+		if (player_is_alive() && rubber_band == true && rubber_band_color == _rubberband_id)
 		{
 			if (_count == 0)
 			{
@@ -148,21 +148,21 @@ function players_rubberband_step()
 	
 	if (_count < 2)
 	{
-		global.player_rubberband_average[0] = undefined;
-		global.player_rubberband_average[1] = undefined;
+		global.player_rubberband_average[_rubberband_id][0] = undefined;
+		global.player_rubberband_average[_rubberband_id][1] = undefined;
 		exit;
 	}
 		
 	_average_x /= _count;
 	_average_y /= _count;
 	
-	if (is_undefined(global.player_rubberband_average_previous[0]))
+	if (is_undefined(global.player_rubberband_average_previous[_rubberband_id, 0]))
 	{
-		global.player_rubberband_average[0] = _average_x;
-		global.player_rubberband_average[1] = _average_y;
+		global.player_rubberband_average[_rubberband_id][0] = _average_x;
+		global.player_rubberband_average[_rubberband_id][1] = _average_y;
 	}
-	global.player_rubberband_average[0] = _average_x;
-	global.player_rubberband_average[1] = _average_y;
+	global.player_rubberband_average[_rubberband_id][0] = _average_x;
+	global.player_rubberband_average[_rubberband_id][1] = _average_y;
 }
 
 /// @function player_is_alive

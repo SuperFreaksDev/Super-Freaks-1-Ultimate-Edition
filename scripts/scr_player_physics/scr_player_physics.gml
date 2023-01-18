@@ -69,10 +69,10 @@ function player_rubberband_physics()
 	var _facing_average_x_sign = 0, _dist_to_average = 0;
 	var _bottom_y = 0;
 	
-	_average_x = global.player_rubberband_average[0];
-	_average_y = global.player_rubberband_average[1];
-	_average_x_previous = global.player_rubberband_average_previous[0];
-	_average_y_previous = global.player_rubberband_average_previous[1];
+	_average_x = global.player_rubberband_average[rubber_band_color][0];
+	_average_y = global.player_rubberband_average[rubber_band_color][1];
+	_average_x_previous = global.player_rubberband_average_previous[rubber_band_color][0];
+	_average_y_previous = global.player_rubberband_average_previous[rubber_band_color][1];
 	
 	if (!player_is_alive() || !rubber_band || is_undefined(_average_x))
 		exit;

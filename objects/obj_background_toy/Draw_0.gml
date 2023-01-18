@@ -6,12 +6,15 @@ var _scroll_delta = lerp(scroll_previous, scroll, frame_delta_level_get());
 
 event_inherited();
 
-draw_set_color(make_colour_rgb(0, 152, 255));
+if (sunset)
+	draw_set_color(make_colour_rgb(191, 44, 0));
+else
+	draw_set_color(make_colour_rgb(0, 152, 255));
 draw_rectangle(view_x1_get(), view_y1_get(), view_x2_get(), view_y2_get(), false);
 draw_set_color(c_white);
 
 surface_set_target(surface);
-draw_sprite_parallax_x(spr_background_toy_clouds,, _view_x1, view_height_get(), 2, -_scroll_delta);
+draw_sprite_parallax_x(spr_background_toy_clouds, sunset, _view_x1, view_height_get(), 2, -_scroll_delta);
 draw_sprite_parallax_x(spr_background_toy_bridge,, _view_x1, view_height_get(), 2);
 surface_reset_target();
 

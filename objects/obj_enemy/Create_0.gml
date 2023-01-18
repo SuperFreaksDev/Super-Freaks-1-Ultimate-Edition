@@ -15,4 +15,5 @@ despawn_area[1] = sprite_get_bbox_top(sprite_index);
 despawn_area[2] = sprite_get_bbox_right(sprite_index);
 despawn_area[3] = sprite_get_bbox_bottom(sprite_index);
 target = undefined;
+yorb_amount = 5;
 depth = 3;

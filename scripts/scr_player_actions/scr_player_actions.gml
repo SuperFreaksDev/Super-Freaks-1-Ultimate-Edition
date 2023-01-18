@@ -27,6 +27,11 @@ function player_rubberband_activate()
 		sfx_play_global(sfx_elastiband);
 		rubber_band = !rubber_band;
 	}
+	if (button_rubberband_color == controls_action_states.press)
+	{
+		sfx_play_global(sfx_elastiband);
+		rubber_band_color = !rubber_band_color;
+	}
 	
 	gml_pragma("forceinline");
 }
