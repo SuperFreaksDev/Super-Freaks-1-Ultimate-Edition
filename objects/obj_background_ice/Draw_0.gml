@@ -6,7 +6,7 @@ var _view_y1 = view_y1_get();
 event_inherited();
 
 surface_set_target(surface);
-draw_sprite_tiled(spr_background_ice, 0, (_view_x1 / 1.5) - _view_x1, (_view_y1 / 1.5) - _view_y1);
+draw_sprite_tiled(spr_background_ice, alternate, (_view_x1 / 1.5) - _view_x1, (_view_y1 / 1.5) - _view_y1);
 surface_reset_target();
 
 if (background_blur_get())

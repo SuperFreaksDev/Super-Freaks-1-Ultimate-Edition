@@ -6,8 +6,8 @@ var _view_y1 = view_y1_get();
 event_inherited();
 
 surface_set_target(surface);
-draw_sprite_tiled(spr_background_fruit_sky, 0, (_view_x1 / 1.25) - _view_x1, (_view_y1 / 1.25) - _view_y1);
-draw_sprite_tiled(spr_background_fruit_juiceboxes, 0, (_view_x1 / 1.5) - _view_x1, (_view_y1 / 1.5) - _view_y1);
+draw_sprite_tiled(spr_background_fruit_sky, alternate, (_view_x1 / 1.25) - _view_x1, (_view_y1 / 1.25) - _view_y1);
+draw_sprite_tiled(spr_background_fruit_juiceboxes, alternate, (_view_x1 / 1.5) - _view_x1, (_view_y1 / 1.5) - _view_y1);
 surface_reset_target();
 
 if (background_blur_get())

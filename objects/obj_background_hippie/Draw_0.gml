@@ -3,11 +3,21 @@
 var _view_x1 = view_x1_get();
 var _view_y1 = view_y1_get();
 var _scroll_delta = lerp(scroll_previous, scroll, frame_delta_level_get());
-var _sky_color = make_color_rgb(255, 173, 0);
+var _sky_color_top, _sky_color_bottom;
 
 event_inherited();
 
-draw_rectangle_color(view_x1_get(), view_y1_get(), view_x2_get(), view_y2_get(), _sky_color, _sky_color, c_orange, c_orange, false);
+if (alternate)
+{
+	_sky_color_top = make_color_rgb(255, 191, 236);
+	_sky_color_bottom = make_color_rgb(255, 127, 217);
+}
+else
+{
+	_sky_color_top = make_color_rgb(255, 173, 0);
+	_sky_color_bottom = c_orange;
+}
+draw_rectangle_color(view_x1_get(), view_y1_get(), view_x2_get(), view_y2_get(), _sky_color_top, _sky_color_top, _sky_color_bottom, _sky_color_bottom, false);
 draw_set_color(c_white);
 
 surface_set_target(surface);
