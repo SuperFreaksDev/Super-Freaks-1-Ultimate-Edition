@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_garyfusey_danger",
+  "name": "spr_fusey_normal",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -10,9 +10,9 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 3,
+  "bbox_left": 5,
   "bbox_right": 29,
-  "bbox_top": 0,
+  "bbox_top": 2,
   "bbox_bottom": 35,
   "HTile": false,
   "VTile": false,
@@ -28,13 +28,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"de4a3246-822e-423a-8856-c649b3c6cf60",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"07985279-2941-49ba-a3ba-c75c282c5dfa",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1f2e3af5-e899-4ad2-b7bd-c79d16fedb7a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7a229864-270e-42ac-90e0-47028fa7b143",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_garyfusey_danger",
+    "name": "spr_fusey_normal",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"da036f3b-9a81-4e69-a48d-e4fb189b31ae","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"de4a3246-822e-423a-8856-c649b3c6cf60","path":"sprites/spr_garyfusey_danger/spr_garyfusey_danger.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"66c46ace-6800-4964-9f19-84a8f6c3695f","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"07985279-2941-49ba-a3ba-c75c282c5dfa","path":"sprites/spr_garyfusey_danger/spr_garyfusey_danger.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b1fc8efc-2bc1-41aa-bf33-875c18a43d88","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1f2e3af5-e899-4ad2-b7bd-c79d16fedb7a","path":"sprites/spr_fusey_normal/spr_fusey_normal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3018c69f-9936-4b41-b40e-bbbe83b3e99b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7a229864-270e-42ac-90e0-47028fa7b143","path":"sprites/spr_fusey_normal/spr_fusey_normal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -66,11 +66,11 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"15f321f3-75de-44d3-9241-af8848462b35","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9f892fe0-c62d-44da-b07a-c4f09999646b","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Gary Fusey",
-    "path": "folders/Sprites/Enemies/Gary Fusey.yy",
+    "name": "Fusey",
+    "path": "folders/Sprites/Enemies/Fusey.yy",
   },
 }

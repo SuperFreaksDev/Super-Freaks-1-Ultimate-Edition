@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_garyfusey",
+  "name": "obj_fusey",
   "spriteId": {
-    "name": "spr_garyfusey_normal",
-    "path": "sprites/spr_garyfusey_normal/spr_garyfusey_normal.yy",
+    "name": "spr_fusey_normal",
+    "path": "sprites/spr_fusey_normal/spr_fusey_normal.yy",
   },
   "solid": false,
   "visible": true,

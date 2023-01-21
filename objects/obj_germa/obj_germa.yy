@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_germa",
   "spriteId": {
-    "name": "spr_enemy_mitosis",
-    "path": "sprites/spr_enemy_mitosis/spr_enemy_mitosis.yy",
+    "name": "spr_enemy_germa",
+    "path": "sprites/spr_enemy_germa/spr_enemy_germa.yy",
   },
   "solid": false,
   "visible": true,
