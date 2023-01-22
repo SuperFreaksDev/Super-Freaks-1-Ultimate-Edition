@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_collectible",
-    "path": "objects/obj_collectible/obj_collectible.yy",
+    "name": "obj_heart",
+    "path": "objects/obj_heart/obj_heart.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

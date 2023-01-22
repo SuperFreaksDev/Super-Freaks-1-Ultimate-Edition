@@ -75,6 +75,7 @@ function gamepad_remove(_pad)
 			{
 				global.gamepad_array[_i] = undefined;
 				global.controls_device_last_used[_i] = controls_devices.keyboard;
+				player_drop_out_force(_i);
 				end_loop = true;
 			}
 		}
@@ -316,9 +317,14 @@ function draw_action_gamepad(_player_number = 0, _action, _x, _y)
 {
 	var _frame = floor(global.animate);
 	var _sprite;
-	var _key = global.controls_settings[_action][_player_number][controls_action_data.list_gb][0];
 	var _gamepad = gamepad_get(_player_number);
 	var _guid = 0;
+	var _list = global.controls_settings[_action][_player_number][controls_action_data.list_gb];
+	var _key;
+	
+	if (array_length(_list) == 0)
+		exit;
+	_key = _list[0];
 	
 	if (!is_undefined(_gamepad))
 		_guid = gamepad_get_guid(_gamepad);

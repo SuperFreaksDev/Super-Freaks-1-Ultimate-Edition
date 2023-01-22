@@ -56,6 +56,11 @@ switch (state)
 					options[0][2][menu_option_data.unlocked] = true;
 					break;
 			}
+			
+			if (player_number == 0)
+				options[0][3][menu_option_data.unlocked] = true;
+			else
+				options[0][3][menu_option_data.unlocked] = false;
 		}
 		if (room_transition_active_get())
 			exit;
@@ -70,7 +75,7 @@ switch (state)
 		{
 			option = (option + 1) mod _options_length;
 		}
-		if (button_start == controls_action_states.press)
+		if (button_start == controls_action_states.press || global.player_list[player_number][player_data.active] == false)
 			state_next_set(pause_menu_states.closing);
 		break;
 	default:

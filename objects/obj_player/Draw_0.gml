@@ -29,6 +29,11 @@ switch (state)
 		draw_action(player_number, controls_actions.jump, x + 36, y - 48);
 		_rubber_band_draw = false;
 		break;
+	case player_states.death:
+	case player_states.death_fall:
+		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
+		_rubber_band_draw = false;
+		break;
 	default:
 		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
 		break;

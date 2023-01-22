@@ -50,9 +50,11 @@ if (active)
 	{
 		speed_v -= 4;
 		hitbox.active = hitbox_active.inactive;
+		can_despawn = true;
 	}
 	else
 	{
+		can_despawn = false;
 		if (speed_v < 0)
 			speed_v += 0.125;
 		else

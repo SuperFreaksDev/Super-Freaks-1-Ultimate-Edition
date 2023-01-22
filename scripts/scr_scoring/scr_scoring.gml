@@ -99,5 +99,27 @@ function yorbs_add(_amount = 1)
 		}
 	}
 	
+	if (instance_exists(obj_gameplay_manager))
+	{
+		with (obj_gameplay_manager)
+			yorb_effect = min(yorb_effect + _amount, 7);
+	}
+	
 	gml_pragma("forceinline");
+}
+
+/// @function yorb_collect_effect
+/// @param _x = x
+/// @param _y = y
+/// @param _value = 0
+/// @param _index = round(random(6))
+function yorb_collect_effect(_x = x, _y = y, _value = 0, _index = round(random(6)))
+{
+	var _effect = instance_create_layer(_x, _y, "layer_instances", obj_yorb_collected);
+	
+	with (_effect)
+	{
+		value = _value;
+		image_index = _index;
+	}
 }

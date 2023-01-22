@@ -199,7 +199,12 @@ function draw_action_keyboard(_player_number = 0, _action, _x, _y)
 {
 	var _frame = floor(global.animate);
 	var _sprite;
-	var _key = global.controls_settings[_action][_player_number][controls_action_data.list_kb][0];
+	var _list = global.controls_settings[_action][_player_number][controls_action_data.list_kb];
+	var _key;
+	
+	if (array_length(_list) == 0)
+		exit;
+	_key = _list[0];
 	
 	if (_frame < 4)
 		_sprite = spr_keyboard_buttons;

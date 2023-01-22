@@ -102,15 +102,15 @@ var _offset = 0;
 			#region Draw Hearts
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_middle);
-			    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + 32);
-			    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + 64 - (global.heart_meter * 0.32));
+			    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + 32 + yorb_effect);
+			    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + 64 - (global.heart_meter * 0.32) + yorb_effect);
 				switch (global.game_mode)
 				{
 					case game_modes.randomizer:
-						draw_text(_view_x1 + 20, _view_y1 + 48, string(global.hearts) + "/4");
+						draw_text(_view_x1 + 20, _view_y1 + 48 + yorb_effect, string(global.hearts) + "/4");
 						break;
 					default:
-						draw_text(_view_x1 + 16, _view_y1 + 48, string(global.hearts));
+						draw_text(_view_x1 + 16, _view_y1 + 48 + yorb_effect, string(global.hearts));
 						break;
 				}
 			#endregion

@@ -24,7 +24,6 @@ if (instance_exists(obj_player))
 		switch (state)
 		{
 			case player_states.inactive:
-			case player_states.bubble:
 			case player_states.debug:
 				break;
 			default:

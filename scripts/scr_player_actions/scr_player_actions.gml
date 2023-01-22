@@ -10,6 +10,30 @@ function player_drop_out()
 	gml_pragma("forceinline");
 }
 
+/// @function player_drop_out_force
+/// @param _player_number = 0
+function player_drop_out_force(_player_number = 0)
+{
+	var _player_instance;
+	
+	if (_player_number == 0)
+		exit;
+		
+	_player_instance = global.player_list[_player_number][player_data.instance];
+	
+	if (global.player_list[_player_number][player_data.active] == true)
+	{
+		with (_player_instance)
+		{
+			state_next_set(player_states.inactive, 999999999999);
+			instance_step();
+		}
+		global.player_list[_player_number][player_data.active] = false;
+	}
+	
+	gml_pragma("forceinline");
+}
+
 /// @function player_enter_bubble
 function player_enter_bubble()
 {

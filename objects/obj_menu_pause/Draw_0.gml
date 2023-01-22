@@ -52,8 +52,8 @@ if (_animate == 1)
 			
 	for (_i = 0; _i < _option_count; ++_i)
 	{
-		_option = options[0][_i];
-		_unlocked = options[0][_i][menu_option_data.unlocked];
+		_option = options[page][_i];
+		_unlocked = options[page][_i][menu_option_data.unlocked];
 		
 		if (_unlocked)
 		{
@@ -66,7 +66,7 @@ if (_animate == 1)
 				draw_set_color(c_black);
 		}
 		
-		_text = options[0][_i][menu_option_data.text];
+		_text = options[page][_i][menu_option_data.text];
 		draw_text(_x, _text_y + (_i * _font_size), _text);
 	}
 	
