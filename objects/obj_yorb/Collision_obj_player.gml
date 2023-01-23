@@ -2,4 +2,4 @@
 
 instance_destroy();
 yorbs_add();
-yorb_collect_effect(,,, image_index);
+instance_create_layer(x, y, "layer_instances", obj_yorb_collected_single);

@@ -108,14 +108,14 @@ function yorbs_add(_amount = 1)
 	gml_pragma("forceinline");
 }
 
-/// @function yorb_collect_effect
+/// @function yorb_collect_effect_multi
 /// @param _x = x
 /// @param _y = y
 /// @param _value = 0
 /// @param _index = round(random(6))
-function yorb_collect_effect(_x = x, _y = y, _value = 0, _index = round(random(6)))
+function yorb_collect_effect_multi(_x = x, _y = y, _value = 0, _index = round(random(6)))
 {
-	var _effect = instance_create_layer(_x, _y, "layer_instances", obj_yorb_collected);
+	var _effect = instance_create_layer(_x, _y, "layer_instances", obj_yorb_collected_multi);
 	
 	with (_effect)
 	{

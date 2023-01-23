@@ -28,8 +28,8 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"afbbd3e2-20e4-461e-8d6a-9a720f375797",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"730b10e0-21a3-481b-a165-bf8860ce5735",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"86024527-8650-4940-a3e9-34dd7996aa58",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"abedeb32-2dd6-4cbc-b38d-166897009c22",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bd252cce-6bf0-4a20-98cf-b6fe11d7b59b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"afbbd3e2-20e4-461e-8d6a-9a720f375797","path":"sprites/spr_background_fruit_juiceboxes/spr_background_fruit_juiceboxes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"742879d3-5f54-43c9-a67e-35cdda2ed1fa","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"730b10e0-21a3-481b-a165-bf8860ce5735","path":"sprites/spr_background_fruit_juiceboxes/spr_background_fruit_juiceboxes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"16e2c53f-2b75-4b03-b787-c016a1a9468c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"86024527-8650-4940-a3e9-34dd7996aa58","path":"sprites/spr_background_fruit_juiceboxes/spr_background_fruit_juiceboxes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e6c43394-7112-4b9e-ba78-38c0dd2b3e57","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"abedeb32-2dd6-4cbc-b38d-166897009c22","path":"sprites/spr_background_fruit_juiceboxes/spr_background_fruit_juiceboxes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -66,7 +66,7 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b4b56492-7d8c-41fc-a094-ff7634305860","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"108e93f5-4699-4efd-a05b-f9130bcad241","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {

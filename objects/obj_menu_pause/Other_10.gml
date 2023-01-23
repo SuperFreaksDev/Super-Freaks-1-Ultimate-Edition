@@ -43,6 +43,8 @@ switch (state)
 		if (state_begin)
 		{
 			visible = true;
+			page = 0;
+			option = 0;
 			switch (global.game_mode)
 			{
 				case game_modes.speedrun:

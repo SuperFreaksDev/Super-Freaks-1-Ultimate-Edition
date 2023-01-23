@@ -60,12 +60,12 @@ function view_step()
 	
 	var _view_border_x1, _view_border_y1, _view_border_x2, _view_border_y2;
 	
-	//var _screen_width = min(screen_width_get(), SCREEN_WIDTH_MAX);
-	//var _screen_height = min(screen_height_get(), SCREEN_HEIGHT_MAX);
-	var _screen_width = SCREEN_WIDTH_MIN;
-	var _screen_height = SCREEN_HEIGHT_MIN;
-	var _screen_width_max = max(screen_width_get(), SCREEN_WIDTH_MAX);
-	var _screen_height_max = max(screen_height_get(), SCREEN_HEIGHT_MAX);
+	var _screen_width = screen_width_get();
+	var _screen_height = screen_height_get();
+	var _screen_width_min = min(_screen_width, SCREEN_WIDTH_MIN);
+	var _screen_height_min = min(_screen_height, SCREEN_HEIGHT_MIN);
+	var _screen_width_max = max(_screen_width, SCREEN_WIDTH_MAX);
+	var _screen_height_max = max(_screen_height, SCREEN_HEIGHT_MAX);
 	
 	var _list = global.comp_list_camera;
 	var _list_length = array_length(_list);
@@ -278,8 +278,8 @@ function view_step()
 		
 		_view_x = clamp(_view_x, xprevious - speed_x, xprevious + speed_x);
 		_view_y = clamp(_view_y, yprevious - speed_y, yprevious + speed_y);
-		_view_x = clamp(_view_x, _view_width_half, room_width - _view_width_half);
-		_view_y = clamp(_view_y, _view_height_half, room_height - _view_height_half);
+		_view_x = clamp(_view_x, _screen_width / 2, room_width - (_screen_width / 2));
+		_view_y = clamp(_view_y, _screen_height / 2, room_height - (_screen_height / 2));
 		
 		x = _view_x;
 		y = _view_y;
@@ -293,10 +293,10 @@ function view_step()
 		screen_shake_y = max(abs(screen_shake_y) - 1, 0) * choose(1, -1);
 			
 		array_copy(spawn_area_previous, 0, spawn_area, 0, 4);
-		spawn_area[0] = x - _view_width_half;
-		spawn_area[1] = y - _view_height_half;
-		spawn_area[2] = spawn_area[0] + _view_width;
-		spawn_area[3] = spawn_area[1] + _view_height;
+		spawn_area[0] = max(0, x - (_screen_width_max * z) / 2);
+		spawn_area[1] = max(0, y - (_screen_height_max * z) / 2);
+		spawn_area[2] = min(room_width, spawn_area[0] + (_screen_width_max * z));
+		spawn_area[3] = min(room_height, spawn_area[1] + (_screen_height_max * z));
 	}
 }
 
