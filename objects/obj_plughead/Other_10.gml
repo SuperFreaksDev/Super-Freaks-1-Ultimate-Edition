@@ -24,7 +24,7 @@ if (timer == 0)
 	{
 		zone_index: _zone
 	});
-	_attack.speed_move = _attack_speed;
+	_attack.speed_h = _attack_speed;
 }
 else if (timer < timer_frequency - 8)
 {

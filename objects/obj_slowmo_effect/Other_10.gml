@@ -1,6 +1,8 @@
 /// @description Step
 
-if (slowmo_timer.frames > 0)
+slowmo_timer--;
+
+if (slowmo_timer > 0)
 {
 	slowmo_effect = min(slowmo_effect + 1, 10);
 	slowmo_wave++;

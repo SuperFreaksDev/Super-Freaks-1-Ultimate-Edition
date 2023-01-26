@@ -32,12 +32,12 @@ function player_state_bubble()
 		hitbox.active = hitbox_active.passive;
 		
 		sfx_play_global(sfx_bubble);
+		timer_death = 0;
 		
 		if (_nearest_player == undefined)
 		{
 			sfx_play_global(sfx_record_scratch);
 			music_pause();
-			timer_death.frames = 64;
 			direction = random(360);
 			camera.active = true;
 		}
@@ -107,4 +107,13 @@ function player_state_bubble()
 	
 	sprite_index = player_animation_get(character_index, player_animations.death);
 	image_index = 0;
+	
+	if (_nearest_player == undefined)
+	{
+		timer_death++;
+		if (timer_death >= 64)
+			player_death_reset();
+	}
+	else
+		player_pause_game();
 }

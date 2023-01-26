@@ -23,7 +23,7 @@ function player_state_death_fall()
 			music_pause();
 		}
 		
-		timer_death.frames = 64;
+		timer_death = 0;
 		rubber_band_can_slingshot = false;
 		physics = player_physics_modifiers.normal;
 	}
@@ -36,4 +36,8 @@ function player_state_death_fall()
 	
 	sprite_index = player_animation_get(character_index, player_animations.death);
 	image_index = 0;
+	
+	timer_death++;
+	if (timer_death >= 64)
+		player_death_reset();
 }

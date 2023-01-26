@@ -27,6 +27,7 @@ if (my_path != -1)
 angle_previous = 0;
 angle = 0;
 angle_speed = 0;
+return_to_start_angle = true;
 
 //Path Movement Styles
 //0 - Move Automatically

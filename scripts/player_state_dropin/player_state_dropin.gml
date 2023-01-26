@@ -13,17 +13,36 @@ function player_state_dropin()
 	
 	if (button_left == controls_action_states.press)
 	{
-		character_index++;
+		global.player_list[player_number][player_data.character_index]++;
 					
-		if (character_index > 3)
-			character_index = 0;
+		if (global.player_list[player_number][player_data.character_index] >= character_indexes.count)
+			global.player_list[player_number][player_data.character_index] = 0;
+					
+		while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]] == false)
+		{
+			global.player_list[player_number][player_data.character_index]++;
+					
+			if (global.player_list[player_number][player_data.character_index] >= character_indexes.count)
+				global.player_list[player_number][player_data.character_index] = 0;
+		}
+		
+		character_index = global.player_list[player_number][player_data.character_index];
 	}
 	else if (button_right == controls_action_states.press)
 	{
-		character_index--;
+		global.player_list[player_number][player_data.character_index]--;
 					
-		if (character_index < 0)
-			character_index = 3;
+		if (global.player_list[player_number][player_data.character_index] < 0)
+			global.player_list[player_number][player_data.character_index] = character_indexes.count - 1;
+						
+		while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]] == false)
+		{
+			global.player_list[player_number][player_data.character_index]--;
+			if (global.player_list[player_number][player_data.character_index] < 0)
+				global.player_list[player_number][player_data.character_index] = character_indexes.count - 1;
+		}
+		
+		character_index = global.player_list[player_number][player_data.character_index];
 	}
 	else if (button_jump == controls_action_states.press)
 	{

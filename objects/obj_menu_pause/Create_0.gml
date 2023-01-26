@@ -53,6 +53,7 @@ menu_option_add(0, 2, "Restart from Checkpoint", function()
 			sfx_play_global(sfx_honk);
 	}
 });
+
 menu_option_add(0, 3, "Kick Players", function()
 {
 	if (button_confirm == controls_action_states.press)
@@ -82,12 +83,10 @@ for (_i = 1; _i <= player_numbers.count; ++_i)
 	_text = "Player " + string(_i + 1);
 	menu_option_add(menu_pause_pages.kick, _i - 1, _text, function()
 	{
-		var _player_instance;
 		var _player_num = option + 1;
 		
 		if (button_confirm == controls_action_states.press)
 		{
-			_player_instance = global.player_list[_player_num][player_data.instance];
 			if (global.player_list[_player_num][player_data.active] == true)
 			{
 				player_drop_out_force(_player_num);

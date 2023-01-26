@@ -24,9 +24,8 @@ function player_state_wall_slide()
 	
 	hurt_timer_step();
 	player_water_step();
-		
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
-		game_pause(player_number);
+	player_pause_game();
+	
 	if (lock_controls_horizontal == 0)
 	{
 		if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)

@@ -4,4 +4,4 @@
 event_inherited();
 
 speed_h = speed_move;
-timer.frames = timer_delay;
+timer = timer_frequency - timer_delay;

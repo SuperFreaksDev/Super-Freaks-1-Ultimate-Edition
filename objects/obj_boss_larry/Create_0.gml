@@ -6,7 +6,7 @@ var _collider_size = 28 * image_xscale;
 // Inherit the parent event
 event_inherited();
 
-hp_init(8);
+hp_init(6);
 
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, _radius);
 spike = false;

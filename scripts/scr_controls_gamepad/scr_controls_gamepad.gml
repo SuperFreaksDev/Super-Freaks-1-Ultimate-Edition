@@ -75,7 +75,11 @@ function gamepad_remove(_pad)
 			{
 				global.gamepad_array[_i] = undefined;
 				global.controls_device_last_used[_i] = controls_devices.keyboard;
-				player_drop_out_force(_i);
+				if (global.player_list[_i][player_data.active] == true)
+				{
+					player_drop_out_force(_i);
+					sfx_play_global(sfx_record_scratch);
+				}
 				end_loop = true;
 			}
 		}

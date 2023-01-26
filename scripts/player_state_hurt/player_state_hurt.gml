@@ -23,8 +23,7 @@ function player_state_hurt()
 	if (underwater || button_jump == controls_action_states.press)
 		state_next_set(player_states.normal);
 		
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
-		game_pause(player_number);
+	player_pause_game();
 	
 	jump_buffer = max(jump_buffer - 1, 0);
 

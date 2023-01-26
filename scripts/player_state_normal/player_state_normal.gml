@@ -27,8 +27,7 @@ function player_state_normal()
 		_speed_fall = max(_speed_fall - 2, 0);
 	instance_attach = undefined;
 		
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
-		game_pause(player_number);
+	player_pause_game();
 		
 	switch (physics)
 	{

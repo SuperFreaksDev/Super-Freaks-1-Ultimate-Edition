@@ -46,8 +46,7 @@ function player_state_hang()
 			break;
 	}
 		
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
-		game_pause(player_number);
+	player_pause_game();
 		
 	if (button_jump == controls_action_states.press)
 	{

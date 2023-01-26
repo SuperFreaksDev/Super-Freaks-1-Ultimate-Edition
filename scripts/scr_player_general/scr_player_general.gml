@@ -311,3 +311,44 @@ function players_exist()
 	return false;
 }
 
+/// @function player_death_reset
+function player_death_reset()
+{
+	var _transition_effect;
+	
+	if (!players_alive())
+	{
+		switch (global.game_mode)
+		{
+			case game_modes.randomizer:
+			case game_modes.boss_rush:
+				if (global.hearts == 0)
+				{
+					if (!room_transition_active_get())
+						instance_create(obj_gameover);
+				}
+				else
+				{
+					if (!room_transition_active_get())
+					{
+						_transition_effect = instance_create(obj_room_transition_death);
+						_transition_effect.color = c_red;
+						global.hearts = max(global.hearts - 1, 0);
+					}
+				}
+				break;
+			default:
+				if (!room_transition_active_get())
+				{
+					_transition_effect = instance_create(obj_room_transition_death);
+					_transition_effect.color = c_red;
+				}
+				break;
+		}
+	}
+	else
+	{
+		state_next_set(player_states.bubble);
+		water_meter = 100;
+	}
+}

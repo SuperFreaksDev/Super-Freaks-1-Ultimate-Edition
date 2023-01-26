@@ -15,18 +15,17 @@ else
 
 if (slowmo_effect > 0)
 {
-	surface_set_target(surface);
-	draw_surface(application_surface, 0, 0);
-	surface_reset_target();
 	if (shaders_are_supported())
 	{
+		surface_set_target(surface);
+		draw_surface(application_surface, 0, 0);
+		surface_reset_target();
 		shader_set(shader_wave);
 		shader_set_uniform_f(shader_get_uniform(shader_wave, "time"), slowmo_wave * 10);
 		shader_set_uniform_f(shader_get_uniform(shader_wave, "size"), min(slowmo_wave / 5000, 0.0075));
-	}
-	draw_surface_stretched(surface, view_x1_get(), view_y1_get(), view_width_get(), view_height_get());
-	if (shaders_are_supported())
+		draw_surface_stretched(surface, view_x1_get(), view_y1_get(), view_width_get(), view_height_get());
 		shader_reset();
+	}
 	draw_set_color(c_purple);
 	draw_set_alpha(min(slowmo_effect / 100, 0.5));
 	draw_rectangle(view_x1_get(), view_y1_get(), view_x2_get(), view_y2_get(), false);

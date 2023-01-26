@@ -1,3 +1,12 @@
+/// @function player_pause_game
+function player_pause_game()
+{
+	if (!room_transition_active_get() && button_pause == controls_action_states.press)
+		game_pause(player_number);
+		
+	gml_pragma("forceinline");
+}
+
 /// @function player_drop_out
 function player_drop_out()
 {
@@ -26,7 +35,8 @@ function player_drop_out_force(_player_number = 0)
 		with (_player_instance)
 		{
 			state_next_set(player_states.inactive, 999999999999);
-			instance_step();
+			state_machine_step();
+			EVENT_STEP;
 		}
 		global.player_list[_player_number][player_data.active] = false;
 	}

@@ -24,7 +24,6 @@ function instance_step()
 	EVENT_FRAMEBEGIN;
 	state_machine_step();
 	collider_attach_step();
-	comp_list_timer_step();
 	EVENT_STEP;
 	comp_list_collider_move();
 	image_index += animate_speed;

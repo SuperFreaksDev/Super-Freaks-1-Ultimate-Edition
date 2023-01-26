@@ -309,7 +309,7 @@ function draw_action(_player_number = 0, _action, _x, _y)
 	var _list_gb = global.controls_settings[_action][_player_number][controls_action_data.list_gb];
 	var _list_mb = global.controls_settings[_action][_player_number][controls_action_data.list_mb];
 	
-	if (_device == controls_devices.gamepad && array_length(_list_gb) > 0)
+	if ((_device == controls_devices.gamepad && array_length(_list_gb) > 0) || array_length(_list_kb) == 0)
 		draw_action_gamepad(_player_number, _action, _x, _y);
 	else
 		draw_action_keyboard(_player_number, _action, _x, _y);

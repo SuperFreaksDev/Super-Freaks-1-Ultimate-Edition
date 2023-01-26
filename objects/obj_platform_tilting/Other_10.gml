@@ -36,11 +36,28 @@ for (_i = array_length(_list) - 1; _i >= 0; --_i)
 
 angle_speed += _angle_speed;
 angle_speed = clamp(angle_speed, -8, 8);
+
 if (_rotate_back == true)
+	return_to_start_angle = true;
+else
+	return_to_start_angle = false;
+	
+if (return_to_start_angle)
 {
-	angle_speed *= 0.96;
-	_angle *= 0.96;
+	switch (sign(collider.shape_y1 - collider.shape_y2))
+	{
+		case -1: //Left Side Pointing Up
+			angle_speed += 0.1 * min(abs(collider.shape_y1 - collider.shape_y2), 1);
+			break;
+		case 0:
+			break;
+		case 1: //Right Side Pointing Up
+			angle_speed -= 0.1 * min(abs(collider.shape_y1 - collider.shape_y2), 1);
+			break;
+	}
+	angle_speed *= 0.9;
 }
+
 _angle += angle_speed;
 
 if (_angle >= 22.5)

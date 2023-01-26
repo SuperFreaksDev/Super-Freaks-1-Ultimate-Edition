@@ -60,9 +60,36 @@ switch (state)
 			}
 			
 			if (player_number == 0)
-				options[0][3][menu_option_data.unlocked] = true;
+			{
+				menu_option_add(0, 3, "Kick Players", function()
+				{
+					if (button_confirm == controls_action_states.press)
+					{
+						if (options[0][3][menu_option_data.unlocked] == true)
+						{
+							page = menu_pause_pages.kick;
+							option = 0;
+						}
+						else
+							sfx_play_global(sfx_honk);
+					}
+				});
+			}
 			else
-				options[0][3][menu_option_data.unlocked] = false;
+			{
+				menu_option_add(0, 3, "Drop Out", function()
+				{
+					if (button_confirm == controls_action_states.press)
+					{
+						if (options[0][3][menu_option_data.unlocked] == true)
+						{
+							player_drop_out_force(player_number);
+						}
+						else
+							sfx_play_global(sfx_honk);
+					}
+				});
+			}
 		}
 		if (room_transition_active_get())
 			exit;

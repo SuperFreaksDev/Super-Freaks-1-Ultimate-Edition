@@ -618,7 +618,7 @@ function collider_collision_global_clear()
 		/// @description An easier to use collision method that extends upward by a certain amount. This is useful for simple ground collision checks!
 		function collision_up_simple(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up_y_get(), _extend = 0, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true)
 		{
-			return collision_up(_x1_flat, _x2_flat, _x_slope, _y - _extend, _y, _push_out_by, _attach, _check_semi_solid);
+			return collision_up(_x1_flat, _x2_flat, _x_slope, _y, _y - _extend, _push_out_by, _attach, _check_semi_solid);
 			
 			gml_pragma("forceinline");
 		}

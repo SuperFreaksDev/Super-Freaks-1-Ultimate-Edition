@@ -44,6 +44,6 @@ camera.y = y;
 camera.xprevious = x;
 camera.yprevious = y;
 
-timer_death.frames = -1;
+timer_death = 0;
 	
 event_inherited();

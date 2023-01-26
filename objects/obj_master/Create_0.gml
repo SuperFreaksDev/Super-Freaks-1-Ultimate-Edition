@@ -15,8 +15,6 @@ collider_detector_down_set();
 collider_detector_sides_set();
 collision_flags = 0;
 
-comp_list_timer_init();
-
 instance_attach = undefined;
 instance_attach_list = [];
 
