@@ -5,6 +5,7 @@ var _clone;
 var _xscale = image_xscale;
 var _yscale = image_yscale;
 var _i;
+var _player = player_nearest_alive();
 
 if (_xscale > 0.5)
 {
@@ -21,7 +22,12 @@ if (_xscale > 0.5)
 		{
 			speed_h = _i;
 			if (_i == 0)
-				speed_h = 1;
+			{
+				if (is_undefined(_player))
+					speed_h = 1;
+				else
+					speed_h = 1 * sign(x - _player.x);
+			}
 			speed_v = -6;
 			hp_init(4);
 		}
