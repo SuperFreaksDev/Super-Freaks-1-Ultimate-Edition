@@ -85,7 +85,7 @@ function player_state_normal()
 				}
 				else
 				{
-					if (speed_h > -speed_run)
+					if (speed_h >= -speed_run)
 						speed_h = max(speed_h - _speed_acc, -speed_run);
 						//speed_h += max(-speed_acc, -speed_run - (speed_h));
 					else
@@ -108,7 +108,7 @@ function player_state_normal()
 				}
 				else
 				{
-					if (speed_h < speed_run)
+					if (speed_h <= speed_run)
 						speed_h = min(speed_h + _speed_acc, speed_run);
 						//speed_h += min(speed_acc, speed_run - (speed_h));
 					else

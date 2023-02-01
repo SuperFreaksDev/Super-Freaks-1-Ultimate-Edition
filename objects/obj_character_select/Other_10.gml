@@ -209,7 +209,7 @@ switch (state)
 					_level_list = global.level_list[level_lists.completed];
 					array_resize(global.current_level_list, 0);
 					array_copy(global.current_level_list, 0, _level_list, 0, array_length(_level_list));
-					array_shuffle(global.current_level_list);
+					global.current_level_list = array_shuffle(global.current_level_list);
 					global.score = 0;
 					global.level_demo = 0;
 					global.level_id = global.current_level_list[global.level_demo];

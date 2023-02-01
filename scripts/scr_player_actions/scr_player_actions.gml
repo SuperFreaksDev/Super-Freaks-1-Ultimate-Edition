@@ -120,10 +120,9 @@ function player_crush()
 function player_fall()
 {
 	if (y > view_y2_get() + 64)
-	{
-		show_debug_message("Fell");
 		state_next_set(player_states.death_fall, 99999);
-	}
+		
+	gml_pragma("forceinline");
 }
 
 /// @function player_water_step
@@ -155,7 +154,7 @@ function player_water_step()
 				{
 					if (global.hearts > 0)
 					{
-						global.hearts--;
+						global.hearts = max(global.hearts - 1, 0);
 						sfx_play_global(sfx_hurt);
 						hurt_timer_set(120);
 						state_next_set(player_states.normal, 999);
