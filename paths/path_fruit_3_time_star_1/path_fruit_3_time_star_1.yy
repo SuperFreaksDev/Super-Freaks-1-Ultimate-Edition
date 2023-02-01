@@ -2,9 +2,12 @@
   "resourceType": "GMPath",
   "resourceVersion": "1.0",
   "name": "path_fruit_3_time_star_1",
-  "kind": 0,
   "closed": false,
-  "precision": 4,
+  "kind": 0,
+  "parent": {
+    "name": "Fruit Juice Factory",
+    "path": "folders/Rooms/Levels/Normal World/Fruit Juice Factory.yy",
+  },
   "points": [
     {"speed":100.0,"x":7552.0,"y":704.0,},
     {"speed":100.0,"x":7760.0,"y":832.0,},
@@ -12,8 +15,5 @@
     {"speed":100.0,"x":8272.0,"y":832.0,},
     {"speed":100.0,"x":8480.0,"y":720.0,},
   ],
-  "parent": {
-    "name": "Fruit Juice Factory",
-    "path": "folders/Rooms/Levels/Normal World/Fruit Juice Factory.yy",
-  },
+  "precision": 4,
 }

@@ -1,25 +1,25 @@
-/// @function array_contains
-/// @description Returns if an array contains a specific value
-/// @param {array} _array
-/// @param _value
-function array_contains(_array, _value)
-{
-	var _pos;
-	var _array_length = array_length(_array);
+///// @function array_contains
+///// @description Returns if an array contains a specific value
+///// @param {array} _array
+///// @param _value
+//function array_contains(_array, _value)
+//{
+//	var _pos;
+//	var _array_length = array_length(_array);
 	
-	gml_pragma("forceinline");
+//	gml_pragma("forceinline");
 	
-	if (_array_length == 0)
-		exit;
+//	if (_array_length == 0)
+//		exit;
 	
-	for (_pos = 0; _pos < _array_length; ++_pos)
-	{
-		if (_array[_pos] == _value)
-			return true;
-	}
+//	for (_pos = 0; _pos < _array_length; ++_pos)
+//	{
+//		if (_array[_pos] == _value)
+//			return true;
+//	}
 	
-	return false;
-}
+//	return false;
+//}
 
 /// @function array_contains_object
 /// @description Returns if an array contains a specific object_index

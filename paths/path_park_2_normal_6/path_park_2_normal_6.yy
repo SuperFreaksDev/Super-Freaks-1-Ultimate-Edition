@@ -2,17 +2,17 @@
   "resourceType": "GMPath",
   "resourceVersion": "1.0",
   "name": "path_park_2_normal_6",
-  "kind": 1,
   "closed": true,
-  "precision": 4,
+  "kind": 1,
+  "parent": {
+    "name": "Playful Park",
+    "path": "folders/Rooms/Levels/Crazy World/Playful Park.yy",
+  },
   "points": [
     {"speed":100.0,"x":3424.0,"y":679.0,},
     {"speed":100.0,"x":3584.0,"y":519.0,},
     {"speed":100.0,"x":3744.0,"y":679.0,},
     {"speed":100.0,"x":3584.0,"y":839.0,},
   ],
-  "parent": {
-    "name": "Playful Park",
-    "path": "folders/Rooms/Levels/Crazy World/Playful Park.yy",
-  },
+  "precision": 4,
 }

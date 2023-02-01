@@ -2,9 +2,12 @@
   "resourceType": "GMPath",
   "resourceVersion": "1.0",
   "name": "path_ship_2_time_star_1",
-  "kind": 0,
   "closed": false,
-  "precision": 4,
+  "kind": 0,
+  "parent": {
+    "name": "Shipwreck Poopdeck",
+    "path": "folders/Rooms/Levels/Ludicrous World/Shipwreck Poopdeck.yy",
+  },
   "points": [
     {"speed":100.0,"x":6016.0,"y":656.0,},
     {"speed":100.0,"x":6128.0,"y":864.0,},
@@ -13,8 +16,5 @@
     {"speed":100.0,"x":6944.0,"y":880.0,},
     {"speed":100.0,"x":7280.0,"y":736.0,},
   ],
-  "parent": {
-    "name": "Shipwreck Poopdeck",
-    "path": "folders/Rooms/Levels/Ludicrous World/Shipwreck Poopdeck.yy",
-  },
+  "precision": 4,
 }

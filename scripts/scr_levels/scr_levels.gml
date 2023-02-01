@@ -610,7 +610,7 @@ function level_beat()
 			if (global.level_demo >= array_length(global.current_level_list))
 			{
 				global.level_demo = 0;
-				array_randomize(global.current_level_list);
+				array_shuffle(global.current_level_list);
 			}
 			global.level_id = global.current_level_list[global.level_demo];
 			spawn_point_set(level_room_get(global.level_id));

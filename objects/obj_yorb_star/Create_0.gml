@@ -15,5 +15,5 @@ animate_speed = 0.125;
 flashlight_radius = 48;
 depth = 4;
 
-if (global.checkpoint_death_count < CHECKPOINT_DEATH_MAX || checkpoint_id != checkpoint_id_get() || (global.game_mode != game_modes.normal && global.game_mode != game_modes.free_play))
+if (hearts_maximum_get() >= 10 || global.checkpoint_death_count < CHECKPOINT_DEATH_MAX || checkpoint_id != checkpoint_id_get() || (global.game_mode != game_modes.normal && global.game_mode != game_modes.free_play))
 	instance_destroy();

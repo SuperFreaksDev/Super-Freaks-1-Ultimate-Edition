@@ -29,7 +29,6 @@ hitbox.active = hitbox_active.inactive;
 clone_amount = 0;
 switch (global.difficulty)
 {
-	case difficulty_levels.very_easy:
 	case difficulty_levels.easy:
 		clone_amount = 2;
 		break;
@@ -37,8 +36,7 @@ switch (global.difficulty)
 		clone_amount = 3;
 		break;
 	case difficulty_levels.hard:
-	case difficulty_levels.stupid:
-		clone_amount = 4;
+		clone_amount = 5;
 		break;
 }
 

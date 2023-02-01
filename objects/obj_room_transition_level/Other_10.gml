@@ -43,12 +43,12 @@ switch (state)
 					global.score++;
 					break;
 				case game_modes.speedrun:
-					global.hearts = 0;
+					global.hearts = hearts_minimum_get();
 					global.heart_meter = 0;
 					game_timer_pause(false);
 					break;
 				default:
-					global.hearts = 0;
+					global.hearts = hearts_minimum_get();
 					global.heart_meter = 0;
 					game_timer_reset();
 					game_timer_pause(false);

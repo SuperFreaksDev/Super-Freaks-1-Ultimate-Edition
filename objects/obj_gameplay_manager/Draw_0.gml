@@ -100,18 +100,14 @@ var _offset = 0;
 				}
 			#endregion
 			#region Draw Hearts
-				draw_set_halign(fa_center);
-				draw_set_valign(fa_middle);
-			    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + screen_height_get() - 32 + yorb_effect);
-			    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + screen_height_get() - (global.heart_meter * 0.32) + yorb_effect);
-				switch (global.game_mode)
+				if (hearts_maximum_get() > 0)
 				{
-					case game_modes.randomizer:
-						draw_text(_view_x1 + 20, _view_y1 + screen_height_get() - 16 + yorb_effect, string(global.hearts) + "/4");
-						break;
-					default:
-						draw_text(_view_x1 + 16, _view_y1 + screen_height_get() - 16 + yorb_effect, string(global.hearts));
-						break;
+					draw_set_font(global.font_12);
+					draw_set_halign(fa_center);
+					draw_set_valign(fa_middle);
+				    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + screen_height_get() - 32 + yorb_effect);
+				    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + screen_height_get() - (global.heart_meter * 0.32) + yorb_effect);
+					draw_text(_view_x1 + 16, _view_y1 + screen_height_get() - 16 + yorb_effect, string(global.hearts));
 				}
 			#endregion
 			#region Draw Trophies
@@ -131,13 +127,14 @@ var _offset = 0;
 			#region Draw Score/Game Timer
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_bottom);
+				draw_set_font(global.font_12);
 				switch (global.game_mode)
 				{
 					case game_modes.randomizer:
-						draw_text(_view_x1 + 32, _view_y1 + screen_height_get(), "Level " + string(global.score));
+						draw_text(_view_x1 + 48, _view_y1 + screen_height_get(), "Level " + string(global.score));
 						break;
 					default:
-						game_timer_draw(_view_x1 + 32, _view_y1 + screen_height_get());
+						game_timer_draw(_view_x1 + 48, _view_y1 + screen_height_get());
 				}
 			#endregion
 			draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);

@@ -59,7 +59,6 @@ function zones_fill()
 		//show_debug_message(difficulty);
 		switch (global.difficulty)
 		{
-			case difficulty_levels.very_easy:
 			case difficulty_levels.easy:
 				if (array_contains(difficulty, "Easy"))
 					_add_to_level = true;
@@ -69,7 +68,6 @@ function zones_fill()
 					_add_to_level = true;
 				break;
 			case difficulty_levels.hard:
-			case difficulty_levels.stupid:
 				if (array_contains(difficulty, "Hard"))
 					_add_to_level = true;
 				break;

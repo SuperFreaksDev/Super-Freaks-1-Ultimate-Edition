@@ -58,7 +58,6 @@ shockwave_frequency = 0;
 
 switch (global.difficulty)
 {
-	case difficulty_levels.very_easy:
 	case difficulty_levels.easy:
 		shockwave_frequency = 128;
 		break;
@@ -66,7 +65,6 @@ switch (global.difficulty)
 		shockwave_frequency = 96;
 		break;
 	case difficulty_levels.hard:
-	case difficulty_levels.stupid:
 		shockwave_frequency = 64;
 		break;
 }

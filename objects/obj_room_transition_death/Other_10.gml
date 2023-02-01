@@ -16,8 +16,7 @@ switch (state)
 			global.checkpoint_death_count++;
 			global.checkpoint[spawn_point_data.go_to_checkpoint] = true;
 			room_destination_set(checkpoint_room_get());
-			with (obj_player)
-				invincible = false;
+			global.hearts = hearts_minimum_get();
 			frame = 0;
 		}
 		image_alpha = 1 - (frame / 10);

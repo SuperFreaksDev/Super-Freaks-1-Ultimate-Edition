@@ -17,6 +17,12 @@ enum game_modes
 	boss_rush,
 }
 
+enum story_modes
+{
+	super_freaks = 0,
+	kranion,
+}
+
 enum speedrun_modes
 {
 	normal = 0,
@@ -54,9 +60,13 @@ function gameplay_init()
 	water_init();
 	zones_init();
 	
+	global.story_mode = story_modes.super_freaks;
+	
 	global.boss_phase = 0;
+	
 	global.redblueplatformswap = false;
 	global.redblueplatformtimer = 0;
+	
 	global.lightbulb_timer = 0;
 }
 
@@ -126,6 +136,29 @@ function game_mode_name_get()
 			break;
 		case game_modes.boss_rush:
 			_string = "Boss Rush";
+			break;
+		default:
+			_string = "N/A";
+			break;
+	}
+	
+	return _string;
+	
+	gml_pragma("forceinline");
+}
+
+/// @function story_mode_name_get
+function story_mode_name_get()
+{
+	var _string = "";
+	
+	switch (global.story_mode)
+	{
+		case story_modes.super_freaks:
+			_string = "Super Freaks";
+			break;
+		case story_modes.kranion:
+			_string = "Kranion";
 			break;
 		default:
 			_string = "N/A";

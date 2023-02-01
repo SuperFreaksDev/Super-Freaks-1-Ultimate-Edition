@@ -91,19 +91,15 @@ function screen_set()
 	var _window_width;
 	var _window_height;
 	var _framerate = global.framerate_list[global.visuals_settings[visuals_data.frame_rate]];
+	var _display_width = display_get_width();
+	var _display_height = display_get_height();
 		
-	display_reset(8, global.visuals_settings[visuals_data.vsync]);
+	//display_reset(0, global.visuals_settings[visuals_data.vsync]);
 	
 	_width = _screen_width;
 	_height = _screen_height;
 	_width_upscale = _width * _upscale_internal;
 	_height_upscale = _height * _upscale_internal;
-	
-	//if (_screen_width > SCREEN_WIDTH_MIN)
-	//{
-	//	_width++;
-	//	_width_upscale++;
-	//}
 	
 	switch (_fullscreen)
 	{
@@ -115,7 +111,7 @@ function screen_set()
 			_window_width = _width * _upscale;
 			_window_height = _height * _upscale;
 			window_set_fullscreen(false);
-			window_set_size(_window_width, _window_height);
+			window_set_rectangle((_display_width / 2) - (_window_width / 2), (_display_height / 2) - (_window_height / 2), _window_width, _window_height);
 			break;
 	}
 		
