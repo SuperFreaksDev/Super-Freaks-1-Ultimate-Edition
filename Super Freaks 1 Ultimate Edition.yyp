@@ -715,6 +715,7 @@
     {"id":{"name":"path_park_2_normal_6","path":"paths/path_park_2_normal_6/path_park_2_normal_6.yy",},"order":7,},
     {"id":{"name":"spr_boss_cinge_shoot_prepare","path":"sprites/spr_boss_cinge_shoot_prepare/spr_boss_cinge_shoot_prepare.yy",},"order":1,},
     {"id":{"name":"obj_room_transition_level","path":"objects/obj_room_transition_level/obj_room_transition_level.yy",},"order":4,},
+    {"id":{"name":"obj_crackerball_giant","path":"objects/obj_crackerball_giant/obj_crackerball_giant.yy",},"order":0,},
     {"id":{"name":"tileset_canyon","path":"tilesets/tileset_canyon/tileset_canyon.yy",},"order":1,},
     {"id":{"name":"spr_megaklaw_stuck","path":"sprites/spr_megaklaw_stuck/spr_megaklaw_stuck.yy",},"order":3,},
     {"id":{"name":"spr_player_death_geyzer","path":"sprites/spr_player_death_geyzer/spr_player_death_geyzer.yy",},"order":8,},
