@@ -1,6 +1,6 @@
 /// @description Step
 
-var _fireball, _target, _angle;
+var _fireball, _target, _angle, _fireball_speed = shoot_speed;
 
 //enum boss_cinge_states
 //{
@@ -35,9 +35,9 @@ switch (state)
 			hitbox.shape_x2 = 40;
 			hitbox.shape_y2 = 80;
 		}
-		timer = min(timer + 1, 96);
+		timer = min(timer + 1, 80);
 		
-		if (timer == 96)
+		if (timer == 80)
 			state_next_set(boss_cinge_states.shoot);
 		break;
 	case boss_cinge_states.shoot:
@@ -54,9 +54,9 @@ switch (state)
 		switch (sprite_index)
 		{
 			case spr_boss_cinge_shoot_prepare:
-				timer = min(timer + 1, 32);
+				timer = min(timer + 1, shoot_timer);
 				
-				if (timer == 32 && floor(image_index + animate_speed) == 3)
+				if (timer == shoot_timer && floor(image_index + animate_speed) == 3)
 				{
 					_target = player_nearest_alive();
 					if (!is_undefined(_target))
@@ -64,7 +64,7 @@ switch (state)
 						_angle = point_direction(x + (76 * face), y + 48, _target.x, _target.y);
 						_fireball = instance_create_layer(x + (76 * face), y + 48, "layer_instances", obj_enemy_fireball, 
 						{
-							speed: 4,
+							speed: _fireball_speed,
 							direction: _angle,
 							zone_index: -3
 						});
@@ -73,13 +73,13 @@ switch (state)
 						{
 							_fireball = instance_create_layer(x + (76 * face), y + 48, "layer_instances", obj_enemy_fireball, 
 							{
-								speed: 4,
+								speed: _fireball_speed,
 								direction: _angle + 5,
 								zone_index: -3
 							});
 							_fireball = instance_create_layer(x + (76 * face), y + 48, "layer_instances", obj_enemy_fireball, 
 							{
-								speed: 4,
+								speed: _fireball_speed,
 								direction: _angle - 5,
 								zone_index: -3
 							});
@@ -94,16 +94,16 @@ switch (state)
 			case spr_boss_cinge_shoot:
 				if (floor(image_index + animate_speed) == 3)
 				{
-					if (counter >= 4)
+					if (counter >= counter_max)
 						sprite_index = spr_boss_cinge_stand;
 					else
 						sprite_index = spr_boss_cinge_shoot_prepare;
 				}
 				break;
 			case spr_boss_cinge_stand:
-				timer = min(timer + 1, 96);
+				timer = min(timer + 1, 80);
 			
-				if (timer == 96 && !instance_exists(obj_enemy_fireball))
+				if (timer == 80 && !instance_exists(obj_enemy_fireball))
 					state_next_set(boss_cinge_states.fireball);
 				break;
 		}
