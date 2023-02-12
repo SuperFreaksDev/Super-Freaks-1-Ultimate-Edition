@@ -10,7 +10,8 @@ function player_state_inactive()
 		rubber_band_can_slingshot = false;
 	}
 	
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		state_next_set(player_states.drop_in, 999999999);
 	}

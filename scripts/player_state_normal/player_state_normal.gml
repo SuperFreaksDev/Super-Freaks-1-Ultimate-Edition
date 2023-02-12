@@ -37,22 +37,27 @@ function player_state_normal()
 		default:
 			if (lock_controls_horizontal == 0)
 			{
-				if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+				//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+				if (input_check("left", player_number))
 					_move_h -= 1;
-				if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+				//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+				if (input_check("right", player_number))
 					_move_h += 1;
 			}
 			break;
 	}
 	if (lock_controls_vertical == 0)
 	{
-		if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+		//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+		if (input_check("up", player_number))
 			_move_v -= 1;
-		if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+		//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+		if (input_check("down", player_number))
 			_move_v += 1;
 	}
 			
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("jump", player_number))
 		jump_buffer = JUMP_BUFFER_MAX;
 	jump_buffer = max(jump_buffer - 1, 0);
 
@@ -60,7 +65,8 @@ function player_state_normal()
 	{
 		if (lock_gravity <= 0 && speed_v < speed_fall)
 		{
-			if (button_jump != controls_action_states.hold) && (speed_v < -1)
+			//if (button_jump != controls_action_states.hold) && (speed_v < -1)
+			if (!input_check("jump", player_number) && speed_v < -1)
 				speed_v += min(speed_grv * 2, _speed_fall - speed_v);
 			else
 				speed_v += min(speed_grv, _speed_fall - speed_v);

@@ -37,9 +37,11 @@ function player_state_climb_pole()
 		
 	if (!is_undefined(instance_attach))
 	{
-		if (button_left == controls_action_states.press)
+		//if (button_left == controls_action_states.press)
+		if (input_check_pressed("left", player_number))
 			_move_h -= 1;
-		if (button_right == controls_action_states.press)
+		//if (button_right == controls_action_states.press)
+		if (input_check_pressed("right", player_number))
 			_move_h += 1;
 		
 		if (instance_attach.rotate_speed == 0)
@@ -103,7 +105,8 @@ function player_state_climb_pole()
 		
 	player_pause_game();
 		
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("jump", player_number))
 	{
 		jump_buffer = JUMP_BUFFER_MAX;
 		state_next_set(player_states.normal, 5);

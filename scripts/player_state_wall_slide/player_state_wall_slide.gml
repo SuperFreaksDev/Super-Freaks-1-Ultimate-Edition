@@ -28,13 +28,16 @@ function player_state_wall_slide()
 	
 	if (lock_controls_horizontal == 0)
 	{
-		if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+		//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+		if (input_check("left", player_number))
 			_move_h -= 1;
-		if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+		//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+		if (input_check("right", player_number))
 			_move_h += 1;
 	}
 			
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("jump", player_number))
 		jump_buffer = JUMP_BUFFER_MAX;
 	jump_buffer = max(jump_buffer - 1, 0);
 

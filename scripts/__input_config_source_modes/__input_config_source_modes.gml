@@ -5,7 +5,7 @@
 
 //Verb to use to allow a player to cancel the INPUT_SOURCE_MODE.JOIN source mode (multiplayer source assignment)
 //If you want to prevent a player from leaving the session then set this macro to <undefined>
-#macro INPUT_MULTIPLAYER_LEAVE_VERB  "cancel"
+#macro INPUT_MULTIPLAYER_LEAVE_VERB  "drop_out"
 
 //The function to call when a player tries to abort the INPUT_SOURCE_MODE.JOIN source mode (multiplayer source assignment)
 //This macro must be set to a function or script for INPUT_SOURCE_MODE.JOIN to work

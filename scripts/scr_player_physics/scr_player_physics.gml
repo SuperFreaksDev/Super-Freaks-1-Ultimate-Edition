@@ -103,7 +103,7 @@ function player_rubberband_physics()
     {
 		ground_on = false;
 			
-	    if (button_down == controls_action_states.hold && rubber_band_can_slingshot == true)
+	    if (input_check("down", player_number) && rubber_band_can_slingshot == true)
 			speed_v += 0.35 / (96 / distance_to_point(x, _average_y));
 	    else
 			speed_v -= 2 / (96 / distance_to_point(x, _average_y));

@@ -27,14 +27,18 @@ function player_state_climb()
 	hurt_timer_step();
 	player_water_step();
 		
-	if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	if (input_check("left", player_number))
 		_move_h -= 1;
-	if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	if (input_check("right", player_number))
 		_move_h += 1;
 			
-	if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+	//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+	if (input_check("up", player_number))
 		_move_v -= 1;
-	if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+	//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+	if (input_check("down", player_number))
 		_move_v += 1;
 	
 	switch (_move_h)
@@ -70,7 +74,8 @@ function player_state_climb()
 	
 	player_pause_game();
 		
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("jump", player_number))
 	{
 		jump_buffer = JUMP_BUFFER_MAX;
 		state_next_set(player_states.normal, 5);

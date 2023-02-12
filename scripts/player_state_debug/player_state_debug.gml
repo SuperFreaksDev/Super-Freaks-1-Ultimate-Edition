@@ -9,15 +9,18 @@ function player_state_debug()
 		rubber_band_can_slingshot = false;
 	}
 		
-	if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	if (input_check("left", player_number))
 		x -= 3;
-	if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	if (input_check("right", player_number))
 		x += 3;
-	if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+	//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+	if (input_check("up", player_number))
 		y -= 3;
-	if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+	//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+	if (input_check("down", player_number))
 		y += 3;
 		
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
-		game_pause(player_number);
+	player_pause_game();
 }

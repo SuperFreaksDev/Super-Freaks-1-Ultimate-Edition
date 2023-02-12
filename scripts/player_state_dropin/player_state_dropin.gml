@@ -11,7 +11,8 @@ function player_state_dropin()
 		sfx_play_global(sfx_ding);
 	}
 	
-	if (button_left == controls_action_states.press)
+	//if (button_left == controls_action_states.press)
+	if (input_check_pressed("left", player_number))
 	{
 		global.player_list[player_number][player_data.character_index]++;
 					
@@ -28,7 +29,8 @@ function player_state_dropin()
 		
 		character_index = global.player_list[player_number][player_data.character_index];
 	}
-	else if (button_right == controls_action_states.press)
+	//else if (button_right == controls_action_states.press)
+	else if (input_check_pressed("right", player_number))
 	{
 		global.player_list[player_number][player_data.character_index]--;
 					
@@ -44,7 +46,8 @@ function player_state_dropin()
 		
 		character_index = global.player_list[player_number][player_data.character_index];
 	}
-	else if (button_jump == controls_action_states.press)
+	//else if (button_jump == controls_action_states.press)
+	else if (input_check_pressed("jump", player_number))
 	{
 		state_next_set(player_states.bubble, 999999999);
 		global.player_list[player_number][player_data.active] = true;

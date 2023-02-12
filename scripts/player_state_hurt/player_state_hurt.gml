@@ -20,7 +20,8 @@ function player_state_hurt()
 	
 	player_water_step();
 	
-	if (underwater || button_jump == controls_action_states.press)
+	//if (underwater || button_jump == controls_action_states.press)
+	if (underwater || input_check_pressed("jump", player_number))
 		state_next_set(player_states.normal);
 		
 	player_pause_game();

@@ -1,7 +1,8 @@
 /// @function player_pause_game
 function player_pause_game()
 {
-	if (!room_transition_active_get() && button_pause == controls_action_states.press)
+	//if (!room_transition_active_get() && button_pause == controls_action_states.press)
+	if (!room_transition_active_get() && input_check_pressed("start", player_number))
 		game_pause(player_number);
 		
 	gml_pragma("forceinline");
@@ -10,7 +11,8 @@ function player_pause_game()
 /// @function player_drop_out
 function player_drop_out()
 {
-	if (player_number > 0 && button_drop_out == controls_action_states.press)
+	//if (player_number > 0 && button_drop_out == controls_action_states.press)
+	if (player_number > 0 && input_check_pressed("drop_out", player_number))
 	{
 		state_next_set(player_states.inactive, 999999999999);
 		global.player_list[player_number][player_data.active] = false;
@@ -47,7 +49,8 @@ function player_drop_out_force(_player_number = 0)
 /// @function player_enter_bubble
 function player_enter_bubble()
 {
-	if (players_exist() && button_bubble == controls_action_states.press)
+	//if (players_exist() && button_bubble == controls_action_states.press)
+	if (players_exist() && input_check_pressed("bubble", player_number))
 		state_next_set(player_states.bubble, 999999999999);
 	
 	gml_pragma("forceinline");
@@ -56,12 +59,13 @@ function player_enter_bubble()
 /// @function player_rubberband_activate
 function player_rubberband_activate()
 {
-	if (button_rubberband == controls_action_states.press)
+	//if (button_rubberband == controls_action_states.press)
+	if (input_check_pressed("rubberband", player_number))
 	{
 		sfx_play_global(sfx_elastiband);
 		rubber_band = !rubber_band;
 	}
-	if (button_rubberband_color == controls_action_states.press)
+	if (input_check_pressed("rubberband_color", player_number))
 	{
 		sfx_play_global(sfx_elastiband);
 		rubber_band_color = !rubber_band_color;

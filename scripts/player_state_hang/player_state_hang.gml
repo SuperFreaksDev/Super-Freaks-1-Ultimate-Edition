@@ -29,9 +29,11 @@ function player_state_hang()
 	speed_h = 0;
 	speed_v = 0;
 		
-	if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+	if (input_check("left", player_number))
 		_move_h -= 1;
-	if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+	if (input_check("right", player_number))
 		_move_h += 1;
 	
 	switch (_move_h)
@@ -48,9 +50,11 @@ function player_state_hang()
 		
 	player_pause_game();
 		
-	if (button_jump == controls_action_states.press)
+	//if (button_jump == controls_action_states.press)
+	if (input_check_pressed("jump", player_number))
 	{
-		if (button_down == controls_action_states.press || button_down == controls_action_states.hold)
+		//if (button_down == controls_action_states.press || button_down == controls_action_states.hold)
+		if (input_check("down", player_number))
 			speed_v = 6;
 		else
 		{

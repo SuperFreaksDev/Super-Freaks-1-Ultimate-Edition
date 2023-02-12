@@ -1,7 +1,8 @@
 //Defines which verbs should collide with which other verbs when using input_binding_get_collisions()
 //and input_binding_set_safe(). A verb that is not present in a group will collide with all other verbs
 INPUT_VERB_GROUPS = {
-    //Fill me up!
+	gameplay: ["jump", "bubble", "rubberband", "rubberband_color"],
+    menu: ["confirm", "deny"],
 };
 
 //Default time before input_check_repeat() returns <true>
