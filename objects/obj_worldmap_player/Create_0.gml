@@ -14,9 +14,4 @@ button_deny = controls_action_states.NA;
 level_id = -1;
 
 state_next_set(0);
-hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,,-16, -16, 16, 16);
-with (hitbox)
-{
-	hitbox_bitmask_set(true, false, false, false, false);
-	hitbox_bitmask_to_check_set(,,,,true);
-}
+hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, -16, -16, 16, 16);

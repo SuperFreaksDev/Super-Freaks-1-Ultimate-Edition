@@ -5,8 +5,6 @@ var _cutscene_room;
 // Inherit the parent event
 event_inherited();
 
-controls_step(0);
-
 switch (state)
 {
 	case 0:
@@ -52,7 +50,7 @@ switch (state)
 		break;
 	case 2:
 		frame = 0;
-		if (controls_action_state_get(controls_actions.jump, 0) == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 			state_next_set(3);
 		break;
 	case 3:

@@ -10,7 +10,6 @@ state_next_set(0);
 text = "";
 dialog_animate = 0;
 dialog_size = 0;
-button_confirm = controls_action_states.NA;
 button_prompt = false;
 
 unlock = 0;

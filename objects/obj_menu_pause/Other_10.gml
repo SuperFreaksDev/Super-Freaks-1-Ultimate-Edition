@@ -15,6 +15,7 @@ switch (state)
 			sfx_play_global(sfx_ding);
 			music_pause();
 			visible = true;
+			input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
 		}
 		if (room_transition_active_get())
 			exit;
@@ -37,6 +38,7 @@ switch (state)
 			game_pause_set(false);
 			audio_resume_all();
 			music_resume();
+			input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
 		}
 		break;
 	case pause_menu_states.active:
@@ -63,7 +65,7 @@ switch (state)
 			{
 				menu_option_add(0, 3, "Kick Players", function()
 				{
-					if (button_confirm == controls_action_states.press)
+					if (input_check_pressed("confirm", player_number))
 					{
 						if (options[0][3][menu_option_data.unlocked] == true)
 						{
@@ -79,7 +81,7 @@ switch (state)
 			{
 				menu_option_add(0, 3, "Drop Out", function()
 				{
-					if (button_confirm == controls_action_states.press)
+					if (input_check_pressed("confirm", player_number))
 					{
 						if (options[0][3][menu_option_data.unlocked] == true)
 						{
@@ -94,17 +96,17 @@ switch (state)
 		if (room_transition_active_get())
 			exit;
 		menu_step(player_number);
-		if (button_up == controls_action_states.press)
+		if (input_check_pressed("up", player_number))
 		{
 			option -= 1;
 			if (option < 0)
 				option = _options_length - 1;
 		}
-		else if (button_down == controls_action_states.press)
+		else if (input_check_pressed("down", player_number))
 		{
 			option = (option + 1) mod _options_length;
 		}
-		if (button_start == controls_action_states.press || global.player_list[player_number][player_data.active] == false)
+		if (input_check_pressed("start", player_number) || global.player_list[player_number][player_data.active] == false)
 			state_next_set(pause_menu_states.closing);
 		break;
 	default:

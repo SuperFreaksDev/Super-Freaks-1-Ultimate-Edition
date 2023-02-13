@@ -17,13 +17,13 @@ if (!room_transition_active_get() && !instance_exists(obj_character_select))
 	menu_step();
 	if (!option_selected)
 	{
-		if (button_up == controls_action_states.press)
+		if (input_check_pressed("up", 0))
 		{
 			option -= 1;
 			if (option < 0)
 				option = _options_length - 1;
 		}
-		else if (button_down == controls_action_states.press)
+		else if (input_check_pressed("down", 0))
 		{
 			option = (option + 1) mod _options_length;
 		}

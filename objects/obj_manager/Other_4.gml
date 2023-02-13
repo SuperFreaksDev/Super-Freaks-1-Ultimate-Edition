@@ -19,6 +19,7 @@ hashmap_collision_create();
 switch (global.game_state)
 {
 	case game_states.gameplay:
+		input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
 		if (global.checkpoint[spawn_point_data.go_to_checkpoint] == true)
 		{
 			if (instance_exists(obj_start_pos))
@@ -76,6 +77,7 @@ switch (global.game_state)
 		}
 		break;
 	case game_states.worldmap:
+		input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
 		spawn_point_set(undefined);
 		checkpoint_set(undefined);
 		players_end();
@@ -89,6 +91,7 @@ switch (global.game_state)
 		}
 		break;
 	default:
+		input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
 		spawn_point_set(undefined);
 		checkpoint_set(undefined);
 		if (instance_exists(obj_start_pos))

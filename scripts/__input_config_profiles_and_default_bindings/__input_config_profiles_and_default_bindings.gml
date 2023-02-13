@@ -42,7 +42,7 @@ INPUT_DEFAULT_PROFILES = {
         bubble:  input_binding_gamepad_button(gp_face2),
         rubberband: input_binding_gamepad_button(gp_shoulderlb),
 		rubberband_color: input_binding_gamepad_button(gp_shoulderrb),
-		drop_out: input_binding_gamepad_button(gp_start),
+		drop_out: input_binding_gamepad_button(gp_select),
         
         start: input_binding_gamepad_button(gp_start),
         confirm:  input_binding_gamepad_button(gp_face1),

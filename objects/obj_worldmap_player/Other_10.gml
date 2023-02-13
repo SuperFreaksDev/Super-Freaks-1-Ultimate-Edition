@@ -21,14 +21,18 @@ switch (state)
 	case 1:
 		if (!room_transition_active_get() && !instance_exists(obj_character_select))
 		{
-			if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+			//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+			if (input_check("left", 0))
 				_move_h -= 1;
-			if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+			//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+			if (input_check("right", 0))
 				_move_h += 1;
 			
-			if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+			//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+			if (input_check("up", 0))
 				_move_v -= 1;
-			if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+			//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+			if (input_check("down", 0))
 				_move_v += 1;
 		}
 			

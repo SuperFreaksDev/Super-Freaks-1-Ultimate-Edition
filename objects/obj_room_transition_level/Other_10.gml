@@ -16,25 +16,24 @@ switch (state)
 			frame = 0;
 			animate = 1;
 			music_stop();
+			draw_texture_flush();
 		}
 		if (frame == 20)
-			state_next_set(2);
-		break;
-	case 2:
-		if (state_begin)
 		{
 			spawn_point_set(level_room_get(), undefined, undefined);
 			checkpoint_set(level_room_get(),,, -1);
 			room_destination_set(spawn_point_room_get());
+			state_next_set(2);
+		}
+		break;
+	case 2:
+		if (state_begin)
+		{
 			trophies_init(level_trophies_get(), level_trophy_count_max_get());
 			audio_stop_all();
 			global.boss_phase = 0;
 			global.checkpoint_death_count = 0;
 			frame = 0;
-			
-			draw_texture_flush();
-			with (obj_player)
-				invincible = false;
 			
 			switch (global.game_mode)
 			{

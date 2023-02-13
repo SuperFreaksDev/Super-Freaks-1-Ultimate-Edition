@@ -28,14 +28,14 @@ state_machine_init();
 
 menu_option_add(0, 0, "Continue", function()
 {
-	if (button_confirm == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		state_next_set(pause_menu_states.closing);
 	}
 });
 menu_option_add(0, 1, "Restart Level", function()
 {
-	if (button_confirm == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		if (options[0][1][menu_option_data.unlocked] == true)
 			instance_create(obj_room_transition_level);
@@ -45,7 +45,7 @@ menu_option_add(0, 1, "Restart Level", function()
 });
 menu_option_add(0, 2, "Restart from Checkpoint", function()
 {
-	if (button_confirm == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		if (options[0][2][menu_option_data.unlocked] == true)
 			instance_create(obj_room_transition_death);
@@ -56,7 +56,7 @@ menu_option_add(0, 2, "Restart from Checkpoint", function()
 
 menu_option_add(0, 3, "Kick Players", function()
 {
-	if (button_confirm == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		if (options[0][3][menu_option_data.unlocked] == true)
 		{
@@ -70,7 +70,7 @@ menu_option_add(0, 3, "Kick Players", function()
 
 menu_option_add(0, 4, "Exit Level", function()
 {
-	if (button_confirm == controls_action_states.press)
+	if (input_check_pressed("confirm", player_number))
 	{
 		spawn_point_set(rm_menu_main);
 		instance_create(obj_room_transition_return);
@@ -85,7 +85,7 @@ for (_i = 1; _i <= player_numbers.count; ++_i)
 	{
 		var _player_num = option + 1;
 		
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", player_number))
 		{
 			if (global.player_list[_player_num][player_data.active] == true)
 			{
@@ -95,7 +95,7 @@ for (_i = 1; _i <= player_numbers.count; ++_i)
 			else
 				sfx_play_global(sfx_honk);
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", player_number))
 		{
 			page = menu_pause_pages.main;
 			option = 3;

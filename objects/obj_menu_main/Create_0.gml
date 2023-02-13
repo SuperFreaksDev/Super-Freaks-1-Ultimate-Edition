@@ -41,7 +41,7 @@ timer = 0;
 	menu_option_add(_page, 0, "Adventure", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			if (!level_complete_get(level_ids.level_stadium))
 			{
@@ -59,7 +59,7 @@ timer = 0;
 	menu_option_add(_page, 1, "Challenge", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.challenge;
 			option = 0;
@@ -68,7 +68,7 @@ timer = 0;
 	menu_option_add(_page, 2, "Museum", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			if (options[main_menu_pages.main][2][menu_option_data.unlocked])
 			{
@@ -82,7 +82,7 @@ timer = 0;
 	menu_option_add(_page, 3, "Options", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.options;
 			option = 0;
@@ -91,7 +91,7 @@ timer = 0;
 	menu_option_add(_page, 4, "Exit", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 			game_end();
 	});
 #endregion
@@ -107,13 +107,13 @@ timer = 0;
 		
 		main_text = "Demo Levels";
 		
-		if (button_left == controls_action_states.press)
+		if (input_check_pressed("left", 0))
 		{
 			global.level_demo--;
 			if (global.level_demo < 0)
 				global.level_demo = _level_max - 1;
 		}
-		else if (button_right == controls_action_states.press)
+		else if (input_check_pressed("right", 0))
 		{
 			global.level_demo = (global.level_demo + 1) mod _level_max;
 		}
@@ -126,14 +126,14 @@ timer = 0;
 		options[main_menu_pages.demo][0][menu_option_data.text] = "<-- Level " + string(_index) + " -->"
 		+ "\n" + string(_name_world) + "\n" + string(_name_level);
 		
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			global.game_mode = game_modes.free_play;
 			global.level_id = _index;
 			spawn_point_set(_room);
 			instance_create(obj_character_select);
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 0;
@@ -147,7 +147,7 @@ timer = 0;
 	{
 		main_text = "Challenge Mode";
 		bottom_text = "Replay any level you've already beaten";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			if (options[main_menu_pages.challenge][0][menu_option_data.unlocked])
 			{
@@ -158,7 +158,7 @@ timer = 0;
 			else
 				sfx_play_global(sfx_honk);
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 1;
@@ -167,7 +167,7 @@ timer = 0;
 	menu_option_add(_page, 1, "Randomizer", function()
 	{
 		main_text = "Challenge Mode";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			if (options[main_menu_pages.challenge][1][menu_option_data.unlocked])
 			{
@@ -177,7 +177,7 @@ timer = 0;
 			else
 				sfx_play_global(sfx_honk);
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 1;
@@ -186,12 +186,12 @@ timer = 0;
 	menu_option_add(_page, 2, "Speedrun", function()
 	{
 		main_text = "Challenge Mode";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.challenge_speedrun;
 			option = 0;
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 1;
@@ -200,7 +200,7 @@ timer = 0;
 	menu_option_add(_page, 3, "Boss Rush", function()
 	{
 		main_text = "Challenge Mode";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			if (options[main_menu_pages.challenge][0][menu_option_data.unlocked])
 			{
@@ -209,7 +209,7 @@ timer = 0;
 			else
 				sfx_play_global(sfx_honk);
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 1;
@@ -230,7 +230,7 @@ timer = 0;
 			if (array_length(_level_list) == 0)
 			{
 				options[main_menu_pages.challenge_freeplay][0][menu_option_data.text] = "Hey, we're under construction.\nWhy don't you come back after\nbeating a level or two?";
-				if (button_deny == controls_action_states.press)
+				if (input_check_pressed("deny", 0))
 				{
 					page = main_menu_pages.challenge;
 					option = 0;
@@ -238,13 +238,13 @@ timer = 0;
 			}
 			else
 			{
-				if (button_left == controls_action_states.press)
+				if (input_check_pressed("left", 0))
 				{
 					global.level_demo--;
 					if (global.level_demo < 0)
 						global.level_demo = _level_max - 1;
 				}
-				else if (button_right == controls_action_states.press)
+				else if (input_check_pressed("right", 0))
 				{
 					global.level_demo = (global.level_demo + 1) mod _level_max;
 				}
@@ -256,14 +256,14 @@ timer = 0;
 		
 				options[main_menu_pages.challenge_freeplay][0][menu_option_data.text] = "<-- " + string(_name_world) + ": " + string(_name_level) + " -->";
 		
-				if (button_confirm == controls_action_states.press)
+				if (input_check_pressed("confirm", 0))
 				{
 					global.game_mode = game_modes.free_play;
 					global.level_id = _index;
 					spawn_point_set(_room);
 					instance_create(obj_character_select);
 				}
-				else if (button_deny == controls_action_states.press)
+				else if (input_check_pressed("deny", 0))
 				{
 					page = main_menu_pages.challenge;
 					option = 0;
@@ -278,7 +278,7 @@ timer = 0;
 		menu_option_add(_page, 0, "Normal Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][0][menu_option_data.unlocked])
 				{
@@ -289,7 +289,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -300,7 +300,7 @@ timer = 0;
 		menu_option_add(_page, 1, "Crazy Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][1][menu_option_data.unlocked])
 				{
@@ -311,7 +311,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -322,7 +322,7 @@ timer = 0;
 		menu_option_add(_page, 2, "Ludicrous Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][2][menu_option_data.unlocked])
 				{
@@ -333,7 +333,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -344,7 +344,7 @@ timer = 0;
 		menu_option_add(_page, 3, "Insane Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][3][menu_option_data.unlocked])
 				{
@@ -355,7 +355,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -366,7 +366,7 @@ timer = 0;
 		menu_option_add(_page, 4, "Freaky Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][4][menu_option_data.unlocked])
 				{
@@ -377,7 +377,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -388,7 +388,7 @@ timer = 0;
 		menu_option_add(_page, 5, "Kranion Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][5][menu_option_data.unlocked])
 				{
@@ -399,7 +399,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -410,7 +410,7 @@ timer = 0;
 		menu_option_add(_page, 6, "Stadium Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][6][menu_option_data.unlocked])
 				{
@@ -421,7 +421,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -432,7 +432,7 @@ timer = 0;
 		menu_option_add(_page, 7, "Adventure Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][7][menu_option_data.unlocked])
 				{
@@ -443,7 +443,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -454,7 +454,7 @@ timer = 0;
 		menu_option_add(_page, 8, "Secret Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][8][menu_option_data.unlocked])
 				{
@@ -465,7 +465,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -476,7 +476,7 @@ timer = 0;
 		menu_option_add(_page, 9, "Ultimate Run", function()
 		{
 			main_text = "Challenge Mode - Speedrun";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				if (options[main_menu_pages.challenge_speedrun][9][menu_option_data.unlocked])
 				{
@@ -487,7 +487,7 @@ timer = 0;
 				else
 					sfx_play_global(sfx_honk);
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.challenge;
 				option = 2;
@@ -503,15 +503,15 @@ timer = 0;
 	{
 		main_text = "Museum";
 		bottom_text = "Read bios on this game's nutty cast of characters!";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				page = main_menu_pages.museum_characters;
 				option = 0;
 			}
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 2;
@@ -521,15 +521,15 @@ timer = 0;
 	{
 		main_text = "Museum";
 		bottom_text = "Grab some popcorn and watch this game's dumb story!";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				page = main_menu_pages.museum_theater;
 				option = 0;
 			}
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 2;
@@ -545,18 +545,18 @@ timer = 0;
 		
 			main_text = "Museum - Character Cards";
 		
-			if (button_left == controls_action_states.press)
+			if (input_check_pressed("left", 0))
 			{
 				character_card_index--;
 				if (character_card_index < 0)
 					character_card_index = _max - 1;
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				character_card_index = (character_card_index + 1) mod _max;
 			}
 		
-			if (button_deny == controls_action_states.press)
+			if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.museum;
 				option = 0;
@@ -574,18 +574,18 @@ timer = 0;
 		
 			main_text = "Museum - Movie Theater";
 		
-			if (button_left == controls_action_states.press)
+			if (input_check_pressed("left", 0))
 			{
 				cutscene_index--;
 				if (cutscene_index < 0)
 					cutscene_index = _max - 1;
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				cutscene_index = (cutscene_index + 1) mod _max;
 			}
 		
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				_index = museum_items[museum_data.cutscenes][cutscene_index];
 				_room = global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.room];
@@ -596,7 +596,7 @@ timer = 0;
 				global.game_mode_subtype = cutscene_index;
 				music_stop();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.museum;
 				option = 1;
@@ -610,12 +610,12 @@ timer = 0;
 	menu_option_add(_page, 0, "Controls", function()
 	{
 		main_text = "Options";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.options_controls;
 			option = 0;
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 3;
@@ -624,12 +624,12 @@ timer = 0;
 	menu_option_add(_page, 1, "Visual", function()
 	{
 		main_text = "Options";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.options_visual;
 			option = 0;
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 3;
@@ -638,12 +638,12 @@ timer = 0;
 	menu_option_add(_page, 2, "Audio", function()
 	{
 		main_text = "Options";
-		if (button_confirm == controls_action_states.press)
+		if (input_check_pressed("confirm", 0))
 		{
 			page = main_menu_pages.options_audio;
 			option = 0;
 		}
-		else if (button_deny == controls_action_states.press)
+		else if (input_check_pressed("deny", 0))
 		{
 			page = main_menu_pages.main;
 			option = 3;
@@ -652,13 +652,13 @@ timer = 0;
 	//menu_option_add(_page, 3, "Other", function()
 	//{
 	//  main_text = "Options";
-	//	if (button_confirm == controls_action_states.press)
+	//	if (input_check_pressed("confirm", 0))
 	//	{
 	//	//	page = main_menu_pages.challenge_freeplay;
 	//	//	index = global.level_id;
 	//	//	option = 0;
 	//	}
-	//	else if (button_deny == controls_action_states.press)
+	//	else if (input_check_pressed("deny", 0))
 	//	{
 	//		page = main_menu_pages.main;
 	//		option = 2;
@@ -670,12 +670,12 @@ timer = 0;
 		menu_option_add(_page, 3, "Debug", function()
 		{
 			main_text = "Options";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				page = main_menu_pages.options_debug;
 				option = 0;
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.main;
 				option = 3;
@@ -745,24 +745,24 @@ timer = 0;
 				}
 				else
 				{
-					if (button_left == controls_action_states.press)
+					if (input_check_pressed("left", 0))
 					{
 						player_number--;
 						if (player_number < 0)
 							player_number = player_numbers.count;
 					}
-					else if (button_right == controls_action_states.press)
+					else if (input_check_pressed("right", 0))
 					{
 						player_number++;
 						if (player_number > player_numbers.count)
 							player_number = 0;
 					}
-					else if (button_confirm == controls_action_states.press)
+					else if (input_check_pressed("confirm", 0))
 					{
 						option_selected = true;
 						timer = 128;
 					}
-					else if (button_deny == controls_action_states.press)
+					else if (input_check_pressed("deny", 0))
 					{
 						page = main_menu_pages.options;
 						option = 0;
@@ -811,24 +811,24 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
 				visual_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_aspectratio--;
 				if (option_aspectratio < 0)
 					option_aspectratio = array_length(global.aspect_ratio_list) - 1;
 				options[main_menu_pages.options_visual][0][menu_option_data.text] = "Aspect Ratio: " + string(global.aspect_ratio_list[option_aspectratio][2]);
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_aspectratio++;
 				if (option_aspectratio >= array_length(global.aspect_ratio_list))
@@ -841,24 +841,24 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
 				visual_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_upscale--;
 				if (option_upscale < 1)
 					option_upscale = SCREEN_UPSCALE_MAX;
 				options[main_menu_pages.options_visual][1][menu_option_data.text] = "Window Upscale Size: " + string(option_upscale) + "x";
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_upscale++;
 				if (option_upscale > SCREEN_UPSCALE_MAX)
@@ -871,24 +871,24 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
 				visual_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_upscale_internal--;
 				if (option_upscale_internal < 1)
 					option_upscale_internal = SCREEN_UPSCALE_MAX;
 				options[main_menu_pages.options_visual][2][menu_option_data.text] = "Internal Upscale Size: " + string(option_upscale_internal) + "x";
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_upscale_internal++;
 				if (option_upscale_internal > SCREEN_UPSCALE_MAX)
@@ -901,11 +901,11 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
@@ -922,24 +922,24 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
 				visual_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_framerate--;
 				if (option_framerate < 0)
 					option_framerate = array_length(global.framerate_list) - 1;
 				options[main_menu_pages.options_visual][4][menu_option_data.text] = "Framerate: " + string(global.framerate_list[option_framerate]);
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_framerate++;
 				if (option_framerate >= array_length(global.framerate_list))
@@ -952,11 +952,11 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
@@ -973,11 +973,11 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
@@ -994,11 +994,11 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
@@ -1015,24 +1015,24 @@ timer = 0;
 		{
 			main_text = "Options - Visual";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				visual_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 1;
 				visual_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_shader--;
 				if (option_shader < 0)
 					option_shader = array_length(global.shaders_list) - 1;
 				options[main_menu_pages.options_visual][8][menu_option_data.text] = "Screen Shader: " + string(global.shaders_list[option_shader][1]);
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_shader++;
 				if (option_shader >= array_length(global.shaders_list))
@@ -1066,22 +1066,22 @@ timer = 0;
 		{
 			main_text = "Options - Audio";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				audio_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 2;
 				audio_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_volume_music = max(option_volume_music - 0.05, 0);
 				options[main_menu_pages.options_audio][0][menu_option_data.text] = "Music Volume: " + string(floor(option_volume_music * 100)) + "%";
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_volume_music = min(option_volume_music + 0.05, 1);
 				options[main_menu_pages.options_audio][0][menu_option_data.text] = "Music Volume: " + string(floor(option_volume_music * 100)) + "%";
@@ -1092,22 +1092,22 @@ timer = 0;
 		{
 			main_text = "Options - Audio";
 			bottom_text = "Confirm to save changes";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				audio_options_set();
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 2;
 				audio_options_reset();
 			}
-			else if (button_left == controls_action_states.press)
+			else if (input_check_pressed("left", 0))
 			{
 				option_volume_sfx = max(option_volume_sfx - 0.05, 0);
 				options[main_menu_pages.options_audio][1][menu_option_data.text] = "SFX Volume: " + string(floor(option_volume_sfx * 100)) + "%";
 			}
-			else if (button_right == controls_action_states.press)
+			else if (input_check_pressed("right", 0))
 			{
 				option_volume_sfx = min(option_volume_sfx + 0.05, 1);
 				options[main_menu_pages.options_audio][1][menu_option_data.text] = "SFX Volume: " + string(floor(option_volume_sfx * 100)) + "%";
@@ -1120,13 +1120,13 @@ timer = 0;
 		menu_option_add(_page, 0, "Level Select", function()
 		{
 			main_text = "Options - Debug";
-			if (button_confirm == controls_action_states.press)
+			if (input_check_pressed("confirm", 0))
 			{
 				page = main_menu_pages.options_debug_levelselect;
 				index = 0;
 				option = 0;
 			}
-			else if (button_deny == controls_action_states.press)
+			else if (input_check_pressed("deny", 0))
 			{
 				page = main_menu_pages.options;
 				option = 3;
@@ -1144,13 +1144,13 @@ timer = 0;
 		
 				main_text = "All Levels";
 		
-				if (button_left == controls_action_states.press)
+				if (input_check_pressed("left", 0))
 				{
 					global.level_demo--;
 					if (global.level_demo < 0)
 						global.level_demo = _level_max - 1;
 				}
-				else if (button_right == controls_action_states.press)
+				else if (input_check_pressed("right", 0))
 				{
 					global.level_demo = (global.level_demo + 1) mod _level_max;
 				}
@@ -1163,14 +1163,14 @@ timer = 0;
 				options[main_menu_pages.options_debug_levelselect][0][menu_option_data.text] = "<-- Level " + string(_index) + " -->"
 				+ "\n" + string(_name_world) + "\n" + string(_name_level);
 		
-				if (button_confirm == controls_action_states.press)
+				if (input_check_pressed("confirm", 0))
 				{
 					global.game_mode = game_modes.free_play;
 					global.level_id = _index;
 					spawn_point_set(_room);
 					instance_create(obj_character_select);
 				}
-				else if (button_deny == controls_action_states.press)
+				else if (input_check_pressed("deny", 0))
 				{
 					page = main_menu_pages.main;
 					option = 0;

@@ -25,28 +25,28 @@ function menu_option_add(_page, _index, _text = "", _function = function(){}, _u
 function menu_step(_player_number = 0)
 {
 	var _option_current, _option_func;
-	controls_step(_player_number);
+	//controls_step(_player_number);
 
-	if (pause_inputs)
-	{
-		button_left = controls_action_states.NA;
-		button_right = controls_action_states.NA;
-		button_up = controls_action_states.NA;
-		button_down = controls_action_states.NA;
-		button_confirm = controls_action_states.NA;
-		button_deny = controls_action_states.NA;
-		pause_inputs = false;
-	}
-	else
-	{
-		button_left = controls_action_state_get(controls_actions.left, _player_number);
-		button_right = controls_action_state_get(controls_actions.right, _player_number);
-		button_up = controls_action_state_get(controls_actions.up, _player_number);
-		button_down = controls_action_state_get(controls_actions.down, _player_number);
-		button_start = controls_action_state_get(controls_actions.start, _player_number);
-		button_confirm = controls_action_state_get(controls_actions.jump, _player_number);
-		button_deny = controls_action_state_get(controls_actions.attack, _player_number);
-	}
+	//if (pause_inputs)
+	//{
+	//	button_left = controls_action_states.NA;
+	//	button_right = controls_action_states.NA;
+	//	button_up = controls_action_states.NA;
+	//	button_down = controls_action_states.NA;
+	//	button_confirm = controls_action_states.NA;
+	//	button_deny = controls_action_states.NA;
+	//	pause_inputs = false;
+	//}
+	//else
+	//{
+	//	button_left = controls_action_state_get(controls_actions.left, _player_number);
+	//	button_right = controls_action_state_get(controls_actions.right, _player_number);
+	//	button_up = controls_action_state_get(controls_actions.up, _player_number);
+	//	button_down = controls_action_state_get(controls_actions.down, _player_number);
+	//	button_start = controls_action_state_get(controls_actions.start, _player_number);
+	//	button_confirm = controls_action_state_get(controls_actions.jump, _player_number);
+	//	button_deny = controls_action_state_get(controls_actions.attack, _player_number);
+	//}
 	
 	_option_current = options[page][option];
 	_option_func = _option_current[menu_option_data.func];

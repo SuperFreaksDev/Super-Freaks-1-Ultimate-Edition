@@ -2,9 +2,6 @@
 
 var _func;
 
-controls_step(0);
-button_confirm = controls_action_state_get(controls_actions.jump, 0);
-
 switch (state)
 {
 	case 0: //Fade In
@@ -74,7 +71,7 @@ switch (state)
 		
 		frame = min(frame + 1, 120);
 		
-		if (button_confirm == controls_action_states.hold || button_confirm == controls_action_states.press)
+		if (input_check("confirm", 0))
 			state_next_set(4);
 		break;
 	case 4: //Unlock Text Close

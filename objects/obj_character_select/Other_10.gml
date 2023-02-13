@@ -28,7 +28,10 @@ switch (state)
 		y_offset = min(y_offset + 0.05, 1);
 		
 		if (y_offset == 1)
+		{
 			instance_destroy();
+			input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
+		}
 		break;
 	case 2: //Main
 		if (state_begin)
@@ -74,6 +77,7 @@ switch (state)
 		switch (page)
 		{
 			case menu_character_select_pages.difficulty_select:
+				input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
 				if (button_left[player_numbers.player_1] == controls_action_states.press)
 				{
 					option--;
@@ -137,6 +141,7 @@ switch (state)
 				
 				break;
 			case menu_character_select_pages.character_select:
+				input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
 				#region Character Select
 					for (_player_num = 0; _player_num <= player_numbers.count; ++_player_num)
 					{

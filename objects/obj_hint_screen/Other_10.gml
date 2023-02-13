@@ -44,10 +44,9 @@ switch (state)
 		if (room_transition_active_get())
 			exit;
 		
-		for (_i = 0; _i <= player_numbers.player_2; ++_i)
+		for (_i = 0; _i <= player_numbers.count; ++_i)
 		{
-			menu_step(_i);
-			if (button_confirm == controls_action_states.press || button_start == controls_action_states.press)
+			if (input_check_pressed("confirm", _i))
 				state_next_set(pause_menu_states.closing);
 		}
 		break;
