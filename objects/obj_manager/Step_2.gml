@@ -1,8 +1,13 @@
 /// @description Game Step
 
+var _i = 0;
 var _pause;
 var _frames_game, _frames_player, _frames_level;
 var _despawn = false;
+var _new_source = input_source_detect_new();
+var _status = input_players_get_status();
+var _disconnect = false;
+var _player, _player_index, _player_instance;
 
 framerate_step();
 
@@ -11,13 +16,78 @@ frame_amount = 0;
 
 global.game_frame_new = true;
 
+//if (_frames_game > 0)
+//{
+	if (is_struct(_new_source))
+	{
+		_i = 0;
+		repeat(INPUT_MAX_PLAYERS)
+		{
+		    if (!input_player_connected(_i))
+		    {
+		        input_source_set(_new_source, _i, true);
+		        input_consume(all, _i);
+				switch (global.game_mode)
+				{
+					case game_modes.normal:
+						_player_instance = global.player_list[_i][player_data.instance];
+						
+						if (instance_exists(_player_instance) && _player_instance.state == player_states.inactive)
+						{
+							with (_player_instance)
+								state_next_set(player_states.drop_in, 999999999999999);
+						}
+						break;
+					default:
+						break;
+				}
+		        break;
+		    }
+        
+		    ++_i;
+		}
+	}
+
+	//If a player presses a pause button, disconnect them
+	if (input_player_connected_count() == 0)
+		_disconnect = true;
+	else
+	{
+		_i = 0;
+		repeat(INPUT_MAX_PLAYERS)
+		{
+			if (!input_player_connected(_i))
+			{
+				player_drop_out_force(_i);
+				
+				if (global.player_list[_i][player_data.active] == true)
+					_disconnect = true;
+			}
+    
+			++_i;
+		}
+	}
+	
+	//if (is_struct(_status))
+	//{
+	//    if (array_length(_status.new_disconnections) > 0)
+	//    {
+	//		show_debug_message("Disconnected =(");
+	//		_disconnect = true;
+	//    }
+	//}
+	
+	if (_disconnect)
+	{
+		if (!instance_exists(obj_players_connected_screen))
+			instance_create_layer(0, 0, "layer_instances", obj_players_connected_screen);
+	}
+//}
+
 while (_frames_game > 0)
 {
 	_pause = game_pause_get();
-	
-	frame_machine_step();
-	_frames_player = global.frame_machine_player.frame_amount;
-	_frames_level = global.frame_machine_level.frame_amount;
+
 	global.animate = (global.animate + 0.25) mod 8;
 	
 	//Step 1
@@ -27,6 +97,20 @@ while (_frames_game > 0)
 		run_frame = false;
 		hitbox_check_done = false;
 	}
+	
+	if (instance_exists(obj_players_connected_screen))
+	{
+		with (obj_players_connected_screen)
+			instance_step();
+		_frames_player = 0;
+		_frames_level = 0;
+		_frames_game--;
+		continue;
+	}
+	
+	frame_machine_step();
+	_frames_player = global.frame_machine_player.frame_amount;
+	_frames_level = global.frame_machine_level.frame_amount;
 	
 	with (obj_system)
 		instance_step();

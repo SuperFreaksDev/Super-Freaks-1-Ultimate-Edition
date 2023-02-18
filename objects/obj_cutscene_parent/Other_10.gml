@@ -1,17 +1,11 @@
 /// @description Step
 var _text_length;
-var _button, _button_start;
 var _my_message = string(text_next);
 var _sprite, _music;
 
-controls_step(0);
-
-_button = controls_action_state_get(controls_actions.jump, 0);
-_button_start = controls_action_state_get(controls_actions.start, 0);
-
 if (!room_transition_active_get())
 {
-	if (_button_start == controls_action_states.press)
+	if (!is_undefined(global.player_lead) && (input_check_pressed("start", global.player_lead)))
 		event_user(5);
 	else
 	{
@@ -42,7 +36,7 @@ if (!room_transition_active_get())
 		            _text_length = string_length(text);
 		            if (text_draw < _text_length)
 		            {
-		                if (_button == controls_action_states.hold)
+		                if (!is_undefined(global.player_lead) && (input_check("confirm", global.player_lead)))
 		                    text_draw += 3;
 		                else
 		                    text_draw += 1;
@@ -51,7 +45,7 @@ if (!room_transition_active_get())
 		            else
 		            {
 		                text_draw = _text_length;
-						if (segment_current == -1 || (_button == controls_action_states.press))
+						if (segment_current == -1 || (!is_undefined(global.player_lead) && (input_check_pressed("confirm", global.player_lead))))
 						{
 							if (segment_current + 1 >= array_length(segment))
 								event_user(5);

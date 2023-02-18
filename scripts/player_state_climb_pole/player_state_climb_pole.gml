@@ -22,11 +22,7 @@ function player_state_climb_pole()
 		animate_speed = 0;
 		collider_attach_clear();
 		with (hitbox)
-		{
 			active = hitbox_active.active;
-			hitbox_bitmask_set(true);
-			hitbox_bitmask_to_check_set(true, true, true, true, true);
-		}
 		rubber_band_can_slingshot = false;
 		physics = player_physics_modifiers.normal;
 		sprite_index = _sprite_climb;
@@ -46,9 +42,11 @@ function player_state_climb_pole()
 		
 		if (instance_attach.rotate_speed == 0)
 		{
-			if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+			//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+			if (input_check("up", player_number))
 				_move_v -= 1;
-			if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+			//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+			if (input_check("down", player_number))
 				_move_v += 1;
 		}
 	}

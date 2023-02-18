@@ -30,61 +30,25 @@ switch (state)
 		if (y_offset == 1)
 		{
 			instance_destroy();
-			input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
+			input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
 		}
 		break;
 	case 2: //Main
-		if (state_begin)
-		{
-			pause_inputs = true;
-		}
-		
-		for (_player_num = 0; _player_num <= player_numbers.count; ++_player_num)
-		{
-			controls_step(_player_num);
-			if (pause_inputs)
-			{
-				button_up[_player_num] = controls_action_states.NA;
-				button_down[_player_num] = controls_action_states.NA;
-				button_left[_player_num] = controls_action_states.NA;
-				button_right[_player_num] = controls_action_states.NA;
-				button_confirm[_player_num] = controls_action_states.NA;
-				button_deny[_player_num] = controls_action_states.NA;
-				hold_up[_player_num] = 0;
-				hold_down[_player_num] = 0;
-			}
-			else
-			{
-				button_up[_player_num] = controls_action_state_get(controls_actions.up, _player_num);
-				button_down[_player_num] = controls_action_state_get(controls_actions.down, _player_num);
-				button_left[_player_num] = controls_action_state_get(controls_actions.left, _player_num);
-				button_right[_player_num] = controls_action_state_get(controls_actions.right, _player_num);
-				button_confirm[_player_num] = controls_action_state_get(controls_actions.jump, _player_num);
-				button_deny[_player_num] = controls_action_state_get(controls_actions.attack, _player_num);
-				
-				if (button_up[_player_num] == controls_action_states.hold && button_down[_player_num] != controls_action_states.hold)
-					hold_up[_player_num] = min(hold_up[_player_num] + 1, 8);
-				else
-					hold_up[_player_num] = 0;
-					
-				if (button_down[_player_num] == controls_action_states.hold && button_up[_player_num] != controls_action_states.hold)
-					hold_down[_player_num] = min(hold_down[_player_num] + 1, 8);
-				else
-					hold_down[_player_num] = 0;
-			}
-		}
-		
 		switch (page)
 		{
 			case menu_character_select_pages.difficulty_select:
-				input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
-				if (button_left[player_numbers.player_1] == controls_action_states.press)
+				input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
+				
+				if (is_undefined(global.player_lead))
+					exit;
+				
+				if (input_check_pressed("left", global.player_lead))
 				{
 					option--;
 					if (option < 0)
 						option = 2;
 				} 
-				else if (button_right[player_numbers.player_1] == controls_action_states.press)
+				else if (input_check_pressed("right", global.player_lead))
 				{
 					option++;
 					if (option > 2)
@@ -94,33 +58,33 @@ switch (state)
 				switch (option)
 				{
 					case 0: //Difficulty Select
-						if (button_up[player_numbers.player_1] == controls_action_states.press)
+						if (input_check_pressed("up", global.player_lead))
 						{
 							global.difficulty = max(global.difficulty - 1, 0);
 						}
-						else if (button_down[player_numbers.player_1] == controls_action_states.press)
+						else if (input_check_pressed("down", global.player_lead))
 						{
 							global.difficulty = min(global.difficulty + 1, difficulty_levels.hard);
 						}
 						break;
 					case 1: //Heart Min
-						if (button_up[player_numbers.player_1] == controls_action_states.press || hold_up[player_numbers.player_1] == 8)
+						if (input_check_pressed("up", global.player_lead) || input_check_long("up", global.player_lead))
 						{
 							hearts_minimum_set(hearts_minimum_get() + 1);
 						}
-						else if (button_down[player_numbers.player_1] == controls_action_states.press || hold_down[player_numbers.player_1] == 8)
+						else if (input_check_pressed("down", global.player_lead) || input_check_long("down", global.player_lead))
 						{
 							hearts_minimum_set(hearts_minimum_get() - 1);
 						}
 						break;
 					case 2: //Heart Max
-						if (button_up[player_numbers.player_1] == controls_action_states.press || hold_up[player_numbers.player_1] == 8)
+						if (input_check_pressed("up", global.player_lead) || input_check_long("up", global.player_lead))
 						{
 							hearts_maximum_set(hearts_maximum_get() + 1);
 							if (hearts_maximum_get() > HEART_MAX)
 								hearts_maximum_set(0);
 						}
-						else if (button_down[player_numbers.player_1] == controls_action_states.press || hold_down[player_numbers.player_1] == 8)
+						else if (input_check_pressed("down", global.player_lead) || input_check_long("down", global.player_lead))
 						{
 							hearts_maximum_set(hearts_maximum_get() - 1);
 							if (hearts_maximum_get() < 0)
@@ -130,24 +94,25 @@ switch (state)
 						break;
 				}
 				
-				if (button_confirm[player_numbers.player_1] == controls_action_states.press)
-				{
+				if (input_check_pressed("confirm", global.player_lead))
 					page = menu_character_select_pages.character_select;
-				}
-				else if (button_deny[player_numbers.player_1] == controls_action_states.press)
-				{
+				else if (input_check_pressed("deny", global.player_lead))
 					state_next_set(1);
-				}
 				
 				break;
 			case menu_character_select_pages.character_select:
 				input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
 				#region Character Select
+					if (input_check_pressed("confirm", global.player_lead))
+						state_next_set(3);
+					else if (input_check_pressed("deny", global.player_lead))
+						page = menu_character_select_pages.difficulty_select;
+				
 					for (_player_num = 0; _player_num <= player_numbers.count; ++_player_num)
 					{
 						if (global.player_list[_player_num][player_data.active])
 						{
-							if (button_up[_player_num] == controls_action_states.press || hold_up[_player_num] == 8)
+							if (input_check_pressed("up", _player_num) || input_check_long("up", _player_num))
 							{
 								global.player_list[_player_num][player_data.character_index]++;
 					
@@ -162,7 +127,7 @@ switch (state)
 										global.player_list[_player_num][player_data.character_index] = 0;
 								}
 							}
-							else if (button_down[_player_num] == controls_action_states.press || hold_down[_player_num] == 8)
+							else if (input_check_pressed("down", _player_num) || input_check_long("down", _player_num))
 							{
 								global.player_list[_player_num][player_data.character_index]--;
 					
@@ -176,32 +141,16 @@ switch (state)
 										global.player_list[_player_num][player_data.character_index] = character_indexes.count - 1;
 								}
 							}
-							else if (button_confirm[_player_num] == controls_action_states.press)
-							{
-								if (_player_num == 0)
-									state_next_set(3);
-							}
-							else if (button_deny[_player_num] == controls_action_states.press)
-							{
-								if (_player_num == 0)
-									page = menu_character_select_pages.difficulty_select;
-								else
-									global.player_list[_player_num][player_data.active] = false;
-							}
 						}
 						else
 						{
-							if (button_confirm[_player_num])
-							{
+							if (input_player_connected(_player_num))
 								global.player_list[_player_num][player_data.active] = true;
-							}
 						}
 					}
 				#endregion
 				break;
 		}
-		
-		pause_inputs = false;
 		break;
 	case 3: //Go To Level
 		if (state_begin)

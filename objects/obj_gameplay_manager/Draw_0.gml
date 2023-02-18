@@ -50,9 +50,9 @@ var _offset = 0;
 		case game_states.NA:
 			break;
 		case game_states.gameplay:
-			draw_set_font(global.font_16);
 			draw_set_projection_2D(_view_x1, _view_y1, screen_width_get(), screen_height_get());
 			#region Draw Boss Health
+				draw_set_font(global.font_16);
 				with (obj_boss)
 				{
 					draw_set_color(c_white);
@@ -68,6 +68,7 @@ var _offset = 0;
 				}
 			#endregion
 			#region Draw Player Info
+				draw_set_font(global.font_12);
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_middle);
 				draw_set_color(c_white);
@@ -81,6 +82,8 @@ var _offset = 0;
 					if (_list_thing[player_data.active] == true)
 					{
 						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 48 + _offset, _view_y1 + 16);
+						if (_list_pos == global.player_lead)
+							draw_sprite(spr_multiplayer_crown, 0, _view_x1 + 48 + _offset, _view_y1 + 40);
 						if (_player_instance.rubber_band == true)
 							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 80 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 1);
 						else
@@ -95,7 +98,9 @@ var _offset = 0;
 							draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 80 + _offset, _view_y1 + 16);
 						}
 						else
-							draw_action(_list_pos, controls_actions.jump, _view_x1 + 48 + _offset, _view_y1 + 16);
+						{
+							draw_text(_view_x1 + 48 + _offset, _view_y1 + 16, "Join");
+						}
 					}
 				}
 			#endregion

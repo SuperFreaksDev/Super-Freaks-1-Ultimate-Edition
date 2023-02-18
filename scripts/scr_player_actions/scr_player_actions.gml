@@ -11,9 +11,20 @@ function player_pause_game()
 /// @function player_drop_out
 function player_drop_out()
 {
-	//if (player_number > 0 && button_drop_out == controls_action_states.press)
-	if (player_number > 0 && input_check_pressed("drop_out", player_number))
+	var _player_num;
+	
+	if (players_exist() && input_check_pressed("drop_out", player_number))
 	{
+		if (global.player_lead == player_number)
+		{
+			global.player_lead = undefined;
+			for (_player_num = 0; _player_num < INPUT_MAX_PLAYERS; ++_player_num)
+			{
+				if (_player_num != player_number && global.player_list[_player_num][player_data.active] == true)
+					global.player_lead = _player_num;
+			}
+		}
+		input_source_clear(player_number);
 		state_next_set(player_states.inactive, 999999999999);
 		global.player_list[player_number][player_data.active] = false;
 	}
@@ -25,22 +36,54 @@ function player_drop_out()
 /// @param _player_number = 0
 function player_drop_out_force(_player_number = 0)
 {
-	var _player_instance;
+	var _player_instance = global.player_list[_player_number][player_data.instance];
+	var _player_num;
+	var _player_instance_p1;
+	var _other_players = false;
+	var _player_next = undefined;
 	
-	if (_player_number == 0)
-		exit;
-		
-	_player_instance = global.player_list[_player_number][player_data.instance];
+	input_source_clear(_player_number);
+	
+	for (_player_num = 0; _player_num < INPUT_MAX_PLAYERS; ++_player_num)
+	{
+		if (_player_num != _player_number && global.player_list[_player_num][player_data.active] == true)
+		{
+			_other_players = true;
+			_player_next = _player_num;
+			break;
+		}
+	}
 	
 	if (global.player_list[_player_number][player_data.active] == true)
 	{
-		with (_player_instance)
+		if (_other_players)
 		{
-			state_next_set(player_states.inactive, 999999999999);
-			state_machine_step();
-			EVENT_STEP;
+			with (_player_instance)
+			{
+				state_next_set(player_states.inactive, 999999999999);
+				state_machine_step();
+				EVENT_STEP;
+			}
+			global.player_list[_player_number][player_data.active] = false;
+			
+			if (global.player_lead == _player_number)
+				global.player_lead = _player_next;
 		}
-		global.player_list[_player_number][player_data.active] = false;
+		else
+		{
+			if (_player_number != 0)
+			{
+				_player_instance_p1 = global.player_list[0][player_data.instance];
+				global.player_list[_player_number][player_data.instance] = _player_instance_p1;
+				global.player_list[0][player_data.instance] = _player_instance;
+				_player_instance.player_number = 0;
+				_player_instance_p1.player_number = _player_number;
+			
+				global.player_list[0][player_data.active] = true;
+				global.player_list[_player_number][player_data.active] = false;
+			}
+			global.player_lead = undefined;
+		}
 	}
 	
 	gml_pragma("forceinline");

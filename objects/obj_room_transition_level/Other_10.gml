@@ -23,6 +23,7 @@ switch (state)
 			spawn_point_set(level_room_get(), undefined, undefined);
 			checkpoint_set(level_room_get(),,, -1);
 			room_destination_set(spawn_point_room_get());
+			global.boss_phase = 0;
 			state_next_set(2);
 		}
 		break;
@@ -31,7 +32,6 @@ switch (state)
 		{
 			trophies_init(level_trophies_get(), level_trophy_count_max_get());
 			audio_stop_all();
-			global.boss_phase = 0;
 			global.checkpoint_death_count = 0;
 			frame = 0;
 			

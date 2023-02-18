@@ -7,17 +7,6 @@ player_number = 0;
 character_index = 0;
 
 #region Controls
-	button_left = controls_action_states.NA;
-	button_right = controls_action_states.NA;
-	button_up = controls_action_states.NA;
-	button_down = controls_action_states.NA;
-	button_pause = controls_action_states.NA;
-	button_drop_out = controls_action_states.NA;
-	button_jump = controls_action_states.NA;
-	button_bubble = controls_action_states.NA;
-	button_rubberband = controls_action_states.NA;
-	button_rubberband_color = controls_action_states.NA;
-
 	lock_controls_horizontal = 0;
 	lock_controls_vertical = 0;
 	lock_friction = 0;

@@ -1,6 +1,7 @@
 /// @description Init Game
 
 global.demo = false;
+input_multiplayer_params_set(1, 4, false);
 randomize();
 
 #region Init Components

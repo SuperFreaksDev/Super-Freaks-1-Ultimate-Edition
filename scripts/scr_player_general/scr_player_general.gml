@@ -42,6 +42,7 @@ function players_init()
 {
 	var _player_number;
 	
+	global.player_lead = undefined;
 	global.player_list = [];
 	global.player_rubberband_average = [[0, 0], [0, 0]];
 	global.player_rubberband_average_previous = [[0, 0], [0, 0]];
@@ -54,7 +55,7 @@ function players_init()
 		global.player_list[_player_number][player_data.character_index] = 0;
 	}
 		
-	global.player_list[0][player_data.active] = true;
+	//global.player_list[0][player_data.active] = true;
 }
 
 /// @function players_start

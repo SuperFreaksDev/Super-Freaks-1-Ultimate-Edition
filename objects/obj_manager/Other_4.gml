@@ -77,7 +77,7 @@ switch (global.game_state)
 		}
 		break;
 	case game_states.worldmap:
-		input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
+		input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
 		spawn_point_set(undefined);
 		checkpoint_set(undefined);
 		players_end();
@@ -91,7 +91,7 @@ switch (global.game_state)
 		}
 		break;
 	default:
-		input_source_mode_set(INPUT_SOURCE_MODE.HOTSWAP);
+		input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
 		spawn_point_set(undefined);
 		checkpoint_set(undefined);
 		if (instance_exists(obj_start_pos))

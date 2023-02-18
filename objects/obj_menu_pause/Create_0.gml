@@ -1,6 +1,6 @@
 /// @description 
 
-var _i, _text, _player_instance;
+var _i, _text, _count, _player_instance, _unlock;
 
 enum pause_menu_states
 {
@@ -13,7 +13,9 @@ enum pause_menu_states
 enum menu_pause_pages
 {
 	main = 0,
-	kick,
+	multiplayer,
+	multiplayer_leader,
+	multiplayer_kick,
 }
 
 // Inherit the parent event
@@ -26,79 +28,115 @@ depth = -9997;
 
 state_machine_init();
 
-menu_option_add(0, 0, "Continue", function()
+function options_reset()
 {
-	if (input_check_pressed("confirm", player_number))
-	{
-		state_next_set(pause_menu_states.closing);
-	}
-});
-menu_option_add(0, 1, "Restart Level", function()
-{
-	if (input_check_pressed("confirm", player_number))
-	{
-		if (options[0][1][menu_option_data.unlocked] == true)
-			instance_create(obj_room_transition_level);
-		else
-			sfx_play_global(sfx_honk);
-	}
-});
-menu_option_add(0, 2, "Restart from Checkpoint", function()
-{
-	if (input_check_pressed("confirm", player_number))
-	{
-		if (options[0][2][menu_option_data.unlocked] == true)
-			instance_create(obj_room_transition_death);
-		else
-			sfx_play_global(sfx_honk);
-	}
-});
-
-menu_option_add(0, 3, "Kick Players", function()
-{
-	if (input_check_pressed("confirm", player_number))
-	{
-		if (options[0][3][menu_option_data.unlocked] == true)
+	var _i;
+	var _is_leader = false;
+	var _text;
+	
+	if (player_number == global.player_lead)
+		_is_leader = true;
+	
+	#region Main
+		menu_option_add(0, 0, "Continue", function()
 		{
-			page = menu_pause_pages.kick;
-			option = 0;
-		}
-		else
-			sfx_play_global(sfx_honk);
-	}
-});
-
-menu_option_add(0, 4, "Exit Level", function()
-{
-	if (input_check_pressed("confirm", player_number))
-	{
-		spawn_point_set(rm_menu_main);
-		instance_create(obj_room_transition_return);
-	}
-});
-
-
-for (_i = 1; _i <= player_numbers.count; ++_i)
-{
-	_text = "Player " + string(_i + 1);
-	menu_option_add(menu_pause_pages.kick, _i - 1, _text, function()
-	{
-		var _player_num = option + 1;
-		
-		if (input_check_pressed("confirm", player_number))
-		{
-			if (global.player_list[_player_num][player_data.active] == true)
+			if (input_check_pressed("confirm", player_number))
 			{
-				player_drop_out_force(_player_num);
-				sfx_play_global(sfx_record_scratch);
+				state_next_set(pause_menu_states.closing);
 			}
-			else
-				sfx_play_global(sfx_honk);
-		}
-		else if (input_check_pressed("deny", player_number))
+		});
+		menu_option_add(0, 1, "Restart Level", function()
 		{
-			page = menu_pause_pages.main;
-			option = 3;
+			if (input_check_pressed("confirm", player_number))
+			{
+				if (options[0][1][menu_option_data.unlocked] == true)
+					instance_create(obj_room_transition_level);
+				else
+					sfx_play_global(sfx_honk);
+			}
+		});
+		menu_option_add(0, 2, "Restart from Checkpoint", function()
+		{
+			if (input_check_pressed("confirm", player_number))
+			{
+				if (options[0][2][menu_option_data.unlocked] == true)
+					instance_create(obj_room_transition_death);
+				else
+					sfx_play_global(sfx_honk);
+			}
+		});
+
+		if (_is_leader)
+		{
+			menu_option_add(0, 3, "Kick Players", function()
+			{
+				if (input_check_pressed("confirm", player_number))
+				{
+					if (options[0][3][menu_option_data.unlocked] == true)
+					{
+						page = menu_pause_pages.multiplayer_kick;
+						option = 0;
+					}
+					else
+						sfx_play_global(sfx_honk);
+				}
+			});
 		}
-	});
+		else
+		{
+			menu_option_add(0, 3, "Drop Out", function()
+			{
+				if (input_check_pressed("confirm", player_number))
+				{
+					if (options[0][3][menu_option_data.unlocked] == true)
+					{
+						player_drop_out_force(player_number);
+					}
+					else
+						sfx_play_global(sfx_honk);
+				}
+			});
+		}
+
+		menu_option_add(0, 4, "Exit Level", function()
+		{
+			if (input_check_pressed("confirm", player_number))
+			{
+				spawn_point_set(rm_menu_main);
+				instance_create(obj_room_transition_return);
+			}
+		});
+	#endregion
+
+	for (_i = 0; _i < INPUT_MAX_PLAYERS; ++_i)
+	{
+		_text = "Player " + string(_i + 1);
+		menu_option_add(menu_pause_pages.multiplayer_kick, _i, _text, function()
+		{
+			var _player_num = option;
+		
+			if (input_check_pressed("confirm", player_number))
+			{
+				if (_player_num != player_number && global.player_list[_player_num][player_data.active] == true)
+				{
+					player_drop_out_force(_player_num);
+					sfx_play_global(sfx_record_scratch);
+				}
+				else
+					sfx_play_global(sfx_honk);
+			}
+			else if (input_check_pressed("deny", player_number))
+			{
+				page = menu_pause_pages.main;
+				option = 3;
+			}
+		});
+	
+		if (_i == player_number)
+		{
+			options[menu_pause_pages.multiplayer_kick][_i][menu_option_data.unlocked] = false;
+		}
+	}
 }
+
+options_reset();

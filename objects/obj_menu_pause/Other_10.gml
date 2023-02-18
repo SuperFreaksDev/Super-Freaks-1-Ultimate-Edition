@@ -45,6 +45,7 @@ switch (state)
 		if (state_begin)
 		{
 			visible = true;
+			options_reset();
 			page = 0;
 			option = 0;
 			switch (global.game_mode)
@@ -60,39 +61,8 @@ switch (state)
 					options[0][2][menu_option_data.unlocked] = true;
 					break;
 			}
-			
-			if (player_number == 0)
-			{
-				menu_option_add(0, 3, "Kick Players", function()
-				{
-					if (input_check_pressed("confirm", player_number))
-					{
-						if (options[0][3][menu_option_data.unlocked] == true)
-						{
-							page = menu_pause_pages.kick;
-							option = 0;
-						}
-						else
-							sfx_play_global(sfx_honk);
-					}
-				});
-			}
-			else
-			{
-				menu_option_add(0, 3, "Drop Out", function()
-				{
-					if (input_check_pressed("confirm", player_number))
-					{
-						if (options[0][3][menu_option_data.unlocked] == true)
-						{
-							player_drop_out_force(player_number);
-						}
-						else
-							sfx_play_global(sfx_honk);
-					}
-				});
-			}
 		}
+		
 		if (room_transition_active_get())
 			exit;
 		menu_step(player_number);

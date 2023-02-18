@@ -50,7 +50,7 @@ switch (state)
 		break;
 	case 2:
 		frame = 0;
-		if (input_check_pressed("confirm", 0))
+		if (!is_undefined(global.player_lead) && input_check_pressed("confirm", global.player_lead))
 			state_next_set(3);
 		break;
 	case 3:

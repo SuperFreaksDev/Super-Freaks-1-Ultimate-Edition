@@ -11,7 +11,7 @@ function player_state_inactive()
 	}
 	
 	//if (button_jump == controls_action_states.press)
-	if (input_check_pressed("confirm", player_number))
+	if (input_player_connected(player_number))
 	{
 		state_next_set(player_states.drop_in, 999999999);
 	}
