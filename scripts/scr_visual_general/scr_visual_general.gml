@@ -94,7 +94,7 @@ function screen_set()
 	var _display_width = display_get_width();
 	var _display_height = display_get_height();
 		
-	//display_reset(0, global.visuals_settings[visuals_data.vsync]);
+	display_reset(0, vsync_get());
 	
 	_width = _screen_width;
 	_height = _screen_height;
@@ -160,17 +160,20 @@ function screen_upscale_get()
 }
 
 /// @function vsync_set
-/// @param {boolean} _flag
-function vsync_set(_flag)
+/// @param {boolean} _flag = true
+function vsync_set(_flag = true)
 {
 	global.visuals_settings[visuals_data.vsync] = _flag;
-	screen_set();
+	
+	gml_pragma("forceinline");
 }
 
 /// @function vsync_get
 function vsync_get()
 {
 	return global.visuals_settings[visuals_data.vsync];
+	
+	gml_pragma("forceinline");
 }
 
 /// @function aa_set

@@ -72,6 +72,8 @@ global.game_frame_new = true;
 
 while (_frames_game > 0)
 {
+	input_tick(true);
+	
 	_pause = game_pause_get();
 
 	global.animate = (global.animate + 0.25) mod 8;
