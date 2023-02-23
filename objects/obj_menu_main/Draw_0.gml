@@ -70,45 +70,6 @@ switch (page)
 		draw_set_valign(fa_top);
 		draw_text(_screen_width / 2, _screen_height / 2 + 112, string(global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.name]));
 		break;
-	case main_menu_pages.options_controls:
-		_text_x = 24;
-		_text_y = 48;
-		
-		_option_num = option;
-		draw_sprite(spr_menu_arrow_16, _frame, 8, _text_y + (_option_num * _font_height) + 8);
-	
-		for (_option_num = 0; _option_num < array_length(options[page]); ++_option_num)
-		{
-			_text_x = string_width(_arrow) + 8;
-			_option_current = options[page][_option_num];
-			_option_text = controls_action_name_get(_option_num, player_number);
-			_unlocked = options[page][_option_num][menu_option_data.unlocked];
-		
-			if (_unlocked)
-			{
-				if (draw_get_color() != c_white)
-					draw_set_color(c_white);
-			}
-			else
-			{
-				if (draw_get_color() != c_black)
-					draw_set_color(c_black);
-			}
-			
-			draw_text(_text_x, _text_y + (_option_num * _font_height), _option_text);
-			_text_x += string_width(_option_text) + 16;
-			
-			draw_action_list_keyboard(player_number, _option_num, _text_x, _text_y + (_option_num * _font_height) + 8);
-			_text_x += array_length(global.controls_settings[_option_num][player_number][controls_action_data.list_kb]) * 16;
-			draw_action_list_gamepad(player_number, _option_num, _text_x, _text_y + (_option_num * _font_height) + 8);
-			_text_x += array_length(global.controls_settings[_option_num][player_number][controls_action_data.list_gb]) * 16;
-		}
-		
-		draw_set_halign(fa_center);
-		draw_text(_screen_width / 2, 24, "PLAYER " + string(player_number + 1));
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _screen_width / 2 - 96, 32, 1, 1, 180, c_white, 1);
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _screen_width / 2 + 96, 32, 1, 1, 0, c_white, 1);
-		break;
 	default:
 		_text_x = 24;
 		_text_y = 24;

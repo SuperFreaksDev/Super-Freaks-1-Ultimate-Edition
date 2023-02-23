@@ -22,9 +22,71 @@ input_icons("empty")
 //Optional remapping for keyboard and mouse
 //This is useful for turning keyboard keys into sprite icons to match other assets, or for returning formatted strings (e.g. for use with Scribble)
 //Any keyboard key label not in this struct will simply fall through and return the key name
-input_icons("keyboard and mouse")
-//Put extra .add() commands here to add icons to keyboard and mouse
-
+#region Keyboard and Mouse
+	input_icons("keyboard and mouse")
+		//Arrow Keys
+		.add("arrow left", spr_control_icon_keyboard_arrow_left)
+		.add("arrow up", spr_control_icon_keyboard_arrow_up)
+		.add("arrow right", spr_control_icon_keyboard_arrow_right)
+		.add("arrow down", spr_control_icon_keyboard_arrow_down)
+		//Commands
+		.add("alt", spr_control_icon_keyboard_alt)
+		.add("backspace", spr_control_icon_keyboard_backspace)
+		.add("ctrl", spr_control_icon_keyboard_ctrl)
+		.add("delete", spr_control_icon_keyboard_del)
+		.add("enter", spr_control_icon_keyboard_enter)
+		.add("escape", spr_control_icon_keyboard_esc)
+		.add("tab", spr_control_icon_keyboard_tab)
+		.add("shift", spr_control_icon_keyboard_shift)
+		//Symbols
+		.add("\"", spr_control_icon_keyboard_back_slash)
+		.add("[", spr_control_icon_keyboard_bracket_square_left)
+		.add("]", spr_control_icon_keyboard_bracket_square_right)
+		.add("/", spr_control_icon_keyboard_forward_slash)
+		.add("|", spr_control_icon_keyboard_vertical_bar)
+		//Numbers
+		.add("0", spr_control_icon_keyboard_0)
+		.add("1", spr_control_icon_keyboard_1)
+		.add("2", spr_control_icon_keyboard_2)
+		.add("3", spr_control_icon_keyboard_3)
+		.add("4", spr_control_icon_keyboard_4)
+		.add("5", spr_control_icon_keyboard_5)
+		.add("6", spr_control_icon_keyboard_6)
+		.add("7", spr_control_icon_keyboard_7)
+		.add("8", spr_control_icon_keyboard_8)
+		.add("9", spr_control_icon_keyboard_9)
+		//Numpad
+		
+		//Function Keys
+		
+		//Letters
+		.add("A", spr_control_icon_keyboard_a)
+		.add("B", spr_control_icon_keyboard_b)
+		.add("C", spr_control_icon_keyboard_c)
+		.add("D", spr_control_icon_keyboard_d)
+		.add("E", spr_control_icon_keyboard_e)
+		.add("F", spr_control_icon_keyboard_f)
+		.add("G", spr_control_icon_keyboard_g)
+		.add("H", spr_control_icon_keyboard_h)
+		.add("I", spr_control_icon_keyboard_i)
+		.add("J", spr_control_icon_keyboard_j)
+		.add("K", spr_control_icon_keyboard_k)
+		.add("L", spr_control_icon_keyboard_l)
+		.add("M", spr_control_icon_keyboard_m)
+		.add("N", spr_control_icon_keyboard_n)
+		.add("O", spr_control_icon_keyboard_o)
+		.add("P", spr_control_icon_keyboard_p)
+		.add("Q", spr_control_icon_keyboard_q)
+		.add("R", spr_control_icon_keyboard_r)
+		.add("S", spr_control_icon_keyboard_s)
+		.add("T", spr_control_icon_keyboard_t)
+		.add("U", spr_control_icon_keyboard_u)
+		.add("V", spr_control_icon_keyboard_v)
+		.add("W", spr_control_icon_keyboard_w)
+		.add("X", spr_control_icon_keyboard_x)
+		.add("Y", spr_control_icon_keyboard_y)
+		.add("Z", spr_control_icon_keyboard_z)
+#endregion
 
 
 #region Gamepads

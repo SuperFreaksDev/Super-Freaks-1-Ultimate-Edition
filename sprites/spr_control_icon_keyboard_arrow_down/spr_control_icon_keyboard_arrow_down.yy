@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Keyboard",
-    "path": "folders/Sprites/Controls/Keyboard.yy",
+    "name": "Arrow Keys",
+    "path": "folders/Sprites/Controls/Keyboard/Arrow Keys.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

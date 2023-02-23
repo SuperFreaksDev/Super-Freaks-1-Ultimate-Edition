@@ -63,7 +63,7 @@ switch (state)
 			}
 		}
 		
-		if (room_transition_active_get())
+		if (room_transition_active_get() || instance_exists(obj_remapping_screen))
 			exit;
 		menu_step(player_number);
 		if (input_check_pressed("up", player_number))

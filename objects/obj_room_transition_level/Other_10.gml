@@ -25,13 +25,13 @@ switch (state)
 			room_destination_set(spawn_point_room_get());
 			global.boss_phase = 0;
 			state_next_set(2);
+			audio_stop_all();
 		}
 		break;
 	case 2:
 		if (state_begin)
 		{
 			trophies_init(level_trophies_get(), level_trophy_count_max_get());
-			audio_stop_all();
 			global.checkpoint_death_count = 0;
 			frame = 0;
 			

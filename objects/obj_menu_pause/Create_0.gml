@@ -1,6 +1,6 @@
 /// @description 
 
-var _i, _text, _count, _player_instance, _unlock;
+var _i, _text, _count, _player_instance;
 
 enum pause_menu_states
 {
@@ -97,8 +97,20 @@ function options_reset()
 				}
 			});
 		}
+		
+		menu_option_add(0, 4, "Controls", function()
+		{
+			var _screen;
+			var _player_number = player_number;
+			if (input_check_pressed("confirm", player_number))
+			{
+				_screen = instance_create_layer(0, 0, "layer_instances", obj_remapping_screen);
+				with (_screen)
+					player_number = _player_number;
+			}
+		});
 
-		menu_option_add(0, 4, "Exit Level", function()
+		menu_option_add(0, 5, "Exit Level", function()
 		{
 			if (input_check_pressed("confirm", player_number))
 			{

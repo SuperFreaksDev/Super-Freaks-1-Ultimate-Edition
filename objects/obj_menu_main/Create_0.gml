@@ -661,7 +661,7 @@ timer = 0;
 	//	else if (input_check_pressed("deny", global.player_lead))
 	//	{
 	//		page = main_menu_pages.main;
-	//		option = 2;
+	//		option = 3;
 	//	}
 	//});
 	
@@ -686,90 +686,113 @@ timer = 0;
 	#region Controls
 		_page = main_menu_pages.options_controls;
 		
-		for (_i = 0; _i <= controls_actions.count; ++_i)
+		for (_i = 0; _i < INPUT_MAX_PLAYERS; ++_i)
 		{
-			menu_option_add(_page, _i, "", function()
+			menu_option_add(_page, _i, "Player " + string(_i + 1), function()
 			{
-				var _last;
-				var _button;
-				var _action = option;
+				var _player_number = option;
+				var _screen;
 				
-				main_text = "Options - Controls";
-				
-				if (option_selected)
+				if (input_check_pressed("confirm", global.player_lead))
 				{
-					bottom_text = "Press any key/gamepad button to map it to this action, or remove it if already assigned. Wait a few seconds to cancel.";
-					_button = key_stored_get();
-					if (_button != -1)
-					{
-						controls_action_button_key_add(_action, player_number, _button);
-						option_selected = false;
-						pause_inputs = true;
-						controls_save();
-						sfx_play_global(sfx_ding);
-						exit;
-					}
-					
-					_button = global.gamepad_key[player_number];
-					_last = global.gamepad_keylast[player_number];
-					if (_button != -1) && (_button != _last)
-					{
-						controls_action_button_gamepad_add(_action, player_number, _button);
-						option_selected = false;
-						pause_inputs = true;
-						controls_save();
-						sfx_play_global(sfx_ding);
-						exit;
-					}
-					//_button = mouse_button_stored_get();
-					//if (_button != mb_none)
-					//{
-					//	controls_action_button_mouse_add(_action, player_number, _button);
-					//	option_selected = false;
-					//	pause_inputs = true;
-					//	controls_save();
-					//	sfx_play_global(sfx_ding);
-					//}
-					
-					if (option_selected)
-					{
-						timer = max(timer - 1, 0);
-						if (timer == 0)
-						{
-							option_selected = false;
-							pause_inputs = true;
-							sfx_play_global(sfx_honk);
-							exit;
-						}
-					}
+					_screen = instance_create_layer(0, 0, "layer_instances", obj_remapping_screen);
+					with (_screen)
+						player_number = _player_number;
 				}
-				else
+				else if (input_check_pressed("deny", global.player_lead))
 				{
-					if (input_check_pressed("left", global.player_lead))
-					{
-						player_number--;
-						if (player_number < 0)
-							player_number = player_numbers.count;
-					}
-					else if (input_check_pressed("right", global.player_lead))
-					{
-						player_number++;
-						if (player_number > player_numbers.count)
-							player_number = 0;
-					}
-					else if (input_check_pressed("confirm", global.player_lead))
-					{
-						option_selected = true;
-						timer = 128;
-					}
-					else if (input_check_pressed("deny", global.player_lead))
-					{
-						page = main_menu_pages.options;
-						option = 0;
-					}
+					page = main_menu_pages.options;
+					option = 0;
 				}
 			});
 		}
+		
+		#region Old Control Remapping Menu
+			//for (_i = 0; _i <= controls_actions.count; ++_i)
+			//{
+			//	menu_option_add(_page, _i, "", function()
+			//	{
+			//		var _last;
+			//		var _button;
+			//		var _action = option;
+				
+			//		main_text = "Options - Controls";
+				
+			//		if (option_selected)
+			//		{
+			//			bottom_text = "Press any key/gamepad button to map it to this action, or remove it if already assigned. Wait a few seconds to cancel.";
+			//			_button = key_stored_get();
+			//			if (_button != -1)
+			//			{
+			//				controls_action_button_key_add(_action, player_number, _button);
+			//				option_selected = false;
+			//				pause_inputs = true;
+			//				controls_save();
+			//				sfx_play_global(sfx_ding);
+			//				exit;
+			//			}
+					
+			//			_button = global.gamepad_key[player_number];
+			//			_last = global.gamepad_keylast[player_number];
+			//			if (_button != -1) && (_button != _last)
+			//			{
+			//				controls_action_button_gamepad_add(_action, player_number, _button);
+			//				option_selected = false;
+			//				pause_inputs = true;
+			//				controls_save();
+			//				sfx_play_global(sfx_ding);
+			//				exit;
+			//			}
+			//			//_button = mouse_button_stored_get();
+			//			//if (_button != mb_none)
+			//			//{
+			//			//	controls_action_button_mouse_add(_action, player_number, _button);
+			//			//	option_selected = false;
+			//			//	pause_inputs = true;
+			//			//	controls_save();
+			//			//	sfx_play_global(sfx_ding);
+			//			//}
+					
+			//			if (option_selected)
+			//			{
+			//				timer = max(timer - 1, 0);
+			//				if (timer == 0)
+			//				{
+			//					option_selected = false;
+			//					pause_inputs = true;
+			//					sfx_play_global(sfx_honk);
+			//					exit;
+			//				}
+			//			}
+			//		}
+			//		else
+			//		{
+			//			if (input_check_pressed("left", global.player_lead))
+			//			{
+			//				player_number--;
+			//				if (player_number < 0)
+			//					player_number = player_numbers.count;
+			//			}
+			//			else if (input_check_pressed("right", global.player_lead))
+			//			{
+			//				player_number++;
+			//				if (player_number > player_numbers.count)
+			//					player_number = 0;
+			//			}
+			//			else if (input_check_pressed("confirm", global.player_lead))
+			//			{
+			//				option_selected = true;
+			//				timer = 128;
+			//			}
+			//			else if (input_check_pressed("deny", global.player_lead))
+			//			{
+			//				page = main_menu_pages.options;
+			//				option = 0;
+			//			}
+			//		}
+			//	});
+			//}
+		#endregion
 	#endregion
 	
 	#region Visuals

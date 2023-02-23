@@ -1,18 +1,5 @@
 /// @description Step
 
-//controls_step(player_number);
-
-//button_left = controls_action_state_get(controls_actions.left, player_number);
-//button_right = controls_action_state_get(controls_actions.right, player_number);
-//button_up = controls_action_state_get(controls_actions.up, player_number);
-//button_down = controls_action_state_get(controls_actions.down, player_number);
-//button_pause = controls_action_state_get(controls_actions.start, player_number);
-//button_drop_out = controls_action_state_get(controls_actions.drop_out, player_number);
-//button_jump = controls_action_state_get(controls_actions.jump, player_number);
-//button_bubble = controls_action_state_get(controls_actions.bubble, player_number);
-//button_rubberband = controls_action_state_get(controls_actions.rubberband, player_number);
-//button_rubberband_color = controls_action_state_get(controls_actions.rubberband_color, player_number);
-
 collision_flags = 0;
 crush_flags = 0;
 hang_on = false;
