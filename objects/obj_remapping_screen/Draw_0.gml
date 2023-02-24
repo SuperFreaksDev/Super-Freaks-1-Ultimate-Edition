@@ -123,7 +123,7 @@ switch (page)
 					if (is_string(_icon))
 						draw_text(_x + 112 + (_j * 18), _y + _option_y_offset, _icon);
 					else
-						draw_sprite(_icon, _frame, _x - 112 + (_j * 18), _y + _option_y_offset);
+						draw_sprite(_icon, _frame, _x + 112 + (_j * 18), _y + _option_y_offset);
 				}
 			}
 				
