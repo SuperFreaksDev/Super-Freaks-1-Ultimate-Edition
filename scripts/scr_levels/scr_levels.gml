@@ -199,7 +199,7 @@ function levels_init()
 	}, 0);
 	
 	//Castle Kranion
-	level_create(24,, rm_comingsoon, "Castle Kranion", "Conveyor Castle", function()
+	level_create(24,, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
 	{
 		return level_complete_get(23);
 	});

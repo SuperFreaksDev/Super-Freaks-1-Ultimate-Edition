@@ -144,14 +144,6 @@ while (_frames_game > 0)
 		}
 
 		//Step 2
-		if (_frames_player > 0)
-		{
-			with (obj_player_parent)
-				instance_step_2();
-		
-			_frames_player--;
-		}
-
 		if (_frames_level > 0)
 		{
 			global.instance_despawn_timer = max(global.instance_despawn_timer - 1, 0);
@@ -170,6 +162,14 @@ while (_frames_game > 0)
 			}
 		
 			_frames_level--;
+		}
+		
+		if (_frames_player > 0)
+		{
+			with (obj_player_parent)
+				instance_step_2();
+		
+			_frames_player--;
 		}
 	}
 	global.frame_machine_player.frame_amount = 0;
