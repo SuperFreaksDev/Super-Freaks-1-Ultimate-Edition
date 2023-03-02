@@ -47,7 +47,8 @@ if (timer >= timer_frequency)
 			{
 				face = _face;
 				speed_initial = _drop_speed;
-				can_despawn = false;
+				//can_despawn = false;
+				zone_index = _zone;
 			}
 			break;
 		case "Barrel_Bounce":
@@ -59,7 +60,8 @@ if (timer >= timer_frequency)
 			{				
 				face = _face;
 				speed_initial = _drop_speed;
-				can_despawn = false;
+				//can_despawn = false;
+				zone_index = _zone;
 			}
 			break;
 		case "Bomb":
@@ -68,7 +70,8 @@ if (timer >= timer_frequency)
 			{
 				direction = 270;
 				speed = _drop_speed;
-				can_despawn = false;
+				//can_despawn = false;
+				zone_index = _zone;
 			}
 			break;
 		case "Ball":
@@ -77,7 +80,8 @@ if (timer >= timer_frequency)
 			{
 				face = _face;
 				speed_initial = _drop_speed;
-				can_despawn = false;
+				//can_despawn = false;
+				zone_index = _zone;
 			}
 			break;
 		default:

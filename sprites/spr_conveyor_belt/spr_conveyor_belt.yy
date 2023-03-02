@@ -13,15 +13,15 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b6577c20-e8f1-4f07-b512-748774c5e501",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"af169e05-4b08-4167-bfce-5ae6a42b2aa7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ccc52f6e-51fe-4ec1-a47e-bd50df63e550",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ddd40ed0-1604-4a88-8fbc-6b68e222236b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 48,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a2d4a07e-3567-471c-8f12-fdc430d47a1c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"131ce42e-7c29-471e-a60e-18d6683075c3","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -78,8 +78,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b6577c20-e8f1-4f07-b512-748774c5e501","path":"sprites/spr_conveyor_belt/spr_conveyor_belt.yy",},},},"Disabled":false,"id":"6de25a87-c45b-4a91-b7d5-6c435fee4da6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"af169e05-4b08-4167-bfce-5ae6a42b2aa7","path":"sprites/spr_conveyor_belt/spr_conveyor_belt.yy",},},},"Disabled":false,"id":"18ae11fb-1b07-4d26-a50d-3516713cddea","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ccc52f6e-51fe-4ec1-a47e-bd50df63e550","path":"sprites/spr_conveyor_belt/spr_conveyor_belt.yy",},},},"Disabled":false,"id":"c0fa02f3-dfa4-4ef1-9c78-2a22746c37a9","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ddd40ed0-1604-4a88-8fbc-6b68e222236b","path":"sprites/spr_conveyor_belt/spr_conveyor_belt.yy",},},},"Disabled":false,"id":"107e0006-411a-4ad2-a931-aa593ef4dc6f","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

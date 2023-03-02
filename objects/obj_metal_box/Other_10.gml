@@ -1,6 +1,7 @@
 /// @description Step
 
 var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
+var _max_gravity = 6;
 
 collision_flags = 0;
 
@@ -11,7 +12,10 @@ if (ground_on)
 }
 else
 {
-	speed_v = min(speed_v + speed_grv, 6);
+	if (global.water_active && y >= global.water_height)
+		_max_gravity = 1;
+		
+	speed_v = min(speed_v + speed_grv, _max_gravity);
 	speed_x = speed_h;
 	speed_y = speed_v;
 }
@@ -19,7 +23,7 @@ else
 x += speed_x;
 y += speed_y;
 		
-switch sign(x - x_previous)
+switch (sign(x - x_previous))
 {
 	case -1:
 		collision_right_simple(,,,,,,, false);
@@ -37,13 +41,13 @@ switch sign(x - x_previous)
 		
 if (ground_on)
 {
-	collision_up_simple();
-	collision_down_simple(,,,, 16,, true);
+	//collision_up_simple();
+	collision_down_simple(,,,, 8,, true);
 	angle_ground = global.collider_collision[collider_collision.angle];
 }
 else
 {
-	switch sign(y - y_previous)
+	switch (sign(y - y_previous))
 	{
 		case -1:
 			collision_down_simple(,,,,,,, false);
@@ -51,13 +55,12 @@ else
 			break;
 		case 0:
 		case 1:
-			collision_up_simple(,,,,,,, false);
+			//collision_up_simple(,,,,,,, false);
 			collision_down_simple()
 			angle_ground = global.collider_collision[collider_collision.angle];
 			break;
 	}
 }
-
 
 _collision_left = collision_flag_get_left();
 _collision_up = collision_flag_get_up();
@@ -73,8 +76,11 @@ if (_collision_down)
 	{
 		speed_v = 0;
 		ground_on = true;
-		if (in_view())
+		if (in_view(bbox_left, bbox_top, bbox_right, bbox_bottom))
+		{
 			screen_shake(0, 8);
+			sfx_play_global(sfx_crash_2);
+		}
 	}
 }
 else
@@ -82,5 +88,3 @@ else
 	ground_on = false;
 	collider_attach_clear();
 }
-
-show_debug_message(collider.attach_list);

@@ -134,7 +134,7 @@ function draw_sprite_parallax_y(_sprite_index, _image_index = 0, _x, _y, _y_para
 /// @function animation_at_end
 function animation_at_end()
 {
-	return (floor(image_index + animate_speed) == image_number);
+	return (floor(image_index + animate_speed) >= image_number - 1);
 	
 	gml_pragma("forceinline");
 }

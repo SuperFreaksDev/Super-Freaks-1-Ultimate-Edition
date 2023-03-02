@@ -9,6 +9,9 @@ var _x1 = _x - _width_half, _x2 = _x + _width_half;
 var _offset_delta = lerp(offset_previous, offset, _frame_delta);
 var _tops_to_draw = floor(_width / 16) - 1;
 
+if (!in_view(bbox_left, bbox_top, bbox_right, bbox_bottom))
+	exit;
+	
 draw_sprite_ext(spr_conveyor_belt, image_index, _x, _y, image_xscale, 1, 0, c_white, 1);
 
 draw_sprite_part(spr_conveyor_belt_top, 0, _offset_delta, 0, 16, 16, _x1 + 8, _y - 32);

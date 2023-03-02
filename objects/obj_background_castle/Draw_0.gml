@@ -4,7 +4,8 @@ var _view_x1 = view_x1_get();
 var _view_y1 = view_y1_get();
 var _view_x2 = view_x2_get();
 var _view_y2 = view_y2_get();
-var _cell_x, _cell_y, _cell;
+var _frame_delta = frame_delta_level_get();
+var _scroll_delta = lerp(scroll_previous, scroll, _frame_delta);
 
 event_inherited();
 
@@ -12,9 +13,8 @@ draw_set_color(c_black);
 draw_rectangle(_view_x1, _view_y1, _view_x2, _view_y2, false);
 
 surface_set_target(surface);
-	
+draw_sprite_parallax(spr_castle_background_pillar, alternate, _view_x1, _view_y1, 2, 2, 0, _scroll_delta, 320, 0);
 surface_reset_target();
-
 draw_set_color(c_white);
 
 if (background_blur_get() && shaders_are_supported())

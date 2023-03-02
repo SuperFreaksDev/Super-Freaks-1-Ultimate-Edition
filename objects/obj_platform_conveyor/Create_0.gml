@@ -29,6 +29,6 @@ if (my_path != -1)
 	y = path_get_y(my_path, path_position);
 }
 
-animate_speed = 0.25;
+animate_speed = 0.125;
 offset = 0;
 offset_previous = 0;

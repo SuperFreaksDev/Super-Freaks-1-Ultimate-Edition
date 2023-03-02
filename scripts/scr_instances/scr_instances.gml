@@ -117,7 +117,7 @@ function instance_despawn_check()
 		case -3:
 		case undefined:
 			if (_despawn)
-				instance_destroy();
+				instance_despawn();
 			break;
 		case -2:
 			exit;
@@ -129,6 +129,11 @@ function instance_despawn_check()
 		default:
 			if (_despawn == false)
 				global.zones[zone_index][zone_data.active] = true;
+			else
+			{
+				if (global.zones[zone_index][zone_data.active] == false)
+					instance_despawn();
+			}
 			break;
 	}
 }
