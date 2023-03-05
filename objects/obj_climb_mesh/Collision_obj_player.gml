@@ -21,8 +21,11 @@ else
 		case player_states.bubble:
 			break;
 		default:
-			if (other.button_up == controls_action_states.press || (other.speed_v >= 0 && other.button_up == controls_action_states.hold))
-				_grab = true;
+			with (other)
+			{
+				if (input_check_pressed("up", player_number)|| (input_check("up", player_number) && speed_v >= 0))
+					_grab = true;
+			}
 			break;
 	}
 }

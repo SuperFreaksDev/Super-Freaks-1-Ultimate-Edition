@@ -44,7 +44,8 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = -collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_left(_x2 = x - collider_detector_sides_width_get(), _x1 = _x2, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
+		/// @param {Boolean} _collide_do = true
+		function collision_left(_x2 = x - collider_detector_sides_width_get(), _x1 = _x2, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -208,7 +209,7 @@ function collider_collision_global_clear()
 				}
 			#endregion
 	
-			if (_collision)
+			if (_collision && _collide_do)
 			{
 				x = _collider_collision[collider_collision.x] - _push_out_by;
 				collision_flag_set_left();
@@ -238,10 +239,11 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = -collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
+		/// @param {Boolean} _collide_do = true
 		/// @description An easier to use collision method that extends leftward by a certain amount. This is useful for simple wall collision checks!
-		function collision_left_simple(_x = x - collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
+		function collision_left_simple(_x = x - collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = -collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
-			return collision_left(_x, _x - _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid);
+			return collision_left(_x, _x - _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid, _collide_do);
 			
 			gml_pragma("forceinline");
 		}
@@ -423,7 +425,8 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_up_y_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y2 = y + collider_detector_up_y_get(), _y1 = _y2, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true)
+		/// @param {Boolean} _collide_do = true
+		function collision_up(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y2 = y + collider_detector_up_y_get(), _y1 = _y2, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -585,7 +588,7 @@ function collider_collision_global_clear()
 				}
 			#endregion
 	
-			if (_collision)
+			if (_collision && _collide_do)
 			{
 				y = _collider_collision[collider_collision.y] - _push_out_by;
 				collision_flag_set_up();
@@ -615,10 +618,11 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_up_y_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
+		/// @param {Boolean} _collide_do = true
 		/// @description An easier to use collision method that extends upward by a certain amount. This is useful for simple ground collision checks!
-		function collision_up_simple(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up_y_get(), _extend = 0, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true)
+		function collision_up_simple(_x1_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_up[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_up_y_get(), _extend = 0, _push_out_by = collider_detector_up_y_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
-			return collision_up(_x1_flat, _x2_flat, _x_slope, _y, _y - _extend, _push_out_by, _attach, _check_semi_solid);
+			return collision_up(_x1_flat, _x2_flat, _x_slope, _y, _y - _extend, _push_out_by, _attach, _check_semi_solid, _collide_do);
 			
 			gml_pragma("forceinline");
 		}
@@ -799,7 +803,8 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_right(_x1 = x + collider_detector_sides_width_get(), _x2 = _x1, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
+		/// @param {Boolean} _collide_do = true
+		function collision_right(_x1 = x + collider_detector_sides_width_get(), _x2 = _x1, _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -963,7 +968,7 @@ function collider_collision_global_clear()
 				}
 			#endregion
 	
-			if (_collision)
+			if (_collision && _collide_do)
 			{
 				x = _collider_collision[collider_collision.x] - _push_out_by;
 				collision_flag_set_right();
@@ -993,10 +998,11 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_down_y_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
+		/// @param {Boolean} _collide_do = true
 		/// @description An easier to use collision method that extends rightward by a certain amount. This is useful for simple wall collision checks!
-		function collision_right_simple(_x = x + collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true)
+		function collision_right_simple(_x = x + collider_detector_sides_width_get(), _y1_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y1], _y2_flat = y + collider_detector_sides[collider_detector_sides_data.flat_y2], _y_slope = y, _extend = 0, _push_out_by = collider_detector_sides_width_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
-			return collision_right(_x, _x + _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid);
+			return collision_right(_x, _x + _extend, _y1_flat, _y2_flat, _y_slope, _push_out_by, _attach, _check_semi_solid, _collide_do);
 			
 			gml_pragma("forceinline");
 		}
@@ -1178,7 +1184,8 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_sides_width_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
-		function collision_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y1 = y + collider_detector_down_y_get(), _y2 = _y1, _push_out_by = collider_detector_down_y_get(), _attach = false, _check_semi_solid = true)
+		/// @param {Boolean} _collide_do = true
+		function collision_down(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y1 = y + collider_detector_down_y_get(), _y2 = _y1, _push_out_by = collider_detector_down_y_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
 			var _collider_collision;
 			var _collision = false;
@@ -1340,7 +1347,7 @@ function collider_collision_global_clear()
 				}
 			#endregion
 	
-			if (_collision)
+			if (_collision && _collide_do)
 			{
 				y = _collider_collision[collider_collision.y] - _push_out_by;
 				collision_flag_set_down();
@@ -1370,10 +1377,11 @@ function collider_collision_global_clear()
 		/// @param _push_out_by = collider_detector_down_y_get()
 		/// @param _attach = false
 		/// @param {Boolean} _check_semi_solid = true
+		/// @param {Boolean} _collide_do = true
 		/// @description An easier to use collision method that extends downward by a certain amount. This is useful for simple ground collision checks!
-		function collision_down_simple(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down_y_get(), _extend = 0, _push_out_by = collider_detector_down_y_get(), _attach = false, _check_semi_solid = true)
+		function collision_down_simple(_x1_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x1], _x2_flat = x + collider_detector_down[collider_detector_vertical_data.flat_x2], _x_slope = x, _y = y + collider_detector_down_y_get(), _extend = 0, _push_out_by = collider_detector_down_y_get(), _attach = false, _check_semi_solid = true, _collide_do = true)
 		{
-			return collision_down(_x1_flat, _x2_flat, _x_slope, _y, _y + _extend, _push_out_by, _attach, _check_semi_solid);
+			return collision_down(_x1_flat, _x2_flat, _x_slope, _y, _y + _extend, _push_out_by, _attach, _check_semi_solid, _collide_do);
 			
 			gml_pragma("forceinline");
 		}

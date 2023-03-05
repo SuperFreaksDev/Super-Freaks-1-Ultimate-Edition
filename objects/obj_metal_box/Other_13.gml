@@ -1,3 +1,4 @@
 /// @description Despawn
 
-show_debug_message("Your honor, League of Legends");
+if (instance_exists(back_sprite_support))
+	instance_destroy(back_sprite_support);

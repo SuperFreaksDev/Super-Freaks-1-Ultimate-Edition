@@ -25,7 +25,8 @@ function instance_step()
 	state_machine_step();
 	collider_attach_step();
 	EVENT_STEP;
-	comp_list_collider_move();
+	if (is_undefined(collider_attach[collider_attach_data.collider]))
+		comp_list_collider_move();
 	image_index += animate_speed;
 }
 

@@ -189,6 +189,8 @@ function comp_list_collider_step()
 		if (array_length(hashmap_collider_cells) > 0)
 			hashmap_cells_remove_from_collider();
 	}
+	
+	//comp_list_collider_move();
 		
 	gml_pragma("forceinline");
 }

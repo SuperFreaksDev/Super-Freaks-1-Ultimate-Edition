@@ -173,6 +173,7 @@ function comp_collider_AABB(_x_offset = 0, _y_offset = 0, _shape_x1 = 0, _shape_
 				}
 				collider_attach[collider_attach_data.speed_x] = _x_delta;
 				collider_attach[collider_attach_data.speed_y] = _y_delta;
+				comp_list_collider_move();
 			}
 		}
 	}
@@ -249,6 +250,7 @@ function comp_collider_line(_x_offset = 0, _y_offset = 0, _shape_x1 = 0, _shape_
 				y += _instance_y - _collision_y;
 				collider_attach[collider_attach_data.collision_x] = _instance_x;
 				collider_attach[collider_attach_data.collision_y] = _instance_y;
+				comp_list_collider_move();
 			}
 		}
 	}
@@ -312,6 +314,7 @@ function comp_collider_line_horizontal(_x_offset = 0, _y_offset = 0, _shape_x1 =
 				y += _y_delta;
 				collider_attach[collider_attach_data.collision_x] = _instance_x;
 				collider_attach[collider_attach_data.collision_y] += _y_delta;
+				comp_list_collider_move();
 			}
 		}
 	}
@@ -375,6 +378,7 @@ function comp_collider_line_vertical(_x_offset = 0, _y_offset = 0, _shape_y1 = 0
 				y += collider_attach[collider_attach_data.speed_y];
 				collider_attach[collider_attach_data.collision_x] += _x_delta;
 				collider_attach[collider_attach_data.collision_y] = _instance_y;
+				comp_list_collider_move();
 			}
 		}
 	}
@@ -444,6 +448,7 @@ function comp_collider_circle(_x_offset = 0, _y_offset = 0, _radius = 0, _angle)
 				y += collider_attach[collider_attach_data.speed_y];
 				collider_attach[collider_attach_data.collision_x] = _instance_x;
 				collider_attach[collider_attach_data.collision_y] = _instance_y;
+				comp_list_collider_move();
 			}
 		}
 	}
