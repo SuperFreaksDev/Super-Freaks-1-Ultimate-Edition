@@ -37,6 +37,12 @@ function hashmap_collision_create()
 		_hashmap_collision_array[_cell][hashmap_cell_data.hitbox] = [];
 		_hashmap_collision_array[_cell][hashmap_cell_data.collider] = [];
 	}
+	
+	with (obj_master)
+	{
+		comp_list_hitbox_spawn();
+		comp_list_collider_spawn();
+	}
 }
 
 /// @function hashmap_collision_clean
