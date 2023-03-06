@@ -9,22 +9,22 @@ enum hashmap_cell_data
 /// @function hashmap_collision_init
 function hashmap_collision_init()
 {
-	with (obj_manager)
-	{
-		global.hashmap_collision = [];
-		global.hashmap_collision_width = 0;
-		global.hashmap_collision_height = 0;
-	}
+	global.hashmap_collision = [];
+	global.hashmap_collision_width = 0;
+	global.hashmap_collision_height = 0;
 }
 
 /// @function hashmap_collision_create
 function hashmap_collision_create()
 {
-	var _hashmap_collision_array = global.hashmap_collision;
+	var _hashmap_collision_array;
 	var _cell;
 	
 	global.hashmap_collision_width = ceil(room_width / HASHMAP_BUCKET_SIZE);
 	global.hashmap_collision_height = ceil(room_height / HASHMAP_BUCKET_SIZE);
+	
+	global.hashmap_collision = [];
+	_hashmap_collision_array = global.hashmap_collision;
 	
 	show_debug_message("-----Collision Hashmap-----");
 	show_debug_message("Width in Cells: " + string(global.hashmap_collision_width));
@@ -33,7 +33,7 @@ function hashmap_collision_create()
 	
 	for (_cell = 0; _cell < (global.hashmap_collision_width * global.hashmap_collision_height); ++_cell)
 	{
-		_hashmap_collision_array[_cell] = array_create(2);
+		_hashmap_collision_array[_cell] = [[], []];
 		_hashmap_collision_array[_cell][hashmap_cell_data.hitbox] = [];
 		_hashmap_collision_array[_cell][hashmap_cell_data.collider] = [];
 	}
@@ -55,7 +55,7 @@ function hashmap_collision_clean()
 		{
 			_instance = _cell_list[_cell_pos];
 			
-			if !instance_exists(_instance)
+			if (!instance_exists(_instance))
 				array_delete(_cell_list, _cell_pos, 1);
 		}
 		
@@ -65,7 +65,7 @@ function hashmap_collision_clean()
 		{
 			_instance = _cell_list[_cell_pos];
 			
-			if !instance_exists(_instance)
+			if (!instance_exists(_instance))
 				array_delete(_cell_list, _cell_pos, 1);
 		}
 	}
@@ -84,12 +84,9 @@ function hashmap_hitbox_cells_add_to(_cell_x1, _cell_y1, _cell_x2, _cell_y2)
 	var _my_cells = [];
 	
 	var _cell, _cell_x, _cell_y;
+	var _hitbox_list;
 	
 	var _array_pos;
-	
-	//show_debug_message("------------");
-	
-	//show_debug_message(_my_cells_previous);
 	
 	if (array_length(comp_list_hitbox) > 0)
 	{
@@ -103,24 +100,24 @@ function hashmap_hitbox_cells_add_to(_cell_x1, _cell_y1, _cell_x2, _cell_y2)
 		}
 	}
 	
-	//show_debug_message(_my_cells);
-	
 	if (!array_equals(_my_cells, _my_cells_previous))
 	{
 		for (_array_pos = 0; _array_pos < array_length(_my_cells_previous); ++_array_pos)
 		{
 			_cell = _my_cells_previous[_array_pos];
+			_hitbox_list = _hashmap[_cell][hashmap_cell_data.hitbox];
 			
-			if (!array_contains(_my_cells, _cell))
-				array_remove_value(_hashmap[_cell][hashmap_cell_data.hitbox], id);
+			if (array_length(_my_cells) == 0 || !array_contains(_my_cells, _cell))
+				array_remove_value(_hitbox_list, id);
 		}
 		
 		for (_array_pos = 0; _array_pos < array_length(_my_cells); ++_array_pos)
 		{
 			_cell = _my_cells[_array_pos];
+			_hitbox_list = _hashmap[_cell][hashmap_cell_data.hitbox];
 			
-			if (!array_contains(_hashmap[_cell][hashmap_cell_data.hitbox], id))
-				array_push(_hashmap[_cell][hashmap_cell_data.hitbox], id);
+			if (array_length(_hitbox_list) == 0 || !array_contains(_hitbox_list, id))
+				array_push(_hitbox_list, id);
 		}
 	}
 	
@@ -142,6 +139,7 @@ function hashmap_collider_cells_add_to(_cell_x1, _cell_y1, _cell_x2, _cell_y2)
 	var _my_cells = [];
 	
 	var _cell, _cell_x, _cell_y;
+	var _collider_list;
 	
 	var _array_pos;
 	
@@ -162,17 +160,19 @@ function hashmap_collider_cells_add_to(_cell_x1, _cell_y1, _cell_x2, _cell_y2)
 		for (_array_pos = 0; _array_pos < array_length(_my_cells_previous); ++_array_pos)
 		{
 			_cell = _my_cells_previous[_array_pos];
+			_collider_list = _hashmap[_cell][hashmap_cell_data.collider];
 			
-			if (!array_contains(_my_cells, _cell))
-				array_remove_value(_hashmap[_cell][hashmap_cell_data.collider], id);
+			if (array_length(_my_cells) == 0 || !array_contains(_my_cells, _cell))
+				array_remove_value(_collider_list, id);
 		}
 		
 		for (_array_pos = 0; _array_pos < array_length(_my_cells); ++_array_pos)
 		{
 			_cell = _my_cells[_array_pos];
+			_collider_list = _hashmap[_cell][hashmap_cell_data.collider];
 			
-			if (!array_contains(_hashmap[_cell][hashmap_cell_data.collider], id))
-				array_push(_hashmap[_cell][hashmap_cell_data.collider], id);
+			if (array_length(_collider_list) == 0 || !array_contains(_collider_list, id))
+				array_push(_collider_list, id);
 		}
 	}
 	

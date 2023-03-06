@@ -13,8 +13,8 @@ global.redblueplatformswap = true;
 global.redblueplatformtimer = 0;
 global.lightbulb_timer = 0;
 
-zones_fill();
 hashmap_collision_create();
+zones_fill();
 
 switch (global.game_state)
 {
