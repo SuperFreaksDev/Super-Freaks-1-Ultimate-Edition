@@ -7,12 +7,6 @@ with (obj_menu_pause)
 zones_clear();
 hashmap_collision_clean();
 
-with (obj_master)
-{
-	if (!persistent)
-		instance_destroy();
-}
-
 gc_collect();
 gc_timer = 0;
 
