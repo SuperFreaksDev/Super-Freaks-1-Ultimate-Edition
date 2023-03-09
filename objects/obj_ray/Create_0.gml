@@ -4,8 +4,6 @@
 event_inherited();
 
 hitbox = new comp_hitbox_AABB(,,,,,-48, -48, 48, 48);
-with (hitbox)
-	hitbox_bitmask_set(,,,,true);
 	
 despawn_area[0] = -48;
 despawn_area[1] = -48;

@@ -79,7 +79,7 @@ if (_collision_down)
 		if (in_view(bbox_left, bbox_top, bbox_right, bbox_bottom))
 		{
 			screen_shake(0, 8);
-			sfx_play_global(sfx_crash_2);
+			sfx_play_global(sfx_crash_1);
 		}
 	}
 }

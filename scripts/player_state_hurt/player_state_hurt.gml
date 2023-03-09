@@ -102,10 +102,6 @@ function player_state_hurt()
 			ground_on = true;
 			ball = false;
 			state_next_set(player_states.normal, 9);
-			hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.player);
-			hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.enemy);
-			hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.attack);
-			hitbox.flags_to_check = bit_set(hitbox.flags_to_check, hitbox_flags.misc);
 		}
 	}
 	else

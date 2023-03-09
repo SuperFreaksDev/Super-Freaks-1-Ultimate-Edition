@@ -46,7 +46,7 @@ function instance_frame_begin()
 function instance_spawn()
 {
 	EVENT_SPAWN;
-	comp_list_hitbox_spawn();
+	comp_list_hitbox_update(true);
 	comp_list_collider_spawn();
 	x_previous = x;
 	y_previous = y;

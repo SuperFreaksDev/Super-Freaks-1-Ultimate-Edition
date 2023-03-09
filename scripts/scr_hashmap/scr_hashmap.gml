@@ -40,7 +40,7 @@ function hashmap_collision_create()
 	
 	with (obj_master)
 	{
-		comp_list_hitbox_spawn();
+		comp_list_hitbox_update(true);
 		comp_list_collider_spawn();
 	}
 }

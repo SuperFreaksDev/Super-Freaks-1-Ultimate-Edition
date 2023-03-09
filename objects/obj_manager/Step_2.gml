@@ -133,7 +133,7 @@ while (_frames_game > 0)
 		with (obj_master)
 		{
 			comp_list_collider_step();
-			comp_list_hitbox_step();
+			comp_list_hitbox_update();
 		}
 		with (obj_master)
 		{

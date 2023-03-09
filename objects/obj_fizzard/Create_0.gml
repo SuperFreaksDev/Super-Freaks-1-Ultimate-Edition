@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-hitbox = new comp_hitbox_AABB(,,, enemy_hitbox_behaviors.normal, 1, -12, -24, 12, 0);
+hitbox = new comp_hitbox_AABB(,,, enemy_hitbox_behaviors.normal, 1, -24, -24, 24, 24);
 
 speed_h = 0;
 speed_v = 0;

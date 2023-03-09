@@ -14,3 +14,5 @@ despawn_area[2] = _width_half;
 despawn_area[3] = 0;
 
 timer = timer_delay;
+
+depth = 6;

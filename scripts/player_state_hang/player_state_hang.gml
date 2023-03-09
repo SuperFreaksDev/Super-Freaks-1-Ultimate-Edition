@@ -15,11 +15,7 @@ function player_state_hang()
 		lock_gravity = 0;
 		collider_attach_clear();
 		with (hitbox)
-		{
 			active = hitbox_active.active;
-			hitbox_bitmask_set(true);
-			hitbox_bitmask_to_check_set(true, true, true, true, true);
-		}
 		rubber_band_can_slingshot = false;
 	}
 	

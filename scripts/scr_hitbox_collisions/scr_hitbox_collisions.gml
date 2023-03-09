@@ -110,9 +110,6 @@ function instance_collision_check(_instance)
 			if (_hitbox_other.active == hitbox_active.inactive)
 				continue;
 			
-			//if ((_hitbox_self.flags_to_check & _hitbox_other.flags) == 0)
-			//	continue;
-			
 			if (hitbox_collision_check(_hitbox_self, _hitbox_other))
 			{
 				//show_debug_message(string(global.frame) + " COLLISION BETWEEN " + string(id) + " " + string(object_get_name(object_index)) + " AND " + string(_instance.id) + " " + string(object_get_name(_instance.object_index)));
@@ -165,6 +162,11 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 										   _hitbox_2_x, _hitbox_2_y, _hitbox_2.radius)
 						return true;
 					break;
+				case "comp_hitbox_triangle":
+					if rectangle_in_triangle(_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2,
+											  _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2_x + _hitbox_2.shape_x3, _hitbox_2_y + _hitbox_2.shape_y3)
+						return true;
+					break;
 			}
 			break;
 		case "comp_hitbox_circle":
@@ -186,8 +188,8 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 	return false;
 }
 
-/// @function instance_other_get
-function instance_other_get()
+/// @function hitbox_collision_instance_other_get
+function hitbox_collision_instance_other_get()
 {
 	return global.hitbox_collision_stored[hitbox_collision_stored_data.hitbox_other].owner;
 	

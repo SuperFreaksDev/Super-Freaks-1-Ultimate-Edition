@@ -8,5 +8,3 @@ rotate_effect_previous = 0;
 rotate_speed = 2;
 
 hitbox = new comp_hitbox_circle(,,,,, 32);
-with (hitbox)
-	hitbox_bitmask_set(,,,, true);
