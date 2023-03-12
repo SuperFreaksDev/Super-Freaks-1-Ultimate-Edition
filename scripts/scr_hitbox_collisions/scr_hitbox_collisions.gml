@@ -164,8 +164,12 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 					break;
 				case "comp_hitbox_triangle":
 					if rectangle_in_triangle(_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2,
-											  _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2_x + _hitbox_2.shape_x3, _hitbox_2_y + _hitbox_2.shape_y3)
+											 _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2_x + _hitbox_2.shape_x3, _hitbox_2_y + _hitbox_2.shape_y3)
 						return true;
+					break;
+				case "comp_hitbox_capsule":
+					break;
+				default: //None
 					break;
 			}
 			break;
@@ -180,6 +184,62 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 				case "comp_hitbox_circle":
 					if circle_in_circle(_hitbox_1_x, _hitbox_1_y, _hitbox_1.radius, _hitbox_2_x, _hitbox_2_y, _hitbox_2.radius)
 						return true;
+					break;
+				case "comp_hitbox_triangle":
+					if circle_in_triangle(_hitbox_1_x, _hitbox_1_y, _hitbox_1.radius,
+										  _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2_x + _hitbox_2.shape_x3, _hitbox_2_y + _hitbox_2.shape_y3)
+						return true;
+					break;
+				case "comp_hitbox_capsule":
+					if circle_in_capsule(_hitbox_1_x, _hitbox_1_y, _hitbox_1.radius, 
+										 _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2.radius)
+						return true;
+					break;
+				default: //None
+					break;
+			}
+			break;
+		case "comp_hitbox_triangle":
+			switch (instanceof(_hitbox_2))
+			{
+				case "comp_hitbox_AABB":
+					if rectangle_in_triangle(_hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2,
+											 _hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1_x + _hitbox_1.shape_x3, _hitbox_1_y + _hitbox_1.shape_y3)
+						return true;
+					break;
+				case "comp_hitbox_circle":
+					if circle_in_triangle(_hitbox_2_x, _hitbox_2_y, _hitbox_2.radius,
+										  _hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1_x + _hitbox_1.shape_x3, _hitbox_1_y + _hitbox_1.shape_y3)
+						return true;
+					break;
+				case "comp_hitbox_triangle":
+					if triangle_in_triangle(_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1_x + _hitbox_1.shape_x3, _hitbox_1_y + _hitbox_1.shape_y3,
+											_hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2_x + _hitbox_2.shape_x3, _hitbox_2_y + _hitbox_2.shape_y3)
+					break;
+				case "comp_hitbox_capsule":
+					break;
+				default: //None
+					break;
+			}
+			break;
+		case "comp_hitbox_capsule":
+			switch (instanceof(_hitbox_2))
+			{
+				case "comp_hitbox_AABB":
+					break;
+				case "comp_hitbox_circle":
+					if circle_in_capsule(_hitbox_2_x, _hitbox_2_y, _hitbox_2.radius, 
+										 _hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1.radius)
+						return true;
+					break;
+				case "comp_hitbox_triangle":
+					break;
+				case "comp_hitbox_capsule":
+					if capsule_in_capsule(_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1.radius, 
+										  _hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2.radius)
+						return true;
+					break;
+				default: //None
 					break;
 			}
 			break;

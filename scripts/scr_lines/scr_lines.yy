@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_math",
+  "name": "scr_lines",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

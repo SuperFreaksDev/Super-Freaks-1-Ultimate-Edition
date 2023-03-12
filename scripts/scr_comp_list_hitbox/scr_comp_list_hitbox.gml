@@ -275,11 +275,12 @@ function comp_list_hitbox_draw()
 					_shape_y1 = _y_offset + shape_y1;
 					_shape_x2 = _x_offset + shape_x2;
 					_shape_y2 = _y_offset + shape_y2;
+					draw_circle(_shape_x1, _shape_y1, radius, true);
+					draw_circle(_shape_x2, _shape_y2, radius, true);
 					draw_line_width(_shape_x1, _shape_y1, _shape_x2, _shape_y2, radius);
 					break;
 				case "comp_hitbox_circle":
-					_shape_x1 = radius;
-					draw_circle(_x_offset, _y_offset, _shape_x1, true);
+					draw_circle(_x_offset, _y_offset, radius, true);
 					break;
 				case "comp_hitbox_triangle":
 					_shape_x1 = _x_offset + shape_x1;
