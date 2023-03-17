@@ -57,8 +57,6 @@ function player_friction_normal()
 		if (lock_friction == 0 && platform_jump_off == false)
 			speed_h *= speed_frc_air;
 	}
-	
-	gml_pragma("forceinline");
 }
 
 ///@function player_rubberband_physics

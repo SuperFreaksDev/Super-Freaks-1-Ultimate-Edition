@@ -63,6 +63,7 @@ function comp_list_hitbox_update(_force = false)
 					_broad_phase_y2 = max(_broad_phase_y2, y_offset);
 					break;
 				case "comp_hitbox_AABB":
+				case "comp_hitbox_line":
 					_broad_phase_x1 = min(_broad_phase_x1, x_offset + shape_x1, x_offset + shape_x2);
 					_broad_phase_y1 = min(_broad_phase_y1, y_offset + shape_y1, y_offset + shape_y2);
 					_broad_phase_x2 = max(_broad_phase_x2, x_offset + shape_x1, x_offset + shape_x2);
@@ -241,7 +242,6 @@ function comp_list_hitbox_draw()
 	var _pos;
 	var _comp;
 	var _x_offset, _y_offset;
-	var _shape_x1, _shape_y1, _shape_x2, _shape_y2, _shape_x3, _shape_y3;
 	var _owner_x = x, _owner_y = y;
 
 	for (_pos = array_length(_list) - 1; _pos >= 0; --_pos)
@@ -261,40 +261,7 @@ function comp_list_hitbox_draw()
 			_x_offset = x_offset + _owner_x;
 			_y_offset = y_offset + _owner_y;
 			
-			switch (instanceof(_comp))
-			{
-				case "comp_hitbox_AABB":
-					_shape_x1 = _x_offset + shape_x1;
-					_shape_y1 = _y_offset + shape_y1;
-					_shape_x2 = _x_offset + shape_x2;
-					_shape_y2 = _y_offset + shape_y2;
-					draw_rectangle(_shape_x1, _shape_y1, _shape_x2, _shape_y2, true);
-					break;
-				case "comp_hitbox_capsule":
-					_shape_x1 = _x_offset + shape_x1;
-					_shape_y1 = _y_offset + shape_y1;
-					_shape_x2 = _x_offset + shape_x2;
-					_shape_y2 = _y_offset + shape_y2;
-					draw_circle(_shape_x1, _shape_y1, radius, true);
-					draw_circle(_shape_x2, _shape_y2, radius, true);
-					draw_line_width(_shape_x1, _shape_y1, _shape_x2, _shape_y2, radius);
-					break;
-				case "comp_hitbox_circle":
-					draw_circle(_x_offset, _y_offset, radius, true);
-					break;
-				case "comp_hitbox_triangle":
-					_shape_x1 = _x_offset + shape_x1;
-					_shape_y1 = _y_offset + shape_y1;
-					_shape_x2 = _x_offset + shape_x2;
-					_shape_y2 = _y_offset + shape_y2;
-					_shape_x3 = _x_offset + shape_x3;
-					_shape_y3 = _y_offset + shape_y3;
-					draw_triangle(_shape_x1, _shape_y1, _shape_x2, _shape_y2, _shape_x3, _shape_y3, true);
-					break;
-				default:
-					draw_point(_x_offset, _y_offset);
-					break;
-			}
+			draw();
 			
 			switch (active)
 			{

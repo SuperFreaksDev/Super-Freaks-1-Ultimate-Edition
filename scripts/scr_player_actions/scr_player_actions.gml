@@ -126,7 +126,7 @@ function player_hurt()
 		if (global.hearts > 0)
 		{
 			global.hearts--;
-			if (underwater)
+			if (underwater || jetpack)
 			{
 				speed_h = 1 * -face;
 				speed_v = -4;

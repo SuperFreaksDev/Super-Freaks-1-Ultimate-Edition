@@ -25,7 +25,7 @@ character_index = 0;
 	ball = false;
 	skid = false;
 	walljump_auto = 0;
-	#macro WALLJUMP_AUTO_MAX 32
+	#macro WALLJUMP_AUTO_MAX 48
 	
 	rubber_band = false;
 	rubber_band_can_slingshot = false;
@@ -40,6 +40,14 @@ character_index = 0;
 	invincible = false;
 	
 	flashlight_radius = 72;
+	
+	jetpack = false;
+	#macro JETPACK_JUMP_TIMER_MAX 48
+	jetpack_jump_timer = 0;
+	jetpack_index = 0;
+	
+	gravity_modifier = 1;
+	fall_speed_modifier = 0;
 
 	ground_on = false;
 	platform_jump_off = false;

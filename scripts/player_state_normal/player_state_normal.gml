@@ -37,10 +37,8 @@ function player_state_normal()
 		default:
 			if (lock_controls_horizontal == 0)
 			{
-				//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
 				if (input_check("left", player_number))
 					_move_h -= 1;
-				//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
 				if (input_check("right", player_number))
 					_move_h += 1;
 			}
@@ -48,24 +46,20 @@ function player_state_normal()
 	}
 	if (lock_controls_vertical == 0)
 	{
-		//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
 		if (input_check("up", player_number))
 			_move_v -= 1;
-		//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
 		if (input_check("down", player_number))
 			_move_v += 1;
 	}
 			
-	//if (button_jump == controls_action_states.press)
 	if (input_check_pressed("jump", player_number))
 		jump_buffer = JUMP_BUFFER_MAX;
 	jump_buffer = max(jump_buffer - 1, 0);
 
 	if (!ground_on)
 	{
-		if (lock_gravity <= 0 && speed_v < speed_fall)
+		if (lock_gravity <= 0 && speed_v < speed_fall && !jetpack)
 		{
-			//if (button_jump != controls_action_states.hold) && (speed_v < -1)
 			if (!input_check("jump", player_number) && speed_v < -1)
 				speed_v += min(speed_grv * 2, _speed_fall - speed_v);
 			else
@@ -93,7 +87,6 @@ function player_state_normal()
 				{
 					if (speed_h >= -speed_run)
 						speed_h = max(speed_h - _speed_acc, -speed_run);
-						//speed_h += max(-speed_acc, -speed_run - (speed_h));
 					else
 						player_friction_normal();
 					face = -1;
@@ -116,7 +109,6 @@ function player_state_normal()
 				{
 					if (speed_h <= speed_run)
 						speed_h = min(speed_h + _speed_acc, speed_run);
-						//speed_h += min(speed_acc, speed_run - (speed_h));
 					else
 						player_friction_normal();
 					face = 1;
@@ -125,33 +117,79 @@ function player_state_normal()
 				break;
 		}
 	#endregion
+	
+	#region Vertical Movement (Jetpack Only)
+		if (jetpack)
+		{
+			switch (_move_v)
+			{
+				case -1:
+					if (speed_v > 0)
+						speed_v += -_speed_dec;
+					else
+					{
+						if (speed_v >= -speed_run)
+							speed_v = max(speed_v - _speed_acc, -speed_run);
+						else
+							speed_v *= speed_frc_air;
+					}
+					break;
+				case 0:
+					speed_v *= speed_frc_air;
+					break;
+				case 1:
+					if (speed_v < 0)
+						speed_v += _speed_dec;
+					else
+					{
+						if (speed_v <= speed_run)
+							speed_v = min(speed_v + _speed_acc, speed_run);
+						else
+							speed_v *= speed_frc_air;
+					}
+					break;
+			}
+		}
+	#endregion
 		
 	if (jump_buffer > 0)
 	{
-		if (!ball)
-			ball = true;
-			
-		if (!underwater && ground_on) || (underwater) || (coyote_time > 0)
+		if (jetpack)
 		{
-			sfx_play_global(sfx_jump);
-			speed_v = -speed_jump;
-			ground_on = false;
-			coyote_time = 0;
-			if (skid)
+			if (!ball)
 			{
-				speed_h = 0;
-				skid = false;
+				ball = true;
+				sfx_play_global(sfx_jump);
+				jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 			}
-			jump_buffer = 0;
-			
-			_collider = collider_attach[collider_attach_data.collider];
-			if (!is_undefined(_collider))
+		}
+		else
+		{
+			if (!ball)
+				ball = true;
+				
+			if (!underwater && ground_on) || (underwater) || (coyote_time > 0)
 			{
-				_collider_speed_x = collider_attach[collider_attach_data.speed_x];
-				_collider_speed_y = collider_attach[collider_attach_data.speed_y];
-				speed_h += _collider_speed_x;
-				speed_v = min(speed_v, _collider_speed_y);
-				collider_attach_clear();
+				sfx_play_global(sfx_jump);
+				speed_v = -speed_jump;
+				ground_on = false;
+				coyote_time = 0;
+				if (skid)
+				{
+					speed_h = 0;
+					skid = false;
+				}
+				jump_buffer = 0;
+			
+				_collider = collider_attach[collider_attach_data.collider];
+				if (!is_undefined(_collider))
+				{
+					_collider_speed_x = collider_attach[collider_attach_data.speed_x];
+					_collider_speed_y = collider_attach[collider_attach_data.speed_y];
+					speed_h += _collider_speed_x;
+					speed_v = min(speed_v, _collider_speed_y);
+					collider_attach_clear();
+				}
 			}
 		}
 	}
@@ -287,7 +325,7 @@ function player_state_normal()
 		if (speed_v >= 0)
 		{
 			speed_v = 0;
-			if (!ground_on)
+			if (!ground_on && !jetpack)
 			{
 				ground_on = true;
 				platform_jump_off = false;

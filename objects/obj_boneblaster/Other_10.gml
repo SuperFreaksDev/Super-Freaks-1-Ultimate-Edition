@@ -1,5 +1,18 @@
 /// @description Step
-var _missile, _shoot_direction;
+var _missile, _missile_limit, _shoot_direction;
+
+switch (global.difficulty)
+{
+	case difficulty_levels.easy:
+		_missile_limit = MISSILE_LIMIT_EASY;
+		break;
+	case difficulty_levels.normal:
+		_missile_limit = MISSILE_LIMIT_NORMAL;
+		break;
+	case difficulty_levels.hard:
+		_missile_limit = MISSILE_LIMIT_HARD;
+		break;
+}
 
 // Inherit the parent event
 event_inherited();
@@ -17,7 +30,12 @@ switch (state)
 		timer++;
 		
 		if (timer >= 96)
-			state_next_set(1);
+		{
+			if (instance_number(obj_enemy_missile) < _missile_limit)
+				state_next_set(1);
+			else
+				timer = 0;
+		}
 		break;
 	case 1: //Shoot 1
 		if (state_begin)

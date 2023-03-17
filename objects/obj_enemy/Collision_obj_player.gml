@@ -20,10 +20,23 @@ switch (_hitbox_self.behavior)
 		{
 			with (other)
 			{
-				if (_enemy_hurt_timer == 0 || speed_v >= 0)
+				if (jetpack)
 				{
-					speed_v = min(speed_v, -speed_jump);
-					_enemy_hurt = true;
+					if (_enemy_hurt_timer == 0)
+					{
+						jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
+						speed_h *= 1.5;
+						speed_v *= 1.5;
+						_enemy_hurt = true;
+					}
+				}
+				else
+				{
+					if (_enemy_hurt_timer == 0 || speed_v >= 0)
+					{
+						speed_v = min(speed_v, -speed_jump);
+						_enemy_hurt = true;
+					}
 				}
 			}
 		}
@@ -37,10 +50,11 @@ switch (_hitbox_self.behavior)
 			{
 				//speed_h = 4 * sign(x - _hitbox_self_x);
 				_enemy_hurt = true;
-				if (underwater)
+				if (underwater || jetpack)
 				{
 					speed_h = 3 * sign(-speed_h);
 					speed_v = 3 * sign(-speed_v);
+					jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 				}
 				else
 				{
@@ -67,10 +81,11 @@ switch (_hitbox_self.behavior)
 			{
 				sfx_play_global(sfx_honk);
 				//speed_h = 4 * sign(x - _hitbox_self_x);
-				if (underwater)
+				if (underwater || jetpack)
 				{
 					speed_h = 3 * sign(-speed_h);
 					speed_v = 3 * sign(-speed_v);
+					jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 				}
 				else
 				{

@@ -82,8 +82,10 @@ var _view_y2 = _view_y1 + _view_height;
 		if (global.debug_viewer[debug_viewer_types.hitboxes] == true)
 		{
 			draw_set_color(c_red);
+			draw_set_alpha(0.5);
 			with (obj_master)
 				comp_list_hitbox_draw();	
+			draw_set_alpha(1);
 		}
 		if (global.debug_viewer[debug_viewer_types.colliders] == true)
 		{

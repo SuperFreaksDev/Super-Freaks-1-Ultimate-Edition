@@ -5,9 +5,12 @@ switch (state)
 	case player_states.debug:
 	case player_states.inactive:
 	case player_states.drop_in:
+		jetpack = false;
 		break;
 	case player_states.death:
+	case player_states.death_fall:
 		invincible = false;
+		jetpack = false;
 	case player_states.bubble:
 		state_next_set(player_states.normal);
 		hitbox.active = hitbox_active.active;

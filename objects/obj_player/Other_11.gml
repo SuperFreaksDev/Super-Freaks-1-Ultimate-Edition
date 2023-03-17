@@ -8,19 +8,24 @@ switch (state)
 	case player_states.normal:
 		player_camera_extend_x();
 	
-		if (ground_on)
-		{
-			if (camera.y > y)
-				camera.y = max(camera.y - 6, y);
-			else
-				camera.y = min(camera.y + 6, y);
-		}
+		if (jetpack)
+			player_camera_extend_y();
 		else
 		{
-			if (y < (camera.y - 48))
-				camera.y += (y - (camera.y - 48));
-			if (y > (camera.y + 32))
-				camera.y += (y - (camera.y + 32));
+			if (ground_on)
+			{
+				if (camera.y > y)
+					camera.y = max(camera.y - 6, y);
+				else
+					camera.y = min(camera.y + 6, y);
+			}
+			else
+			{
+				if (y < (camera.y - 48))
+					camera.y += (y - (camera.y - 48));
+				if (y > (camera.y + 32))
+					camera.y += (y - (camera.y + 32));
+			}
 		}
 		break;
 	case player_states.hurt:

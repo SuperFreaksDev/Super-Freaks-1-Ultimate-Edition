@@ -1,6 +1,10 @@
 /// @description 
 
-var _x, _y, _xprevious, _yprevious, _height;
+var _frame_delta = frame_delta_player_get();
+var _x = lerp(x_start_frame, x, _frame_delta);
+var _y = lerp(y_start_frame, y, _frame_delta);
+var _icon, _icon_frame = 0, _height;
+
 var _average_x, _average_y, _average_x_previous, _average_y_previous;
 var _rubber_band_distance, _rubber_band_direction, _rubber_band_draw = true;
 _average_x = global.player_rubberband_average[rubber_band_color][0];
@@ -14,28 +18,36 @@ switch (state)
 		if (physics == player_physics_modifiers.rail && ground_on)
 		{
 			_height = collider_detector_down[collider_detector_vertical_data.y];
-			_x = x + lengthdir_x(_height, angle_ground + 90);
-			_xprevious = x_start_frame + lengthdir_x(_height, angle_ground + 90);
-			_y = y + _height + lengthdir_y(_height, angle_ground + 90);
-			_yprevious = y_start_frame + _height + lengthdir_y(_height, angle_ground + 90);
-			draw_sprite_interpolated(sprite_index, image_index, _x, _y, _xprevious, _yprevious, face, 1,,, angle_ground, angle_ground, c_white, 1);
+			draw_sprite_ext(sprite_index, image_index, _x + lengthdir_x(_height, angle_ground + 90), _y + _height + lengthdir_y(_height, angle_ground + 90), 1, 1, angle_ground, c_white, 1);
 		}
 		else
-			draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
+		{
+			if (jetpack)
+				draw_sprite_ext(spr_jetpack, jetpack_index, _x - (24 * face), _y, 1, 1, 0, c_white, 1);
+			draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
+		}
 		break;
 	case player_states.bubble:
-		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
-		draw_sprite_interpolated(spr_player_bubble, 0, x, y,,, 1, 1,,, 0,, c_white, 0.5);
-		draw_action(player_number, controls_actions.jump, x + 36, y - 48);
+		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_player_bubble, image_index, _x, _y, 1, 1, 0, c_white, 0.5);
+		_icon = input_binding_get_icon("bubble", player_number);
+		if (!is_string(_icon))
+		{
+			if (floor(global.animate) > 4)
+				_icon_frame = 1;
+			draw_sprite(_icon, _icon_frame, _x + 36, _y - 48);
+		}
 		_rubber_band_draw = false;
 		break;
 	case player_states.death:
 	case player_states.death_fall:
-		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
+		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		_rubber_band_draw = false;
 		break;
 	default:
-		draw_sprite_interpolated(sprite_index, image_index, x, y,,, face, 1,,, 0,, c_white, 1);
+		if (jetpack)
+			draw_sprite_ext(spr_jetpack, jetpack_index, _x - (24 * face), _y, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		break;
 }
 

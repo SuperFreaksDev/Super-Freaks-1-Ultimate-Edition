@@ -203,7 +203,7 @@ function levels_init()
 	{
 		return level_complete_get(23);
 	});
-	level_create(25,, rm_comingsoon, "Castle Kranion", "Mecha Moon", function()
+	level_create(25,, rm_moon_1, "Castle Kranion", "Mecha Moon", function()
 	{
 		return level_complete_get(23);
 	});

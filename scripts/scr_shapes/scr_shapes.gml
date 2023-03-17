@@ -1,3 +1,146 @@
+#region Line
+	/// @function intersection_lines
+	/// @description https://stackoverflow.com/questions/9043805/test-if-two-lines-intersect-javascript-function
+	/// @param _line1_x1
+	/// @param _line1_y1
+	/// @param _line1_x2
+	/// @param _line1_y2
+	/// @param _line2_x1
+	/// @param _line2_y1
+	/// @param _line2_x2
+	/// @param _line2_y2
+	function intersection_lines(_line1_x1, _line1_y1, _line1_x2, _line1_y2, _line2_x1, _line2_y1, _line2_x2, _line2_y2)
+	{
+		var _determinant, _line_1, _line_2;
+	
+		_determinant = (_line1_x2 - _line1_x1) * (_line2_y2 - _line2_y1) - (_line2_x2 - _line2_x1) * (_line1_y2 - _line1_y1);
+		if (_determinant == 0)
+			return false;
+		else 
+		{
+			_line_1 = ((_line2_y2 - _line2_y1) * (_line2_x2 - _line1_x1) + (_line2_x1 - _line2_x2) * (_line2_y2 - _line1_y1)) / _determinant;
+			_line_2 = ((_line1_y1 - _line1_y2) * (_line2_x2 - _line1_x1) + (_line1_x2 - _line1_x1) * (_line2_y2 - _line1_y1)) / _determinant;
+			return (0 < _line_1 && _line_1 < 1) && (0 < _line_2 && _line_2 < 1);
+		}
+	}
+	
+	/// @function intersection_line_AABB
+	/// @param _line_x1
+	/// @param _line_y1
+	/// @param _line_x2
+	/// @param _line_y2
+	/// @param _AABB_x1
+	/// @param _AABB_y1
+	/// @param _AABB_x2
+	/// @param _AABB_y2
+	function intersection_line_AABB(_line_x1, _line_y1, _line_x2, _line_y2, _AABB_x1, _AABB_y1, _AABB_x2, _AABB_y2)
+	{
+		//Line vertex checks
+		if (point_in_rectangle(_line_x1, _line_y1, _AABB_x1, _AABB_y1, _AABB_x2, _AABB_y2))
+			return true;
+		if (point_in_rectangle(_line_x2, _line_y2, _AABB_x1, _AABB_y1, _AABB_x2, _AABB_y2))
+			return true;
+			
+		//Line intersection checks
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _AABB_x1, _AABB_y1, _AABB_x2, _AABB_y1))
+			return true;
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _AABB_x2, _AABB_y1, _AABB_x2, _AABB_y2))
+			return true;
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _AABB_x2, _AABB_y2, _AABB_x1, _AABB_y2))
+			return true;
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _AABB_x1, _AABB_y2, _AABB_x1, _AABB_y1))
+			return true;
+			
+		return false;
+	}
+	
+	/// @function intersection_line_circle
+	/// @param _line_x1
+	/// @param _line_y1
+	/// @param _line_x2
+	/// @param _line_y2
+	/// @param _circle_x
+	/// @param _circle_y
+	/// @param _circle_radius
+	function intersection_line_circle(_line_x1, _line_y1, _line_x2, _line_y2, _circle_x, _circle_y, _circle_radius)
+	{
+		var _center_x = _circle_x - _line_x1;
+		var _center_y = _circle_y - _line_y1;
+		var _edge_x = _line_x2 - _line_x1;
+		var _edge_y = _line_y2 - _line_y1;
+		var _angle = (_center_x*_edge_x) + (_center_y*_edge_y);
+		var _length;
+
+		if (_angle > 0)
+		{
+			_length = sqrt((_edge_x*_edge_x) + (_edge_y*_edge_y));
+			_angle = _angle/_length;
+
+			if (_angle < _length)
+			{
+				if (sqrt((_center_x*_center_x) + (_center_y*_center_y) - (_angle*_angle)) <= _circle_radius)
+					return true;
+			}
+		}
+	
+		return false;
+	}
+	
+	/// @function intersection_line_triangle
+	/// @param _line_x1
+	/// @param _line_y1
+	/// @param _line_x2
+	/// @param _line_y2
+	/// @param _triangle_x1
+	/// @param _triangle_y1
+	/// @param _triangle_x2
+	/// @param _triangle_y2
+	/// @param _triangle_x3
+	/// @param _triangle_y3
+	function intersection_line_triangle(_line_x1, _line_y1, _line_x2, _line_y2, _triangle_x1, _triangle_y1, _triangle_x2, _triangle_y2, _triangle_x3, _triangle_y3)
+	{
+		//Line vertex checks
+		if (point_in_triangle(_line_x1, _line_y1, _triangle_x1, _triangle_y1, _triangle_x2, _triangle_y2, _triangle_x3, _triangle_y3))
+			return true;
+		if (point_in_triangle(_line_x2, _line_y2, _triangle_x1, _triangle_y1, _triangle_x2, _triangle_y2, _triangle_x3, _triangle_y3))
+			return true;
+			
+		//Line intersection checks
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _triangle_x1, _triangle_y1, _triangle_x2, _triangle_y2))
+			return true;
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _triangle_x2, _triangle_y2, _triangle_x3, _triangle_y3))
+			return true;
+		if (intersection_lines(_line_x1, _line_y1, _line_x2, _line_y2, _triangle_x3, _triangle_y3, _triangle_x1, _triangle_y1))
+			return true;
+			
+		return false;
+	}
+	
+	/// @function intersection_line_capsule
+	/// @param _line_x1
+	/// @param _line_y1
+	/// @param _line_x2
+	/// @param _line_y2
+	/// @param _capsule_x1
+	/// @param _capsule_y1
+	/// @param _capsule_x2
+	/// @param _capsule_y2
+	/// @param _capsule_radius
+	function intersection_line_capsule(_line_x1, _line_y1, _line_x2, _line_y2, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2, _capsule_radius)
+	{
+		var _capsule_closest_point, _point_A, _point_B;
+	
+		_point_A = point_line_nearest(_line_x1, _line_y1, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+		_point_B = point_line_nearest(_line_x2, _line_y2, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+	
+		if (point_distance(_line_x2, _line_y2, _point_B[0], _point_B[1]) < point_distance(_line_x1, _line_y1, _point_A[0], _point_A[1]))
+			_capsule_closest_point = _point_B;
+		else
+			_capsule_closest_point = _point_A;
+			
+		return intersection_line_circle(_line_x1, _line_y1, _line_x2, _line_y2, _capsule_closest_point[0], _capsule_closest_point[1], _capsule_radius);
+	}
+#endregion
 
 #region Circle
 	/// @function vertex_in_circle

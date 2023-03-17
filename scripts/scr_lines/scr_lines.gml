@@ -10,30 +10,7 @@ function y_intercept_get(_x, _y, _slope)
 	gml_pragma("forceinline");
 }
 
-/// @function intersection_lines
-/// @description https://stackoverflow.com/questions/9043805/test-if-two-lines-intersect-javascript-function
-/// @param _line1_x1
-/// @param _line1_y1
-/// @param _line1_x2
-/// @param _line1_y2
-/// @param _line2_x1
-/// @param _line2_y1
-/// @param _line2_x2
-/// @param _line2_y2
-function intersection_lines(_line1_x1, _line1_y1, _line1_x2, _line1_y2, _line2_x1, _line2_y1, _line2_x2, _line2_y2)
-{
-	var _determinant, _line_1, _line_2;
-	
-	_determinant = (_line1_x2 - _line1_x1) * (_line2_y2 - _line2_y1) - (_line2_x2 - _line2_x1) * (_line1_y2 - _line1_y1);
-	if (_determinant == 0)
-		return false;
-	else 
-	{
-		_line_1 = ((_line2_y2 - _line2_y1) * (_line2_x2 - _line1_x1) + (_line2_x1 - _line2_x2) * (_line2_y2 - _line1_y1)) / _determinant;
-		_line_2 = ((_line1_y1 - _line1_y2) * (_line2_x2 - _line1_x1) + (_line1_x2 - _line1_x1) * (_line2_y2 - _line1_y1)) / _determinant;
-		return (0 < _line_1 && _line_1 < 1) && (0 < _line_2 && _line_2 < 1);
-	}
-}
+
 
 /// @function line_normalise
 /// @param _x1
