@@ -6,6 +6,7 @@ with (obj_menu_pause)
 
 zones_clear();
 hashmap_collision_clean();
+triggers_init();
 
 gc_collect();
 gc_timer = 0;
