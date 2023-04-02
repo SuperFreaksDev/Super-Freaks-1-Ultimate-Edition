@@ -47,6 +47,8 @@ if (jetpack)
 		ball = false;
 }
 
+hang_dismount_frames = max(hang_dismount_frames - 1, 0);
+
 switch (state)
 {
 	case player_states.inactive:

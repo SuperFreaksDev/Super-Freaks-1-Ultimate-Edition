@@ -43,6 +43,12 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 
 	if (ground_on)
 	{
+		if (_ledge_reverse && !collision_exists_down_simple(x + speed_h, x + speed_h, x + speed_h,, 16, true))
+		{
+			//x = x - (_speed_run * face);
+			speed_h = -speed_h;
+			face = -face;
+		}
 		speed_x = lengthdir_x(speed_h, angle_ground);
 		speed_y = lengthdir_y(speed_h, angle_ground);
 	}
@@ -74,14 +80,15 @@ function enemy_behavior_ground(_speed_acc = 1, _speed_dec = 1, _speed_run = 1, _
 	if (ground_on)
 	{
 		collision_up_simple();
-		if (!collision_down_simple(,,,, 16,, true) && _ledge_reverse)
-		{
-			if (collision_down_simple(x + collider_detector_down[collider_detector_vertical_data.flat_x1] - (_speed_run * face), x + collider_detector_down[collider_detector_vertical_data.flat_x2] - (_speed_run * face), x - (_speed_run * face),, 16,, true))
-			{
-				x = x - (_speed_run * face);
-				face = -face;
-			}
-		}
+		collision_down_simple(,,,, 16,, true);
+		//if (!collision_down_simple(,,,, 16,, true) && _ledge_reverse)
+		//{
+		//	if (collision_down_simple(x + collider_detector_down[collider_detector_vertical_data.flat_x1] - (_speed_run * face), x + collider_detector_down[collider_detector_vertical_data.flat_x2] - (_speed_run * face), x - (_speed_run * face),, 16,, true))
+		//	{
+		//		x = x - (_speed_run * face);
+		//		face = -face;
+		//	}
+		//}
 		angle_ground = global.collider_collision[collider_collision.angle];
 	}
 	else

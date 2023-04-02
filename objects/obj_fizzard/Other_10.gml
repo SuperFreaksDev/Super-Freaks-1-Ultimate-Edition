@@ -90,7 +90,7 @@ switch (state)
 	case 3: //Search 2
 		if (state_begin)
 		{
-			animate_speed = 0.025;
+			animate_speed = 0.05;
 			sprite_index = spr_fizzard_search;
 			image_index = 0;
 			speed_v = 0;

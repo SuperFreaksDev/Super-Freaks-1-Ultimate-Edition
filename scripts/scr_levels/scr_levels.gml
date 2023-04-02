@@ -207,7 +207,7 @@ function levels_init()
 	{
 		return level_complete_get(23);
 	});
-	level_create(26,,, "Castle Kranion", "Conveyor Secret", function()
+	level_create(26,, rm_secretcastle_1, "Castle Kranion", "Conveyor Secret", function()
 	{
 		return (level_perfect_get(24) && level_perfect_get(25));
 	});

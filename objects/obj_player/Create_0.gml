@@ -36,6 +36,8 @@ character_index = 0;
 	underwater = false;
 	water_meter = 100;
 	
+	#macro HANG_DISMOUNT_FRAMES_MAX 6
+	hang_dismount_frames = 0;
 	hang_on = false;
 	invincible = false;
 	

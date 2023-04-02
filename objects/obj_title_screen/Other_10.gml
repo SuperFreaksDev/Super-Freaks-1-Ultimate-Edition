@@ -3,7 +3,7 @@
 var _player_index;
 var _go_to_next = false;
 
-show_debug_message(global.player_lead);
+//show_debug_message(global.player_lead);
 
 if (!room_transition_active_get())
 {

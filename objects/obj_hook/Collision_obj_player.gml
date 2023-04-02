@@ -11,7 +11,8 @@ else
 	switch (other.state)
 	{
 		case player_states.hang:
-			_grab = true;
+			if (other.hang_dismount_frames == 0)
+				_grab = true;
 			break;
 		case player_states.inactive:
 		case player_states.debug:
@@ -22,7 +23,8 @@ else
 		case player_states.pole_climb:
 			break;
 		default:
-			if (other.speed_v >= 0)
+			if (other.hang_dismount_frames == 0 &&
+			(other.speed_v < 0 && other.y_previous > (y + 72)) || (other.speed_v > 0) && other.y_previous < (y + 72))
 				_grab = true;
 			break;
 	}

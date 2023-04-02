@@ -147,16 +147,16 @@ function comp_list_hitbox_update(_force = false)
 			_cells_y_check = true;
 		}
 	
-		if (x != x_previous || x != x_start_frame)
-			_cells_x_check = true;
-		if (y != y_previous || y != y_start_frame)
-			_cells_y_check = true;
-		
-		//if (x != x_previous || y != y_previous)
-		//{
+		//if (x != x_previous || x != x_start_frame)
 		//	_cells_x_check = true;
+		//if (y != y_previous || y != y_start_frame)
 		//	_cells_y_check = true;
-		//}
+		
+		if (x != x_previous || y != y_previous)
+		{
+			_cells_x_check = true;
+			_cells_y_check = true;
+		}
 		
 		if (_cells_x_check)
 		{

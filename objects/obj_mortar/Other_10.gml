@@ -71,6 +71,8 @@ switch (state)
 		timer++;
 		if (timer >= 16)
 			state_next_set(enemy_mortar_states.ready);
+		else if (timer >= 8)
+			image_index = 2;
 		break;
 }
 

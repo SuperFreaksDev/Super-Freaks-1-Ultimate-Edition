@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "spr_mortar_stand",
   "bbox_bottom": 95,
-  "bbox_left": 5,
+  "bbox_left": 1,
   "bbox_right": 94,
   "bbox_top": 12,
   "bboxMode": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9eeadad3-e525-4daf-86a6-cae5f3fb3fdc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6290ea06-bcc9-437a-ad6d-d368390e34d2",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 96,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"de23c5f1-2398-42d0-981e-9d88b8b0e628","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"75ca0381-25b8-4b8e-965d-7ead8cd417b2","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,12 +54,12 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9eeadad3-e525-4daf-86a6-cae5f3fb3fdc","path":"sprites/spr_mortar_stand/spr_mortar_stand.yy",},},},"Disabled":false,"id":"89d36dbc-6dc8-4622-8a92-c9a9d026eb6b","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6290ea06-bcc9-437a-ad6d-d368390e34d2","path":"sprites/spr_mortar_stand/spr_mortar_stand.yy",},},},"Disabled":false,"id":"16a2d5ef-e4f7-4934-a5a3-b650eedcf488","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 48,
+    "xorigin": 56,
     "yorigin": 48,
   },
   "swatchColours": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 96,
+  "width": 112,
 }

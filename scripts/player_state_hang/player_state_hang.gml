@@ -51,7 +51,10 @@ function player_state_hang()
 	{
 		//if (button_down == controls_action_states.press || button_down == controls_action_states.hold)
 		if (input_check("down", player_number))
+		{
 			speed_v = 6;
+			y += max(8, y - y_start_frame);
+		}
 		else
 		{
 			jump_buffer = JUMP_BUFFER_MAX;
@@ -59,6 +62,7 @@ function player_state_hang()
 		}
 		state_next_set(player_states.normal, 5);
 		sfx_play_global(sfx_jump);
+		hang_dismount_frames = HANG_DISMOUNT_FRAMES_MAX;
 		ball = true;
 		ground_on = false;
 		coyote_time = 0;
@@ -67,7 +71,10 @@ function player_state_hang()
 	jump_buffer = max(jump_buffer - 1, 0);
 	
 	if (is_undefined(instance_attach))
+	{
 		state_next_set(player_states.normal, 5);
+		hang_dismount_frames = HANG_DISMOUNT_FRAMES_MAX;
+	}
 		
 	switch sign(x - x_previous)
 	{
@@ -106,11 +113,13 @@ function player_state_hang()
 	{
 		state_next_set(player_states.normal, 5);
 		instance_attach = undefined;
+		hang_dismount_frames = HANG_DISMOUNT_FRAMES_MAX;
 	}
 	else if (_collision_down)
 	{
 		state_next_set(player_states.normal, 5);
 		instance_attach = undefined;
+		hang_dismount_frames = HANG_DISMOUNT_FRAMES_MAX;
 		ground_on = true;
 		coyote_time = 0;
 	}
