@@ -23,7 +23,7 @@ switch (state)
 		else
 		{
 			if (jetpack)
-				draw_sprite_ext(spr_jetpack, jetpack_index, _x - (24 * face), _y, 1, 1, 0, c_white, 1);
+				draw_sprite_ext(spr_jetpack, jetpack_index, _x - (18 * face), _y, 1, 1, 0, c_white, 1);
 			draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		}
 		break;

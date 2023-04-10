@@ -34,10 +34,10 @@ function player_state_climb_pole()
 	if (!is_undefined(instance_attach))
 	{
 		//if (button_left == controls_action_states.press)
-		if (input_check_pressed("left", player_number))
+		if (input_check("left", player_number))
 			_move_h -= 1;
 		//if (button_right == controls_action_states.press)
-		if (input_check_pressed("right", player_number))
+		if (input_check("right", player_number))
 			_move_h += 1;
 		
 		if (instance_attach.rotate_speed == 0)

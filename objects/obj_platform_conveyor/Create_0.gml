@@ -32,3 +32,4 @@ if (my_path != -1)
 animate_speed = 0.125;
 offset = 0;
 offset_previous = 0;
+depth = 6;

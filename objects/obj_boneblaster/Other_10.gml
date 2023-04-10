@@ -61,7 +61,7 @@ switch (state)
 		
 		timer++;
 		
-		if (timer >= 8)
+		if (timer >= 32)
 			state_next_set(3);
 		break;
 	case 3: //Shoot 3

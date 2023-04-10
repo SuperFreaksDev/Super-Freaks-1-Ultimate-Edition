@@ -27,7 +27,7 @@ switch (state)
 			timer = 0;
 		}
 		timer++;
-		if (timer >= 16)
+		if (timer >= 32)
 		{
 			switch (face)
 			{

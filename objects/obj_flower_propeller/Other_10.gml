@@ -19,13 +19,13 @@ for (_i = array_length(_list) - 1; _i >= 0; --_i)
 	{
 		if (_i == 0)
 		{
-			if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
+			if (input_check("left", player_number))
 				_move_h -= 1;
-			if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
+			if (input_check("right", player_number))
 				_move_h += 1;
-			if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
+			if (input_check("up", player_number))
 				_move_v -= 1;
-			if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
+			if (input_check("down", player_number))
 				_move_v += 1;
 		}
 	}

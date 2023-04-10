@@ -1,7 +1,5 @@
 /// @description Step
 
-var _attack_y;
-
 // Inherit the parent event
 event_inherited();
 
@@ -32,7 +30,7 @@ switch (state)
 			sprite_index = spr_fizzard_attack;
 			image_index = 0;
 			animate_speed = 0;
-			timer = 80;
+			timer = 96;
 			speed_move = 10;
 			speed_h = 0;
 			speed_v = 0;
@@ -47,11 +45,13 @@ switch (state)
 			
 			if (timer <= 0)
 				state_next_set(2);
-			else if (timer <= 24)
+			else if (timer <= 32)
 			{
 				if (timer mod 2 == 0)
 					blink = !blink;
 			}
+			if (collision_down_simple(x, x, x, y, infinity,,, true, false))
+				attack_y = global.collider_collision[collider_attach_data.collision_y];
 		}
 		else
 		{
@@ -75,8 +75,8 @@ switch (state)
 				image_index = 2;
 				if (collision_down_simple(x, x, x, y, infinity,,, true, false))
 				{
-					_attack_y = global.collider_collision[collider_attach_data.collision_y];
-					instance_create_layer(x, _attack_y, "layer_instances", obj_explosion_bomb);
+					attack_y = global.collider_collision[collider_attach_data.collision_y];
+					instance_create_layer(x, attack_y, "layer_instances", obj_explosion_bomb);
 				}
 			}
 		}

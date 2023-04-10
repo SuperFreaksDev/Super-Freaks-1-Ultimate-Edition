@@ -14,6 +14,8 @@ target = undefined;
 timer = 0;
 blink = false;
 
+attack_y = infinity;
+
 state_next_set(0);
 
 collider_detector_up_set(-8, 0, 8, 0, -24);

@@ -54,6 +54,7 @@
     {"name":"inst_234C4599","path":"rooms/rm_secretcastle_1/rm_secretcastle_1.yy",},
     {"name":"inst_47407872","path":"rooms/rm_secretcastle_1/rm_secretcastle_1.yy",},
     {"name":"inst_E214EB9","path":"rooms/rm_secretcastle_1/rm_secretcastle_1.yy",},
+    {"name":"inst_6EA5059C","path":"rooms/rm_secretcastle_1/rm_secretcastle_1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -220,6 +221,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_pointy","path":"objects/obj_pointy/obj_pointy.yy",},"propertyId":{"name":"speed_move_x","path":"objects/obj_pointy/obj_pointy.yy",},"value":"2",},
           ],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":6528.0,"y":784.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6EA5059C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_crackerbarrel_giant","path":"objects/obj_crackerbarrel_giant/obj_crackerbarrel_giant.yy",},"properties":[],"rotation":0.0,"scaleX":6.0,"scaleY":6.0,"x":-256.0,"y":544.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"layer_tiles_special","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":30,"SerialiseWidth":227,"TileCompressedData":[
 -6810,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_special","path":"tilesets/tileset_special/tileset_special.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

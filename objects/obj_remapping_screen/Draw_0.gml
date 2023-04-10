@@ -3,8 +3,14 @@
 var _i, _j;
 var _source = undefined;
 var _frame = 0;
-var _x = view_x_get();
-var _y = view_y_get() + (screen_height_get() * (2 * y_offset));
+var _screen_width = screen_width_get();
+var _screen_height = screen_height_get();
+var _view_x1 = view_x1_get();
+var _view_y1 = view_y1_get();
+var _view_width = view_width_get();
+var _view_height = view_height_get();
+var _x = _view_x1 + (_screen_width / 2);
+var _y = _view_y1 + (_screen_height / 2) + (_screen_height * (2 * y_offset));
 var _color_cyan_light = make_color_rgb(191, 254, 255);
 var _color_cyan_dark = make_color_rgb(0, 107, 191);
 var _binding, _icon;
@@ -24,6 +30,7 @@ if (global.animate > 4)
 
 draw_set_font(global.font_16);
 
+draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_sprite_stretched(spr_menu, 0, _x - 304, _y - 148, 608, 296);
 
 draw_set_color(c_white);
@@ -159,3 +166,4 @@ switch (page)
 	default:
 		break;
 }
+draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
