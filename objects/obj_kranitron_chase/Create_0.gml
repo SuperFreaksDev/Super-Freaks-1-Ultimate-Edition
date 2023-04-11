@@ -24,7 +24,7 @@ with (camera_blocker)
 	solid_up = false;
 }
 
-if (!_active)
-	state_next_set(0);
-else
+if (_active)
 	state_next_set(1);
+else
+	state_next_set(0);

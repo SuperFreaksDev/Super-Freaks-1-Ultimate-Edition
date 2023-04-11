@@ -36,8 +36,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_kranitron_stealth",
-    "path": "sprites/spr_kranitron_stealth/spr_kranitron_stealth.yy",
+    "name": "spr_kranitron_walk",
+    "path": "sprites/spr_kranitron_walk/spr_kranitron_walk.yy",
   },
   "spriteMaskId": null,
   "visible": true,

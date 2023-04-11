@@ -19,6 +19,7 @@
     {"name":"inst_79262F53","path":"rooms/rm_moon_2/rm_moon_2.yy",},
     {"name":"inst_7F31627B","path":"rooms/rm_moon_2/rm_moon_2.yy",},
     {"name":"inst_76BF4BB4","path":"rooms/rm_moon_2/rm_moon_2.yy",},
+    {"name":"inst_47CE972D","path":"rooms/rm_moon_2/rm_moon_2.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -64,6 +65,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_skizzorpede","path":"objects/obj_skizzorpede/obj_skizzorpede.yy",},"propertyId":{"name":"my_speed","path":"objects/obj_skizzorpede/obj_skizzorpede.yy",},"value":"4",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":3536.0,"y":784.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7F31627B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_jetpack","path":"objects/obj_jetpack/obj_jetpack.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1040.0,"y":816.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_47CE972D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_background_moon_indoors","path":"objects/obj_background_moon_indoors/obj_background_moon_indoors.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":928.0,"y":800.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"layer_tiles_special","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":30,"SerialiseWidth":125,"TileCompressedData":[
 -3750,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_special","path":"tilesets/tileset_special/tileset_special.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

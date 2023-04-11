@@ -543,6 +543,7 @@
     {"id":{"name":"sfx_jump","path":"sounds/sfx_jump/sfx_jump.yy",},},
     {"id":{"name":"tileset_toy","path":"tilesets/tileset_toy/tileset_toy.yy",},},
     {"id":{"name":"scr_objects_common","path":"scripts/scr_objects_common/scr_objects_common.yy",},},
+    {"id":{"name":"obj_background_moon_indoors","path":"objects/obj_background_moon_indoors/obj_background_moon_indoors.yy",},},
     {"id":{"name":"spr_player_stand_scruffy","path":"sprites/spr_player_stand_scruffy/spr_player_stand_scruffy.yy",},},
     {"id":{"name":"tileset_lightning","path":"tilesets/tileset_lightning/tileset_lightning.yy",},},
     {"id":{"name":"spr_player_skid_geyzer","path":"sprites/spr_player_skid_geyzer/spr_player_skid_geyzer.yy",},},
