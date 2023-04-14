@@ -294,14 +294,14 @@
 		var _collision = false, _new_pos, _angle;
 		var _collider_collision;
 		
-		for (_cell_y_true = _cell_y1; _cell_y_true <= _cell_y2; ++_cell_y_true)
+		for (_cell_y_true = _cell_y2; _cell_y_true >= _cell_y1; --_cell_y_true)
 		{
 			_cell_y = _cell_y_true;
 			_tile_data = _tile_data_array[(tilemap_get(_tilemap, _cell_x, _cell_y) & tile_index_mask)];
 			_solid = _tile_data[tile_data.solid_y2];
 		
 			if (_solid == collider_solidity.NA || (_solid == collider_solidity.semi_solid && !_check_semi_solid))
-				return false;
+				continue;
 			
 			_solid_type = _tile_data[tile_data.solid_type];
 			switch (_solid_type)

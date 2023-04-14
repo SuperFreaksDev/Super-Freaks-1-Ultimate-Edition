@@ -470,7 +470,7 @@ function collider_collision_global_clear()
 		
 				for (_cell_x = _cell_x1; _cell_x <= _cell_x2; ++_cell_x)
 				{
-					for (_cell_y = _cell_y1; _cell_y <= _cell_y2; ++_cell_y)
+					for (_cell_y = _cell_y2; _cell_y >= _cell_y1; --_cell_y)
 					{
 						_instance_list = _hashmap[_cell_x + (_cell_y * _hashmap_width)][hashmap_cell_data.collider];
 			

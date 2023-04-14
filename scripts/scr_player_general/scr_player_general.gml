@@ -85,7 +85,10 @@ function players_start(_x, _y)
 			x = _x;
 			y = _y;
 			if (_list[_player_number][player_data.active] == true)
+			{
 				state_next_set(player_states.normal);
+				jetpack = false;
+			}
 			else
 			{
 				switch (state)

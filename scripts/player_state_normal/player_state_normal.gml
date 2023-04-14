@@ -133,6 +133,7 @@ function player_state_normal()
 						else
 							speed_v *= speed_frc_air;
 					}
+					ground_on = false;
 					break;
 				case 0:
 					speed_v *= speed_frc_air;
@@ -162,6 +163,7 @@ function player_state_normal()
 				sfx_play_global(sfx_jump);
 				jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 			}
+			ground_on = false;
 		}
 		else
 		{
@@ -267,7 +269,7 @@ function player_state_normal()
 		if (speed_h < 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_left != collider_behaviors_solid.ice && !underwater && !ground_on && (((_move_h == -1 && speed_y > -3) || walljump_auto > 0)))
+			if (behavior_wall_left != collider_behaviors_solid.ice && !jetpack && !underwater && !ground_on && (((_move_h == -1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = -1;
 				state_next_set(player_states.wall_slide);
@@ -290,7 +292,7 @@ function player_state_normal()
 		if (speed_h > 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_right != collider_behaviors_solid.ice && !underwater && !ground_on && (((_move_h == 1 && speed_y > -3) || walljump_auto > 0)))
+			if (behavior_wall_right != collider_behaviors_solid.ice && !jetpack && !underwater && !ground_on && (((_move_h == 1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = 1;
 				state_next_set(player_states.wall_slide);

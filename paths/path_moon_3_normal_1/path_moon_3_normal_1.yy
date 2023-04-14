@@ -1,7 +1,7 @@
 {
   "resourceType": "GMPath",
   "resourceVersion": "1.0",
-  "name": "path_moon_2_normal_1",
+  "name": "path_moon_3_normal_1",
   "closed": true,
   "kind": 0,
   "parent": {

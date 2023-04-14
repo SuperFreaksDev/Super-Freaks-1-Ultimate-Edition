@@ -14,7 +14,7 @@ switch (state)
 	case 1:
 		if (state_begin)
 		{
-			animate_speed = 0.05;
+			animate_speed = 0.025;
 			fade = 0;
 			with (camera_blocker)
 				solid_left = false;
