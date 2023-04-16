@@ -11,3 +11,5 @@ angle_start = image_angle;
 angle = angle_start;
 angle_previous = angle_start;
 timer = -shoot_delay;
+
+blink = false;

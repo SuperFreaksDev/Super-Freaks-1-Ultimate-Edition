@@ -15,8 +15,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"can_despawn","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
   ],
   "parent": {
-    "name": "Enemies",
-    "path": "folders/Objects/Enemies.yy",
+    "name": "Enemy Weapons",
+    "path": "folders/Objects/Enemies/Enemy Weapons.yy",
   },
   "parentObjectId": {
     "name": "obj_level_obj",

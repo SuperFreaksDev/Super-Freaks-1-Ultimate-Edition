@@ -36,4 +36,10 @@ if (timer >= shoot_frequency)
 		sfx_play_global(sfx_explode_short);
 	
 	timer = 0;
+	blink = false;
+}
+else if (timer >= shoot_frequency - 40)
+{
+	if (timer mod 2 == 0)
+		blink = !blink;
 }
