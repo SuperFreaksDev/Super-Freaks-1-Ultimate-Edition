@@ -14,7 +14,7 @@ enum enemy_gunnery_states
 
 hitbox = new comp_hitbox_AABB(,,, enemy_hitbox_behaviors.heavy,, -30, -40, 30, 40);
 timer = 0;
-shoot_counter = 0;
+ammo = 8;
 shoot_spread = 0;
 yorb_amount = 10;
 hp_init(2);
