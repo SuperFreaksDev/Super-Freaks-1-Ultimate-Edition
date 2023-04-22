@@ -79,7 +79,7 @@ function comp_hitbox_capsule(_x_offset = 0, _y_offset = 0, _active = hitbox_acti
 		var _y = owner.y + y_offset;
 		draw_circle(_x + shape_x1, _y + shape_y1, radius, false);
 		draw_circle(_x + shape_x2, _y + shape_y2, radius, false);
-		draw_line_width(_x + shape_x1, _y + shape_y1, _x + shape_x2, _y + shape_y2, radius);
+		draw_line_width(_x + shape_x1, _y + shape_y1, _x + shape_x2, _y + shape_y2, radius * 2);
 	}
 }
 

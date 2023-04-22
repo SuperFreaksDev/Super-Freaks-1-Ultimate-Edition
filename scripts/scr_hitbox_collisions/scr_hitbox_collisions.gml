@@ -173,6 +173,9 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 						return true;
 					break;
 				case "comp_hitbox_capsule":
+					if rectangle_in_capsule(_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2,
+											_hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2, _hitbox_2.radius)
+						return true;
 					break;
 				default: //None
 					break;
@@ -271,6 +274,9 @@ function hitbox_collision_check(_hitbox_1, _hitbox_2)
 			switch (instanceof(_hitbox_2))
 			{
 				case "comp_hitbox_AABB":
+					if rectangle_in_capsule(_hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2,
+											_hitbox_1_x + _hitbox_1.shape_x1, _hitbox_1_y + _hitbox_1.shape_y1, _hitbox_1_x + _hitbox_1.shape_x2, _hitbox_1_y + _hitbox_1.shape_y2, _hitbox_1.radius)
+						return true;
 					break;
 				case "comp_hitbox_line":
 					if intersection_line_capsule(_hitbox_2_x + _hitbox_2.shape_x1, _hitbox_2_y + _hitbox_2.shape_y1, _hitbox_2_x + _hitbox_2.shape_x2, _hitbox_2_y + _hitbox_2.shape_y2,

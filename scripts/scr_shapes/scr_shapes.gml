@@ -349,6 +349,39 @@
 #endregion
 
 #region Capsule
+	/// @function rectangle_in_capsule
+	/// @param _rectangle_x1
+	/// @param _rectangle_y1
+	/// @param _rectangle_x2
+	/// @param _rectangle_y2
+	/// @param _capsule_x1
+	/// @param _capsule_y1
+	/// @param _capsule_x2
+	/// @param _capsule_y2
+	/// @param _capsule_radius
+	function rectangle_in_capsule(_rectangle_x1, _rectangle_y1, _rectangle_x2, _rectangle_y2, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2, _capsule_radius)
+	{
+		var _capsule_closest_point, _point_A, _point_B, _point_C, _point_D;
+	
+		_point_A = point_line_nearest(_rectangle_x1, _rectangle_y1, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+		_point_B = point_line_nearest(_rectangle_x1, _rectangle_y2, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+		_point_C = point_line_nearest(_rectangle_x2, _rectangle_y1, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+		_point_D = point_line_nearest(_rectangle_x2, _rectangle_y2, _capsule_x1, _capsule_y1, _capsule_x2, _capsule_y2);
+		
+		if (point_distance(_rectangle_x1, _rectangle_y2, _point_B[0], _point_B[1]) < point_distance(_rectangle_x1, _rectangle_y1, _point_A[0], _point_A[1]))
+			_capsule_closest_point = _point_B;
+		else
+			_capsule_closest_point = _point_A;
+			
+		if (point_distance(_rectangle_x2, _rectangle_y1, _point_C[0], _point_C[1]) < point_distance(_rectangle_x2, _rectangle_y1, _capsule_closest_point[0], _capsule_closest_point[1]))
+			_capsule_closest_point = _point_C;
+			
+		if (point_distance(_rectangle_x2, _rectangle_y2, _point_D[0], _point_D[1]) < point_distance(_rectangle_x2, _rectangle_y2, _capsule_closest_point[0], _capsule_closest_point[1]))
+			_capsule_closest_point = _point_D;
+			
+		return rectangle_in_circle(_rectangle_x1, _rectangle_y1, _rectangle_x2, _rectangle_y2, _capsule_closest_point[0], _capsule_closest_point[1], _capsule_radius);
+	}
+
 	/// @function capsule_in_capsule
 	/// @param _capsule1_x1
 	/// @param _capsule1_y1

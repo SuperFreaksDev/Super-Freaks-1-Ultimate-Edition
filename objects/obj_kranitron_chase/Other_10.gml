@@ -6,6 +6,7 @@ switch (state)
 		if (state_begin)
 		{
 			fade = 2;
+			sfx_play_global(sfx_laser_huge_charge);
 		}
 		fade = max(fade - 0.025, -0.5);
 		if (fade == -0.5)
