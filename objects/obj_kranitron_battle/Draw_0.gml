@@ -23,3 +23,4 @@ switch (state)
 }
 draw_line_width(_laser_x1, _laser_y1, _laser_x2, _laser_y2, (96 * multiplier));
 draw_set_alpha(1);
+draw_set_color(c_white);

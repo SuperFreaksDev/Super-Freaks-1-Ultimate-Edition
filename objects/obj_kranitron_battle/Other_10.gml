@@ -1,7 +1,34 @@
 /// @description Step
 
-var _player;
 var _attack_angle = 180;
+var _missile, _missile_limit;
+var _player = player_nearest_alive();
+if (!is_undefined(_player))
+	_attack_angle = point_direction(x, y + 64, _player.x, _player.y);
+
+event_inherited();
+
+timer_missile++;
+if (timer_missile >= 128)
+{
+	timer_missile = 0;
+	sfx_play_global(sfx_explode_short);
+	_missile = instance_create_layer(x, y + 64, "layer_instances", obj_enemy_energy_orb,
+	{
+		speed: 8,
+		direction: _attack_angle,
+	});
+	_missile = instance_create_layer(x, y + 64, "layer_instances", obj_enemy_energy_orb,
+	{
+		speed: 8,
+		direction: _attack_angle - 15,
+	});
+	_missile = instance_create_layer(x, y + 64, "layer_instances", obj_enemy_energy_orb,
+	{
+		speed: 8,
+		direction: _attack_angle + 15,
+	});
+}
 
 switch (state)
 {
@@ -32,9 +59,10 @@ switch (state)
 			laser_alpha = 1;
 			hitbox_laser.active = hitbox_active.inactive;
 			sfx_play_global(sfx_laser_huge_charge, false);
-			_player = player_nearest_alive();
-			if (!is_undefined(_player))
-				_attack_angle = point_direction(x, y, _player.x, _player.y);
+			hitbox_laser.shape_x1 = lengthdir_x(8000, _attack_angle);
+			hitbox_laser.shape_y1 = lengthdir_y(8000, _attack_angle);
+			hitbox_laser.shape_x2 = 0;
+			hitbox_laser.shape_y2 = 64;
 		}
 		
 		laser_alpha = min(laser_alpha + 0.1, 0.5);
@@ -72,5 +100,30 @@ switch (state)
 		
 		if (laser_alpha == 0)
 			state_next_set(1);
+		break;
+	case 4: //Death
+		if (state_begin)
+		{
+			music_stop();
+			timer = 0;
+			animate_speed = 0;
+			laser_alpha = 0;
+			hitbox.active = hitbox_active.inactive;
+			hitbox_laser.active = hitbox_active.inactive;
+		}
+			
+		y += 1;
+		timer_missile = 0;
+		if (timer < 128)
+		{
+			if (timer mod 16 == 0)
+				instance_create_layer(x - 128 + random(240), y - 256 + random(512), "layer_instances", obj_boss_explosion);
+			timer++;
+		}
+		else
+		{
+			state_next_set(-1);
+			level_beat();
+		}
 		break;
 }
