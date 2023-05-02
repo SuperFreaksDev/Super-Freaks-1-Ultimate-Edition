@@ -48,7 +48,7 @@ character_index = 0;
 	jetpack_jump_timer = 0;
 	jetpack_index = 0;
 	
-	gravity_modifier = 1;
+	gravity_modifier = 0;
 	fall_speed_modifier = 0;
 
 	ground_on = false;

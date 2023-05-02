@@ -120,3 +120,6 @@ switch (state)
 	default:
 		break;
 }
+
+speed_grv = 0.25;
+speed_fall = 6;

@@ -211,7 +211,7 @@ function levels_init()
 	{
 		return (level_perfect_get(24) && level_perfect_get(25));
 	});
-	level_create(27,,, "Castle Kranion", "Moon Secret", function()
+	level_create(27,, rm_secretmoon_1, "Castle Kranion", "Moon Secret", function()
 	{
 		return level_complete_get(6)
 		&& level_complete_get(10)

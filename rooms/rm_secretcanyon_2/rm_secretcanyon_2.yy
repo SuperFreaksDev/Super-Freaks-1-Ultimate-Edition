@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_secretcanyon_2",
-  "creationCodeFile": "${project_dir}/rooms/rm_secretcanyon_1/RoomCreationCode.gml",
+  "creationCodeFile": "${project_dir}/rooms/rm_secretcanyon_2/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": true,
