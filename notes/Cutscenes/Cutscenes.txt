@@ -162,8 +162,16 @@ EXCITING ENCORE
 	[The Anti Freaks huddle together in panicked whispers]
 	Superior: "What do we do now????"
 	Negative Quincy: "I don't know, this whole thing was your stupid idea!"
-	Geyzer: "
-
+	Geyzer: "Do we still have that leftover construction equipment we stole?"
+	Trash Can Man: "Great idea! You guys throw something together while I do nothing but bark orders at you."
+	
+	[The Super Freaks stare in confusion while the Anti Freaks construct something offscreen]
+	[The Anti Freaks have built an obstacle course of death]
+	Superior: "BEHOLD! Our fun and challenging obstacle course!"
+	Negative Quincy: "Of death! You will die. And we will laugh at you!"
+	Gambi: "This might literally be the stupidest thing I've ever seen you idiots do."
+	Tikiman: "And yet, in a way it's impressive, the motivation they get out of pure spite. Come on, this will be fun!"
 VS ANTI FREAKS
+	
 
 SECRET ENDING

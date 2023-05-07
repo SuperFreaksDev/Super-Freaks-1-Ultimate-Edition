@@ -202,7 +202,7 @@ function levels_init()
 	level_create(24,, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
 	{
 		return level_complete_get(23);
-	});
+	},, rm_cutscene_castle);
 	level_create(25,, rm_moon_1, "Castle Kranion", "Mecha Moon", function()
 	{
 		return level_complete_get(23);
@@ -220,10 +220,10 @@ function levels_init()
 		&& level_complete_get(22)
 		&& level_complete_get(26);
 	});
-	level_create(28,,, "Castle Kranion", "Kranion's Secret Weapon", function()
+	level_create(28,, rm_boss_secretkranion, "Castle Kranion", "Kranion's Secret Weapon", function()
 	{
 		return level_complete_get(27);
-	}, 0);
+	}, 0, rm_cutscene_skullmobile);
 	level_create(29,,, "Castle Kranion", "Vs Dino", function()
 	{
 		return (level_complete_get(24) && level_complete_get(25));

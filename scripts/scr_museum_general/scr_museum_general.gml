@@ -127,7 +127,7 @@ function museum_init()
 		});
 		museum_character_create(24,, "Dino", "William Nancy Dino is the biggest loser in the whole galaxy. Despite his unparalleled skills in all forms of science and robotics, he has failed to do anything useful with them, instead choosing to be Kranion's right hand man in hopes the big lout will reward him with unlimited power.", function()
 		{
-			return level_complete_get(level_ids.level_kranion_boss);
+			return level_complete_get(level_ids.level_kranion_conveyor);
 		});
 		museum_character_create(25,, "Cinge", "Cinge is a cyborg like being known as a 'Californian', who can light himself on fire. He's actually a pretty nice guy, who is genuinely friends with the Super Freaks--unfortunately, he's fallen in with the wrong crowd: Kranion's crowd.", function()
 		{
@@ -168,11 +168,11 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
-		museum_cutscene_create(4,, "Castle Numbskull", rm_cutscene_parent, function()
+		museum_cutscene_create(4,, "Castle Numbskull", rm_cutscene_castle, function()
 		{
 			return level_complete_get(level_ids.level_kranion_conveyor);
 		});
-		museum_cutscene_create(5,, "Pimp My Skullmobile", rm_cutscene_parent, function()
+		museum_cutscene_create(5,, "Pimp My Skullmobile", rm_cutscene_skullmobile, function()
 		{
 			return level_complete_get(level_ids.level_kranion_boss_secret);
 		});
