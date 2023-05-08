@@ -1,7 +1,7 @@
 /// @description Step
 
 var _attack_angle = 180;
-var _missile, _missile_limit;
+var _missile, _missile_limit, _missile_x, _missile_y;
 var _player = player_nearest_alive();
 if (!is_undefined(_player))
 	_attack_angle = point_direction(x, y + 64, _player.x, _player.y);

@@ -1136,6 +1136,7 @@
     {"id":{"name":"path_secretice_4_normal_9","path":"paths/path_secretice_4_normal_9/path_secretice_4_normal_9.yy",},},
     {"id":{"name":"input_accessibility_verb_toggle_set","path":"scripts/input_accessibility_verb_toggle_set/input_accessibility_verb_toggle_set.yy",},},
     {"id":{"name":"rm_secretfruit_2","path":"rooms/rm_secretfruit_2/rm_secretfruit_2.yy",},},
+    {"id":{"name":"obj_boss_skullmobile","path":"objects/obj_boss_skullmobile/obj_boss_skullmobile.yy",},},
     {"id":{"name":"input_trigger_effect_off","path":"scripts/input_trigger_effect_off/input_trigger_effect_off.yy",},},
     {"id":{"name":"obj_swinging_chain_parent","path":"objects/obj_swinging_chain_parent/obj_swinging_chain_parent.yy",},},
     {"id":{"name":"input_multiplayer_params_set","path":"scripts/input_multiplayer_params_set/input_multiplayer_params_set.yy",},},

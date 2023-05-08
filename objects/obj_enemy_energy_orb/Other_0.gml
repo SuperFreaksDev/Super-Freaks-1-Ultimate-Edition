@@ -1,3 +1,0 @@
-/// @description 
-
-instance_despawn();

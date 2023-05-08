@@ -24,7 +24,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7bee11b7-ea71-46d5-8b53-6e389288aa07","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Gunner-y",
     "path": "folders/Sprites/Enemies/Gunner-y.yy",
@@ -61,7 +61,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 56,
+    "xorigin": 48,
     "yorigin": 48,
   },
   "swatchColours": null,

@@ -1,0 +1,11 @@
+/// @description Hit
+
+if (global.boss_phase == 0)
+{
+	if hp <= 8
+	{
+		global.boss_phase = 1;
+		instance_create_layer(x, y, "layer_instances", obj_boss_explosion);
+		laser_rotate_speed = -laser_rotate_speed;
+	}
+}

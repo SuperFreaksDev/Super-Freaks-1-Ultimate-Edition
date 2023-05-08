@@ -35,7 +35,7 @@ function draw_sprite_interpolated(_sprite_index, _image_index = image_index, _x 
 			_scale_y_delta = lerp(_scale_yprevious, _scale_y, _frame_delta);
 		
 		if (_angleprevious != _angle)
-			_angle_delta = lerp_360(_angleprevious, _angle, _frame_delta);
+			_angle_delta = lerp_360(_angleprevious, _angle, _frame_delta) mod 360;
 	}
 		
 	draw_sprite_ext(_sprite_index, _image_index, _x_delta, _y_delta, _scale_x_delta, _scale_y_delta, _angle_delta, _color, _alpha);

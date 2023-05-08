@@ -3,11 +3,9 @@
   "resourceVersion": "1.0",
   "name": "obj_enemy_energy_orb",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":7,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [
@@ -18,8 +16,8 @@
     "path": "folders/Objects/Enemies/Enemy Weapons.yy",
   },
   "parentObjectId": {
-    "name": "obj_level_obj",
-    "path": "objects/obj_level_obj/obj_level_obj.yy",
+    "name": "obj_enemy_fireball",
+    "path": "objects/obj_enemy_fireball/obj_enemy_fireball.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
