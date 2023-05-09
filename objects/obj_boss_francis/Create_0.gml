@@ -44,6 +44,7 @@ chain_size = 0;
 
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 112);
 hitbox_buzzsaw = new comp_hitbox_circle(,, hitbox_active.inactive, enemy_hitbox_behaviors.hazard,, 32);
+hitbox_buzzsaw_2 = new comp_hitbox_circle(,, hitbox_active.inactive, enemy_hitbox_behaviors.hazard,, 32);
 buzzsaw_angle = 0;
 buzzsaw_angle_previous = 0;
 buzzsaw_x = 0;
@@ -51,6 +52,24 @@ buzzsaw_y = 0;
 buzzsaw_x_previous = 0;
 buzzsaw_y_previous = 0;
 swing_speed = 0;
+
+attack_frequency = 32;
+attack_times = 6;
+switch (global.difficulty)
+{
+	case difficulty_levels.easy:
+		attack_frequency = 64;
+		attack_times = 6;
+		break;
+	case difficulty_levels.normal:
+		attack_frequency = 48;
+		attack_times = 8;
+		break;
+	case difficulty_levels.hard:
+		attack_frequency = 32;
+		attack_times = 12;
+		break;
+}
 
 cockpit_sprite = spr_boss_francis_cockpit_normal;
 cockpit_index = 0;

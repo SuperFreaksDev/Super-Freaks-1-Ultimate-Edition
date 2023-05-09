@@ -17,7 +17,7 @@ var _laser_right_x = _x + laser_right.x_offset;
 var _laser_right_y = _y + laser_right.y_offset;
 var _laser_right_x2 = _laser_right_x + laser_right.shape_x2;
 var _laser_right_y2 = _laser_right_y + laser_right.shape_y2;
-var _laser_color = lengthdir_x(22.5, laser_color);
+var _laser_color = 45 + lengthdir_x(45, laser_color);
 
 draw_sprite_ext(spr_boss_skullmobile_gun, 0, _gun_left_x, _gun_left_y, 1, 1, _laser_angle + 180, c_white, 1);
 draw_sprite_ext(spr_boss_skullmobile_gun, 0, _gun_right_x, _gun_right_y, 1, 1, _laser_angle, c_white, 1);

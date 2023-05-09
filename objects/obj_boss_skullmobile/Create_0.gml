@@ -13,13 +13,26 @@ enum boss_skullmobile_states
 }
 
 boss_name = "Skullmobile";
-hp_init(16);
+hp_init(12);
 
 state_next_set(boss_skullmobile_states.intro);
 laser_distance = 272;
 laser_angle = 0;
 laser_angle_previous = laser_angle;
 laser_rotate_speed = 0.5;
+
+switch (global.difficulty)
+{
+	case difficulty_levels.easy:
+		laser_rotate_speed = 0.125;
+		break;
+	case difficulty_levels.normal:
+		laser_rotate_speed = 0.25;
+		break;
+	case difficulty_levels.hard:
+		laser_rotate_speed = 0.5;
+		break;
+}
 
 target = noone;
 target_x = x;
@@ -44,7 +57,7 @@ switch (global.boss_phase)
 	case 0:
 		break;
 	case 1:
-		hp = 8;
+		hp = 6;
 		y = 704;
 		state_next_set(boss_skullmobile_states.active, 9999);
 		break;

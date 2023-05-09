@@ -27,6 +27,8 @@ var _length = (chain_segments * 32) * chain_size;
 	buzzsaw_y = lengthdir_y(_length, _angle);
 	hitbox_buzzsaw.x_offset = buzzsaw_x;
 	hitbox_buzzsaw.y_offset = buzzsaw_y;
+	hitbox_buzzsaw_2.x_offset = -buzzsaw_x;
+	hitbox_buzzsaw_2.y_offset = buzzsaw_y;
 #endregion
 
 #region Body Size
@@ -89,10 +91,10 @@ switch (state)
 		claw_left_pos = lerp_360(claw_left_pos, 225, 0.125);
 		claw_right_pos = lerp_360(claw_right_pos, 315, 0.125);
 		
-		timer = min(timer + 1, 32);
-		if (timer == 32)
+		timer = min(timer + 1, attack_frequency);
+		if (timer == attack_frequency)
 		{
-			if (counter_attack == 12)
+			if (counter_attack == attack_times)
 				state_next_set(boss_francis_states.lower);
 			else
 			{
@@ -257,8 +259,23 @@ switch (state)
 		{
 			chain_size = min(chain_size + 0.025, 1);
 			hitbox_buzzsaw.active = hitbox_active.passive;
+			if (global.difficulty == difficulty_levels.hard)
+				hitbox_buzzsaw_2.active = hitbox_active.passive;
 			if (chain_size == 1)
-				swing_speed = 2;
+			{
+				switch (global.difficulty)
+				{
+					case difficulty_levels.easy:
+						swing_speed = 1;
+						break;
+					case difficulty_levels.normal:
+						swing_speed = 2;
+						break;
+					case difficulty_levels.hard:
+						swing_speed = 1.5;
+						break;
+				}
+			}
 		}
 		
 		if (x >= 1040 && sign(speed_h) == 1)
@@ -278,6 +295,7 @@ switch (state)
 			speed_h = 0;
 			hitbox.active = hitbox_active.inactive;
 			hitbox_buzzsaw.active = hitbox_active.inactive;
+			hitbox_buzzsaw_2.active = hitbox_active.inactive;
 			swing_speed = 0;
 			timer = 0;
 			music_stop();

@@ -2,7 +2,7 @@
 
 if (global.boss_phase == 0)
 {
-	if hp <= 8
+	if (hp <= 6)
 	{
 		global.boss_phase = 1;
 		instance_create_layer(x, y, "layer_instances", obj_boss_explosion);

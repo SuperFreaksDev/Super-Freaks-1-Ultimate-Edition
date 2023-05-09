@@ -38,6 +38,15 @@ for (_i = 0; _i <= chain_segments; ++_i)
 }
 draw_sprite_interpolated(spr_sawful_blade, 0, x + buzzsaw_x, y + buzzsaw_y, x_start_frame + buzzsaw_x_previous, y_start_frame + buzzsaw_y_previous, 1, 1,,, buzzsaw_angle, buzzsaw_angle_previous);
 
+if (global.difficulty == difficulty_levels.hard)
+{
+	for (_i = 0; _i <= chain_segments; ++_i)
+	{
+		draw_sprite(spr_chain, 0, x - lengthdir_x((_i * 32) * chain_size, _angle_draw), y + lengthdir_y((_i * 32) * chain_size, _angle_draw));
+	}
+	draw_sprite_interpolated(spr_sawful_blade, 0, x - buzzsaw_x, y + buzzsaw_y, x_start_frame - buzzsaw_x_previous, y_start_frame + buzzsaw_y_previous, 1, 1,,, buzzsaw_angle, buzzsaw_angle_previous);
+}
+
 draw_sprite_ext(spr_boss_francis_body, 0, _x_delta, _y_delta, _size_delta, _size_delta, 0, c_white, 1);
 draw_sprite_ext(spr_boss_francis_head, cockpit_index, _x_delta, _head_y, _size_delta, _size_delta, 0, c_white, 1);
 draw_sprite_ext(cockpit_sprite, cockpit_index, _x_delta, _y_delta, 1, 1, 0, c_white, 1);
