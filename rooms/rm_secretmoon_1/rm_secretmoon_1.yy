@@ -15,7 +15,6 @@
     {"name":"inst_45E98533","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
     {"name":"inst_27269B19","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
     {"name":"inst_7AB17B34","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
-    {"name":"inst_64A8C929","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
     {"name":"inst_169FC228","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
     {"name":"inst_55A8CE28","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
     {"name":"inst_6B674261","path":"rooms/rm_secretmoon_1/rm_secretmoon_1.yy",},
@@ -278,11 +277,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7AB17B34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_rotato","path":"objects/obj_rotato/obj_rotato.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"0",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1328.0,"y":864.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_64A8C929","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_rotato","path":"objects/obj_rotato/obj_rotato.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"0",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1600.0,"y":864.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1488.0,"y":864.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_169FC228","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"propertyId":{"name":"timer_frequency","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"value":"96",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"2",},

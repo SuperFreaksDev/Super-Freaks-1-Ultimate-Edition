@@ -2,6 +2,7 @@
 
 var _player;
 var _shoot_obj, _shoot_instance, _shoot_x, _shoot_y, _shoot_speed, _shoot_angle;
+var _zone_index = zone_index;
 
 switch (trigger_id)
 {
@@ -63,7 +64,8 @@ if (active)
 		_shoot_instance = instance_create_layer(_shoot_x, _shoot_y, "layer_instances", _shoot_obj,
 		{
 			speed: _shoot_speed,
-			direction: _shoot_angle
+			direction: _shoot_angle,
+			zone_index: _zone_index
 		});
 		timer = 0;
 		if (ammo > 0)

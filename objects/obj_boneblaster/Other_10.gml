@@ -46,7 +46,7 @@ switch (state)
 			animate_speed = 0.125;
 		}
 		
-		if (animation_at_end())
+		if (animation_about_to_end())
 			state_next_set(2);
 		break;
 	case 2: //Shoot 2
@@ -88,7 +88,7 @@ switch (state)
 			sfx_play_global(sfx_explode_short);
 		}
 		
-		if (animation_at_end())
+		if (animation_about_to_end())
 			state_next_set(0);
 		break;
 }

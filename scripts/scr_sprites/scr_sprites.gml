@@ -138,3 +138,11 @@ function animation_at_end()
 	
 	gml_pragma("forceinline");
 }
+
+/// @function animation_about_to_end
+function animation_about_to_end()
+{
+	return (floor(image_index + animate_speed) >= image_number - 1);
+	
+	gml_pragma("forceinline");
+}
