@@ -103,7 +103,7 @@ function levels_init()
 	level_create(0, level_status.open, rm_test_1, "Test World", "Test Level");
 	
 	level_create(1, level_status.open, rm_stadium_1, "Mystic Island", "Super Freaks Stadium",,, rm_cutscene_intro, rm_cutscene_antifreaks_intro);
-	level_create(2,,, "Mystic Island", "Exciting Encore",, 0);
+	level_create(2,, rm_supersecret_1, "Mystic Island", "Exciting Encore",, 0);
 	level_create(3,, rm_boss_antifreaks, "Mystic Island", "Vs Anti Freaks", function()
 	{
 		return level_complete_get(2);

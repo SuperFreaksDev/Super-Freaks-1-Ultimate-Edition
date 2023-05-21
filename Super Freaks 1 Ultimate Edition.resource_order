@@ -999,6 +999,7 @@
     {"name":"scr_spawn_point","order":2,"path":"scripts/scr_spawn_point/scr_spawn_point.yy",},
     {"name":"rm_init","order":1,"path":"rooms/rm_init/rm_init.yy",},
     {"name":"spr_cutscene_intro_4","order":3,"path":"sprites/spr_cutscene_intro_4/spr_cutscene_intro_4.yy",},
+    {"name":"rm_supersecret_1","order":1,"path":"rooms/rm_supersecret_1/rm_supersecret_1.yy",},
     {"name":"spr_player_death_tikiman","order":8,"path":"sprites/spr_player_death_tikiman/spr_player_death_tikiman.yy",},
     {"name":"spr_sawful_face","order":1,"path":"sprites/spr_sawful_face/spr_sawful_face.yy",},
     {"name":"obj_background_moon_outdoors","order":1,"path":"objects/obj_background_moon_outdoors/obj_background_moon_outdoors.yy",},
