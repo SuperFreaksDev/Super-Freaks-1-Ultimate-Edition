@@ -43,7 +43,7 @@ function unlocks_init()
 	{
 		return level_complete_get(level_ids.level_crazy_boss);
 	});
-	unlock_create(unlocks.supersecret, "Unlock Exciting Encore", "You can now access the Super Secret Level!", function()
+	unlock_create(unlocks.supersecret, "Unlock Exciting Encore", "You can now access the Super Secret Level! Good luck! No, seriously--you're gonna need it.", function()
 	{
 		var _i;
 		
@@ -59,7 +59,8 @@ function unlocks_init()
 		return true;
 	}, function()
 	{
-		global.levels[2][level_data.status] = level_status.open;
+		if (global.levels[2][level_data.status] == level_status.locked)
+			global.levels[2][level_data.status] = level_status.open;
 	});
 	unlock_create(unlocks.speedrun_normal, "Unlock Normal Run", "Normal Run is now available in the Speedrun Challenge Menu!", function()
 	{

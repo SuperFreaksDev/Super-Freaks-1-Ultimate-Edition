@@ -43,10 +43,10 @@ switch (move_direction)
 		break;
 	case "Right":
 		if (!is_undefined(_target_x))
-			x = _target_x - _width_half - 512;
+			x = max(_target_x - _width_half - 512, xstart);
 		break;
 	case "Down":
 		if (!is_undefined(_target_y))
-			y = _target_y - _height_half - 512;
+			y = max(_target_y - _height_half - 512, ystart);
 		break;
 }

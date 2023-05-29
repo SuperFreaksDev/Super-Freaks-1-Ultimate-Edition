@@ -224,11 +224,11 @@ function levels_init()
 	{
 		return level_complete_get(27);
 	}, 0, rm_cutscene_skullmobile);
-	level_create(29,,, "Castle Kranion", "Vs Dino", function()
+	level_create(29,, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
 	{
 		return (level_complete_get(24) && level_complete_get(25));
 	}, 0);
-	level_create(30,,, "Castle Kranion", "Vs Kranion", function()
+	level_create(30,, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
 		return level_complete_get(29);
 	}, 0);
