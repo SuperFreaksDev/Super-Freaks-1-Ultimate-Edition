@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_supersecret_2",
-  "creationCodeFile": "${project_dir}/rooms/rm_stadium_1/RoomCreationCode.gml",
+  "creationCodeFile": "${project_dir}/rooms/rm_supersecret_2/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": false,
@@ -231,9 +231,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_24B60B19","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_platform_card","path":"objects/obj_platform_card/obj_platform_card.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"2",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_platform_card","path":"objects/obj_platform_card/obj_platform_card.yy",},"propertyId":{"name":"card_direction","path":"objects/obj_platform_card/obj_platform_card.yy",},"value":"\"Down\"",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_platform_card","path":"objects/obj_platform_card/obj_platform_card.yy",},"propertyId":{"name":"card_amount","path":"objects/obj_platform_card/obj_platform_card.yy",},"value":"3",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_platform_card","path":"objects/obj_platform_card/obj_platform_card.yy",},"propertyId":{"name":"card_amount","path":"objects/obj_platform_card/obj_platform_card.yy",},"value":"2",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2672.0,"y":608.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2672.0,"y":592.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_12E0A23F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_pinhead","path":"objects/obj_pinhead/obj_pinhead.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"1",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},

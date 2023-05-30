@@ -681,6 +681,7 @@
     {"id":{"name":"obj_rotato","path":"objects/obj_rotato/obj_rotato.yy",},},
     {"id":{"name":"spr_player_hang_negative_quincy","path":"sprites/spr_player_hang_negative_quincy/spr_player_hang_negative_quincy.yy",},},
     {"id":{"name":"spr_font_title_card","path":"sprites/spr_font_title_card/spr_font_title_card.yy",},},
+    {"id":{"name":"msc_encore","path":"sounds/msc_encore/msc_encore.yy",},},
     {"id":{"name":"scr_framerate","path":"scripts/scr_framerate/scr_framerate.yy",},},
     {"id":{"name":"scr_menus","path":"scripts/scr_menus/scr_menus.yy",},},
     {"id":{"name":"msc_canyon","path":"sounds/msc_canyon/msc_canyon.yy",},},

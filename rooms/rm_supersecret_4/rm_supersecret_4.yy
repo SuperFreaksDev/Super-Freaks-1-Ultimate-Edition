@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_supersecret_4",
-  "creationCodeFile": "${project_dir}/rooms/rm_stadium_1/RoomCreationCode.gml",
+  "creationCodeFile": "${project_dir}/rooms/rm_supersecret_4/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": false,
