@@ -28,6 +28,7 @@ enum unlocks
 	character_negative_quincy,
 	character_geyzer,
 	character_trash_can_man,
+	character_2006,
 }
 
 /// @function unlocks_init
@@ -137,6 +138,13 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.trash_can_man] = true;
+	});
+	unlock_create(unlocks.character_2006, "Unlock 2006 Super Freaks", "You can now play as the 2006 Super Freaks! They're almost old enough to get their drivers licenses!", function()
+	{
+		return level_perfect_get(level_ids.level_kranion_boss_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.scruffy_2006] = true;
 	});
 	
 	unlocks_load();

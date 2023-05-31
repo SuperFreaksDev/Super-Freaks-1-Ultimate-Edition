@@ -12,6 +12,10 @@ enum character_indexes
 	cyquops,
 	gloverine,
 	professor_t,
+	scruffy_2006,
+	quincy_2006,
+	gambi_2006,
+	tikiman_2006,
 	dino,
 	uncle_swordsman,
 	brick,
@@ -215,6 +219,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_trash_can_man);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_trash_can_man);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_trash_can_man);
+	#endregion
+	
+	#region Scruffy (2006)
+		_character = character_indexes.scruffy_2006;
+		global.character_names[_character] = "Scruffy (2006)";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_scruffy_2006);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_scruffy_2006);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_scruffy_2006);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_scruffy_2006);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_scruffy_2006);
+		player_animation_create(_character, player_animations.death, spr_player_death_scruffy_2006);
+		player_animation_create(_character, player_animations.air, spr_player_air_scruffy_2006);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_scruffy_2006);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_scruffy_2006);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_scruffy_2006);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_scruffy_2006);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_scruffy_2006);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_scruffy_2006);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_scruffy_2006);
 	#endregion
 }
 
