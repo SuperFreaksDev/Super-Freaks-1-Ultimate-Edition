@@ -29,6 +29,7 @@ enum unlocks
 	character_geyzer,
 	character_trash_can_man,
 	character_2006,
+	character_dino,
 }
 
 /// @function unlocks_init
@@ -145,6 +146,14 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.scruffy_2006] = true;
+		global.characters_unlocked[character_indexes.gambi_2006] = true;
+	});
+	unlock_create(unlocks.character_dino, "Unlock Dino", "You can now play as Kranion's right hand man, Dino! Give him the victory he's never had!", function()
+	{
+		return level_perfect_get(level_ids.level_kranion_boss);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.dino] = true;
 	});
 	
 	unlocks_load();
