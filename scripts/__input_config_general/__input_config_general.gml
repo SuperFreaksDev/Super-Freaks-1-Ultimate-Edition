@@ -3,7 +3,7 @@
 #macro INPUT_MAX_PLAYERS  4
 
 //Maximum number of alternate bindings per verb per profile
-#macro INPUT_MAX_ALTERNATE_BINDINGS  2
+#macro INPUT_MAX_ALTERNATE_BINDINGS  3
 
 //Whether to allow input while game window is out of focus on desktop platforms
 #macro INPUT_ALLOW_OUT_OF_FOCUS false

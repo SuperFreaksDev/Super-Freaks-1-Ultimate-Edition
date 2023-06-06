@@ -126,50 +126,104 @@ switch (state)
 				solid_y1 = collider_solidity.semi_solid;
 		}
 		
-		timer = min(timer + 1, 420);
+		timer = min(timer + 1, shoot_timer * shoot_amount);
 		counter++;
 		
-		if (counter >= 96)
+		if (counter >= shoot_timer)
 		{
 			counter = 0;
-			sprite_index = spr_megaklaw_spit;
-			image_index = 1;
-			sfx_play_global(sfx_pop);
+			if !(global.difficulty == difficulty_levels.easy && global.boss_phase == 0)
+			{
+				sprite_index = spr_megaklaw_spit;
+				image_index = 1;
+			}
 			switch (global.boss_phase)
 			{
 				case 0:
-					_target = player_nearest_alive();
-					if (!is_undefined(_target))
+					switch (global.difficulty)
 					{
-						_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_enemy_fireball, 
-						{
-							speed: 3,
-							direction: point_direction(x + 64 * face, y - 24, _target.x, _target.y),
-							zone_index: -3
-						});
+						case difficulty_levels.easy:
+							break;
+						case difficulty_levels.normal:
+							sfx_play_global(sfx_pop);
+							_target = player_nearest_alive();
+							if (!is_undefined(_target))
+							{
+								_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_enemy_fireball, 
+								{
+									speed: 3,
+									direction: point_direction(x + 64 * face, y - 24, _target.x, _target.y),
+									zone_index: -3
+								});
+							}
+							break;
+						case difficulty_levels.hard:
+							sfx_play_global(sfx_pop);
+							_target = player_nearest_alive();
+							if (!is_undefined(_target) && instance_number(obj_enemy_missile) < 3)
+							{
+								_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_enemy_missile, 
+								{
+									speed: 4,
+									direction: point_direction(x + 64 * face, y - 24, _target.x, _target.y),
+									zone_index: -3
+								});
+							}
+							break;
 					}
 					break;
 				case 1:
-					_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_crackerbarrel);
-					_projectile.speed_move = 1;
-					_projectile.face = face;
-					_projectile.speed_v = 0;
-					_projectile.is_moving = true;
+					sfx_play_global(sfx_pop);
+					switch (global.difficulty)
+					{
+						case difficulty_levels.easy:
+							_target = player_nearest_alive();
+							if (!is_undefined(_target))
+							{
+								_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_enemy_fireball, 
+								{
+									speed: 3,
+									direction: point_direction(x + 64 * face, y - 24, _target.x, _target.y),
+									zone_index: -3
+								});
+							}
+							break;
+						case difficulty_levels.normal:
+							_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_crackerbarrel);
+							_projectile.speed_move = 1;
+							_projectile.face = face;
+							_projectile.speed_v = 0;
+							_projectile.is_moving = true;
+							break;
+						case difficulty_levels.hard:
+							_projectile = instance_create_layer(x + 64 * face, y - 24, "layer_instances", obj_crackerbarrel);
+							_projectile.speed_move = 2;
+							_projectile.face = face;
+							_projectile.speed_v = 0;
+							_projectile.is_moving = true;
+							break;
+					}
 					break;
 			}
 		}
-		else if (counter >= 72)
+		else if (counter >= (shoot_timer - 24))
 		{
-			sprite_index = spr_megaklaw_spit;
-			image_index = 0;
+			if !(global.difficulty == difficulty_levels.easy && global.boss_phase == 0)
+			{
+				sprite_index = spr_megaklaw_spit;
+				image_index = 0;
+			}
 		}
 		else if (counter >= 32)
 		{
-			sprite_index = spr_megaklaw_punch;
-			image_index = 3;
+			if !(global.difficulty == difficulty_levels.easy && global.boss_phase == 0)
+			{
+				sprite_index = spr_megaklaw_punch;
+				image_index = 3;
+			}
 		}
 		
-		if (timer == 420 || hit_counter >= 2)
+		if (timer == (shoot_timer * shoot_amount) || hit_counter >= 2)
 		{
 			state_next_set(boss_megaklaw_states.punch_4);
 			with (arm_platform)

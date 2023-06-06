@@ -1,7 +1,15 @@
 /// @description Init Game
 
+var _binding_string;
+
 global.demo = false;
 input_multiplayer_params_set(1, 4, false);
+if (file_exists("input.settings"))
+{
+	_binding_string = string_load("input.settings");
+	if input_system_verify(_binding_string)
+		input_system_import(_binding_string);
+}
 randomize();
 
 #region Init Components
@@ -10,7 +18,7 @@ randomize();
 
 audio_init();
 controls_init();
-debug_init(true);
+debug_init(false);
 framerate_init();
 gameplay_init();
 room_transition_init();

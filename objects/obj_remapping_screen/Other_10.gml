@@ -1,5 +1,11 @@
 /// @description Step
 
+if (pause)
+{
+	pause = false;
+	exit;
+}
+
 switch (state)
 {
 	case 0: //Raise
@@ -74,17 +80,21 @@ switch (state)
 							{
 								page = menu_remapping_screen_pages.main;
 								option = array_length(verb_list) + 1;
+								string_save(input_system_export(), "input.settings");
 							}
 						}
 						else
 						{
 							page = menu_remapping_screen_pages.main;
 							option = verb_index;
+							string_save(input_system_export(), "input.settings");
 						}
+						pause = true;
 				    }, function()
 					{
 						page = menu_remapping_screen_pages.main;
 						option = array_length(verb_list) + 1;
+						pause = true;
 					},, player_number);
 				}
 				break;

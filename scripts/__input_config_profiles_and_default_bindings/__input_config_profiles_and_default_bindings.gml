@@ -18,7 +18,7 @@ INPUT_DEFAULT_PROFILES = {
         left:  [input_binding_key(vk_left),  input_binding_key("A")],
         right: [input_binding_key(vk_right), input_binding_key("D")],
         
-		jump: [input_binding_key("Z"), input_binding_mouse_button(mb_left)],
+		jump: [input_binding_key("Z"), input_binding_key(vk_space), input_binding_mouse_button(mb_left)],
 		
 		bubble: [input_binding_key("X"), input_binding_mouse_button(mb_right)],
 		rubberband: [input_binding_key("C"), input_binding_key("Q")],

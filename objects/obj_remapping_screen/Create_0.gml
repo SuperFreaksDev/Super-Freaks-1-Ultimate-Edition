@@ -18,6 +18,8 @@ page = menu_remapping_screen_pages.main;
 option = 0;
 options_max_on_screen = 9;
 
+pause = false;
+
 verb_index = 0;
 set_all = false;
 verb_list = 
@@ -72,6 +74,7 @@ menu_option_add(menu_remapping_screen_pages.main, _i, "Reset to Default", functi
 		
 		input_profile_reset_bindings("keyboard_and_mouse", player_number);
 		input_profile_reset_bindings("gamepad", player_number);
+		string_save(input_system_export(), "input.settings");
 	}
 });
 

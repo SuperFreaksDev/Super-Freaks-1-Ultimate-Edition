@@ -146,7 +146,9 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.scruffy_2006] = true;
+		global.characters_unlocked[character_indexes.quincy_2006] = true;
 		global.characters_unlocked[character_indexes.gambi_2006] = true;
+		global.characters_unlocked[character_indexes.tikiman_2006] = true;
 	});
 	unlock_create(unlocks.character_dino, "Unlock Dino", "You can now play as Kranion's right hand man, Dino! Give him the victory he's never had!", function()
 	{

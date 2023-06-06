@@ -52,6 +52,8 @@ switch (state)
 			}
 			if (collision_down_simple(x, x, x, y, infinity,,, true, false))
 				attack_y = global.collider_collision[collider_attach_data.collision_y];
+			else
+				attack_y = room_height;
 		}
 		else
 		{

@@ -27,6 +27,8 @@ switch (sign(_speed_v))
 			instance_destroy();
 		break;
 	case 0:
+		if (collision_down_simple())
+			instance_destroy();
 		break;
 	case 1:
 		if (collision_down_simple())
