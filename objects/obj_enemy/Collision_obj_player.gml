@@ -64,10 +64,16 @@ switch (_hitbox_self.behavior)
 					speed_v = 3 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
 					//speed_v = min(speed_v, -5);
 				}
-				while (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				repeat(4)
 				{
-					x += speed_h * 2;
-					y += speed_v * 2;
+					if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+					{
+						x += speed_h * 2;
+						if (!ground_on)
+							y += speed_v * 2;
+					}
+					else
+						break;
 				}
 				lock_controls_horizontal = 20;
 			}
@@ -96,11 +102,16 @@ switch (_hitbox_self.behavior)
 					speed_v = 3 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
 					//speed_v = min(speed_v, -5);
 				}
-				while (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				repeat(4)
 				{
-					x += speed_h * 2;
-					if (!ground_on)
-						y += speed_v * 2;
+					if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+					{
+						x += speed_h * 2;
+						if (!ground_on)
+							y += speed_v * 2;
+					}
+					else
+						break;
 				}
 				lock_controls_horizontal = 20;
 			}
