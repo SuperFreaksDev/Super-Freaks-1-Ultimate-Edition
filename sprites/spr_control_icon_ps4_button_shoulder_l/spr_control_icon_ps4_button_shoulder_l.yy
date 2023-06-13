@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "PlayStation 4",
-    "path": "folders/Sprites/Controls/PlayStation 4.yy",
+    "name": "PS4",
+    "path": "folders/Sprites/Controls/PlayStation/PS4.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
