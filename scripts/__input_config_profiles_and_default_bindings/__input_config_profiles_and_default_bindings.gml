@@ -25,7 +25,7 @@ INPUT_DEFAULT_PROFILES = {
 		rubberband_color: [input_binding_key("V"), input_binding_key("E")],
 		drop_out: input_binding_key(vk_shift),
         
-        start: [input_binding_key(vk_escape), input_binding_key(vk_enter)],
+        start: [input_binding_key(vk_enter), input_binding_key(vk_escape)],
         confirm:  [input_binding_key("Z"), input_binding_mouse_button(mb_left)],
         deny:  [input_binding_key("X"), input_binding_mouse_button(mb_right)],
     },

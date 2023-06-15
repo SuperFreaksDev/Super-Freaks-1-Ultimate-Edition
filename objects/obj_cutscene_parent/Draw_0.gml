@@ -36,9 +36,9 @@ draw_text_ext(_view_x1, _view_y2 - _text_height, _text, -1, _screen_width);
 draw_set_font(global.font_16);
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
-draw_action(0, controls_actions.jump, _view_x1 + _screen_width - 8, _view_y1 + 12);
+draw_verb(0, "confirm", _view_x1 + _screen_width - 8, _view_y1 + 12);
 draw_text(_view_x1 + _screen_width - 16, _view_y1 + 12, "Next / Fast Forward");
-draw_action(0, controls_actions.start, _view_x1 + _screen_width - 8, _view_y1 + 28);
+draw_verb(0, "start", _view_x1 + _screen_width - 8, _view_y1 + 28);
 draw_text(_view_x1 + _screen_width - 16, _view_y1 + 28, "Skip");
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);

@@ -17,7 +17,7 @@ enum heart_setting_levels
 function difficulty_init()
 {
 	global.difficulty = difficulty_levels.normal;
-	global.heart_setting = [0, 99];
+	global.heart_setting = [0, 10];
 }
 
 /// @function hearts_minimum_set

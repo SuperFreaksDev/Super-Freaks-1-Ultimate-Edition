@@ -10,6 +10,7 @@ var _option_current;
 var _option_text;
 var _font_width, _font_height;
 var _unlocked;
+var _binding, _icon;
 
 var _index;
 var _name_world, _name_level;
@@ -23,9 +24,9 @@ _font_height = sprite_get_height(spr_font_16);
 
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
-draw_action(0, controls_actions.jump, _screen_width - 8, 12);
+draw_verb(0, "confirm", _screen_width - 8, 12);
 draw_text(_screen_width - 16, 12, "Confirm");
-draw_action(0, controls_actions.attack, _screen_width - 8, 28);
+draw_verb(0, "deny", _screen_width - 8, 28);
 draw_text(_screen_width - 16, 28, "Deny");
 
 draw_set_halign(fa_left);

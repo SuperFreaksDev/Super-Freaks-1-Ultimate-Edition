@@ -111,7 +111,7 @@ switch (page)
 				{
 					_binding = input_binding_get(verb_list[_option_count][1], player_number, _j, "keyboard_and_mouse");
 					_icon = input_binding_get_icon(_binding, player_number);
-					if (_icon == "empty")
+					if (_icon == spr_control_icon_empty)
 						break;
 				
 					if (is_string(_icon))
@@ -124,7 +124,7 @@ switch (page)
 				{
 					_binding = input_binding_get(verb_list[_option_count][1], player_number, _j, "gamepad");
 					_icon = input_binding_get_icon(_binding, player_number);
-					if (_icon == "empty")
+					if (_icon == spr_control_icon_empty)
 						break;
 				
 					if (is_string(_icon))

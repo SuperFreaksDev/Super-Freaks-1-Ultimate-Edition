@@ -30,13 +30,7 @@ switch (state)
 	case player_states.bubble:
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_player_bubble, image_index, _x, _y, 1, 1, 0, c_white, 0.5);
-		_icon = input_binding_get_icon("bubble", player_number);
-		if (!is_string(_icon))
-		{
-			if (floor(global.animate) > 4)
-				_icon_frame = 1;
-			draw_sprite(_icon, _icon_frame, _x + 36, _y - 48);
-		}
+		draw_verb(player_number, "bubble", _x + 36, _y - 48);
 		_rubber_band_draw = false;
 		break;
 	case player_states.death:

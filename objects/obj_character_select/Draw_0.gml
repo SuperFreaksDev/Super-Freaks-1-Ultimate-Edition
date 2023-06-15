@@ -30,7 +30,7 @@ switch (page)
 		draw_set_valign(fa_middle);
 		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y - 40, 1, 1, 90, c_white, 1);
 		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y + 40, 1, 1, 270, c_white, 1);
-		draw_text(_x + 84, _y, "Minimum\n" + string(hearts_minimum_get()));
+		draw_text(_x + 84, _y, "Start With\n" + string(hearts_minimum_get()));
 		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y - 40, 1, 1, 90, c_white, 1);
 		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y + 40, 1, 1, 270, c_white, 1);
 		draw_text(_x + 212, _y, "Maximum\n" + string(hearts_maximum_get()));
@@ -63,7 +63,7 @@ switch (page)
 		}
 		else
 		{
-			draw_action(_player_num, controls_actions.jump, _x - 192, _y);
+			draw_verb(_player_num, "confirm", _x - 192, _y);
 		}
 
 		_player_num = 1;
@@ -78,7 +78,7 @@ switch (page)
 		}
 		else
 		{
-			draw_action(_player_num, controls_actions.jump, _x - 68, _y);
+			draw_verb(_player_num, "confirm", _x - 68, _y);
 		}
 
 		_player_num = 2;
@@ -93,7 +93,7 @@ switch (page)
 		}
 		else
 		{
-			draw_action(_player_num, controls_actions.jump, _x + 68, _y);
+			draw_verb(_player_num, "confirm", _x + 68, _y);
 		}
 
 		_player_num = 3;
@@ -108,7 +108,7 @@ switch (page)
 		}
 		else
 		{
-			draw_action(_player_num, controls_actions.jump, _x + 192, _y);
+			draw_verb(_player_num, "jump", _x + 192, _y);
 		}
 		break;
 	default:

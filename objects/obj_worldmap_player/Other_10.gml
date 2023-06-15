@@ -2,16 +2,6 @@
 
 var _move_h = 0, _move_v = 0;
 
-controls_step(0);
-
-button_left = controls_action_state_get(controls_actions.left, 0);
-button_right = controls_action_state_get(controls_actions.right, 0);
-button_up = controls_action_state_get(controls_actions.up, 0);
-button_down = controls_action_state_get(controls_actions.down, 0);
-button_pause = controls_action_state_get(controls_actions.start, 0);
-button_jump = controls_action_state_get(controls_actions.jump, 0);
-button_deny = controls_action_state_get(controls_actions.attack, 0);
-
 obj_worldmap_manager.level_id = -1;
 
 switch (state)
@@ -21,18 +11,14 @@ switch (state)
 	case 1:
 		if (!room_transition_active_get() && !instance_exists(obj_character_select))
 		{
-			//if (button_left == controls_action_states.hold) || (button_left == controls_action_states.press)
-			if (input_check("left", 0))
+			if (input_check("left", global.player_lead))
 				_move_h -= 1;
-			//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
-			if (input_check("right", 0))
+			if (input_check("right", global.player_lead))
 				_move_h += 1;
-			
-			//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
-			if (input_check("up", 0))
+				
+			if (input_check("up", global.player_lead))
 				_move_v -= 1;
-			//if (button_down == controls_action_states.hold) || (button_down == controls_action_states.press)
-			if (input_check("down", 0))
+			if (input_check("down", global.player_lead))
 				_move_v += 1;
 		}
 			

@@ -17,7 +17,7 @@ switch (state)
 			timer = 0;
 			speed_walk = walk_speed;
 			animate_speed = speed_walk * 0.125;
-			ammo = 8;
+			ammo = 6;
 		}
 		switch (face)
 		{
@@ -38,7 +38,7 @@ switch (state)
 		{
 			sprite_index = spr_gunnery_shoot;
 			image_index = 0;
-			timer = 0;
+			//timer = 0;
 			speed_walk = 0;
 			animate_speed = 0;
 		}
@@ -111,12 +111,12 @@ switch (state)
 			sprite_index = spr_gunnery_reload;
 			image_index = 0;
 			timer = 0;
-			ammo = 8;
+			ammo = 6;
 			animate_speed = 0.1;
 			sfx_play_global(sfx_gun_cock);
 		}
 		
-		if (animation_at_end())
+		if (animation_about_to_end())
 		{
 			switch (face)
 			{
@@ -132,11 +132,7 @@ switch (state)
 			if (collision_rectangle(_attack_x, y - 48, x, y + 48, obj_player, false, false))
 				state_next_set(enemy_gunnery_states.shoot_2);
 			else
-			{
-				sprite_index = spr_gunnery_walk;
-				image_index = 0;
 				state_next_set(enemy_gunnery_states.walk);
-			}
 		}
 		break;
 }

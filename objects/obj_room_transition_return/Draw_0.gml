@@ -36,7 +36,7 @@ if (state == 3)
 
 if (button_prompt)
 {
-	draw_action(0, controls_actions.jump, _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 8);
+	draw_verb(0, "confirm", _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 8);
 	draw_set_halign(fa_right);
 	draw_set_valign(fa_middle);
 	draw_text(_view_x1 + _screen_width - 16, _view_y1 + _screen_height - 8, "Claim Prize");

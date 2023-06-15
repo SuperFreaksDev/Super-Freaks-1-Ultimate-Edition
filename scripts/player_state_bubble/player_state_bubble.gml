@@ -55,8 +55,7 @@ function player_state_bubble()
 		
 	if (_nearest_player != undefined)
 	{
-		//if (button_jump == controls_action_states.press || button_jump == controls_action_states.hold)
-		if (input_check("bubble", player_number))
+		if (input_check("bubble", player_number) || input_check("jump", player_number))
 		{
 			speed_true = 4;
 			direction = point_direction(x, y, _nearest_player.x, _nearest_player.y);

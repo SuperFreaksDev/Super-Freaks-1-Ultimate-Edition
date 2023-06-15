@@ -11,8 +11,8 @@ draw_sprite(sprite_index, 0, x, y);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_text(x, y + 64, "Press Jump or Start");
-draw_action(, controls_actions.jump, x - 16, y + 96);
-draw_action(, controls_actions.start, x + 16, y + 96);
+draw_verb(global.player_lead, "confirm", x - 16, y + 96);
+draw_verb(global.player_lead, "start", x + 16, y + 96);
 
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);

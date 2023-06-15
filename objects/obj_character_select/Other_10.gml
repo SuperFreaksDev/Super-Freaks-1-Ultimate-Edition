@@ -70,7 +70,8 @@ switch (state)
 					case 1: //Heart Min
 						if (input_check_pressed("up", global.player_lead) || input_check_long("up", global.player_lead))
 						{
-							hearts_minimum_set(hearts_minimum_get() + 1);
+							if (hearts_minimum_get() < hearts_maximum_get())
+								hearts_minimum_set(hearts_minimum_get() + 1);
 						}
 						else if (input_check_pressed("down", global.player_lead) || input_check_long("down", global.player_lead))
 						{

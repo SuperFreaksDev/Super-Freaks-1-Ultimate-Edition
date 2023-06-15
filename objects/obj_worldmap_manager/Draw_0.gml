@@ -42,9 +42,9 @@ for (_i = 0; _i < trophies_max; ++_i)
 }
 
 draw_set_valign(fa_middle);
-draw_action(0, controls_actions.jump, _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 24);
+draw_verb(0, "confirm", _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 24);
 draw_text(_view_x1 + _screen_width - 16, _view_y1 + _screen_height - 24, "Play Level");
-draw_action(0, controls_actions.attack, _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 8);
+draw_verb(0, "deny", _view_x1 + _screen_width - 8, _view_y1 + _screen_height - 8);
 draw_text(_view_x1 + _screen_width - 16, _view_y1 + _screen_height - 8, "Main Menu");
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);

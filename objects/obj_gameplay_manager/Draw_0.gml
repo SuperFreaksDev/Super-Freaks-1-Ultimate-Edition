@@ -13,6 +13,7 @@ var _view_y1 = camera_get_view_y(view_camera[view_current]);
 var _view_x2 = _view_x1 + _view_width;
 var _view_y2 = _view_y1 + _view_height;
 var _offset = 0;
+var _binding, _icon;
 
 #region Draw Water
 	water_draw();
@@ -101,7 +102,7 @@ var _offset = 0;
 						}
 						else
 						{
-							draw_text(_view_x1 + 48 + _offset, _view_y1 + 16, "Join");
+							draw_text(_view_x1 + 48 + _offset, _view_y1 + 16, "Join!");
 						}
 					}
 				}

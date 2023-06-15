@@ -1,1 +1,1 @@
-room_header(game_states.cutscene, msc_stadium);
+room_header(game_states.cutscene, msc_encore);

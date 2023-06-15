@@ -17,7 +17,6 @@ randomize();
 #endregion
 
 audio_init();
-controls_init();
 debug_init(false);
 framerate_init();
 gameplay_init();
@@ -28,7 +27,7 @@ instance_create(obj_menu_pause, 0, 0);
 
 global.font_16 = font_add_sprite(spr_font_16, ord("!"), true, 2);
 global.font_12 = font_add_sprite(spr_font_12, ord("!"), true, 2);
-global.font_title = font_add_sprite_ext(spr_font_title_card, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?,:", true, 2);
+global.font_title = font_add_sprite_ext(spr_font_title_card, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?,:\'\"", true, 2);
 
 global.animate = 0;
 global.game_frame_new = true;

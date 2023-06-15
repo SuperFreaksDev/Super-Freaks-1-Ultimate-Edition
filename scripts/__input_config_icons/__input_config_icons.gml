@@ -11,11 +11,11 @@
 //Special case: When a non-binding value is being evaluated
 //              This should only happen if input_binding_get_icon() is given an invalid input argument
 input_icons("not a binding")
-.add(all, "not a binding")
+.add(all, spr_control_icon_not_binding)
 
 //Special case: When an empty binding is being evaluated
 input_icons("empty")
-.add(all, "empty")
+.add(all, spr_control_icon_empty)
 
 
 
@@ -238,76 +238,76 @@ input_icons("ps5")
 
 //Switch handheld/dual JoyCon/Pro Controller
 input_icons("switch")
-.add("gamepad face south",         "B")
-.add("gamepad face east",          "A")
-.add("gamepad face west",          "Y")
-.add("gamepad face north",         "X")
-.add("gamepad shoulder l",         "L")
-.add("gamepad shoulder r",         "R")
-.add("gamepad trigger l",          "ZL")
-.add("gamepad trigger r",          "ZR")
-.add("gamepad select",             "minus")
-.add("gamepad start",              "plus")
-.add("gamepad dpad left",          "dpad left")
-.add("gamepad dpad right",         "dpad right")
-.add("gamepad dpad up",            "dpad up")
-.add("gamepad dpad down",          "dpad down")
+.add("gamepad face south",         spr_control_icon_switch_button_down)
+.add("gamepad face east",          spr_control_icon_switch_button_right)
+.add("gamepad face west",          spr_control_icon_switch_button_left)
+.add("gamepad face north",         spr_control_icon_switch_button_up)
+.add("gamepad shoulder l",         spr_control_icon_switch_button_shoulder_l)
+.add("gamepad shoulder r",         spr_control_icon_switch_button_shoulder_r)
+.add("gamepad trigger l",          spr_control_icon_switch_button_trigger_l)
+.add("gamepad trigger r",          spr_control_icon_switch_button_trigger_r)
+.add("gamepad select",             spr_control_icon_switch_button_select)
+.add("gamepad start",              spr_control_icon_switch_button_select)
+.add("gamepad dpad left",          spr_control_icon_switch_dpad_left)
+.add("gamepad dpad right",         spr_control_icon_switch_dpad_right)
+.add("gamepad dpad up",            spr_control_icon_switch_dpad_up)
+.add("gamepad dpad down",          spr_control_icon_switch_dpad_down)
 
-.add("gamepad thumbstick l left",  "thumbstick l left")
-.add("gamepad thumbstick l right", "thumbstick l right")
-.add("gamepad thumbstick l up",    "thumbstick l up")
-.add("gamepad thumbstick l down",  "thumbstick l down")
-.add("gamepad thumbstick l click", "thumbstick l click")
- 
-.add("gamepad thumbstick r left",  "thumbstick r left")
-.add("gamepad thumbstick r right", "thumbstick r right")
-.add("gamepad thumbstick r up",    "thumbstick r up")
-.add("gamepad thumbstick r down",  "thumbstick r down")
-.add("gamepad thumbstick r click", "thumbstick r click")
+.add("gamepad thumbstick l left",  spr_control_icon_xboxone_stick_l_left)
+.add("gamepad thumbstick l right", spr_control_icon_xboxone_stick_l_right)
+.add("gamepad thumbstick l up",    spr_control_icon_xboxone_stick_l_up)
+.add("gamepad thumbstick l down",  spr_control_icon_xboxone_stick_l_down)
+.add("gamepad thumbstick l click", spr_control_icon_xboxone_stick_l_click)
+
+.add("gamepad thumbstick r left",  spr_control_icon_xboxone_stick_r_left)
+.add("gamepad thumbstick r right", spr_control_icon_xboxone_stick_r_right)
+.add("gamepad thumbstick r up",    spr_control_icon_xboxone_stick_r_up)
+.add("gamepad thumbstick r down",  spr_control_icon_xboxone_stick_r_down)
+.add("gamepad thumbstick r click", spr_control_icon_xboxone_stick_r_click)
   
 //Not available on the Switch console itself but available on other platforms
-.add("gamepad guide",              "home")
-.add("gamepad misc 1",             "capture")
+.add("gamepad guide",              spr_control_icon_switch_button_home)
+.add("gamepad misc 1",             spr_control_icon_switch_button_capture)
 
 //Left-hand Switch JoyCon
 //This setup assums horizontal hold type
 input_icons("switch joycon left")
-.add("gamepad face south",         "face south")
-.add("gamepad face east",          "face east")
-.add("gamepad face west",          "face west") 
-.add("gamepad face north",         "face north")
-.add("gamepad shoulder l",         "SL")
-.add("gamepad shoulder r",         "SR")
-.add("gamepad start",              "minus")
+.add("gamepad face south",         spr_control_icon_switch_joyconl_button_down)
+.add("gamepad face east",          spr_control_icon_switch_joyconl_button_right)
+.add("gamepad face west",          spr_control_icon_switch_joyconl_button_left) 
+.add("gamepad face north",         spr_control_icon_switch_joyconl_button_up)
+.add("gamepad shoulder l",         spr_control_icon_switch_joyconl_button_shoulder_l)
+.add("gamepad shoulder r",         spr_control_icon_switch_joyconl_button_shoulder_r)
+.add("gamepad start",              spr_control_icon_switch_joyconl_button_start)
 
-.add("gamepad thumbstick l left",  "thumbstick left")
-.add("gamepad thumbstick l right", "thumbstick right")
-.add("gamepad thumbstick l up",    "thumbstick up")
-.add("gamepad thumbstick l down",  "thumbstick down")
-.add("gamepad thumbstick l click", "thumbstick click")
+.add("gamepad thumbstick l left",  spr_control_icon_switch_joycon_stick_left)
+.add("gamepad thumbstick l right", spr_control_icon_switch_joycon_stick_right)
+.add("gamepad thumbstick l up",    spr_control_icon_switch_joycon_stick_up)
+.add("gamepad thumbstick l down",  spr_control_icon_switch_joycon_stick_down)
+.add("gamepad thumbstick l click", spr_control_icon_switch_joycon_stick_click)
 
 //Not available on the Switch console itself but available on other platforms
-.add("gamepad select",             "capture")
+.add("gamepad select",             spr_control_icon_switch_button_capture)
 
 //Right-hand Switch JoyCon
 //This setup assums horizontal hold type
 input_icons("switch joycon right")
-.add("gamepad face south",         "face south")
-.add("gamepad face east",          "face east")
-.add("gamepad face west",          "face west") 
-.add("gamepad face north",         "face north")
-.add("gamepad shoulder l",         "SL")
-.add("gamepad shoulder r",         "SR")
-.add("gamepad start",              "plus")
+.add("gamepad face south",         spr_control_icon_switch_joyconr_button_down)
+.add("gamepad face east",          spr_control_icon_switch_joyconr_button_right)
+.add("gamepad face west",          spr_control_icon_switch_joyconr_button_left) 
+.add("gamepad face north",         spr_control_icon_switch_joyconr_button_up)
+.add("gamepad shoulder l",         spr_control_icon_switch_joyconr_button_shoulder_l)
+.add("gamepad shoulder r",         spr_control_icon_switch_joyconr_button_shoulder_r)
+.add("gamepad start",              spr_control_icon_switch_joyconr_button_start)
 
-.add("gamepad thumbstick l left",  "thumbstick left")
-.add("gamepad thumbstick l right", "thumbstick right")
-.add("gamepad thumbstick l up",    "thumbstick up")
-.add("gamepad thumbstick l down",  "thumbstick down")
-.add("gamepad thumbstick l click", "thumbstick click")
+.add("gamepad thumbstick l left",  spr_control_icon_switch_joycon_stick_left)
+.add("gamepad thumbstick l right", spr_control_icon_switch_joycon_stick_right)
+.add("gamepad thumbstick l up",    spr_control_icon_switch_joycon_stick_up)
+.add("gamepad thumbstick l down",  spr_control_icon_switch_joycon_stick_down)
+.add("gamepad thumbstick l click", spr_control_icon_switch_joycon_stick_click)
 
 //Not available on the Switch console itself but available on other platforms
-.add("gamepad select",             "home")
+.add("gamepad select",             spr_control_icon_switch_button_home)
 
 //Xbox 360
 input_icons("xbox 360")
@@ -399,6 +399,7 @@ input_icons("psx")
 .add("gamepad thumbstick r click", spr_control_icon_ps_stick_r_click)
 
 //Nintendo Gamecube
+/*
 input_icons("gamecube")
 .add("gamepad face south",         "A")
 .add("gamepad face east",          "X")
@@ -428,8 +429,10 @@ input_icons("gamecube")
 .add("gamepad thumbstick r click", "thumbstick r click")
 .add("gamepad guide",              "home")
 .add("gamepad misc 1",             "capture")
+*/
 
 //Nintendo 64
+/*
 input_icons("n64")
 .add("gamepad face south",         "A")
 .add("gamepad face east",          "B")
@@ -451,6 +454,7 @@ input_icons("n64")
 .add("gamepad thumbstick r right", "C right")
 .add("gamepad thumbstick r up",    "C up")
 .add("gamepad thumbstick r down",  "C down")
+*/
 
 //Sega Saturn
 input_icons("saturn")
@@ -470,6 +474,7 @@ input_icons("saturn")
 .add("gamepad dpad right", spr_control_icon_saturn_dpad_right)
 
 //Super Nintendo
+/*
 input_icons("snes")
 .add("gamepad face south", "B")
 .add("gamepad face east",  "A")
@@ -483,5 +488,6 @@ input_icons("snes")
 .add("gamepad dpad down",  "dpad down")
 .add("gamepad dpad left",  "dpad left")
 .add("gamepad dpad right", "dpad right")
+*/
 
 #endregion

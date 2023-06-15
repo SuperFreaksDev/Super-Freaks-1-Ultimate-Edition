@@ -33,3 +33,23 @@ function draw_pie(_x, _y, _value, _value_max, _radius, _angle_start = 90)
 	    draw_primitive_end();
 	}
 }
+
+/// @function draw_verb
+/// @param {Int} _player_number = 0
+/// @param {Int} _action
+/// @param {Real} _x
+/// @param {Real} _y
+function draw_verb(_player_number = 0, _action, _x, _y)
+{
+	var _frame = 0;
+	var _binding = input_binding_get(_action, _player_number);
+	var _icon = input_binding_get_icon(_binding, _player_number);
+	
+	if (_icon == spr_control_icon_empty || is_string(_icon))
+		exit;
+	
+	if (global.animate > 4)
+		_frame = 1;
+	
+	draw_sprite(_icon, _frame, _x, _y);
+}
