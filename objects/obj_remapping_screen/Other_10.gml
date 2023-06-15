@@ -71,7 +71,7 @@ switch (state)
 				    input_binding_scan_start(function(_binding)
 				    {
 						sfx_play_global(sfx_ding);
-				        input_binding_set_safe(verb_list[verb_index][1], _binding);
+				        input_binding_set_safe(verb_list[verb_index][1], _binding, player_number);
 						if (set_all)
 						{
 							if (verb_index + 1 < array_length(verb_list))
