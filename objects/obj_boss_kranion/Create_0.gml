@@ -4,8 +4,9 @@ enum boss_kranion_states
 {
 	intro = 0,
 	normal,
-	charge,
+	spin,
 	bounce,
+	jump,
 	stun,
 	death,
 }
@@ -26,7 +27,7 @@ speed_acc = 0.125;
 speed_grv = 0.25;
 
 boss_name = "Kranion";
-hp_init(24);
+hp_init(16);
 
 hitbox.shape_x1 = -40;
 hitbox.shape_y1 = -40;

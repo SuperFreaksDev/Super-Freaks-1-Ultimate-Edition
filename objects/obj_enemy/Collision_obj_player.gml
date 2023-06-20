@@ -64,21 +64,24 @@ switch (_hitbox_self.behavior)
 					speed_v = 3 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
 					//speed_v = min(speed_v, -5);
 				}
-				repeat(4)
-				{
-					if (hitbox_collision_check(_hitbox_self, _hitbox_player))
-					{
-						x += speed_h * 2;
-						if (!ground_on)
-							y += speed_v * 2;
-					}
-					else
-						break;
-				}
 				lock_controls_horizontal = 20;
 			}
 			else
 				_player_hurt = true;
+				
+			repeat(32)
+			{
+				if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				{
+					x += sign(x - _hitbox_self_x);
+					//x += speed_h * 2;
+					if (!ground_on)
+						y += sign(y - _hitbox_self_y);
+						//y += speed_v * 2;
+				}
+				else
+					break;
+			}
 		}
 		break;
 	case enemy_hitbox_behaviors.heavy_invulnerable:
@@ -102,21 +105,24 @@ switch (_hitbox_self.behavior)
 					speed_v = 3 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
 					//speed_v = min(speed_v, -5);
 				}
-				repeat(4)
-				{
-					if (hitbox_collision_check(_hitbox_self, _hitbox_player))
-					{
-						x += speed_h * 2;
-						if (!ground_on)
-							y += speed_v * 2;
-					}
-					else
-						break;
-				}
 				lock_controls_horizontal = 20;
 			}
 			else
 				_player_hurt = true;
+				
+			repeat(32)
+			{
+				if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				{
+					x += sign(x - _hitbox_self_x);
+					//x += speed_h * 2;
+					if (!ground_on)
+						y += sign(y - _hitbox_self_y);
+						//y += speed_v * 2;
+				}
+				else
+					break;
+			}
 		}
 		break;
 	case enemy_hitbox_behaviors.hazard:
