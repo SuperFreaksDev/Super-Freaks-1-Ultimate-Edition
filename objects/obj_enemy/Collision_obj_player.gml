@@ -52,8 +52,10 @@ switch (_hitbox_self.behavior)
 				_enemy_hurt = true;
 				if (underwater || jetpack)
 				{
-					speed_h = 4 * sign(-speed_h);
-					speed_v = 4 * sign(-speed_v);
+					//speed_h = 4 * sign(-speed_h);
+					//speed_v = 4 * sign(-speed_v);
+					speed_h = 4 * sign(((x + x_start_frame) / 2) - _hitbox_self_x);
+					speed_v = 4 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
 					jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 					lock_controls_vertical = 20;
 				}

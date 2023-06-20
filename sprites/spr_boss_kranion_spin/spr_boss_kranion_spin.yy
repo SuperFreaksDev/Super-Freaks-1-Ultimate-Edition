@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Kranion",
-    "path": "folders/Sprites/Bosses/Kranion.yy",
+    "name": "Phase 1",
+    "path": "folders/Sprites/Bosses/Kranion/Phase 1.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

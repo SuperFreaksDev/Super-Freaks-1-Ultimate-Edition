@@ -97,6 +97,7 @@ switch (state)
 				speed_h = (abs(speed_h) + 4) * -sign(face);
 				face = -face;
 				screen_shake(12, 0);
+				sfx_play_global(sfx_crash_1);
 			}
 			else
 			{
@@ -105,6 +106,7 @@ switch (state)
 				state_next_set(boss_kranion_states.stun);
 				audio_stop_sound(sfx_run_1);
 				screen_shake(12, 0);
+				sfx_play_global(sfx_crash_1);
 			}
 		}
 		break;
@@ -166,6 +168,7 @@ switch (state)
 				speed_h = -speed_h;
 				face = -face;
 				screen_shake(12, 0);
+				sfx_play_global(sfx_crash_1);
 			}
 			else
 			{
@@ -174,6 +177,7 @@ switch (state)
 				state_next_set(boss_kranion_states.stun);
 				audio_stop_sound(sfx_run_1);
 				screen_shake(12, 0);
+				sfx_play_global(sfx_crash_1);
 			}
 		}
 		
