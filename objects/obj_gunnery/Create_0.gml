@@ -9,6 +9,7 @@ enum enemy_gunnery_states
 	shoot_1,
 	shoot_2,
 	shoot_3,
+	wait,
 	reload,
 }
 

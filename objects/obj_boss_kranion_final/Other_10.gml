@@ -58,6 +58,7 @@ switch (state)
 			speed_x = lengthdir_x(1, -_angle);
 			speed_y = lengthdir_y(1, -_angle);
 			timer = 0;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 		}
 		
 		face_angle = lerp_360(face_angle, 0, 0.25);
@@ -141,6 +142,7 @@ switch (state)
 			speed_x = lengthdir_x(_speed, _angle);
 			speed_y = lengthdir_y(_speed, _angle);
 			timer = 0;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 		}
 		
 		face_angle += 5;
@@ -222,6 +224,7 @@ switch (state)
 		{
 			face_rotate_speed = 0;
 			timer = 0;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 		}
 		
 		face_rotate_speed = min(face_rotate_speed + 0.5, 15);

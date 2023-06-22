@@ -176,11 +176,11 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_kranion_boss_secret);
 		});
-		museum_cutscene_create(6,, "Dumb Dino", rm_cutscene_parent, function()
+		museum_cutscene_create(6,, "Dumb Dino", rm_cutscene_dino, function()
 		{
 			return level_complete_get(level_ids.level_kranion_boss);
 		});
-		museum_cutscene_create(7,, "The Big Fight", rm_cutscene_parent, function()
+		museum_cutscene_create(7,, "The Big Fight", rm_cutscene_kranion, function()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss);
 		});

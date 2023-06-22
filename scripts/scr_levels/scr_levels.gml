@@ -227,11 +227,11 @@ function levels_init()
 	level_create(29,, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
 	{
 		return (level_complete_get(24) && level_complete_get(25));
-	}, 0);
+	}, 0, rm_cutscene_dino);
 	level_create(30,, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
 		return level_complete_get(29);
-	}, 0);
+	}, 0, rm_cutscene_kranion);
 	
 	#region Level Lists
 		#region Normal Run

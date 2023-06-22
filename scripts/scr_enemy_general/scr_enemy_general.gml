@@ -4,6 +4,8 @@ enum enemy_hitbox_behaviors
 	heavy,
 	heavy_invulnerable,
 	hazard,
+	heavy_hazard,
+	kill_player,
 	die,
 	bouncy,
 }
@@ -14,6 +16,8 @@ function hp_init(_hp = 1)
 {
 	hp_start = _hp;
 	hp = _hp;
+	
+	gml_pragma("forceinline");
 }
 
 /// @function enemy_hurt

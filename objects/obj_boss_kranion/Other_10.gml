@@ -49,7 +49,7 @@ switch (state)
 			sprite_index = spr_boss_kranion_spin;
 			image_index = 0;
 			animate_speed = 0.5;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			speed_h = 0;
 			hitbox.shape_x1 = -60;
@@ -116,7 +116,7 @@ switch (state)
 			sprite_index = spr_boss_kranion_roll;
 			image_index = 0;
 			animate_speed = 0.5;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			speed_h = 0;
 			speed_v = 0;

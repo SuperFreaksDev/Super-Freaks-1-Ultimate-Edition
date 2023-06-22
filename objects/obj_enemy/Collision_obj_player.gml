@@ -134,6 +134,27 @@ switch (_hitbox_self.behavior)
 				player_hurt();
 		}
 		break;
+	case enemy_hitbox_behaviors.heavy_hazard:
+		with (other)
+		{
+			if (hurt_timer == 0)
+				player_hurt();
+		
+			repeat(32)
+			{
+				if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				{
+					x += sign(x - _hitbox_self_x);
+					//x += speed_h * 2;
+					if (!ground_on)
+						y += sign(y - _hitbox_self_y);
+						//y += speed_v * 2;
+				}
+				else
+					break;
+			}
+		}
+		break;
 	case enemy_hitbox_behaviors.die:
 		_player_hurt = true;
 		if (hurt_timer == 0)

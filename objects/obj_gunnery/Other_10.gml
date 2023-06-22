@@ -112,6 +112,13 @@ switch (state)
 			image_index = 0;
 			timer = 0;
 			ammo = 6;
+			animate_speed = 0;
+		}
+		
+		timer++;
+		
+		if (animate_speed == 0 && timer > 32)
+		{
 			animate_speed = 0.1;
 			sfx_play_global(sfx_gun_cock);
 		}
