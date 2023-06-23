@@ -38,8 +38,8 @@ switch (state)
 			speed_x = 2;
 		}
 		
-		y = min(y + 4, 688);
-		if (y == 688)
+		y = min(y + 4, 720);
+		if (y == 720)
 			state_next_set(boss_dino_ship_states.normal);
 		break;
 	case boss_dino_ship_states.normal:
@@ -49,7 +49,7 @@ switch (state)
 		}
 		
 		movement = (movement + 2) mod 360;
-		y = 688 + lengthdir_y(96, movement);
+		y = 720 + lengthdir_y(96, movement);
 		
 		x += speed_x;
 		saber_angle += 1;

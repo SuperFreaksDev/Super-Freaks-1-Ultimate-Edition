@@ -12,7 +12,6 @@ enum boss_dino_ship_states
 // Inherit the parent event
 event_inherited();
 
-boss_name = "Dino";
 hp_init(12);
 
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 48);
