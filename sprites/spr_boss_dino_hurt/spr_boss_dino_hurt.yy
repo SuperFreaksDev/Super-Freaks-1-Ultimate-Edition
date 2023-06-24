@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_boss_dino_ship",
+  "name": "spr_boss_dino_hurt",
   "bbox_bottom": 111,
   "bbox_left": 14,
   "bbox_right": 113,
@@ -13,15 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"25b25158-2aed-43f2-a02f-6b059c630024",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b8a64c35-e909-46bc-a497-544cfea2af82",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bacd1e9f-571a-4ccd-88d2-0db45939600e",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 128,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a98a8381-c35f-4f5c-8470-ffef2be2793b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"511cede9-0389-475b-88c6-a0ec7f1d0ca7","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -33,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_boss_dino_ship",
+    "name": "spr_boss_dino_hurt",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -44,7 +43,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 2.0,
+    "length": 1.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -55,8 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"25b25158-2aed-43f2-a02f-6b059c630024","path":"sprites/spr_boss_dino_ship/spr_boss_dino_ship.yy",},},},"Disabled":false,"id":"aca74fb9-2b2f-44e1-b455-e3f1e803f85d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b8a64c35-e909-46bc-a497-544cfea2af82","path":"sprites/spr_boss_dino_ship/spr_boss_dino_ship.yy",},},},"Disabled":false,"id":"7a3807f7-70e2-4e4f-b033-7bc1973b8561","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bacd1e9f-571a-4ccd-88d2-0db45939600e","path":"sprites/spr_boss_dino_hurt/spr_boss_dino_hurt.yy",},},},"Disabled":false,"id":"c77f996a-95b7-4fb6-b373-f710f7e61b98","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

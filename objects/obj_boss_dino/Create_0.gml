@@ -15,6 +15,7 @@ enum boss_dino_states
 event_inherited();
 
 hp_init(1);
+boss_name = "Dino";
 hitbox = new comp_hitbox_AABB(,,, enemy_hitbox_behaviors.normal,, -8, -12, 8, 20);
 animate_speed = 0.125;
 face = -1;

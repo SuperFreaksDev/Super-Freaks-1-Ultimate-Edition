@@ -184,7 +184,7 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss);
 		});
-		museum_cutscene_create(8,, "Normal Ending", rm_cutscene_parent, function()
+		museum_cutscene_create(8,, "Normal Ending", rm_cutscene_ending_normal, function()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss);
 		});

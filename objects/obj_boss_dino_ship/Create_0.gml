@@ -14,6 +14,7 @@ event_inherited();
 
 hp_init(12);
 
+boss_name = "Dino";
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 48);
 
 hitbox_saber = array_create(4);
@@ -25,6 +26,10 @@ saber_angle = 0;
 saber_angle_previous = 0;
 
 movement = 0;
+animate_speed = 0.25;
+cockpit_sprite = spr_boss_francis_cockpit_normal;
+cockpit_index = 0;
+cockpit_timer = 0;
 
 switch (global.difficulty)
 {

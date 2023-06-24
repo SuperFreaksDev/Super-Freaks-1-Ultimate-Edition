@@ -29,10 +29,9 @@ speed_grv = 0.25;
 boss_name = "Kranion";
 hp_init(16);
 
-hitbox.shape_x1 = -40;
-hitbox.shape_y1 = -40;
-hitbox.shape_x2 = 40;
-hitbox.shape_y2 = 64;
+face = -1;
+
+hitbox = new comp_hitbox_circle(, 8,, enemy_hitbox_behaviors.heavy,, 64);
 
 collider_detector_sides_set(-40,, 40,, 80);
 collider_detector_up_set(-40,, 40,, -60);

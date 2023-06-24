@@ -1,4 +1,4 @@
-/// @description Init
+/// @description Step
 
 var _i, _angle, _x1, _y1, _x2, _y2, _saber;
 
@@ -27,6 +27,11 @@ for (_i = 0; _i < array_length(hitbox_saber); ++_i)
 		shape_y2 = _y2;
 	}
 }
+
+cockpit_index = cockpit_index + 0.125 mod 4;
+cockpit_timer = max(cockpit_timer - 1, 0);
+if (cockpit_timer == 0)
+	cockpit_sprite = spr_boss_dino_ship;
 
 switch (state)
 {
@@ -68,6 +73,37 @@ switch (state)
 				if (x >= 1056)
 					face = -1;
 				break;
+		}
+		break;
+	case boss_dino_ship_states.death:
+		if (state_begin)
+		{
+			speed_x = 0;
+			speed_y = 0;
+			hitbox.active = hitbox_active.inactive;
+			for (_i = 0; _i < array_length(hitbox_saber); ++_i)
+			{
+				hitbox_saber[_i].active = hitbox_active.inactive;
+			}
+			timer = 0;
+			music_stop();
+		}
+		
+		y += 2;
+		
+		cockpit_sprite = spr_boss_dino_hurt;
+		cockpit_timer = 8;
+		
+		if (timer < 128)
+		{
+			if (timer mod 16 == 0)
+				instance_create_layer(x - 64 + random(128), y - 64 + random(128), "layer_instances", obj_boss_explosion);
+			timer++;
+		}
+		else
+		{
+			state_next_set(-1);
+			level_beat();
 		}
 		break;
 }

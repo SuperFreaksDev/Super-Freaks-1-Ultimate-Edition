@@ -18,10 +18,6 @@ switch (state)
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 			hitbox.active = hitbox_active.passive;
 			timer = 0;
-			hitbox.shape_x1 = -40;
-			hitbox.shape_y1 = -40;
-			hitbox.shape_x2 = 40;
-			hitbox.shape_y2 = 64;
 		}
 		timer = min(timer + 1, 128);
 		
@@ -52,8 +48,6 @@ switch (state)
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			speed_h = 0;
-			hitbox.shape_x1 = -60;
-			hitbox.shape_x2 = 60;
 			counter = 3;
 			sfx_play_global(sfx_run_1, true);
 		}
@@ -120,8 +114,6 @@ switch (state)
 			timer = 0;
 			speed_h = 0;
 			speed_v = 0;
-			hitbox.shape_x1 = -60;
-			hitbox.shape_x2 = 60;
 			counter = 3;
 			sfx_play_global(sfx_run_1, true);
 		}
@@ -197,10 +189,6 @@ switch (state)
 			hit_counter = 0;
 			timer = 0;
 			counter = 0;
-			hitbox.shape_x1 = -40;
-			hitbox.shape_y1 = -40;
-			hitbox.shape_x2 = 40;
-			hitbox.shape_y2 = 64;
 			speed_h = 0;
 			speed_v = choose(-4, -8);
 		}
@@ -265,10 +253,6 @@ switch (state)
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 			hit_counter = 0;
 			timer = 0;
-			hitbox.shape_x1 = -40;
-			hitbox.shape_y1 = -40;
-			hitbox.shape_x2 = 40;
-			hitbox.shape_y2 = 64;
 			sfx_play_global(sfx_crash_2);
 		}
 		

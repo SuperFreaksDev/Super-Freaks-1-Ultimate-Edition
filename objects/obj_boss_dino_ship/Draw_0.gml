@@ -6,7 +6,7 @@ var _x = lerp(x_start_frame, x, _frame_delta);
 var _y = lerp(y_start_frame, y, _frame_delta);
 var _saber_x, _saber_y, _saber_angle = lerp_360(saber_angle_previous, saber_angle, _frame_delta);
 
-draw_sprite(spr_boss_dino_ship, 0, _x, _y);
+draw_sprite(cockpit_sprite, cockpit_index, _x, _y);
 
 for (_i = 0; _i < array_length(hitbox_saber); ++_i)
 {

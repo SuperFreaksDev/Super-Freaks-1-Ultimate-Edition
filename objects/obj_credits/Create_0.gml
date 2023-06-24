@@ -42,6 +42,7 @@ text = "SUPER FREAKS 1 ULTIMATE EDITION"
 + "\nSpinycemb"
 + "\nAlmyriganHero"
 + "\nphilRaco"
++ "\nMotor Drive"
 + "\n"
 + "\n...uh"
 + "\nYeah I'm not sure what else to throw in here"
@@ -50,4 +51,4 @@ text = "SUPER FREAKS 1 ULTIMATE EDITION"
 + "\nSee You Next Game!";
 text_height = string_height(text);
 pos = 0;
-my_speed = 0.5;
+my_speed = 0.25;

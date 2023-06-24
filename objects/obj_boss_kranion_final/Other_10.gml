@@ -41,6 +41,9 @@ switch (state)
 			speed_x = 0;
 			speed_y = 6;
 			hitbox.active = hitbox_active.passive;
+			global.boss_phase = 1;
+			with (obj_player)
+				jetpack = true;
 			depth = 3;
 		}
 		y = min(y + speed_y, 782);

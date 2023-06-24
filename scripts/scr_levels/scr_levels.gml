@@ -231,7 +231,7 @@ function levels_init()
 	level_create(30,, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
 		return level_complete_get(29);
-	}, 0, rm_cutscene_kranion);
+	}, 0, rm_cutscene_kranion, rm_cutscene_ending_normal);
 	
 	#region Level Lists
 		#region Normal Run
