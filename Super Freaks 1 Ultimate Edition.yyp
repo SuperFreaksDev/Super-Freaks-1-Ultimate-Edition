@@ -1812,6 +1812,7 @@
     {"id":{"name":"spr_control_icon_switch_joyconr_button_shoulder_l","path":"sprites/spr_control_icon_switch_joyconr_button_shoulder_l/spr_control_icon_switch_joyconr_button_shoulder_l.yy",},},
     {"id":{"name":"obj_enemy_electric_ball","path":"objects/obj_enemy_electric_ball/obj_enemy_electric_ball.yy",},},
     {"id":{"name":"obj_heavy_door_block","path":"objects/obj_heavy_door_block/obj_heavy_door_block.yy",},},
+    {"id":{"name":"spr_boss_cinge_death_2","path":"sprites/spr_boss_cinge_death_2/spr_boss_cinge_death_2.yy",},},
     {"id":{"name":"spr_player_wall_slide_trash_can_man","path":"sprites/spr_player_wall_slide_trash_can_man/spr_player_wall_slide_trash_can_man.yy",},},
     {"id":{"name":"spr_control_icon_switch_joyconr_button_right","path":"sprites/spr_control_icon_switch_joyconr_button_right/spr_control_icon_switch_joyconr_button_right.yy",},},
     {"id":{"name":"spr_control_icon_xboxone_stick_l_click","path":"sprites/spr_control_icon_xboxone_stick_l_click/spr_control_icon_xboxone_stick_l_click.yy",},},

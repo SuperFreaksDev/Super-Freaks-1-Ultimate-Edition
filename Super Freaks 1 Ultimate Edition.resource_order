@@ -1568,6 +1568,7 @@
     {"name":"spr_control_icon_switch_joyconr_button_shoulder_l","order":4,"path":"sprites/spr_control_icon_switch_joyconr_button_shoulder_l/spr_control_icon_switch_joyconr_button_shoulder_l.yy",},
     {"name":"obj_enemy_electric_ball","order":4,"path":"objects/obj_enemy_electric_ball/obj_enemy_electric_ball.yy",},
     {"name":"obj_heavy_door_block","order":19,"path":"objects/obj_heavy_door_block/obj_heavy_door_block.yy",},
+    {"name":"spr_boss_cinge_death_2","order":8,"path":"sprites/spr_boss_cinge_death_2/spr_boss_cinge_death_2.yy",},
     {"name":"spr_player_wall_slide_trash_can_man","order":6,"path":"sprites/spr_player_wall_slide_trash_can_man/spr_player_wall_slide_trash_can_man.yy",},
     {"name":"spr_control_icon_switch_joyconr_button_right","order":2,"path":"sprites/spr_control_icon_switch_joyconr_button_right/spr_control_icon_switch_joyconr_button_right.yy",},
     {"name":"spr_control_icon_xboxone_stick_l_click","order":8,"path":"sprites/spr_control_icon_xboxone_stick_l_click/spr_control_icon_xboxone_stick_l_click.yy",},

@@ -272,7 +272,7 @@ switch (state)
 	case boss_cinge_states.death:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_cinge_death;
+			sprite_index = choose(spr_boss_cinge_death, spr_boss_cinge_death_2);
 			image_index = 0;
 			animate_speed = 0.15;
 			hitbox.behavior = enemy_hitbox_behaviors.normal;
