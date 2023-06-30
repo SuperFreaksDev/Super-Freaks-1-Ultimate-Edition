@@ -86,7 +86,8 @@ switch (state)
 				hitbox_saber[_i].active = hitbox_active.inactive;
 			}
 			timer = 0;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 		}
 		
 		y += 2;

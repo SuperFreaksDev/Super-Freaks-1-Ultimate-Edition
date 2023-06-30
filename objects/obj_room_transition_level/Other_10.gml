@@ -15,7 +15,8 @@ switch (state)
 		{
 			frame = 0;
 			animate = 1;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 			draw_texture_flush();
 		}
 		if (frame == 20)
@@ -25,7 +26,7 @@ switch (state)
 			room_destination_set(spawn_point_room_get());
 			global.boss_phase = 0;
 			state_next_set(2);
-			audio_stop_all();
+			//audio_stop_all();
 		}
 		break;
 	case 2:
@@ -38,8 +39,10 @@ switch (state)
 			switch (global.game_mode)
 			{
 				case game_modes.randomizer:
-				case game_modes.boss_rush:
 					global.score++;
+					break;
+				case game_modes.boss_rush:
+					game_timer_pause(false);
 					break;
 				case game_modes.speedrun:
 					global.hearts = hearts_minimum_get();

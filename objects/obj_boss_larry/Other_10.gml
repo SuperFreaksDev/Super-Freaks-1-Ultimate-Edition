@@ -122,7 +122,8 @@ switch (state)
 			image_index = 2;
 			hitbox.active = hitbox_active.inactive;
 			speed_h *= -4;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 			timer = 0;
 		}
 		if (timer < 128)

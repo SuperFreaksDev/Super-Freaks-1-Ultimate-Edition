@@ -277,7 +277,8 @@ switch (state)
 			animate_speed = 0;
 			hitbox.active = hitbox_active.inactive;
 			sprite_index = spr_megaklaw_stuck;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 			with (arm_platform)
 				solid_y1 = collider_solidity.NA;
 		}

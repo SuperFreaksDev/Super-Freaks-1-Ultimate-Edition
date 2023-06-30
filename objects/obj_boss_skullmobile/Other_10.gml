@@ -148,31 +148,34 @@ switch (state)
 		}
 		break;
 		case boss_skullmobile_states.death:
-		if (state_begin)
-		{
-			timer = 0;
-			laser_distance = 64;
-			hitbox.active = hitbox_active.inactive;
-			gun_left.active = hitbox_active.inactive;
-			gun_right.active = hitbox_active.inactive;
-			laser_left.active = hitbox_active.inactive;
-			laser_right.active = hitbox_active.inactive;
-			screen_shake(0, 8);
-			music_stop();
-		}
+			if (state_begin)
+			{
+				timer = 0;
+				laser_distance = 64;
+				hitbox.active = hitbox_active.inactive;
+				gun_left.active = hitbox_active.inactive;
+				gun_right.active = hitbox_active.inactive;
+				laser_left.active = hitbox_active.inactive;
+				laser_right.active = hitbox_active.inactive;
+				screen_shake(0, 8);
+				if (global.game_mode != game_modes.boss_rush)
+					music_stop();
+			}
 			
-		if (timer < 128)
-		{
-			if (timer mod 16 == 0)
-				instance_create_layer(x - 80 + random(160), y - 80 + random(160), "layer_instances", obj_boss_explosion);
-			timer++;
-		}
-		else
-		{
-			state_next_set(-1);
-			level_beat();
-		}
-		break;
+			y += 0.5;
+			
+			if (timer < 128)
+			{
+				if (timer mod 16 == 0)
+					instance_create_layer(x - 80 + random(160), y - 80 + random(160), "layer_instances", obj_boss_explosion);
+				timer++;
+			}
+			else
+			{
+				state_next_set(-1);
+				level_beat();
+			}
+			break;
 		
 		#region Laser Angle
 			laser_angle_previous = laser_angle;
@@ -204,8 +207,6 @@ switch (state)
 				angle_previous -= 360;
 			}
 		#endregion
-		
-		y += 0.5;
 		break;
 }
 

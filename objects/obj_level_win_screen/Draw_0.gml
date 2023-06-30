@@ -52,6 +52,17 @@ switch (global.game_mode)
 		draw_set_valign(fa_bottom);
 		draw_text_ext(_view_x1 + (_screen_width_half * animate), _view_y1 + _screen_height, string_upper(victory_quote), -1, _screen_width);
 		break;
+	case game_modes.boss_rush:
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		draw_text(_view_x1 + (_screen_width_half * animate), _view_y1, "BOSS RUSH COMPLETE");
+		
+		draw_set_valign(fa_middle);
+		game_timer_draw(_view_x1 + _screen_width - (_screen_width_half * animate), _view_y1 + _screen_height_half);
+		
+		draw_set_valign(fa_bottom);
+		draw_text_ext(_view_x1 + (_screen_width_half * animate), _view_y1 + _screen_height, string_upper(victory_quote), -1, _screen_width);
+		break;
 	default:
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);

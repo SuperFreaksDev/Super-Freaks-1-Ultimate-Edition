@@ -298,7 +298,8 @@ switch (state)
 			hitbox_buzzsaw_2.active = hitbox_active.inactive;
 			swing_speed = 0;
 			timer = 0;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 		}
 		
 		y += 2;

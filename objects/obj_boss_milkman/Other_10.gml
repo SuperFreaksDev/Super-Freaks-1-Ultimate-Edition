@@ -197,7 +197,8 @@ switch (state)
 			audio_stop_sound(sfx_fall);
 			audio_stop_sound(sfx_crash_1);
 			arm_speed = 8;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 		}
 			
 		if (timer < 128)

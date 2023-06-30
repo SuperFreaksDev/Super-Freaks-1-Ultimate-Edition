@@ -171,6 +171,15 @@ switch (state)
 					spawn_point_set(level_room_get(global.level_id));
 					instance_create_layer(0, 0, "layer_instances", obj_room_transition_level);
 					break;
+				case game_modes.boss_rush:
+					_level_list = global.level_list[level_lists.boss];
+					array_resize(global.current_level_list, 0);
+					array_copy(global.current_level_list, 0, _level_list, 0, array_length(_level_list));
+					global.level_demo = 0;
+					global.level_id = global.current_level_list[global.level_demo];
+					spawn_point_set(level_room_get(global.level_id));
+					instance_create_layer(0, 0, "layer_instances", obj_room_transition_level);
+					break;
 				case game_modes.speedrun:
 					switch (global.game_mode_subtype)
 					{
