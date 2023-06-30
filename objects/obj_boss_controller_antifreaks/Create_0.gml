@@ -87,3 +87,5 @@ for (_i = 0; _i < array_length(antifreaks); ++_i)
 
 get_total_hp();
 hitbox.active = hitbox_active.inactive;
+active = true;
+timer = 64;
