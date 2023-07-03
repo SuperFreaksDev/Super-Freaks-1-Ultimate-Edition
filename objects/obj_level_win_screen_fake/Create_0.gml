@@ -16,7 +16,8 @@ animate = 0;
 depth = -9998;
 state_next_set(0);
 game_timer_pause(true);
-music_set(msc_victory);
+if (global.game_mode != game_modes.boss_rush)
+	music_set(msc_victory);
 
 lower_offset = 0;
 

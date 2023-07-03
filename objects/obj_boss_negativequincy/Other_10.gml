@@ -169,7 +169,7 @@ switch (state)
 				ground_on = true;
 				screen_shake(0, 8);
 				sfx_play_global(sfx_crash_1);
-				repeat(4)
+				repeat(2 + global.difficulty)
 				{
 					instance_create_layer(random_range(480, 1264), 240, "layer_instances", obj_boulder);
 				}

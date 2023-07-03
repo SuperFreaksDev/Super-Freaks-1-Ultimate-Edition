@@ -27,7 +27,7 @@ switch (state)
 			sprite_index = spr_boss_cinge_stand;
 			image_index = 0;
 			animate_speed = 0.15;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			hitbox.active = hitbox_active.passive;
 			timer = 0;
 			hitbox.shape_x1 = -40;
@@ -46,7 +46,7 @@ switch (state)
 			sprite_index = spr_boss_cinge_shoot_prepare;
 			image_index = 0;
 			animate_speed = 0.15;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			counter = 0;
 		}
@@ -61,6 +61,7 @@ switch (state)
 					_target = player_nearest_alive();
 					if (!is_undefined(_target))
 					{
+						sfx_play_global(sfx_explode_short);
 						_angle = point_direction(x + (76 * face), y + 48, _target.x, _target.y);
 						_fireball = instance_create_layer(x + (76 * face), y + 48, "layer_instances", obj_enemy_fireball, 
 						{
@@ -114,7 +115,7 @@ switch (state)
 			sprite_index = spr_boss_cinge_fireball;
 			image_index = 0;
 			animate_speed = 0.5;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			speed_h = 0;
 			hitbox.shape_x1 = -60;

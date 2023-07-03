@@ -17,5 +17,6 @@ start_y = 0;
 attack_x = 0;
 attack_y = 0;
 can_despawn = false;
+blink = false;
 
 character_index = character_indexes.geyzer;

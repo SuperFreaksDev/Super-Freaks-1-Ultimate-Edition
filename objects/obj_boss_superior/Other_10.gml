@@ -105,14 +105,14 @@ switch (state)
 	case boss_antifreak_states.attack_2:
 		if (state_begin)
 		{
-			attack_angle = choose(0, 10, 20);
+			attack_angle = random(360);
 			timer = 0;
 		}
 		
 		attack_angle = (attack_angle + 2) mod 360;
 		timer++;
 		
-		switch (attack_angle mod 80)
+		switch (timer mod (60 - (global.difficulty * 20)))
 		{
 			case 0:
 			case 6:

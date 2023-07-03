@@ -25,6 +25,11 @@ switch (state)
 			speed_y = 6;
 			hitbox.active = hitbox_active.inactive;
 			depth = -9999;
+			with (obj_player)
+			{
+				jetpack = true;
+				ground_on = false;
+			}
 		}
 		speed_y -= 0.25;
 		x += speed_x;
@@ -43,7 +48,10 @@ switch (state)
 			hitbox.active = hitbox_active.passive;
 			global.boss_phase = 1;
 			with (obj_player)
+			{
 				jetpack = true;
+				ground_on = false;
+			}
 			depth = 3;
 		}
 		y = min(y + speed_y, 782);
@@ -131,10 +139,10 @@ switch (state)
 					_speed = 3;
 					break;
 				case difficulty_levels.normal:
-					_speed = 5;
+					_speed = 4;
 					break;
 				case difficulty_levels.hard:
-					_speed = 6;
+					_speed = 5;
 					break;
 			}
 			_target = player_nearest_alive();
@@ -246,7 +254,7 @@ switch (state)
 		
 		if (timer < 200)
 		{
-			if (timer mod 16 == 0)
+			if (timer mod (16 - (global.difficulty - 1) * 2) == 0)
 			{
 				sfx_play_global(sfx_explode_short);
 				switch (global.difficulty)
@@ -328,7 +336,8 @@ switch (state)
 		{
 			hitbox.active = hitbox_active.inactive;
 			timer = 0;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 		}
 			
 		if (timer < 128)
@@ -345,7 +354,8 @@ switch (state)
 		{
 			speed_y = -2;
 			hitbox.active = hitbox_active.inactive;
-			music_stop();
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
 		}
 		
 		speed_y = min(speed_y + 0.125, 6);

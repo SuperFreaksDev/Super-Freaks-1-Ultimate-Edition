@@ -188,15 +188,15 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss);
 		});
-		museum_cutscene_create(9,, "An Exciting Encore", rm_cutscene_parent, function()
+		museum_cutscene_create(9,, "An Exciting Encore", rm_cutscene_encore, function()
 		{
 			return level_complete_get(level_ids.level_supersecret);
 		});
-		museum_cutscene_create(10,, "Anti Freak Fight", rm_cutscene_parent, function()
+		museum_cutscene_create(10,, "Anti Freak Fight", rm_cutscene_antifreaks_battle, function()
 		{
 			return level_complete_get(level_ids.level_supersecret_boss);
 		});
-		museum_cutscene_create(11,, "Secret Ending", rm_cutscene_parent, function()
+		museum_cutscene_create(11,, "Secret Ending", rm_cutscene_ending_secret, function()
 		{
 			return level_complete_get(level_ids.level_supersecret_boss);
 		});

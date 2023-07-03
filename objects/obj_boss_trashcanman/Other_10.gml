@@ -104,7 +104,7 @@ switch (state)
 			y = 240;
 		}
 		
-		y += 4;
+		y += 3;
 		
 		if (y >= 512)
 		{
@@ -115,8 +115,9 @@ switch (state)
 	case boss_antifreak_states.attack_2:
 		if (state_begin)
 		{
-			speed_x = 4 * face;
+			speed_x = (2 + global.difficulty) * face;
 			laser.active = hitbox_active.passive;
+			sfx_play_global(sfx_laser_huge_fire);
 		}
 		
 		x += speed_x;
@@ -135,7 +136,7 @@ switch (state)
 		if (state_begin)
 		{
 			speed_x = 0;
-			speed_y = 3;
+			speed_y = 0;
 			timer = 96;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 			laser.active = hitbox_active.inactive;
@@ -144,6 +145,7 @@ switch (state)
 			image_index = 1;
 		}
 		
+		speed_y = min(speed_y + 0.25, 6);
 		y += speed_y;
 		
 		if (!is_undefined(_player))

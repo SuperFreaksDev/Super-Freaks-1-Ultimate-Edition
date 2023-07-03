@@ -78,6 +78,7 @@
     {"name":"inst_1D642226","path":"rooms/rm_supersecret_4/rm_supersecret_4.yy",},
     {"name":"inst_29A6A9A1","path":"rooms/rm_supersecret_4/rm_supersecret_4.yy",},
     {"name":"inst_72614CAE","path":"rooms/rm_supersecret_4/rm_supersecret_4.yy",},
+    {"name":"inst_19E18C0D","path":"rooms/rm_supersecret_4/rm_supersecret_4.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -225,6 +226,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"propertyId":{"name":"drop_speed","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"value":"3",},
           ],"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":3920.0,"y":16.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_19E18C0D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2192.0,"y":624.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"layer_tiles_special","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":30,"SerialiseWidth":125,"TileCompressedData":[
 -3750,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_special","path":"tilesets/tileset_special/tileset_special.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

@@ -6,6 +6,7 @@ var _collider_size = 28 * image_xscale;
 
 hurt_timer_step();
 collision_flags = 0;
+angle_previous = angle;
 
 //speed_h *= speed_frc_air;
 if (speed_v < 6)
@@ -88,6 +89,7 @@ switch (state)
 		{
 			image_index = 0;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
+			blink = false;
 		}
 		timer = min(timer + 1, 256);
 		
@@ -99,13 +101,16 @@ switch (state)
 		else if (timer >= 200)
 		{
 			image_index = 1;
+			if (timer mod 2 == 0)
+				blink = !blink;
 		}
 		break;
 	case 1: //Spike
 		if (state_begin)
 		{
 			image_index = 1;
-			hitbox.behavior = enemy_hitbox_behaviors.hazard;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
+			blink = false;
 			sfx_play_global(sfx_pluck);
 		}
 		timer = min(timer + 1, 96);
@@ -121,6 +126,7 @@ switch (state)
 		{
 			image_index = 2;
 			hitbox.active = hitbox_active.inactive;
+			blink = false;
 			speed_h *= -4;
 			if (global.game_mode != game_modes.boss_rush)
 				music_stop();
@@ -162,4 +168,17 @@ switch (state)
 			level_beat();
 		}
 		break;
+}
+
+angle -= (x - x_previous);
+
+if (angle < 0)
+{
+	angle += 360;
+	angle_previous += 360;
+}
+if (angle >= 360)
+{
+	angle -= 360;
+	angle_previous -= 360;
 }

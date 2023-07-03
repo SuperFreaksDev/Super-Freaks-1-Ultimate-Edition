@@ -74,6 +74,7 @@ switch (state)
 			hitbox.active = hitbox_active.inactive;
 			sprite_index = player_animation_get(character_index, player_animations.death);
 			image_index = 0;
+			blink = false;
 		}
 		
 		speed_y += min(0.25, 6 - speed_y);
@@ -134,11 +135,12 @@ switch (state)
 	case boss_antifreak_states.attack_3:
 		if (state_begin)
 		{
-			timer = 96;
+			timer = 112 - (global.difficulty * 12);
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 			sprite_index = player_animation_get(character_index, player_animations.air);
 			animate_speed = 0;
 			image_index = 1;
+			blink = false;
 		}
 		
 		if (!is_undefined(_player))
@@ -149,8 +151,15 @@ switch (state)
 		}
 		
 		timer--;
-		
 		if (timer <= 0)
+		{
+			blink = false;
 			state_next_set(boss_antifreak_states.attack_2);
+		}
+		else if (timer <= 24)
+		{
+			if (timer mod 2 == 0)
+				blink = !blink;
+		}
 		break;
 }

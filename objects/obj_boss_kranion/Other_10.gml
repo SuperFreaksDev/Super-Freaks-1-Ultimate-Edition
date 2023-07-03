@@ -48,7 +48,18 @@ switch (state)
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			timer = 0;
 			speed_h = 0;
-			counter = 3;
+			switch (global.difficulty)
+			{
+				case difficulty_levels.easy:
+					counter = 2;
+					break;
+				case difficulty_levels.normal:
+					counter = 3;
+					break;
+				case difficulty_levels.hard:
+					counter = 5;
+					break;
+			}
 			sfx_play_global(sfx_run_1, true);
 		}
 		timer = min(timer + 1, 52);
@@ -114,15 +125,30 @@ switch (state)
 			timer = 0;
 			speed_h = 0;
 			speed_v = 0;
-			counter = 3;
 			sfx_play_global(sfx_run_1, true);
 		}
 		timer = min(timer + 1, 48);
 		
 		if (timer == 48 && speed_h == 0)
 		{
-			speed_h = 6 * face;
-			speed_v = -8;
+			switch (global.difficulty)
+			{
+				case difficulty_levels.easy:
+					speed_h = 3 * face;
+					speed_v = -4;
+					counter = 2;
+					break;
+				case difficulty_levels.normal:
+					speed_h = 6 * face;
+					speed_v = -8;
+					counter = 3;
+					break;
+				case difficulty_levels.hard:
+					speed_h = 8 * face;
+					speed_v = -12;
+					counter = 4;
+					break;
+			}
 			animate_speed += 0.0025;
 		}
 		
@@ -176,6 +202,7 @@ switch (state)
 		if (collision_flag_get_up() || collision_flag_get_down())
 		{
 			speed_v = -speed_v;
+			sfx_play_global(sfx_crash_1);
 			screen_shake(0, 12);
 		}
 		break;
@@ -190,7 +217,7 @@ switch (state)
 			timer = 0;
 			counter = 0;
 			speed_h = 0;
-			speed_v = choose(-4, -8);
+			speed_v = -4;
 		}
 		
 		speed_v = min(speed_v + speed_grv, 6);
@@ -235,8 +262,20 @@ switch (state)
 				state_next_set(boss_kranion_states.normal);
 			else
 			{
-				speed_v = choose(-4, -8);
+				switch (global.difficulty)
+				{
+					case difficulty_levels.easy:
+						speed_v = -8;
+						break;
+					case difficulty_levels.normal:
+						speed_v = choose(-4, -8);
+						break;
+					case difficulty_levels.hard:
+						speed_v = -3;
+						break;
+				}
 				screen_shake(0, 12);
+				sfx_play_global(sfx_crash_1);
 				_shockwave = instance_create_layer(x, y + 64, "layer_instances", obj_enemy_shockwave);
 				_shockwave.speed_h = -6;
 				_shockwave = instance_create_layer(x, y + 64, "layer_instances", obj_enemy_shockwave);

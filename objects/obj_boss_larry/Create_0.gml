@@ -12,6 +12,9 @@ hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, _radius);
 spike = false;
 speed_grv = 0.25;
 speed_frc_air = 0.99;
+angle = 0;
+angle_previous = 0;
+blink = false;
 
 timer = 0;
 state_next_set(0);
