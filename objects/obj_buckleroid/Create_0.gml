@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-hp_init(3);
+hp_init(2);
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 48);
 yorb_amount = 10;
 
