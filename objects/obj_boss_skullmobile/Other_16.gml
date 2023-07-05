@@ -1,5 +1,7 @@
 /// @description Hit
 
+event_inherited();
+
 if (global.boss_phase == 0)
 {
 	if (hp <= 6)

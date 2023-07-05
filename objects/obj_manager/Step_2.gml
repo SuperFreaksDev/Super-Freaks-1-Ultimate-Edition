@@ -171,6 +171,8 @@ while (_frames_game > 0)
 		
 			_frames_player--;
 		}
+		
+		global.game_frame_new = false;
 	}
 	global.frame_machine_player.frame_amount = 0;
 	global.frame_machine_level.frame_amount = 0;

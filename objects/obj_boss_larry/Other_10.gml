@@ -101,8 +101,11 @@ switch (state)
 		else if (timer >= 200)
 		{
 			image_index = 1;
-			if (timer mod 2 == 0)
-				blink = !blink;
+			if (global.game_frame_new)
+			{
+				//if (timer mod 2 == 0)
+					blink = !blink;
+			}
 		}
 		break;
 	case 1: //Spike

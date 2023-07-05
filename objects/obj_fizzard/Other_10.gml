@@ -47,7 +47,8 @@ switch (state)
 				state_next_set(2);
 			else if (timer <= 32)
 			{
-				if (timer mod 2 == 0)
+				if (global.game_frame_new)
+				//if (timer mod 2 == 0)
 					blink = !blink;
 			}
 			if (collision_down_simple(x, x, x, y, infinity,,, true, false))

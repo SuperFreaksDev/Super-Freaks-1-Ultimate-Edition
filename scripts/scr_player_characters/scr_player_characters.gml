@@ -221,6 +221,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_trash_can_man);
 	#endregion
 	
+	#region Les Slaypool
+		_character = character_indexes.slaypool;
+		global.character_names[_character] = "Les Slaypool";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_slaypool);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_slaypool);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_slaypool);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_slaypool);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_slaypool);
+		player_animation_create(_character, player_animations.death, spr_player_death_slaypool);
+		player_animation_create(_character, player_animations.air, spr_player_air_slaypool);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_slaypool);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_slaypool);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_slaypool);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_slaypool);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_slaypool);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_slaypool);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_slaypool);
+	#endregion
+	
 	#region Scruffy (2006)
 		_character = character_indexes.scruffy_2006;
 		global.character_names[_character] = "Scruffy (2006)";

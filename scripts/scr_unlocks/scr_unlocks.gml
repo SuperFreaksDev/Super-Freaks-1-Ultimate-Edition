@@ -30,6 +30,7 @@ enum unlocks
 	character_trash_can_man,
 	character_2006,
 	character_dino,
+	character_x_freaks,
 }
 
 /// @function unlocks_init
@@ -156,6 +157,13 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.dino] = true;
+	});
+	unlock_create(unlocks.character_x_freaks, "Unlock X-Freaks", "You can now play as the X-Freaks! These guys are First Class! ...yeah I know, that joke kinda sucked. Great movie though!", function()
+	{
+		return level_perfect_get(level_ids.level_ludicrous_barrel_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.slaypool] = true;
 	});
 	
 	unlocks_load();

@@ -1,5 +1,7 @@
 /// @description Hit
 
+event_inherited();
+
 if (global.boss_phase == 1 && hp <= 10)
 {
 	boss_milkman_activate_arms();

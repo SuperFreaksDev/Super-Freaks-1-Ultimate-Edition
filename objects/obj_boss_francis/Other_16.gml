@@ -1,5 +1,7 @@
 /// @description Hit
 
+event_inherited();
+
 cockpit_sprite = spr_boss_francis_cockpit_hurt;
 cockpit_timer = 8;
 

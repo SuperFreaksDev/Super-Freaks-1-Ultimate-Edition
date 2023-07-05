@@ -25,7 +25,8 @@ if (timer == 0)
 }
 else if (timer <= 24)
 {
-	if (timer mod 2 == 0)
+	if (global.game_frame_new)
+	//if (timer mod 2 == 0)
 		blink = !blink;
 }
 	
