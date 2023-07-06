@@ -164,6 +164,7 @@ function unlocks_init()
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.slaypool] = true;
+		global.characters_unlocked[character_indexes.cyquops] = true;
 	});
 	
 	unlocks_load();

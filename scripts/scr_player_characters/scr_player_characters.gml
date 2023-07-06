@@ -240,6 +240,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_slaypool);
 	#endregion
 	
+	#region Cyquops
+		_character = character_indexes.cyquops;
+		global.character_names[_character] = "Cyquops";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_cyquops);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_cyquops);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_cyquops);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_cyquops);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_cyquops);
+		player_animation_create(_character, player_animations.death, spr_player_death_cyquops);
+		player_animation_create(_character, player_animations.air, spr_player_air_cyquops);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_cyquops);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_cyquops);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_cyquops);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_cyquops);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_cyquops);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_cyquops);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_cyquops);
+	#endregion
+	
 	#region Scruffy (2006)
 		_character = character_indexes.scruffy_2006;
 		global.character_names[_character] = "Scruffy (2006)";
