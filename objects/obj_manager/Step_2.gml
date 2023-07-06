@@ -2,7 +2,7 @@
 
 var _i = 0;
 var _pause;
-var _frames_game, _frames_player, _frames_level;
+var _frames_game, _frames_player, _frames_level, _frames_level_fast_forward;
 var _despawn = false;
 var _new_source = input_source_detect_new();
 var _disconnect = false;
@@ -92,6 +92,7 @@ while (_frames_game > 0)
 			instance_step();
 		_frames_player = 0;
 		_frames_level = 0;
+		_frames_level_fast_forward = 0;
 		_frames_game--;
 		continue;
 	}
@@ -99,6 +100,7 @@ while (_frames_game > 0)
 	frame_machine_step();
 	_frames_player = global.frame_machine_player.frame_amount;
 	_frames_level = global.frame_machine_level.frame_amount;
+	_frames_level_fast_forward = global.frame_machine_level.frame_amount_fast_forward;
 	
 	with (obj_system)
 		instance_step();
@@ -111,7 +113,7 @@ while (_frames_game > 0)
 			instance_step();
 	}
 	
-	while (_frames_player > 0 || _frames_level > 0)
+	while (_frames_player > 0 || _frames_level_fast_forward > 0)
 	{
 		global.frame++;
 		//Step 1
@@ -123,10 +125,13 @@ while (_frames_game > 0)
 				instance_step();
 		}
 
-		if (_frames_level > 0)
+		if (_frames_level_fast_forward > 0)
 		{
 			with (obj_level_obj)
-				instance_step();
+			{
+				if (fast_forward || _frames_level > 0)
+					instance_step();
+			}
 		}
 		
 		//Collision
@@ -144,7 +149,7 @@ while (_frames_game > 0)
 		}
 
 		//Step 2
-		if (_frames_level > 0)
+		if (_frames_level_fast_forward > 0)
 		{
 			global.instance_despawn_timer = max(global.instance_despawn_timer - 1, 0);
 			if (global.instance_despawn_timer == 0)
@@ -156,12 +161,16 @@ while (_frames_game > 0)
 				
 			with (obj_level_obj)
 			{
-				instance_step_2();
-				if (_despawn)
-					instance_despawn_check();
+				if (fast_forward || _frames_level > 0)
+				{
+					instance_step_2();
+					if (_despawn)
+						instance_despawn_check();
+				}
 			}
 		
 			_frames_level--;
+			_frames_level_fast_forward--;
 		}
 		
 		if (_frames_player > 0)

@@ -32,7 +32,7 @@ switch (state)
 	case 2:
 		if (state_begin)
 		{
-			//global.frame_machine_level.multiplier = 1.5;
+			global.frame_machine_level.fast_forward = 0.5;
 			trophies_init(level_trophies_get(), level_trophy_count_max_get());
 			global.checkpoint_death_count = 0;
 			frame = 0;

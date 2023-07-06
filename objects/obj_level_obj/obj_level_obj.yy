@@ -33,6 +33,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"can_despawn","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"True","varType":3,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"zone_index","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":true,"rangeMax":255.0,"rangeMin":-3.0,"value":"-1","varType":1,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"level_id","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":true,"rangeMax":255.0,"rangeMin":-1.0,"value":"-1","varType":1,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"fast_forward","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"True","varType":3,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"difficulty","filters":[],"listItems":[
         "\"Easy\"",
         "\"Normal\"",

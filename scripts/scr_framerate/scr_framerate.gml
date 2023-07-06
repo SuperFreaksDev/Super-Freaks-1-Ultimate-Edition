@@ -76,9 +76,11 @@ function frame_machine(_multiplier = 1) constructor
 	var _my_id = self;
 	
 	multiplier = _multiplier;
+	fast_forward = 0;
 	pause = false;
 	frame_counter = 0;
 	frame_amount = 0;
+	frame_amount_fast_forward = 0;
 	frame_delta = delta_time/1000000;
 	
 	array_push(global.frame_machine_list, _my_id);
@@ -97,6 +99,7 @@ function frame_machine_step()
 		
 		with (_frame_machine)
 		{
+			frame_amount_fast_forward = 0;
 			if (pause)
 				continue;
 				
@@ -104,6 +107,13 @@ function frame_machine_step()
 			while (frame_counter >= 1)
 			{
 				frame_amount += 1;
+				frame_counter -= 1;
+			}
+			frame_amount_fast_forward = frame_amount;
+			frame_counter += fast_forward;
+			while (frame_counter >= 1)
+			{
+				frame_amount_fast_forward += 1;
 				frame_counter -= 1;
 			}
 		}
@@ -133,3 +143,12 @@ function frame_delta_level_get()
 	
 	gml_pragma("forceinline");
 }
+
+/// @function fast_forward_level_get
+function fast_forward_level_get()
+{
+	return global.frame_machine_level.fast_forward;
+	
+	gml_pragma("forceinline");
+}
+

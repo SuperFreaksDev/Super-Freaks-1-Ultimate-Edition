@@ -12,6 +12,7 @@ stars = array_create(path_get_number(path));
 countdown = false;
 countdown_sfx = sfx_clock_ticking;
 timer = time;
+fast_forward = false;
 
 for (_i = 0; _i < array_length(stars); ++_i)
 {

@@ -5,3 +5,4 @@ event_inherited();
 
 image_index = 0;
 animate_speed = 0.25;
+fast_forward = false;

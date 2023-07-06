@@ -62,6 +62,8 @@ function gameplay_init()
 	
 	global.story_mode = story_modes.super_freaks;
 	
+	global.fast_forward_multiplier = 0;
+	
 	global.boss_phase = 0;
 	
 	global.redblueplatformswap = false;

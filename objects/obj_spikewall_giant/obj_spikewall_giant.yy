@@ -9,7 +9,9 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":7,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"fast_forward","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
+  ],
   "parent": {
     "name": "Conveyor Castle",
     "path": "folders/Objects/Levels/Castle Kranion/Conveyor Castle.yy",

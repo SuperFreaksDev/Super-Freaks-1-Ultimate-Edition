@@ -4,7 +4,7 @@
 event_inherited();
 
 timer = 0;
-ammo = 8;
+ammo = 6;
 shoot_spread = 0;
 ground_on = false;
 speed_v = 0;

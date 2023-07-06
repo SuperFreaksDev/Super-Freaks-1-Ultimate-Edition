@@ -11,6 +11,7 @@ despawn_area[1] = 48;
 despawn_area[2] = 48;
 	
 depth = 5;
+fast_forward = false;
 
 if (checkpoint_id <= global.checkpoint[spawn_point_data.checkpoint_id])
 {

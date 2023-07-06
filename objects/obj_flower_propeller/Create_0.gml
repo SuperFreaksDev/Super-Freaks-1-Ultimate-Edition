@@ -8,6 +8,7 @@ speed_h = 0;
 speed_v = 0;
 active = false;
 animate_speed = 0.25;
+fast_forward = false;
 
 despawn_area[0] = -32;
 despawn_area[1] = -96;

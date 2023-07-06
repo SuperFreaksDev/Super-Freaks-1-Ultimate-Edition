@@ -9,6 +9,7 @@ event_inherited();
 sfx = sfx_collect;
 pitch = 1 - 0.125;
 stars = array_create(path_get_number(path));
+fast_forward = false;
 
 for (_i = 0; _i < array_length(stars); ++_i)
 {
