@@ -8,3 +8,14 @@ y += speed_v;
 
 angle_previous = angle;
 angle += angle_speed;
+
+if (angle < 0)
+{
+	angle += 360;
+	angle_previous += 360;
+}
+else if (angle >= 360)
+{
+	angle -= 360;
+	angle_previous -= 360;
+}

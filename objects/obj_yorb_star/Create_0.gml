@@ -2,6 +2,7 @@
 
 event_inherited();
 
+fast_forward = false;
 despawn_area[0] = -32;
 despawn_area[1] = -32;
 despawn_area[2] = 32;

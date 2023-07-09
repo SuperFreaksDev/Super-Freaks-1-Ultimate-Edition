@@ -4,7 +4,7 @@ var _yorb;
 var _speed;
 var _direction;
 
-repeat (30)
+repeat (20)
 {
 	_yorb = instance_create_layer(x, y, "layer_instances", obj_yorb_physics);
 	_speed = random_range(6, 10);

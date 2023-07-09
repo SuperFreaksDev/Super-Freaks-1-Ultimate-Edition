@@ -9,8 +9,8 @@
     "path": "folders/Rooms/Levels/Freaky World/Cool n Chill Secret.yy",
   },
   "points": [
-    {"speed":100.0,"x":1744.0,"y":1504.0,},
-    {"speed":100.0,"x":1744.0,"y":1632.0,},
+    {"speed":100.0,"x":1696.0,"y":1504.0,},
+    {"speed":100.0,"x":1696.0,"y":1632.0,},
   ],
   "precision": 4,
 }

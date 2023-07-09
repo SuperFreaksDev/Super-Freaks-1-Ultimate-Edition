@@ -18,7 +18,7 @@ randomize();
 
 audio_init();
 debug_init(true);
-framerate_init();
+framerate_game_init();
 gameplay_init();
 room_transition_init();
 visuals_init();

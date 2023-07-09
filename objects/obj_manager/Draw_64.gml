@@ -12,6 +12,8 @@ draw_set_color(c_white);
 
 surface_set_target(application_surface);
 
+//surface_reset_target();
+
 if (global.debug)
 {
 	draw_set_halign(fa_right);

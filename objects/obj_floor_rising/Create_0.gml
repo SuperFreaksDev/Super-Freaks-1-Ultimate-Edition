@@ -17,5 +17,6 @@ with (camera_blocker)
 	solid_down = false;
 }
 
+fast_forward = false;
 can_despawn = false;
 depth = 10;

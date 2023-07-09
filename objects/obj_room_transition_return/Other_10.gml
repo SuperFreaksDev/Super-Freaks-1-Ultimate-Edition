@@ -115,7 +115,7 @@ switch (state)
 		if (state_begin)
 			alpha = 1;
 			
-		alpha -= 0.05;
+		alpha -= 0.1;
 		
 		if (alpha <= 0)
 			instance_destroy();

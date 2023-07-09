@@ -63,7 +63,7 @@ if (_disconnect)
 		instance_create_layer(0, 0, "layer_instances", obj_players_connected_screen);
 }
 
-framerate_step();
+framerate_game_step();
 
 _frames_game = frame_amount;
 frame_amount = 0;
@@ -193,7 +193,15 @@ while (_frames_game > 0)
 	if (!_pause)
 	{
 		with (obj_gameplay_obj)
+		{
 			instance_step_2();
+		}
+		
+		with (obj_player)
+		{
+			//Camera
+			event_user(5);
+		}
 			
 		game_timer_step();
 		water_step();

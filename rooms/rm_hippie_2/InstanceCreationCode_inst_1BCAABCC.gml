@@ -1,4 +1,4 @@
 my_method = method(id, function()
 {
-	trophy_create(4064, 496, 0);
+	trophy_create(4257, 560, 0);
 });
