@@ -233,3 +233,4 @@ while (_frames_game > 0)
 view_step_delta();
 
 room_destination_step();
+

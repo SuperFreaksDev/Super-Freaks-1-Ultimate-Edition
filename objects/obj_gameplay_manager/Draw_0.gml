@@ -19,6 +19,14 @@ var _binding, _icon;
 	water_draw();
 #endregion
 
+//if (surface_get_target() != -1 && surface_exists(surface_get_target()))
+//	surface_reset_target();
+	
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 #region Draw Player Numbers
 	draw_set_color(c_white);
 	draw_set_alpha(1);
@@ -149,3 +157,5 @@ var _binding, _icon;
 			break;
 	}
 #endregion
+
+surface_reset_target();

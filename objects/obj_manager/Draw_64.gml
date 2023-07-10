@@ -10,6 +10,9 @@ var _shader = global.shaders_list[global.visuals_settings[visuals_data.shader]][
 draw_set_alpha(1);
 draw_set_color(c_white);
 
+if (surface_get_target() != -1)
+	surface_reset_target();
+
 surface_set_target(application_surface);
 
 //surface_reset_target();
@@ -50,8 +53,13 @@ surface_reset_target();
 if (_shader != -1 && shaders_are_supported())
 {
 	shader_set(_shader);
-	draw_surface(application_surface, 0, 0);
+	draw_surface_ext(application_surface, _screen_width, 0, -1, 0, 0, c_white, 1);
+	draw_surface_stretched(global.surface_HUD, 0, 0, _screen_width, _screen_height);
 	shader_reset();
 }
 else
-	draw_surface(application_surface, 0, 0);
+{
+	//draw_surface(application_surface, 0, 0);
+	draw_surface_ext(application_surface, _screen_width, 0, -1, 1, 0, c_white, 1);
+	draw_surface_stretched(global.surface_HUD, 0, 0, _screen_width, _screen_height);
+}

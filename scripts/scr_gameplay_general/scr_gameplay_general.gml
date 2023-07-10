@@ -17,6 +17,13 @@ enum game_modes
 	boss_rush,
 }
 
+enum modifiers
+{
+	mirror = 0,
+	fast_forward,
+	game_over,
+}
+
 enum story_modes
 {
 	super_freaks = 0,

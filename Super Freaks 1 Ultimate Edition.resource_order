@@ -233,6 +233,7 @@
     {"name":"Museum","order":10,"path":"folders/Sprites/Museum.yy",},
     {"name":"Player Characters","order":3,"path":"folders/Sprites/Player Characters.yy",},
     {"name":"A Brick","order":20,"path":"folders/Sprites/Player Characters/A Brick.yy",},
+    {"name":"Boney M","order":19,"path":"folders/Sprites/Player Characters/Boney M.yy",},
     {"name":"Cyquops","order":10,"path":"folders/Sprites/Player Characters/Cyquops.yy",},
     {"name":"Dino","order":17,"path":"folders/Sprites/Player Characters/Dino.yy",},
     {"name":"Gambi (2006)","order":15,"path":"folders/Sprites/Player Characters/Gambi (2006).yy",},
@@ -257,7 +258,6 @@
     {"name":"Things","order":6,"path":"folders/Sprites/Things.yy",},
     {"name":"Tile Sets","order":5,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":11,"path":"folders/Timelines.yy",},
-    {"name":"Boney M","order":19,"path":"folders/Sprites/Player Characters/Boney M.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_player_hang_scruffy","order":12,"path":"sprites/spr_player_hang_scruffy/spr_player_hang_scruffy.yy",},

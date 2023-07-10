@@ -267,6 +267,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Museum","folderPath":"folders/Sprites/Museum.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player Characters","folderPath":"folders/Sprites/Player Characters.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"A Brick","folderPath":"folders/Sprites/Player Characters/A Brick.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Boney M","folderPath":"folders/Sprites/Player Characters/Boney M.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Cyquops","folderPath":"folders/Sprites/Player Characters/Cyquops.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dino","folderPath":"folders/Sprites/Player Characters/Dino.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Gambi (2006)","folderPath":"folders/Sprites/Player Characters/Gambi (2006).yy",},
@@ -293,7 +294,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collectibles","folderPath":"folders/Sprites/Things/Collectibles.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Boney M","folderPath":"folders/Sprites/Player Characters/Boney M.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},

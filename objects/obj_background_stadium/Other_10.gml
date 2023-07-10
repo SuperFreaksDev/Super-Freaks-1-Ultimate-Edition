@@ -1,6 +1,6 @@
 /// @description Step
 
-var _back_width = sprite_get_width(spr_background_toy_bridge);
+var _back_width = sprite_get_width(spr_background_stadium);
 
 scroll_previous = scroll;
 scroll++;

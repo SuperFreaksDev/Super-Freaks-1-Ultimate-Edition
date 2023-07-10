@@ -22,6 +22,8 @@ enum visuals_data
 function visuals_init()
 {
 	global.visuals_settings = [];
+	global.surface_game = -1;
+	global.surface_HUD = -1;
 		
 	aspect_ratio_list_init();
 	framerate_list_init();
