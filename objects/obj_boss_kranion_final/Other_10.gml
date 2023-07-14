@@ -266,7 +266,7 @@ switch (state)
 						_speed = 3;
 						break;
 					case difficulty_levels.hard:
-						_speed = 4;
+						_speed = 3.5;
 						break;
 				}
 				_fireball = instance_create_layer(x, y, "layer_instances", obj_enemy_fireball, 

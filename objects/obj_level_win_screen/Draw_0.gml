@@ -27,6 +27,11 @@ var _trophy_separate = 72;
 var _trophy_rec_width = (global.trophies_max - 1) * _trophy_separate;
 var _trophy_rec_x1 = (_screen_width - (_screen_width_half * animate)) - (_trophy_rec_width * 0.5);
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_alpha(1);
 
@@ -87,3 +92,5 @@ switch (global.game_mode)
 }
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+
+surface_reset_target();

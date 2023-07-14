@@ -17,6 +17,11 @@ var _rec_A_y2 = _rec_A_y1 + _screen_height;
 var _rec_B_y1 = _screen_height - (animate * _screen_height);
 var _rec_B_y2 = _rec_B_y1 + _screen_height;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_alpha(1);
 
@@ -35,3 +40,5 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 draw_text(_view_x1 + (_screen_width_half * animate), _view_y1 + _screen_height * 0.5, string_upper(_name_world) + "\n" + string_upper(_name_level));
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+
+surface_reset_target();

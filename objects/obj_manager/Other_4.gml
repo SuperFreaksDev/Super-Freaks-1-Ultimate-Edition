@@ -13,6 +13,11 @@ global.redblueplatformswap = true;
 global.redblueplatformtimer = 0;
 global.lightbulb_timer = 0;
 
+if (global.game_state == game_states.gameplay && global.modifiers[modifiers.fast_forward])
+	global.frame_machine_level.fast_forward = 0.5;
+else
+	global.frame_machine_level.fast_forward = 0;
+
 hashmap_collision_create();
 zones_fill();
 

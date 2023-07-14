@@ -14,6 +14,7 @@ var _view_x2 = _view_x1 + _view_width;
 var _view_y2 = _view_y1 + _view_height;
 var _offset = 0;
 var _binding, _icon;
+var _mirror = mirror_flip_get();
 
 #region Draw Water
 	water_draw();
@@ -21,11 +22,7 @@ var _binding, _icon;
 
 //if (surface_get_target() != -1 && surface_exists(surface_get_target()))
 //	surface_reset_target();
-	
-if (!surface_exists(global.surface_HUD))
-	exit;
-	
-surface_set_target(global.surface_HUD);
+
 
 #region Draw Player Numbers
 	draw_set_color(c_white);
@@ -40,7 +37,7 @@ surface_set_target(global.surface_HUD);
 			_player_instance = _list_thing[player_data.instance];
 			_draw_x = lerp(_player_instance.x_start_frame, _player_instance.x, frame_delta_player_get());
 			_draw_y = lerp(_player_instance.y_start_frame, _player_instance.y, frame_delta_player_get());
-			draw_sprite(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - 32);
+			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - 32, _mirror, 1, 0, c_white, 1);
 			
 			if (_player_instance.water_meter < 100 || _player_instance.underwater)
 			{
@@ -48,14 +45,19 @@ surface_set_target(global.surface_HUD);
 				if (_player_instance.water_meter < 40 && global.animate >= 4)
 					_bubble_index = 1;
 				_player_water_meter = _player_instance.water_meter;
-		        draw_sprite(spr_HUD_water_meter, 2, _draw_x - 48, _draw_y - 64);
-		        draw_sprite_part(spr_HUD_water_meter, _bubble_index, 0, 32 - (_player_water_meter * 0.32), 32, (_player_water_meter * 0.32), _draw_x - 48, _draw_y - 32 - (_player_water_meter * 0.32));
+		        draw_sprite(spr_HUD_water_meter, 2, _draw_x - 16 + (32 * -_mirror), _draw_y - 64);
+		        draw_sprite_part(spr_HUD_water_meter, _bubble_index, 0, 32 - (_player_water_meter * 0.32), 32, (_player_water_meter * 0.32), _draw_x - 16 + (32 * -_mirror), _draw_y - 32 - (_player_water_meter * 0.32));
 			}
 		}
 	}
 #endregion
 
 #region Draw HUD
+	if (!surface_exists(global.surface_HUD))
+		exit;
+	
+	surface_set_target(global.surface_HUD);
+
 	switch (global.game_state)
 	{
 		case game_states.NA:

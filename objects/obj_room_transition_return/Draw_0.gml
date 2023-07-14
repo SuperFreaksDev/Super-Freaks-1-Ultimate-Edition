@@ -11,14 +11,19 @@ var _screen_height_half = _screen_height / 2;
 var _text = text;
 var _dialog_width, _dialog_height;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 
 draw_set_alpha(alpha);
 draw_set_color(c_black);
-draw_set_font(global.font_16);
 draw_rectangle(_view_x1, _view_y1, _view_x1 + _screen_width, _view_y1 + _screen_height, false);
 
 draw_set_alpha(1);
+draw_set_font(global.font_16);
 if (dialog_size > 0)
 {
 	_dialog_width = (string_width_ext(_text, -1, 424) + 32) * dialog_size;
@@ -43,3 +48,4 @@ if (button_prompt)
 }
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+surface_reset_target();

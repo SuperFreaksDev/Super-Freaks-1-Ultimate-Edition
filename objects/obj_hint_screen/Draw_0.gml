@@ -11,6 +11,11 @@ var _y = _view_y1 + (_screen_height / 2);
 var _dialog_width, _dialog_height;
 var _animate = lerp(animation_previous, animation, frame_delta_game_get());
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_alpha(1);
 draw_set_color(c_white);
@@ -28,3 +33,4 @@ if (_animate == 1)
 	draw_text_ext(_x, _y, hint, -1, 320);
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+surface_reset_target();

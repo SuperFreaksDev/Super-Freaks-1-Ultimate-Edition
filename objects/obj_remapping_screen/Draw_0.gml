@@ -19,6 +19,11 @@ var _option, _option_list, _option_list_height;
 var _option_first, _option_y_offset;
 var _option_count;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 if (input_player_connected(player_number))
 {
 	_source = input_source_get_array(player_number);
@@ -167,3 +172,4 @@ switch (page)
 		break;
 }
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+surface_reset_target();

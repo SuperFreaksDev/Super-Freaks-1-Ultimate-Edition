@@ -36,6 +36,77 @@ switch (state)
 	case 2: //Main
 		switch (page)
 		{
+			case menu_character_select_pages.main:
+				input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
+				
+				if (is_undefined(global.player_lead))
+					exit;
+					
+				if (input_check_pressed("up", global.player_lead))
+				{
+					option--;
+					if (option < 0)
+						option = 2;
+				} 
+				else if (input_check_pressed("down", global.player_lead))
+				{
+					option++;
+					if (option > 2)
+						option = 0;
+				}
+				
+				if (input_check_pressed("confirm", global.player_lead))
+				{
+					switch (option)
+					{
+						case 0:
+							page = menu_character_select_pages.character_select;
+							break;
+						case 1:
+							page = menu_character_select_pages.difficulty_select;
+							option = 0;
+							break;
+						case 2:
+							page = menu_character_select_pages.modifiers;
+							option = 0;
+							break;
+					}
+					sfx_play_global(sfx_ding);
+				}
+				else if (input_check_pressed("deny", global.player_lead))
+					state_next_set(1);
+				break;
+			case menu_character_select_pages.modifiers:
+				input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
+				
+				if (is_undefined(global.player_lead))
+					exit;
+					
+				if (input_check_pressed("up", global.player_lead))
+				{
+					option--;
+					if (option < 0)
+						option = 2;
+				} 
+				else if (input_check_pressed("down", global.player_lead))
+				{
+					option++;
+					if (option > 2)
+						option = 0;
+				}
+				
+				if (input_check_pressed("confirm", global.player_lead) || input_check_pressed("deny", global.player_lead))
+				{
+					page = menu_character_select_pages.main;
+					option = 2;
+					sfx_play_global(sfx_ding);
+				}
+				else
+				{
+					if (input_check_pressed("left", global.player_lead) || input_check_pressed("right", global.player_lead))
+						global.modifiers[option] = !global.modifiers[option];
+				}
+				break;
 			case menu_character_select_pages.difficulty_select:
 				input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
 				
@@ -95,10 +166,12 @@ switch (state)
 						break;
 				}
 				
-				if (input_check_pressed("confirm", global.player_lead))
-					page = menu_character_select_pages.character_select;
-				else if (input_check_pressed("deny", global.player_lead))
-					state_next_set(1);
+				if (input_check_pressed("confirm", global.player_lead) || input_check_pressed("deny", global.player_lead))
+				{
+					page = menu_character_select_pages.main;
+					option = 1;
+					sfx_play_global(sfx_ding);
+				}
 				
 				break;
 			case menu_character_select_pages.character_select:
@@ -107,7 +180,10 @@ switch (state)
 					if (input_check_pressed("confirm", global.player_lead))
 						state_next_set(3);
 					else if (input_check_pressed("deny", global.player_lead))
-						page = menu_character_select_pages.difficulty_select;
+					{
+						page = menu_character_select_pages.main;
+						option = 0;
+					}
 				
 					for (_player_num = 0; _player_num <= player_numbers.count; ++_player_num)
 					{
@@ -170,6 +246,7 @@ switch (state)
 					global.level_id = global.current_level_list[global.level_demo];
 					spawn_point_set(level_room_get(global.level_id));
 					instance_create_layer(0, 0, "layer_instances", obj_room_transition_level);
+					randomize();
 					break;
 				case game_modes.boss_rush:
 					_level_list = global.level_list[level_lists.boss];
@@ -179,6 +256,7 @@ switch (state)
 					global.level_id = global.current_level_list[global.level_demo];
 					spawn_point_set(level_room_get(global.level_id));
 					instance_create_layer(0, 0, "layer_instances", obj_room_transition_level);
+					random_set_seed(694201337);
 					break;
 				case game_modes.speedrun:
 					switch (global.game_mode_subtype)
@@ -220,9 +298,11 @@ switch (state)
 					global.level_id = global.current_level_list[global.level_demo];
 					spawn_point_set(level_room_get(global.level_id));
 					instance_create_layer(0, 0, "layer_instances", obj_room_transition_level);
+					random_set_seed(694201337);
 					break;
 				default:
 					_cutscene_room = global.levels[global.level_id][level_data.cutscene_room_begin];
+					randomize();
 					if (!level_complete_get(global.level_id) && _cutscene_room != -1)
 					{
 						spawn_point_set(_cutscene_room);

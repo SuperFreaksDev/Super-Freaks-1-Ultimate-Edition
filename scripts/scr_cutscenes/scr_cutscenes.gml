@@ -27,7 +27,7 @@ enum cutscene_transitions
 /// @param _music = -1
 /// @param _sfx = -1
 /// @param _transition = cutscene_transitions.NA
-function cutscene_segment_set(_segment_num, _text = "", _sprite_index = -1, _image_index = 0, _animate_speed = 0, _music = -1, _sfx = -1, _transition = cutscene_transitions.NA)
+function cutscene_segment_set(_segment_num, _text = "", _sprite_index = -1, _image_index = 0, _animate_speed = 0, _music = -1, _sfx = -1, _transition = cutscene_transitions.fade_black)
 {
 	segment[_segment_num][cutscene_segment.text] = _text;
 	segment[_segment_num][cutscene_segment.sprite_index] = _sprite_index;

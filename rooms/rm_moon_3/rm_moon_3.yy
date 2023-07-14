@@ -27,7 +27,6 @@
     {"name":"inst_1F9D8CB9","path":"rooms/rm_moon_3/rm_moon_3.yy",},
     {"name":"inst_56CC185A","path":"rooms/rm_moon_3/rm_moon_3.yy",},
     {"name":"inst_1D21493B","path":"rooms/rm_moon_3/rm_moon_3.yy",},
-    {"name":"inst_698BB548","path":"rooms/rm_moon_3/rm_moon_3.yy",},
     {"name":"inst_9CE33C8","path":"rooms/rm_moon_3/rm_moon_3.yy",},
     {"name":"inst_5468132E","path":"rooms/rm_moon_3/rm_moon_3.yy",},
     {"name":"inst_28A69648","path":"rooms/rm_moon_3/rm_moon_3.yy",},
@@ -197,12 +196,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"2",},
           ],"rotation":270.0,"scaleX":1.0,"scaleY":1.0,"x":3104.0,"y":576.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_698BB548","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kosmic","path":"objects/obj_kosmic/obj_kosmic.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"1",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_kosmic","path":"objects/obj_kosmic/obj_kosmic.yy",},"propertyId":{"name":"speed_move_y","path":"objects/obj_kosmic/obj_kosmic.yy",},"value":"0",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_kosmic","path":"objects/obj_kosmic/obj_kosmic.yy",},"propertyId":{"name":"speed_move_x","path":"objects/obj_kosmic/obj_kosmic.yy",},"value":"2",},
-          ],"rotation":90.0,"scaleX":1.0,"scaleY":1.0,"x":2592.0,"y":416.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_9CE33C8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_skizzorpede","path":"objects/obj_skizzorpede/obj_skizzorpede.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Normal\", \"Hard\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"0",},

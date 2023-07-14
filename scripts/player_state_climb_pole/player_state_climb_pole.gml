@@ -39,6 +39,7 @@ function player_state_climb_pole()
 		//if (button_right == controls_action_states.press)
 		if (input_check("right", player_number))
 			_move_h += 1;
+		_move_h *= mirror_flip_get();
 		
 		if (instance_attach.rotate_speed == 0)
 		{

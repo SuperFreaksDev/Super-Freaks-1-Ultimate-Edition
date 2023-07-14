@@ -35,7 +35,7 @@ function player_state_wall_slide()
 		if (input_check("right", player_number))
 			_move_h += 1;
 	}
-			
+	_move_h *= mirror_flip_get();
 	//if (button_jump == controls_action_states.press)
 	if (input_check_pressed("jump", player_number))
 		jump_buffer = JUMP_BUFFER_MAX;

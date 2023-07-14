@@ -15,6 +15,31 @@ draw_sprite_interpolated(spr_menu, 0, _x, _y, _x, _y, 12, 5, 12, 5);
 
 switch (page)
 {
+	case menu_character_select_pages.main:
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(_x, _y - 48, "Start");
+		draw_text(_x, _y, "Difficulty");
+		draw_text(_x, _y + 48, "Modifiers");
+		draw_sprite_ext(spr_menu_arrow_16, _frame, _x - 128, _y - 48 + (option * 48), 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 128, _y - 48 + (option * 48), -1, 1, 0, c_white, 1);
+		break;
+	case menu_character_select_pages.modifiers:
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		draw_text(_x, _y - 100, "Modifiers");
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text(_x, _y - 48, "Mirror Mode: " + string(boolean_string_onoff(global.modifiers[modifiers.mirror])));
+		draw_text(_x, _y, "Fast Forward: " + string(boolean_string_onoff(global.modifiers[modifiers.fast_forward])));
+		if (global.game_mode == game_modes.randomizer || global.game_mode = game_modes.boss_rush)
+			draw_set_color(c_black);
+		draw_text(_x, _y + 48, "Game Over Screen: " + string(boolean_string_onoff(global.modifiers[modifiers.game_over])));
+		if (global.game_mode == game_modes.randomizer || global.game_mode = game_modes.boss_rush)
+			draw_set_color(c_white);
+		draw_sprite_ext(spr_menu_arrow_16, _frame, _x - 160, _y - 48 + (option * 48), -1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 160, _y - 48 + (option * 48), 1, 1, 0, c_white, 1);
+		break;
 	case menu_character_select_pages.difficulty_select:
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);

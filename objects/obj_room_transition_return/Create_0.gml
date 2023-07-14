@@ -16,3 +16,5 @@ unlock = 0;
 unlock_id = 0;
 unlock_condition = 0;
 unlock_function = 0;
+
+depth = -10000;

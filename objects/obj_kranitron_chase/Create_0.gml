@@ -13,6 +13,7 @@ camera_blocker = instance_create_layer(x + 960, y, "layer_instances", obj_view_b
 can_despawn = false;
 animate_speed = 0;
 fade = 2;
+fast_forward = false;
 
 with (camera_blocker)
 {

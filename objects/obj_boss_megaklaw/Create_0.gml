@@ -20,6 +20,7 @@ counter = 0;
 shoot = false;
 shoot_timer = 0;
 shoot_amount = 0;
+fast_forward = false;
 
 arm_length_previous = 0;
 arm_length = 0;

@@ -2,6 +2,12 @@
 var _text_length;
 var _my_message = string(text_next);
 var _sprite, _music;
+var _transition_type;
+
+if (segment_current >= 0)
+	_transition_type = segment[segment_current][cutscene_segment.transition];
+else
+	_transition_type = cutscene_transitions.fade_black;
 
 if (!room_transition_active_get())
 {
@@ -11,17 +17,30 @@ if (!room_transition_active_get())
 	{
 		if (sprite_index != sprite_next)
 		{
-		    if (sprite_alpha > 0)
-		        sprite_alpha -= 0.1;
-		    else
-		    {
-		        sprite_alpha = 0;
-		        sprite_index = sprite_next;
-		    }
+			switch (_transition_type)
+			{
+				case cutscene_transitions.shake:
+					screen_shake(0, 12);
+				case cutscene_transitions.NA:
+				    sprite_alpha = 1;
+				    sprite_index = sprite_next;
+					break;
+				case cutscene_transitions.fade_black:
+				case cutscene_transitions.fade_white:
+				case cutscene_transitions.fade:
+				    if (sprite_alpha > 0)
+				        sprite_alpha -= 0.1;
+				    else
+				    {
+				        sprite_alpha = 0;
+				        sprite_index = sprite_next;
+				    }
+					break;
+			}
 		}
 		else
 		{
-		    if (sprite_alpha < 1)
+		    if ((_transition_type == cutscene_transitions.fade_black || _transition_type == cutscene_transitions.fade_white) && sprite_alpha < 1)
 		        sprite_alpha += 0.1;
 		    else
 		    {

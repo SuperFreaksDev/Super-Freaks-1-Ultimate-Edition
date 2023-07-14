@@ -31,6 +31,7 @@ function player_state_hang()
 	//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
 	if (input_check("right", player_number))
 		_move_h += 1;
+	_move_h *= mirror_flip_get();
 	
 	switch (_move_h)
 	{

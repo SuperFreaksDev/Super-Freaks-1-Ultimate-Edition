@@ -18,6 +18,11 @@ var _rec_A_y2 = _rec_A_y1 + _screen_height;
 var _rec_B_y1 = _screen_height - (animate * _screen_height);
 var _rec_B_y2 = _rec_B_y1 + _screen_height;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_alpha(1);
 
@@ -42,3 +47,5 @@ switch (global.game_mode)
 		break;
 }
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+
+surface_reset_target();

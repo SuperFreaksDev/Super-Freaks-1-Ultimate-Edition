@@ -6,6 +6,10 @@ var _debug_text, _zone_text;
 var _i;
 var _zone_active;
 var _shader = global.shaders_list[global.visuals_settings[visuals_data.shader]][0];
+var _mirror = false;
+
+if (global.game_state == game_states.gameplay && global.modifiers[modifiers.mirror] == true)
+	_mirror = true;
 
 draw_set_alpha(1);
 draw_set_color(c_white);
@@ -13,10 +17,18 @@ draw_set_color(c_white);
 if (surface_get_target() != -1)
 	surface_reset_target();
 
-surface_set_target(application_surface);
+if (_shader != -1 && shaders_are_supported())
+	shader_set(_shader);
+	
+if (_mirror)
+	draw_surface_ext(application_surface, _screen_width, 0, -1, 1, 0, c_white, 1);
+else
+	draw_surface(application_surface, 0, 0);
+draw_surface_stretched_ext(global.surface_HUD, 0, 0, _screen_width, _screen_height, c_white, 1);
 
-//surface_reset_target();
-
+if (_shader != -1 && shaders_are_supported())
+	shader_reset();
+	
 if (global.debug)
 {
 	draw_set_halign(fa_right);
@@ -47,19 +59,4 @@ if (global.debug)
 	draw_set_color(c_white);
 	draw_text(_screen_width, 0, _debug_text);
 	draw_text(_screen_width, string_height(_debug_text), _zone_text);
-}
-surface_reset_target();
-
-if (_shader != -1 && shaders_are_supported())
-{
-	shader_set(_shader);
-	draw_surface_ext(application_surface, _screen_width, 0, -1, 0, 0, c_white, 1);
-	draw_surface_stretched(global.surface_HUD, 0, 0, _screen_width, _screen_height);
-	shader_reset();
-}
-else
-{
-	//draw_surface(application_surface, 0, 0);
-	draw_surface_ext(application_surface, _screen_width, 0, -1, 1, 0, c_white, 1);
-	draw_surface_stretched(global.surface_HUD, 0, 0, _screen_width, _screen_height);
 }

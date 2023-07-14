@@ -322,32 +322,18 @@ function player_death_reset()
 	
 	if (!players_alive())
 	{
-		switch (global.game_mode)
+		if (global.hearts == 0 && (global.modifiers[modifiers.game_over] || global.game_mode == game_modes.randomizer || global.game_mode == game_modes.boss_rush))
 		{
-			case game_modes.randomizer:
-			case game_modes.boss_rush:
-				if (global.hearts == 0)
-				{
-					if (!room_transition_active_get())
-						instance_create(obj_gameover);
-				}
-				else
-				{
-					if (!room_transition_active_get())
-					{
-						_transition_effect = instance_create(obj_room_transition_death);
-						_transition_effect.color = c_red;
-						global.hearts = max(global.hearts - 1, 0);
-					}
-				}
-				break;
-			default:
-				if (!room_transition_active_get())
-				{
-					_transition_effect = instance_create(obj_room_transition_death);
-					_transition_effect.color = c_red;
-				}
-				break;
+			if (!room_transition_active_get())
+				instance_create(obj_gameover);
+		}
+		else
+		{
+			if (!room_transition_active_get())
+			{
+				_transition_effect = instance_create(obj_room_transition_death);
+				_transition_effect.color = c_red;
+			}
 		}
 	}
 	else

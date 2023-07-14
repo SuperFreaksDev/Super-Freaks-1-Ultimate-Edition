@@ -31,6 +31,8 @@ for (_i = array_length(_list) - 1; _i >= 0; --_i)
 	}
 }
 
+_move_h *= mirror_flip_get();
+
 switch (_move_h)
 {
 	case -1:

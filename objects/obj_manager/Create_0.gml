@@ -43,6 +43,6 @@ global.frame = 0;
 
 gc_timer = 0;
 gc_enable(false);
-depth = -10000;
+depth = -10005;
 
 //show_debug_overlay(true);

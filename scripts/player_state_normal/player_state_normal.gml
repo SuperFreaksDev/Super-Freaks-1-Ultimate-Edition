@@ -44,6 +44,7 @@ function player_state_normal()
 			}
 			break;
 	}
+	_move_h *= mirror_flip_get();
 	if (lock_controls_vertical == 0)
 	{
 		if (input_check("up", player_number))

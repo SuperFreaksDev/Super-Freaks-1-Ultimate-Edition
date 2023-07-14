@@ -14,6 +14,11 @@ var _animate = lerp(animation_previous, animation, frame_delta_game_get());
 var _text;
 var _font_size;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_color(c_white);
 draw_set_alpha(0.5);
@@ -55,3 +60,4 @@ if (_animate == 1)
 }
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+surface_reset_target();

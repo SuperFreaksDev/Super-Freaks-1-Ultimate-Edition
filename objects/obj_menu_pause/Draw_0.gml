@@ -21,6 +21,11 @@ var _text_y, _text_width = 0, _text_height = 0;
 
 var _window_width, _window_height;
 
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
+
 draw_set_font(global.font_16);
 _font_size = sprite_get_height(spr_font_16);
 _option_count = array_length(options[page]);
@@ -76,3 +81,4 @@ if (_animate == 1)
 	draw_sprite_ext(spr_menu_arrow_16, 0, _x + _arrow_x, _arrow_y, 1, 1, 180, c_white, 1);
 }
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+surface_reset_target();

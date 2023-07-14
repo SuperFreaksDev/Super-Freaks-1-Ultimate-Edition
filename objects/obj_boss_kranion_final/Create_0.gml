@@ -18,7 +18,7 @@ enum boss_kranion_final_states
 }
 
 boss_name = "Kranion Ultimate Edition";
-hp_init(24);
+hp_init(16);
 	
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, _radius);
 collider_detector_up_set(-_radius + 4, 0, _radius - 4, 0, -_radius);

@@ -33,6 +33,7 @@ function player_state_climb()
 	//if (button_right == controls_action_states.hold) || (button_right == controls_action_states.press)
 	if (input_check("right", player_number))
 		_move_h += 1;
+	_move_h *= mirror_flip_get();
 			
 	//if (button_up == controls_action_states.hold) || (button_up == controls_action_states.press)
 	if (input_check("up", player_number))

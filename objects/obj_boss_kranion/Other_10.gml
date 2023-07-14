@@ -146,7 +146,7 @@ switch (state)
 				case difficulty_levels.hard:
 					speed_h = 8 * face;
 					speed_v = -12;
-					counter = 4;
+					counter = 3;
 					break;
 			}
 			animate_speed += 0.0025;

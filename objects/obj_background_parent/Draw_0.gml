@@ -12,7 +12,8 @@ else
 //	surface_reset_target();
 
 surface_set_target(surface);
-draw_clear_alpha(c_white, 0);
+draw_set_alpha(1);
+//draw_clear(c_white);
 event_user(5);
 surface_reset_target();
 
