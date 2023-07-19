@@ -31,6 +31,7 @@ enum unlocks
 	character_2006,
 	character_dino,
 	character_x_freaks,
+	character_swordsman,
 }
 
 /// @function unlocks_init
@@ -167,6 +168,13 @@ function unlocks_init()
 		global.characters_unlocked[character_indexes.cyquops] = true;
 		global.characters_unlocked[character_indexes.gloverine] = true;
 		global.characters_unlocked[character_indexes.professor_t] = true;
+	});
+	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest.", function()
+	{
+		return level_perfect_get(level_ids.level_kranion_boss);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.uncle_swordsman] = true;
 	});
 	
 	unlocks_load();

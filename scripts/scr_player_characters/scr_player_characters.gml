@@ -392,6 +392,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_dino);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_dino);
 	#endregion
+	
+	#region Dino
+		_character = character_indexes.uncle_swordsman;
+		global.character_names[_character] = "Uncle Swordsman";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_swordsman);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_swordsman);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_swordsman);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_swordsman);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_swordsman);
+		player_animation_create(_character, player_animations.death, spr_player_death_swordsman);
+		player_animation_create(_character, player_animations.air, spr_player_air_swordsman);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_swordsman);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_swordsman);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_swordsman);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_swordsman);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_swordsman);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_swordsman);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_swordsman);
+	#endregion
 }
 
 /// @function player_character_set

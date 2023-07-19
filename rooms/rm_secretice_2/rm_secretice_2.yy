@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_secretice_2",
-  "creationCodeFile": "${project_dir}/rooms/rm_ice_1/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/rm_secretice_2/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": true,

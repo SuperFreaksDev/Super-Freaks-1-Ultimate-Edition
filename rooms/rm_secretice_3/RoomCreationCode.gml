@@ -1,4 +1,4 @@
-room_header(game_states.gameplay, msc_ice, room_directions.up);
+room_header(game_states.gameplay, msc_ice_secret, room_directions.up);
 tile_data_array_level_ice();
 with (global.view)
 {
