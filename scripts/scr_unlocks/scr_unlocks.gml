@@ -32,6 +32,7 @@ enum unlocks
 	character_dino,
 	character_x_freaks,
 	character_swordsman,
+	character_boneym,
 }
 
 /// @function unlocks_init
@@ -169,12 +170,19 @@ function unlocks_init()
 		global.characters_unlocked[character_indexes.gloverine] = true;
 		global.characters_unlocked[character_indexes.professor_t] = true;
 	});
-	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest.", function()
+	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest!", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_boss);
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.uncle_swordsman] = true;
+	});
+	unlock_create(unlocks.character_boneym, "Unlock Boney M.", "You can now play as Boney M! You know, the little robot guy that walks back and forth, and you bonk him on the head and he falls off the screen and makes a funny slide whistle sound. Gives me a good chuckle every time.", function()
+	{
+		return level_perfect_get(level_ids.level_kranion_conveyor_secret);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.boney_m] = true;
 	});
 	
 	unlocks_load();

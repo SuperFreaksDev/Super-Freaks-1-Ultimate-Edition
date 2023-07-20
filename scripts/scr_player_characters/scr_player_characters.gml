@@ -393,7 +393,7 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_dino);
 	#endregion
 	
-	#region Dino
+	#region Uncle Swordsman
 		_character = character_indexes.uncle_swordsman;
 		global.character_names[_character] = "Uncle Swordsman";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_swordsman);
@@ -410,6 +410,25 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_swordsman);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_swordsman);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_swordsman);
+	#endregion
+	
+	#region Boney M
+		_character = character_indexes.boney_m;
+		global.character_names[_character] = "Boney M";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_boneym);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_boneym);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_boneym);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_boneym);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_boneym);
+		player_animation_create(_character, player_animations.death, spr_player_death_boneym);
+		player_animation_create(_character, player_animations.air, spr_player_air_boneym);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_boneym);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_boneym);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_boneym);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_boneym);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_boneym);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_boneym);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_boneym);
 	#endregion
 }
 
