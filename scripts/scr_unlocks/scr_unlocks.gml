@@ -33,6 +33,7 @@ enum unlocks
 	character_x_freaks,
 	character_swordsman,
 	character_boneym,
+	character_brick,
 }
 
 /// @function unlocks_init
@@ -177,12 +178,19 @@ function unlocks_init()
 	{
 		global.characters_unlocked[character_indexes.uncle_swordsman] = true;
 	});
-	unlock_create(unlocks.character_boneym, "Unlock Boney M.", "You can now play as Boney M! You know, the little robot guy that walks back and forth, and you bonk him on the head and he falls off the screen and makes a funny slide whistle sound. Gives me a good chuckle every time.", function()
+	unlock_create(unlocks.character_boneym, "Unlock Boney M", "You can now play as Boney M! You know, the little robot guy that walks back and forth, and you bonk him on the head and he falls off the screen and makes a funny slide whistle sound. Gives me a good chuckle every time.", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_conveyor_secret);
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.boney_m] = true;
+	});
+	unlock_create(unlocks.character_brick, "Unlock Brick", "You can now play as a brick! An actual brick. Like the kind you make walls out of. Don't tell me you weren't expecting a really stupid 100% reward!", function()
+	{
+		return level_perfect_get(level_ids.level_supersecret_boss);
+	}, function()
+	{
+		global.characters_unlocked[character_indexes.brick] = true;
 	});
 	
 	unlocks_load();

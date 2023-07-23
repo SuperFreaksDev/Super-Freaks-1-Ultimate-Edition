@@ -11,4 +11,5 @@ despawn_area[0] = -_width_half;
 despawn_area[1] = -_height_half;
 despawn_area[2] = _width_half;
 despawn_area[3] = _height_half;
+can_grab = true;
 depth = 10;

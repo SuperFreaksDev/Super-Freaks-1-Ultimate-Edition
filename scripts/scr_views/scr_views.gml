@@ -16,8 +16,8 @@ function view(_x = 0, _y = 0) constructor
 	xprevious = x;
 	yprevious = y;
 	zprevious = 1;
-	speed_x = 8;
-	speed_y = 8;
+	speed_x = 12;
+	speed_y = 12;
 	speed_z = 0.005;
 	screen_shake_x = 0;
 	screen_shake_y = 0;

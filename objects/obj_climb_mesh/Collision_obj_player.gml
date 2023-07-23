@@ -7,7 +7,7 @@ if (other.instance_attach == _my_id)
 {
 	other.hang_on = true;
 }
-else
+else if (can_grab)
 {
 	switch (other.state)
 	{

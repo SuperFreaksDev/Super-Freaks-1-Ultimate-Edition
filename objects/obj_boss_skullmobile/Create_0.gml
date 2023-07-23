@@ -30,7 +30,7 @@ switch (global.difficulty)
 		laser_rotate_speed = 0.25;
 		break;
 	case difficulty_levels.hard:
-		laser_rotate_speed = 0.5;
+		laser_rotate_speed = 0.35;
 		break;
 }
 

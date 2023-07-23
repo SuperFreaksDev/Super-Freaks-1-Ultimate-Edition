@@ -11,7 +11,7 @@ for (_i = array_length(_list) - 1; _i >= 0; --_i)
 {
 	_instance = _list[_i];
 	
-	if (!instance_exists(_instance) || _instance.instance_attach != id)
+	if (!can_grab || !instance_exists(_instance) || _instance.instance_attach != id)
 	{
 		array_delete(_list, _i, 1);
 		continue;
