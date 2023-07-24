@@ -2,6 +2,7 @@
 
 var _target = player_nearest_alive();
 var _attack_finish = false;
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 
 var _claw_left_x = x + lengthdir_x(112 * size, claw_left_pos);
 var _claw_left_y = y + lengthdir_y(112 * size, claw_left_pos);
@@ -91,7 +92,7 @@ switch (state)
 		claw_left_pos = lerp_360(claw_left_pos, 225, 0.125);
 		claw_right_pos = lerp_360(claw_right_pos, 315, 0.125);
 		
-		timer = min(timer + 1, attack_frequency);
+		timer = min(timer + (1 / _fast_forward), attack_frequency);
 		if (timer == attack_frequency)
 		{
 			if (counter_attack == attack_times)
