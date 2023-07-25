@@ -2,6 +2,7 @@
 
 var _angle, _collision_left, _collision_up, _collision_right, _collision_down, _my_x, _my_y;
 var _fireball, _speed, _target;
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 
 // Inherit the parent event
 event_inherited();
@@ -139,7 +140,7 @@ switch (state)
 					_speed = 3;
 					break;
 				case difficulty_levels.normal:
-					_speed = 4;
+					_speed = 4.5;
 					break;
 				case difficulty_levels.hard:
 					_speed = 5;
@@ -291,8 +292,8 @@ switch (state)
 		speed_x = lerp(speed_x, 0, 0.125);
 		speed_y = lerp(speed_y, 0, 0.125);
 		
-		aura_size = max(aura_size - 0.05, 0);
-		spike_size = min(spike_size + 0.05, 1);
+		aura_size = max(aura_size - (0.05 / _fast_forward), 0);
+		spike_size = min(spike_size + (0.05 / _fast_forward), 1);
 		
 		if (spike_size == 1)
 		{
