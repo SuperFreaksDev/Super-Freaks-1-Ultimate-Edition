@@ -2,6 +2,7 @@
 
 var _player = player_nearest_alive();
 var _fireball, _angle;
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 
 // Inherit the parent event
 event_inherited();
@@ -95,7 +96,7 @@ switch (state)
 			y = 240;
 		}
 		
-		y += 4;
+		y += (4 / _fast_forward);
 		
 		if (y >= 512)
 		{
@@ -174,7 +175,7 @@ switch (state)
 					instance_create_layer(random_range(480, 1264), 240, "layer_instances", obj_boulder);
 				}
 			}
-			timer--;
+			timer -= (1 / _fast_forward);
 			
 			if (timer <= 0)
 				state_next_set(boss_antifreak_states.retreat);

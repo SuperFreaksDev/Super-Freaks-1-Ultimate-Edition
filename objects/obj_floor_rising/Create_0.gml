@@ -1,7 +1,17 @@
 /// @description Init
 
+var _target;
+
 // Inherit the parent event
 event_inherited();
+
+if (global.checkpoint[spawn_point_data.go_to_checkpoint] == true)
+	_target = global.checkpoint[spawn_point_data.y];
+else	
+	_target = global.spawn_point[spawn_point_data.y];
+
+if (!is_undefined(_target))
+	y = _target + 32;
 
 collider = new comp_collider_AABB(,, -1000, 0, 1000, 32);
 with (collider)

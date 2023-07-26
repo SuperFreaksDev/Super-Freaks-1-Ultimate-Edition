@@ -21,3 +21,4 @@ switch (image_index)
 		collider_detector_down_set(-32, 0, 32, 0, 64);
 		break;
 }
+depth = 2;

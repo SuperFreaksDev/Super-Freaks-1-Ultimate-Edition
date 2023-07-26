@@ -1,6 +1,7 @@
 /// @description Step
 
 var _player = player_nearest_alive();
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 var _fireball, _angle;
 
 // Inherit the parent event
@@ -94,7 +95,7 @@ switch (state)
 			y = 240;
 		}
 		
-		y += 4;
+		y += (4 / _fast_forward);
 		
 		if (y >= 512)
 		{
@@ -112,7 +113,7 @@ switch (state)
 		attack_angle = (attack_angle + 2) mod 360;
 		timer++;
 		
-		switch (timer mod (60 - (global.difficulty * 20)))
+		switch (timer mod (60 - (global.difficulty * 15)))
 		{
 			case 0:
 			case 6:
@@ -124,7 +125,7 @@ switch (state)
 				{
 					_fireball = instance_create_layer(x, y, "layer_instances", obj_enemy_fireball, 
 					{
-						speed: 3,
+						speed: 2.5,
 						direction: _angle,
 					});
 					_angle += 90;
@@ -163,7 +164,7 @@ switch (state)
 			sprite_index = player_animation_get(character_index, player_animations.idle);
 			image_index = 0;
 			speed_y = 0;
-			timer--;
+			timer -= (1 / _fast_forward);
 			
 			if (timer <= 0)
 				state_next_set(boss_antifreak_states.retreat);

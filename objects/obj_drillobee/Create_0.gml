@@ -14,6 +14,7 @@ speed_grv = 0.25;
 target = undefined;
 timer = 0;
 can_despawn = false;
+fast_forward = false;
 
 state_next_set(0);
 

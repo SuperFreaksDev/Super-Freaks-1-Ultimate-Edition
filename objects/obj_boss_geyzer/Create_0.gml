@@ -14,8 +14,8 @@ wait = 0;
 attack_lerp = 0;
 start_x = 0;
 start_y = 0;
-attack_x = 0;
-attack_y = 0;
+attack_x = undefined;
+attack_y = undefined;
 can_despawn = false;
 blink = false;
 

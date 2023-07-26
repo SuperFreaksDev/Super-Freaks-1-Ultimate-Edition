@@ -1,7 +1,7 @@
 /// @description Step
 
 var _player = player_nearest_alive();
-var _fireball, _angle;
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 
 // Inherit the parent event
 event_inherited();
@@ -104,7 +104,7 @@ switch (state)
 			y = 240;
 		}
 		
-		y += 3;
+		y += (3 / _fast_forward);
 		
 		if (y >= 512)
 		{
@@ -115,7 +115,7 @@ switch (state)
 	case boss_antifreak_states.attack_2:
 		if (state_begin)
 		{
-			speed_x = (2 + global.difficulty) * face;
+			speed_x = (1.5 + global.difficulty) * face;
 			laser.active = hitbox_active.passive;
 			sfx_play_global(sfx_laser_huge_fire);
 		}
@@ -160,7 +160,7 @@ switch (state)
 			sprite_index = player_animation_get(character_index, player_animations.idle);
 			image_index = 0;
 			speed_y = 0;
-			timer--;
+			timer -= (1 / _fast_forward);
 			
 			if (timer <= 0)
 				state_next_set(boss_antifreak_states.retreat);
