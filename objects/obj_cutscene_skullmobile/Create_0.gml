@@ -14,5 +14,5 @@ cutscene_segment_set(4, "'Then it's time ta break out my secret weapon!'");
 cutscene_segment_set(5, "The gears turned in Kranion's complete lack of brain as he broke out his power tools.", spr_cutscene_skullmobile_3,,,,, cutscene_transitions.fade);
 cutscene_segment_set(6, "Kranion: 'Yeah, no ****! Why do ya gotta repeat every friggin' thing I say?'");
 //Kranion flying in his Skullmobile
-cutscene_segment_set(7, "'Alright you losahs! I'm gonna fry you hardah than tha clams I fished outta the Charles Rivah this morning!'",,,,,, cutscene_transitions.fade_black);
+cutscene_segment_set(7, "'Alright you losahs! I'm gonna fry you hardah than tha clams I fished outta the Charles Rivah this morning!'", spr_cutscene_skullmobile_4,,,,, cutscene_transitions.fade_black);
 cutscene_segment_set(8, "'Say hello to tha new and improved Skullmobile!'");

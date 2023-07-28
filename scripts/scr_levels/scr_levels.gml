@@ -100,137 +100,138 @@ function levels_init()
 		array_push(global.level_list, []);
 	}
 	
-	level_create(0, level_status.open, rm_test_1, "Test World", "Test Level");
+	level_create(level_ids.test, level_status.open, rm_test_1, "Test World", "Test Level");
 	
-	level_create(1, level_status.open, rm_stadium_1, "Mystic Island", "Super Freaks Stadium",,, rm_cutscene_intro, rm_cutscene_antifreaks_intro);
-	level_create(2,, rm_supersecret_1, "Mystic Island", "Exciting Encore",, 0, rm_cutscene_encore);
-	level_create(3,, rm_boss_antifreaks, "Mystic Island", "Vs Anti Freaks", function()
+	level_create(level_ids.level_stadium, level_status.open, rm_stadium_1, "Mystic Island", "Super Freaks Stadium",,, rm_cutscene_intro, rm_cutscene_antifreaks_intro);
+	level_create(level_ids.level_supersecret,, rm_supersecret_1, "Mystic Island", "Exciting Encore",, 0, rm_cutscene_encore);
+	level_create(level_ids.level_supersecret_boss,, rm_boss_antifreaks, "Mystic Island", "Vs Anti Freaks", function()
 	{
-		return level_complete_get(2);
+		return level_complete_get(level_ids.level_supersecret);
 	}, 0, rm_cutscene_antifreaks_battle, rm_cutscene_ending_secret);
 	
 	//Normal World
-	level_create(4,, rm_fruit_1, "Normal World", "Fruit Juice Factory", function()
+	level_create(level_ids.level_normal_fruit,, rm_fruit_1, "Normal World", "Fruit Juice Factory", function()
 	{
-		return level_complete_get(1);
+		return level_complete_get(level_ids.level_stadium);
 	});
-	level_create(5,, rm_skyway_1, "Normal World", "Skyway Highway", function()
+	level_create(level_ids.level_normal_sky,, rm_skyway_1, "Normal World", "Skyway Highway", function()
 	{
-		return level_complete_get(1);
+		return level_complete_get(level_ids.level_stadium);
 	});
-	level_create(6,, rm_secretfruit_1, "Normal World", "Fruit Juice Secret", function()
+	level_create(level_ids.level_normal_fruit_secret,, rm_secretfruit_1, "Normal World", "Fruit Juice Secret", function()
 	{
-		return level_perfect_get(4) && level_perfect_get(5);
+		return level_perfect_get(level_ids.level_normal_fruit) && level_perfect_get(level_ids.level_normal_sky);
 	});
-	level_create(7,, rm_boss_cinge, "Normal World", "Vs Cinge", function()
+	level_create(level_ids.level_normal_boss,, rm_boss_cinge, "Normal World", "Vs Cinge", function()
 	{
-		return (level_complete_get(4) && level_complete_get(5));
+		return (level_complete_get(level_ids.level_normal_fruit) && level_complete_get(level_ids.level_normal_sky));
 	}, 0);
 	
 	//Crazy World
-	level_create(8,, rm_toy_1, "Crazy World", "Toy Block Bridge", function()
+	level_create(level_ids.level_crazy_toy,, rm_toy_1, "Crazy World", "Toy Block Bridge", function()
 	{
-		return level_complete_get(7);
+		return level_complete_get(level_ids.level_normal_boss);
 	});
-	level_create(9,, rm_park_1, "Crazy World", "Playful Park", function()
+	level_create(level_ids.level_crazy_park,, rm_park_1, "Crazy World", "Playful Park", function()
 	{
-		return level_complete_get(7);
+		return level_complete_get(level_ids.level_normal_boss);
 	});
-	level_create(10,, rm_secrettoy_1, "Crazy World", "Toy Block Secret", function()
+	level_create(level_ids.level_crazy_toy_secret,, rm_secrettoy_1, "Crazy World", "Toy Block Secret", function()
 	{
-		return level_perfect_get(8) && level_perfect_get(9);
+		return level_perfect_get(level_ids.level_crazy_toy) && level_perfect_get(level_ids.level_crazy_park);
 	});
-	level_create(11,, rm_boss_milkman, "Crazy World", "Vs Milk Man", function()
+	level_create(level_ids.level_crazy_boss,, rm_boss_milkman, "Crazy World", "Vs Milk Man", function()
 	{
-		return (level_complete_get(8) && level_complete_get(9));
+		return (level_complete_get(level_ids.level_crazy_toy) && level_complete_get(level_ids.level_crazy_park));
 	}, 0);
 	
 	//Ludicrous World
-	level_create(12,, rm_canyon_1, "Ludicrous World", "Barrel Canyon Cliffs", function()
+	level_create(level_ids.level_ludicrous_barrel,, rm_canyon_1, "Ludicrous World", "Barrel Canyon Cliffs", function()
 	{
-		return level_complete_get(11);
+		return level_complete_get(level_ids.level_crazy_boss);
 	},, rm_cutscene_xfreaks);
-	level_create(13,, rm_ship_1, "Ludicrous World", "Shipwreck Poopdeck", function()
+	level_create(level_ids.level_ludicrous_water,, rm_ship_1, "Ludicrous World", "Shipwreck Poopdeck", function()
 	{
-		return level_complete_get(11);
+		return level_complete_get(level_ids.level_crazy_boss);
 	});
-	level_create(14,, rm_secretcanyon_1, "Ludicrous World", "Barrel Secret", function()
+	level_create(level_ids.level_ludicrous_barrel_secret,, rm_secretcanyon_1, "Ludicrous World", "Barrel Secret", function()
 	{
-		return (level_perfect_get(12) && level_perfect_get(13));
+		return (level_perfect_get(level_ids.level_ludicrous_barrel) && level_perfect_get(level_ids.level_ludicrous_water));
 	});
-	level_create(15,, rm_boss_megaklaw, "Ludicrous World", "Vs Mega Klaw", function()
+	level_create(level_ids.level_ludicrous_boss,, rm_boss_megaklaw, "Ludicrous World", "Vs Mega Klaw", function()
 	{
-		return (level_complete_get(12) && level_complete_get(13));
+		return (level_complete_get(level_ids.level_ludicrous_barrel) && level_complete_get(level_ids.level_ludicrous_water));
 	}, 0);
 	
 	//Insane World
-	level_create(16,, rm_hippie_1, "Insane World", "Forever Flowery Fields", function()
+	level_create(level_ids.level_insane_hippie,, rm_hippie_1, "Insane World", "Forever Flowery Fields", function()
 	{
-		return level_complete_get(15);
+		return level_complete_get(level_ids.level_ludicrous_boss);
 	});
-	level_create(17,, rm_lightning_1, "Insane World", "Lightning Rod Lake", function()
+	level_create(level_ids.level_insane_lightning,, rm_lightning_1, "Insane World", "Lightning Rod Lake", function()
 	{
-		return level_complete_get(15);
+		return level_complete_get(level_ids.level_ludicrous_boss);
 	});
-	level_create(18,, rm_secrethippie_1, "Insane World", "Flowery Secret", function()
+	level_create(level_ids.level_insane_hippie_secret,, rm_secrethippie_1, "Insane World", "Flowery Secret", function()
 	{
-		return (level_perfect_get(16) && level_perfect_get(17));
+		return (level_perfect_get(level_ids.level_insane_hippie) && level_perfect_get(level_ids.level_insane_lightning));
 	});
-	level_create(19,, rm_boss_larry, "Insane World", "Vs Larry McPeel", function()
+	level_create(level_ids.level_insane_boss,, rm_boss_larry, "Insane World", "Vs Larry McPeel", function()
 	{
-		return (level_complete_get(16) && level_complete_get(17));
+		return (level_complete_get(level_ids.level_insane_hippie) && level_complete_get(level_ids.level_insane_lightning));
 	}, 0);
 	
 	//Freaky World
-	level_create(20,, rm_ice_1, "Freaky World", "Cool n Chill Caverns", function(){
-		return level_complete_get(19);
+	level_create(level_ids.level_freaky_ice,, rm_ice_1, "Freaky World", "Cool n Chill Caverns", function()
+	{
+		return level_complete_get(level_ids.level_insane_boss);
 	},, rm_cutscene_freak_fathers);
-	level_create(21,, rm_star_1, "Freaky World", "Starscraper", function()
+	level_create(level_ids.level_freaky_star,, rm_star_1, "Freaky World", "Starscraper", function()
 	{
-		return level_complete_get(19);
+		return level_complete_get(level_ids.level_insane_boss);
 	});
-	level_create(22,, rm_secretice_1, "Freaky World", "Cool n Chill Secret", function()
+	level_create(level_ids.level_freaky_ice_secret,, rm_secretice_1, "Freaky World", "Cool n Chill Secret", function()
 	{
-		return (level_perfect_get(20) && level_perfect_get(21));
+		return (level_perfect_get(level_ids.level_freaky_ice) && level_perfect_get(level_ids.level_freaky_star));
 	});
-	level_create(23,, rm_boss_francis, "Freaky World", "Vs Francis", function()
+	level_create(level_ids.level_freaky_boss,, rm_boss_francis, "Freaky World", "Vs Francis", function()
 	{
-		return (level_complete_get(20) && level_complete_get(21));
+		return (level_complete_get(level_ids.level_freaky_ice) && level_complete_get(level_ids.level_freaky_star));
 	}, 0);
 	
 	//Castle Kranion
-	level_create(24,, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
+	level_create(level_ids.level_kranion_conveyor,, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
 	{
-		return level_complete_get(23);
+		return level_complete_get(level_ids.level_freaky_boss);
 	},, rm_cutscene_castle);
-	level_create(25,, rm_moon_1, "Castle Kranion", "Mecha Moon", function()
+	level_create(level_ids.level_kranion_moon,, rm_moon_1, "Castle Kranion", "Mecha Moon", function()
 	{
-		return level_complete_get(23);
+		return level_complete_get(level_ids.level_freaky_boss);
 	});
-	level_create(26,, rm_secretcastle_1, "Castle Kranion", "Conveyor Secret", function()
+	level_create(level_ids.level_kranion_conveyor_secret,, rm_secretcastle_1, "Castle Kranion", "Conveyor Secret", function()
 	{
-		return (level_perfect_get(24) && level_perfect_get(25));
+		return (level_perfect_get(level_ids.level_kranion_conveyor) && level_perfect_get(level_ids.level_kranion_moon));
 	});
-	level_create(27,, rm_secretmoon_1, "Castle Kranion", "Moon Secret", function()
+	level_create(level_ids.level_kranion_moon_secret,, rm_secretmoon_1, "Castle Kranion", "Moon Secret", function()
 	{
-		return level_complete_get(6)
-		&& level_complete_get(10)
-		&& level_complete_get(14)
-		&& level_complete_get(18)
-		&& level_complete_get(22)
-		&& level_complete_get(26);
+		return level_complete_get(level_ids.level_normal_fruit_secret)
+		&& level_complete_get(level_ids.level_crazy_toy_secret)
+		&& level_complete_get(level_ids.level_ludicrous_barrel_secret)
+		&& level_complete_get(level_ids.level_insane_hippie_secret)
+		&& level_complete_get(level_ids.level_freaky_ice_secret)
+		&& level_complete_get(level_ids.level_kranion_conveyor_secret);
 	});
-	level_create(28,, rm_boss_secretkranion, "Castle Kranion", "Kranion's Secret Weapon", function()
+	level_create(level_ids.level_kranion_boss_secret,, rm_boss_secretkranion, "Castle Kranion", "Kranion's Secret Weapon", function()
 	{
-		return level_complete_get(27);
+		return level_complete_get(level_ids.level_kranion_moon_secret);
 	}, 0, rm_cutscene_skullmobile);
-	level_create(29,, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
+	level_create(level_ids.level_kranion_boss,, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
 	{
-		return (level_complete_get(24) && level_complete_get(25));
+		return (level_complete_get(level_ids.level_kranion_conveyor) && level_complete_get(level_ids.level_kranion_moon));
 	}, 0, rm_cutscene_dino);
-	level_create(30,, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
+	level_create(level_ids.level_kranion_final_boss,, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
-		return level_complete_get(29);
+		return level_complete_get(level_ids.level_kranion_boss);
 	}, 0, rm_cutscene_kranion, rm_cutscene_ending_normal);
 	
 	#region Level Lists

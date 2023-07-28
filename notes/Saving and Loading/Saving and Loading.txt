@@ -1,0 +1,14 @@
+
+ADVENTURE
+	story
+	level_id (one for each level)
+		status
+		trophies
+	
+	
+MAIN FILE
+	characters
+	cutscenes
+	levels
+		status
+		trophies
