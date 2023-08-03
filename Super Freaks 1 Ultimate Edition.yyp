@@ -331,6 +331,7 @@
     {"id":{"name":"obj_sawful","path":"objects/obj_sawful/obj_sawful.yy",},},
     {"id":{"name":"spr_platform_rocket_apple","path":"sprites/spr_platform_rocket_apple/spr_platform_rocket_apple.yy",},},
     {"id":{"name":"__input_exception_handler","path":"scripts/__input_exception_handler/__input_exception_handler.yy",},},
+    {"id":{"name":"obj_logos","path":"objects/obj_logos/obj_logos.yy",},},
     {"id":{"name":"spr_player_hang_quincy","path":"sprites/spr_player_hang_quincy/spr_player_hang_quincy.yy",},},
     {"id":{"name":"spr_HUD_heart","path":"sprites/spr_HUD_heart/spr_HUD_heart.yy",},},
     {"id":{"name":"obj_system","path":"objects/obj_system/obj_system.yy",},},

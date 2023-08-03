@@ -280,6 +280,7 @@
     {"name":"obj_sawful","order":13,"path":"objects/obj_sawful/obj_sawful.yy",},
     {"name":"spr_platform_rocket_apple","order":5,"path":"sprites/spr_platform_rocket_apple/spr_platform_rocket_apple.yy",},
     {"name":"__input_exception_handler","order":5,"path":"scripts/__input_exception_handler/__input_exception_handler.yy",},
+    {"name":"obj_logos","order":5,"path":"objects/obj_logos/obj_logos.yy",},
     {"name":"spr_player_hang_quincy","order":12,"path":"sprites/spr_player_hang_quincy/spr_player_hang_quincy.yy",},
     {"name":"spr_HUD_heart","order":4,"path":"sprites/spr_HUD_heart/spr_HUD_heart.yy",},
     {"name":"obj_system","order":2,"path":"objects/obj_system/obj_system.yy",},

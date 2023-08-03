@@ -84,7 +84,7 @@ switch (state)
 		y += speed_y;
 		
 		if (y >= room_height)
-			state_next_set(boss_antifreak_states.death);
+			state_next_set(boss_antifreak_states.inactive);
 		break;
 	case boss_antifreak_states.attack_1:
 		if (state_begin)
