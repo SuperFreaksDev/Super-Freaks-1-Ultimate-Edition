@@ -63,7 +63,7 @@ switch (state)
 			instance_create_layer(_view_x1 + _screen_width_half, _view_y1 + _screen_height_half, "layer_instances", obj_boss_explosion);
 			instance_create_layer(_view_x1 + _screen_width_half, _view_y1 + _screen_height_half, "layer_instances", obj_boss_kranion_final);
 			if (global.game_mode != game_modes.boss_rush)
-				music_set(msc_boss_kranion);
+				music_set(msc_boss_kranion_2);
 			victory_quote = choose("Hey!", "You gotta be kidding me!", "Here we go again!");
 			frame = 0;
 		}

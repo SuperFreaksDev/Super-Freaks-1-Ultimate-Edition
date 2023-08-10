@@ -21,5 +21,7 @@ switch (global.boss_phase)
 			state_next_set(boss_kranion_final_states.intro_2, 9999);
 		with (obj_player)
 			jetpack = true;
+		if (global.game_mode != game_modes.boss_rush)
+			music_set(msc_boss_kranion_2);
 		break;
 }
