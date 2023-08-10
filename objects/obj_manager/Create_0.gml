@@ -24,6 +24,7 @@ room_transition_init();
 visuals_init();
 
 instance_create(obj_menu_pause, 0, 0);
+instance_create(obj_metronome, 0, 0);
 
 global.font_16 = font_add_sprite(spr_font_16, ord("!"), true, 2);
 global.font_12 = font_add_sprite(spr_font_12, ord("!"), true, 2);

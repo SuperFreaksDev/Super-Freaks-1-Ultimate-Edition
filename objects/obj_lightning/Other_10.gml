@@ -14,7 +14,7 @@ switch (state)
 		
 		timer++;
 		
-		if (timer >= delay)
+		if (metronome_warn() and timer >= delay)
 			state_next_set(1);
 		break;
 	case 1: //Warning
@@ -42,7 +42,9 @@ switch (state)
 		image_alpha = max(image_alpha - 0.05, 0);
 		timer++;
 		
-		if (timer >= 56)
+		if (timer >= 64)
+			state_next_set(0)
+		if (metronome_strike())
 			state_next_set(2);
 		break;
 	case 2: //Strike
