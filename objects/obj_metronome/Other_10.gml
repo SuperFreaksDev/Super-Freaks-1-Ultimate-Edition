@@ -1,6 +1,8 @@
 /// @description Step
 
-if (variable_global_exists("music_id"))
+var _music_id_exists = variable_global_exists("music_id");
+
+if (_music_id_exists)
 	audio_pos = audio_sound_get_track_position(global.music_id);
 
 function metronome(_interval_beats, _offset_beats, _bpm)
@@ -19,5 +21,5 @@ function metronome(_interval_beats, _offset_beats, _bpm)
 warn = metronome(interval, warn_offset, bpm);
 strike = metronome(interval, strike_offset, bpm);
 
-if (variable_global_exists("music_id"))
+if (_music_id_exists)
 	prev_audio_pos = audio_sound_get_track_position(global.music_id);

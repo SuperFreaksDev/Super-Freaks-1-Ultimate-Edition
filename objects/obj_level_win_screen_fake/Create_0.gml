@@ -17,7 +17,7 @@ depth = -9998;
 state_next_set(0);
 game_timer_pause(true);
 if (global.game_mode != game_modes.boss_rush)
-	music_set(msc_victory);
+	music_set(msc_boss_kranion_2);
 
 lower_offset = 0;
 

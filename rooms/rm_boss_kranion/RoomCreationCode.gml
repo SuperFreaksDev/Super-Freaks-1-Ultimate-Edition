@@ -1,5 +1,6 @@
 var _music = msc_boss_kranion;
-
+if (global.boss_phase == 1)
+	_music = msc_boss_kranion_2;
 if (global.game_mode == game_modes.boss_rush)
 	_music = msc_bossrush;
 

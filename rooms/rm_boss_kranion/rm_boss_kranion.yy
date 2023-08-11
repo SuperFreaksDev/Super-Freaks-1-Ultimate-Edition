@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_boss_kranion",
-  "creationCodeFile": "${project_dir}/rooms/rm_boss_kranion/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/rm_boss_kranion/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": true,
