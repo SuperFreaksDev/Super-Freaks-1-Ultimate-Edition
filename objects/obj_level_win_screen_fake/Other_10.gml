@@ -62,7 +62,7 @@ switch (state)
 			global.frame_machine_level.pause = false;
 			instance_create_layer(_view_x1 + _screen_width_half, _view_y1 + _screen_height_half, "layer_instances", obj_boss_explosion);
 			instance_create_layer(_view_x1 + _screen_width_half, _view_y1 + _screen_height_half, "layer_instances", obj_boss_kranion_final);
-			victory_quote = choose("Hey!", "You gotta be kidding me!", "Here we go again!");
+			victory_quote = choose("Hey!", "You gotta be kidding me!", "Here we go again!", "Right when I have to use the bathroom!");
 			frame = 0;
 		}
 		frame++;

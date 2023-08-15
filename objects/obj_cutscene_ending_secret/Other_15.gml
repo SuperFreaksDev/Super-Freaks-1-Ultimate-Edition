@@ -1,4 +1,4 @@
-/// @description 
+/// @description End
 
 switch (global.game_mode)
 {
@@ -7,8 +7,7 @@ switch (global.game_mode)
 		instance_create_layer(0, 0, "layer_instances", obj_room_transition_fade);
 		break;
 	default:
-		spawn_point_set(rm_cutscene_credits);
-		instance_create_layer(0, 0, "layer_instances", obj_room_transition_fade);
+		instance_create_layer(0, 0, "layer_instances", obj_room_transition_return);
 		break;
 }
 

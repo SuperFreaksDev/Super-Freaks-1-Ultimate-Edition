@@ -1,5 +1,3 @@
-/// @description 
-
 var _i;
 
 var _screen_width = screen_width_get();
@@ -14,8 +12,6 @@ var _screen_width_fourth = _screen_width / 4;
 var _name_level = level_name_get();
 var _name_world = level_name_world_get();
 
-var _lower_offset = lower_offset * _screen_height;
-
 var _rec_A_y1 = (animate * _screen_height) - _screen_height;
 var _rec_A_y2 = _rec_A_y1 + _screen_height;
 
@@ -28,6 +24,13 @@ var _name_world = level_name_world_get();
 var _trophy_separate = 72;
 var _trophy_rec_width = (global.trophies_max - 1) * _trophy_separate;
 var _trophy_rec_x1 = (_screen_width - (_screen_width_half * animate)) - (_trophy_rec_width * 0.5);
+
+var _lower_offset = lower_offset * _screen_height;
+
+if (!surface_exists(global.surface_HUD))
+	exit;
+	
+surface_set_target(global.surface_HUD);
 
 draw_set_projection_2D(_view_x1, _view_y1, _screen_width, _screen_height);
 draw_set_alpha(1);
@@ -70,3 +73,5 @@ if (state >= 3)
 }
 
 draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
+
+surface_reset_target();
