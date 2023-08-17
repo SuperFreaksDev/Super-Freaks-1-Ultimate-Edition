@@ -21,6 +21,9 @@ enum story_modes
 {
 	super_freaks = 0,
 	kranion,
+	swordsman,
+	
+	count,
 }
 
 enum speedrun_modes
@@ -161,6 +164,9 @@ function story_mode_name_get()
 			break;
 		case story_modes.kranion:
 			_string = "Kranion";
+			break;
+		case story_modes.swordsman:
+			_string = "Uncle Swordsman";
 			break;
 		default:
 			_string = "N/A";

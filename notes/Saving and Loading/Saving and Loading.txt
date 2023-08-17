@@ -1,14 +1,22 @@
 
-ADVENTURE
-	story
-	level_id (one for each level)
-		status
-		trophies
+Main Menu
+	Play
+		Save/Load
+			Choose Story
+				Adventure
+				Challenge
+				Museum
+	Options
+	More Super Freaks Stuff
+	Exit
+	
+Save Format
 	
 	
-MAIN FILE
-	characters
-	cutscenes
-	levels
-		status
-		trophies
+Level Format
+	Level Name
+	World Name
+	Starting Room
+	Trophies
+	Max Trophies
+	Unlock Method
