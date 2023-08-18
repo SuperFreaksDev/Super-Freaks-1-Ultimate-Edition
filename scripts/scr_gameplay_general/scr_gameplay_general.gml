@@ -43,6 +43,8 @@ enum speedrun_modes
 /// @function gameplay_init
 function gameplay_init()
 {
+	global.story_mode = story_modes.super_freaks;
+	
 	collider_collision_global_init();
 	difficulty_init();
 	hashmap_collision_init();
@@ -62,8 +64,6 @@ function gameplay_init()
 	unlocks_init();
 	water_init();
 	zones_init();
-	
-	global.story_mode = story_modes.super_freaks;
 	
 	global.fast_forward_multiplier = 0;
 	

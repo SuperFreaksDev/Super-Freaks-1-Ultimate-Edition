@@ -1,6 +1,7 @@
 /// @description 
 
 var _i = 0;
+var _level_save = global.level_save_data_list[global.story_mode][global.level_id];
 trophy_count = 0;
 perfect_flag = true;
 clear_text = "clear";
@@ -21,7 +22,7 @@ if (global.game_mode != game_modes.boss_rush)
 
 lower_offset = 0;
 
-global.levels[global.level_id][level_data.trophies] = (global.levels[global.level_id][level_data.trophies] | global.trophies);
+_level_save.trophies = (_level_save.trophies | global.trophies);
 
 for (_i = 0; _i < global.trophies_max; ++_i)
 {

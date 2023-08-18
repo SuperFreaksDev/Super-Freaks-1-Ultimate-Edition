@@ -51,22 +51,7 @@ function unlocks_init()
 	});
 	unlock_create(unlocks.supersecret, "Unlock Exciting Encore", "You can now access the Super Secret Level! Good luck! No, seriously--you're gonna need it.", function()
 	{
-		var _i;
-		
-		if (!level_perfect_get(level_ids.level_stadium))
-			return false;
-		
-		for (_i = level_ids.level_normal_fruit; _i <= level_ids.level_kranion_final_boss; ++_i)
-		{
-			if (!level_perfect_get(_i))
-				return false;
-		}
-		
-		return true;
-	}, function()
-	{
-		if (global.levels[2][level_data.status] == level_status.locked)
-			global.levels[2][level_data.status] = level_status.open;
+		return false;
 	});
 	unlock_create(unlocks.speedrun_normal, "Unlock Normal Run", "Normal Run is now available in the Speedrun Challenge Menu!", function()
 	{

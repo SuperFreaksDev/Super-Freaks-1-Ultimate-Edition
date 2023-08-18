@@ -98,7 +98,7 @@ enum level_lists
 /// @param {Function} _unlock_method = function(){return false;}
 function level(_name_level = "", _name_world = "", _room = rm_level_parent, _trophies_max = 3, _unlock_method = function(){return false;}) constructor
 {
-	name_level = _name;
+	name_level = _name_level;
 	name_world = _name_world;
 	room_starting = _room;
 	trophies_max = _trophies_max;
@@ -139,7 +139,7 @@ function levels_init()
 		global.level_cutscene_list[_i] = array_create(level_ids.count);
 		for (_j = 0; _j < level_ids.count; ++_j)
 		{
-			global.levels_save_data_list[_i][_j] = new level_save_data();
+			global.level_save_data_list[_i][_j] = new level_save_data();
 			global.level_cutscene_list[_i][_j][level_cutscene_data.before] = undefined;
 			global.level_cutscene_list[_i][_j][level_cutscene_data.after] = undefined;
 		}
@@ -148,11 +148,25 @@ function levels_init()
 	level_create(level_ids.test, rm_test_1, "Test World", "Test Level");
 	
 	level_create(level_ids.level_stadium, rm_stadium_1, "Mystic Island", "Super Freaks Stadium");
-	level_create(level_ids.level_supersecret, rm_supersecret_1, "Mystic Island", "Exciting Encore",, 0);
+	level_create(level_ids.level_supersecret, rm_supersecret_1, "Mystic Island", "Exciting Encore", function()
+	{
+		var _i;
+		
+		if (!level_perfect_get(level_ids.level_stadium))
+			return false;
+		
+		for (_i = level_ids.level_normal_fruit; _i <= level_ids.level_kranion_final_boss; ++_i)
+		{
+			if (!level_perfect_get(_i))
+				return false;
+		}
+		
+		return true;
+	}, 0);
 	level_create(level_ids.level_supersecret_boss, rm_boss_antifreaks, "Mystic Island", "Vs Anti Freaks", function()
 	{
 		return level_complete_get(level_ids.level_supersecret);
-	}, 0, rm_cutscene_antifreaks_battle, rm_cutscene_ending_secret);
+	}, 0);
 	
 	//Normal World
 	level_create(level_ids.level_normal_fruit, rm_fruit_1, "Normal World", "Fruit Juice Factory", function()
@@ -449,15 +463,15 @@ function levels_init()
 		#endregion
 	#endregion
 	
-	worldmap_init();
-	
 	levels_load();
+	
+	worldmap_init();
 }
 
 /// @function levels_save
 function levels_save()
 {
-	var _json = json_stringify(global.levels_save_data_list);
+	var _json = json_stringify(global.level_save_data_list);
 	string_save(_json, "progress_0.save");
 }
 
@@ -472,7 +486,7 @@ function levels_load()
 		_json = string_load("progress_0.save");
 		_struct = json_parse(_json);
 		
-		global.levels_save_data_list = _struct;
+		global.level_save_data_list = _struct;
 		level_complete_list_reset();
 	}
 }
@@ -488,7 +502,7 @@ function level_complete_list_reset()
 	
 	for (_i = 0; _i < array_length(global.levels); ++_i)
 	{
-		_level_status = global.levels_save_data_list[_i].status;
+		_level_status = global.level_save_data_list[global.story_mode][_i].status;
 		
 		if (_level_status == level_status.clear_normal || _level_status == level_status.clear_perfect)
 			array_push(_level_list, _i);
@@ -527,13 +541,13 @@ function levels_unlock()
 	for (_i = 0; _i < array_length(global.levels); ++_i)
 	{
 		_level = global.levels[_i];
-		_level_save = global.level_save_data_list[_i];
+		_level_save = global.level_save_data_list[global.story_mode][_i];
 		_status = level_status_get(_i);
 		
 		if (_status != level_status.locked)
 			continue;
 			
-		_func = _level_save.unlock_method;
+		_func = _level.unlock_method;
 		
 		if (_func() == true)
 			_level_save.status = level_status.open;
@@ -545,7 +559,7 @@ function levels_unlock()
 /// @param {Int} _story_mode = global.story_mode
 function level_status_get(_level_id = global.level_id, _story_mode = global.story_mode)
 {
-	var _level = global.level_save_data_list[_level_id][_story_mode];
+	var _level = global.level_save_data_list[_story_mode][_level_id];
 	return _level.status;
 	
 	gml_pragma("forceinline");
@@ -556,7 +570,7 @@ function level_status_get(_level_id = global.level_id, _story_mode = global.stor
 /// @param {Int} _story_mode = global.story_mode
 function level_complete_get(_level_id = global.level_id, _story_mode = global.story_mode)
 {
-	var _level = global.level_save_data_list[_level_id][_story_mode];
+	var _level = global.level_save_data_list[_story_mode][_level_id];
 	switch (_level.status)
 	{
 		case level_status.clear_normal:
@@ -576,7 +590,7 @@ function level_complete_get(_level_id = global.level_id, _story_mode = global.st
 /// @param {Int} _story_mode = global.story_mode
 function level_perfect_get(_level_id = global.level_id, _story_mode = global.story_mode)
 {
-	var _level = global.level_save_data_list[_level_id][_story_mode];
+	var _level = global.level_save_data_list[_story_mode][_level_id];
 	switch (_level.status)
 	{
 		case level_status.clear_perfect:
@@ -625,7 +639,7 @@ function level_name_get(_level_id = global.level_id)
 /// @param {Int} _story_mode = global.story_mode
 function level_trophies_get(_level_id = global.level_id, _story_mode = global.story_mode)
 {
-	var _level = global.level_save_data_list[_level_id][_story_mode];
+	var _level = global.level_save_data_list[_story_mode][_level_id];
 	return _level.trophies;
 	
 	gml_pragma("forceinline");
