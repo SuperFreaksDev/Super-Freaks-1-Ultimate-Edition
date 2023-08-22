@@ -27,7 +27,5 @@ function worldmap_init()
 			_array[worldmap_icon_data.y] = undefined;
 			global.worldmap_icons[_story_mode][_i] = _array;
 		}
-	
-		global.worldmap_icons[_story_mode][level_ids.level_stadium][worldmap_icon_data.status] = level_status.open;
 	}
 }

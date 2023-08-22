@@ -143,6 +143,7 @@ function levels_init()
 			global.level_cutscene_list[_i][_j][level_cutscene_data.before] = undefined;
 			global.level_cutscene_list[_i][_j][level_cutscene_data.after] = undefined;
 		}
+		global.level_save_data_list[_i][level_ids.level_stadium].status = level_status.open;
 	}
 	
 	level_create(level_ids.test, rm_test_1, "Test World", "Test Level");
@@ -283,7 +284,7 @@ function levels_init()
 	level_create(level_ids.level_kranion_boss_secret, rm_boss_secretkranion, "Castle Kranion", "Kranion's Secret Weapon", function()
 	{
 		return level_complete_get(level_ids.level_kranion_moon_secret);
-	});
+	}, 0);
 	level_create(level_ids.level_kranion_boss, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
 	{
 		return (level_complete_get(level_ids.level_kranion_conveyor) && level_complete_get(level_ids.level_kranion_moon));
@@ -466,6 +467,19 @@ function levels_init()
 	levels_load();
 	
 	worldmap_init();
+	
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_stadium][level_cutscene_data.before] = rm_cutscene_intro;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_stadium][level_cutscene_data.after] = rm_cutscene_antifreaks_intro;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_ludicrous_barrel][level_cutscene_data.before] = rm_cutscene_xfreaks;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_freaky_ice][level_cutscene_data.before] = rm_cutscene_freak_fathers;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_kranion_conveyor][level_cutscene_data.before] = rm_cutscene_castle;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_kranion_boss_secret][level_cutscene_data.before] = rm_cutscene_skullmobile;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_kranion_boss][level_cutscene_data.before] = rm_cutscene_dino;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_kranion_final_boss][level_cutscene_data.before] = rm_cutscene_kranion;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_kranion_final_boss][level_cutscene_data.after] = rm_cutscene_ending_normal;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret][level_cutscene_data.before] = rm_cutscene_encore;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret_boss][level_cutscene_data.before] = rm_cutscene_antifreaks_battle;
+	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret_boss][level_cutscene_data.after] = rm_cutscene_ending_secret;
 }
 
 /// @function levels_save

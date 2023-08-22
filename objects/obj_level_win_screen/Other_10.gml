@@ -57,7 +57,7 @@ switch (state)
 	case 3:
 		if (state_begin)
 		{
-			if (global.game_state == game_states.gameplay && global.game_mode == game_modes.normal && _level_save == level_status.open && _cutscene_room != undefined)
+			if (global.game_state == game_states.gameplay && global.game_mode == game_modes.normal && _level_save.status == level_status.open && !is_undefined(_cutscene_room))
 			{
 				spawn_point_set(_cutscene_room);
 				instance_create_layer(0, 0, "layer_instances", obj_room_transition_fade);

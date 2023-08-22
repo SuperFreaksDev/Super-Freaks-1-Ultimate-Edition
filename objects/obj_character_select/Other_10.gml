@@ -301,7 +301,7 @@ switch (state)
 					random_set_seed(694201337);
 					break;
 				default:
-					_cutscene_room = global.level_cutscene_list[global.story_mode][global.level_id][level_cutscene_data.after];
+					_cutscene_room = global.level_cutscene_list[global.story_mode][global.level_id][level_cutscene_data.before];
 					randomize();
 					if (!level_complete_get(global.level_id) && _cutscene_room != undefined)
 					{
