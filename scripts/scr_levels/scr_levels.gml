@@ -486,7 +486,7 @@ function levels_init()
 function levels_save()
 {
 	var _json = json_stringify(global.level_save_data_list);
-	string_save(_json, "progress_0.save");
+	string_save(_json, "Save1/progress_0.save");
 }
 
 /// @function levels_load
@@ -495,9 +495,9 @@ function levels_load()
 	var _json;
 	var _struct;
 	
-	if (file_exists("progress_0.save"))
+	if (file_exists("Save1/progress_0.save"))
 	{
-		_json = string_load("progress_0.save");
+		_json = string_load("Save1/progress_0.save");
 		_struct = json_parse(_json);
 		
 		global.level_save_data_list = _struct;

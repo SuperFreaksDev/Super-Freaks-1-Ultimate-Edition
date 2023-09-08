@@ -13,6 +13,7 @@ var _screen_height_half = _screen_height / 2;
 var _text = string_copy(text, 0, text_draw);
 var _text_height = string_height_ext(text, -1, _screen_width);
 var _transition_type;
+var _screen_shake = global.view.screen_shake_y;
 
 if (segment_current >= 0)
 	_transition_type = segment[segment_current][cutscene_segment.transition];
@@ -40,7 +41,7 @@ switch (_transition_type)
 		break;
 }
 if (sprite_index != -1)
-	draw_sprite_ext(sprite_index, image_index, _view_x1 + _screen_width_half, _view_y1 + _screen_height_half, 1, 1, 0, c_white, sprite_alpha);
+	draw_sprite_ext(sprite_index, image_index, _view_x1 + _screen_width_half, _view_y1 + _screen_height_half + _screen_shake, 1, 1, 0, c_white, sprite_alpha);
 	
 draw_set_font(global.font_12);
 _text_height = string_height_ext(text, -1, _screen_width);

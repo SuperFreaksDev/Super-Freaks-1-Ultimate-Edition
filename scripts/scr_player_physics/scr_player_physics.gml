@@ -43,19 +43,21 @@ function player_physics_set_ice()
 }
 
 /// @function player_friction_normal
-function player_friction_normal()
+/// @param _speed_frc = speed_frc
+/// @param _speed_frc_air = speed_frc_air
+function player_friction_normal(_speed_frc = speed_frc, _speed_frc_air = speed_frc_air)
 {
 	if (ground_on)
 	{
 		if (lock_friction == 0)
-			speed_h -= min(abs(speed_h), speed_frc) * sign(speed_h);
+			speed_h -= min(abs(speed_h), _speed_frc) * sign(speed_h);
 		if (speed_h == 0)
 			skid = false;
 	}
 	else
 	{
 		if (lock_friction == 0 && platform_jump_off == false)
-			speed_h *= speed_frc_air;
+			speed_h *= _speed_frc_air;
 	}
 }
 

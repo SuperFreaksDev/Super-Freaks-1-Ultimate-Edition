@@ -20,7 +20,7 @@ angle_ground = 0;
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 64);
 collider_detector_up_set(-16, 0, 16, 0, -64);
 collider_detector_down_set(-16, 0, 16, 0, 64);
-collider_detector_sides_set(-24, 0, 24, 0, 64);
+collider_detector_sides_set(-32, 0, 32, 0, 64);
 
 despawn_area[0] = -32;
 despawn_area[1] = -32;

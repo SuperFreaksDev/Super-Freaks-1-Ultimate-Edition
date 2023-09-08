@@ -4,7 +4,7 @@
 event_inherited();
 
 cutscene_segment_set(0, "King Quincy: 'Hey, this isn't so bad. We've already freed two planets from Kranion's control!'", spr_cutscene_xfreaks_1,,, msc_cutscene_normal);
-cutscene_segment_set(1, "Suddenly, a portal into the great multiverse appeared!", spr_cutscene_xfreaks_2,,,,, cutscene_transitions.fade);
+cutscene_segment_set(1, "Suddenly, a portal into the great multiverse appeared!", spr_cutscene_xfreaks_2,,,, sfx_teleport, cutscene_transitions.fade);
 cutscene_segment_set(2, "Gloverine: 'Not so fast! We'll take it from here, eh?'", spr_cutscene_xfreaks_3,,,,, cutscene_transitions.NA);
 cutscene_segment_set(3, "Gambi: 'Hey! We already have evil knockoffs freeloading at our stadium. Get outta here!'");
 cutscene_segment_set(4, "Professor T: 'Please excuse my friend here. We are the X-Freaks. We have been sent to assume your duties--we mean no offense or harm.'");
@@ -24,5 +24,5 @@ cutscene_segment_set(17, "Gambi: 'Yeah, I guess. Kranion's peeved me off enough 
 cutscene_segment_set(18, "Scruffy: 'Alright, you guys got yourself a deal. Yo, Slaypool! When you're done wrecking Kranion six ways from Sunday, bring back some chimichangas for us to share!'");
 cutscene_segment_set(19, "Les Slaypool: 'We gotchu. One numbskull with a side of chimichangas coming right up!'", spr_cutscene_xfreaks_5,,,,, cutscene_transitions.NA);
 cutscene_segment_set(20, "...", spr_cutscene_xfreaks_2,,,,, cutscene_transitions.NA);
-cutscene_segment_set(21, "", spr_cutscene_xfreaks_6,,,,, cutscene_transitions.shake);
+cutscene_segment_set(21, "", spr_cutscene_xfreaks_6,,,, sfx_bonk_coconut_1, cutscene_transitions.shake);
 cutscene_segment_set(22, "Les Slaypool: 'Well that happened.'");

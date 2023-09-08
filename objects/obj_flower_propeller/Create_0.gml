@@ -15,3 +15,4 @@ despawn_area[1] = -96;
 despawn_area[2] = 32;
 despawn_area[3] = 0;
 can_despawn = true;
+timer = 0;

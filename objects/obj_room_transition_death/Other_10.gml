@@ -3,12 +3,18 @@
 // Inherit the parent event
 event_inherited();
 
+circle_size_previous = circle_size;
+
 switch (state)
 {
 	case 0:
-		image_alpha = (frame / 10);
-		if (frame == 10)
+		if (frame == 15)
+		{
+			room_destination_set(spawn_point_room_get());
 			state_next_set(1);
+		}
+		else
+			circle_size = 1 - (min(frame, 10) / 10);
 		break;
 	case 1:
 		if (state_begin)
@@ -19,7 +25,7 @@ switch (state)
 			global.hearts = hearts_minimum_get();
 			frame = 0;
 		}
-		image_alpha = 1 - (frame / 10);
+		circle_size = (frame / 10);
 		if (frame == 10)
 			instance_destroy();
 		break;

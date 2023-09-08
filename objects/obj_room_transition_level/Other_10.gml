@@ -21,10 +21,12 @@ switch (state)
 		}
 		if (frame == 20)
 		{
+			trophies_init(level_trophies_get(), level_trophy_count_max_get());
 			spawn_point_set(level_room_get(), undefined, undefined);
 			checkpoint_set(level_room_get(),,, -1);
 			room_destination_set(spawn_point_room_get());
 			global.boss_phase = 0;
+			global.checkpoint_death_count = 0;
 			state_next_set(2);
 			//audio_stop_all();
 		}
@@ -32,8 +34,6 @@ switch (state)
 	case 2:
 		if (state_begin)
 		{
-			trophies_init(level_trophies_get(), level_trophy_count_max_get());
-			global.checkpoint_death_count = 0;
 			frame = 0;
 			
 			switch (global.game_mode)

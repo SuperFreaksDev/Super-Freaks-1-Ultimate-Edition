@@ -158,7 +158,7 @@ function unlocks_init()
 	});
 	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest!", function()
 	{
-		return level_perfect_get(level_ids.level_kranion_boss);
+		return level_perfect_get(level_ids.level_kranion_final_boss);
 	}, function()
 	{
 		global.characters_unlocked[character_indexes.uncle_swordsman] = true;
@@ -193,7 +193,7 @@ function unlocks_save()
 	}
 	
 	_json = json_stringify(_array);
-	string_save(_json, "unlockables.save");
+	string_save(_json, "Save1/unlockables.save");
 }
 
 /// @function unlocks_load
@@ -204,9 +204,9 @@ function unlocks_load()
 	var _i;
 	var _func;
 	
-	if (file_exists("unlockables.save"))
+	if (file_exists("Save1/unlockables.save"))
 	{
-		_json = string_load("unlockables.save");
+		_json = string_load("Save1/unlockables.save");
 		_array = json_parse(_json);
 		
 		for (_i = 0; _i < array_length(_array); ++_i)

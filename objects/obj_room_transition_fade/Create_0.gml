@@ -3,6 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-image_alpha = 0;
+circle_size = 1;
+circle_size_previous = 1;
 color = c_black;
 state_next_set(0);

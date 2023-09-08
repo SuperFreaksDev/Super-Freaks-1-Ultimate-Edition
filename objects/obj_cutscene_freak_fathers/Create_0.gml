@@ -4,7 +4,7 @@
 event_inherited();
 
 cutscene_segment_set(0, "When the Super Freaks reached Freaky World, they received a psychic message.", spr_cutscene_freakfathers_1,,, msc_cutscene_normal);
-cutscene_segment_set(1, "No Bodee: 'Super Freaks...I bring an urgent message from the Freak Fathers.'");
+cutscene_segment_set(1, "Noh Bodee: 'Super Freaks...I bring an urgent message from the Freak Fathers.'");
 
 cutscene_segment_set(2, "Scruffy: 'Yo! How's it hangin' my dudes?'", spr_cutscene_freakfathers_2,,,,, cutscene_transitions.fade);
 cutscene_segment_set(3, "Yerr Hey: 'Pretty good! I just pulled out some belly button lint that was really stuck in there.'");

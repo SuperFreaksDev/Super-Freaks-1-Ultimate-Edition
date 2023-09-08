@@ -22,8 +22,8 @@ switch (state)
 				_move_v += 1;
 		}
 			
-		x += _move_h * 4;
-		y += _move_v * 4;
+		x += _move_h * 6;
+		y += _move_v * 6;
 		x = clamp(x, 0, room_width);
 		y = clamp(y, 0, room_height);
 		break;

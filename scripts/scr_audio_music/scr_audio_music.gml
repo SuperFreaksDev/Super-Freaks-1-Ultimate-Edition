@@ -30,29 +30,31 @@ function music_set(_music = MUSIC_NA)
 function music_play()
 {
 	global.music_id = audio_play_sound_on(global.audio_emitter_music, global.music, true, 0);
-	global.music_is_playing = true
+	global.music_is_playing = true;
 }
 
 /// @function music_stop
 function music_stop()
 {
 	audio_stop_sound(global.music);
-	global.music_is_playing = false
+	global.music_is_playing = false;
 }
 
 /// @function music_pause
 function music_pause()
 {
 	audio_pause_sound(global.music);
-	global.music_is_playing = false
+	global.music_is_playing = false;
 }
 
 /// @function music_resume
 function music_resume()
 {
 	if (audio_is_paused(global.music))
+	//{
 		audio_resume_sound(global.music);
-		global.music_is_playing = true
+		global.music_is_playing = true;
+	//}
 }
 
 /// @function volume_music_set

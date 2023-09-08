@@ -56,6 +56,8 @@ ground_on = false;
 
 shockwave_frequency = 0;
 
+y_offset_yorb = -128;
+
 switch (global.difficulty)
 {
 	case difficulty_levels.easy:

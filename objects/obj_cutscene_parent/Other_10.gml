@@ -2,6 +2,7 @@
 var _text_length;
 var _my_message = string(text_next);
 var _sprite, _music;
+var _sound_effect;
 var _transition_type;
 
 if (segment_current >= 0)
@@ -49,6 +50,9 @@ if (!room_transition_active_get())
 		        {
 		            text = string(text_next);
 		            text_draw = 0;
+					_sound_effect = segment[segment_current][cutscene_segment.sfx];
+					if (_sound_effect != -1)
+						sfx_play_global(_sound_effect, false, 0);
 		        }
 		        else
 		        {

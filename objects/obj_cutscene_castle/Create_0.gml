@@ -16,8 +16,8 @@ cutscene_segment_set(5, "Dino: 'Not that I recall.'", spr_cutscene_castle_3,,,,,
 //Dino is handed a bomb
 cutscene_segment_set(6, "Scruffy: 'Here, take one on the house.'");
 //Explodes
-cutscene_segment_set(7, "", spr_cutscene_castle_5,,,,, cutscene_transitions.NA);
+cutscene_segment_set(7, "", spr_cutscene_castle_5,,,, sfx_yell_wilhelm, cutscene_transitions.NA);
 //Dino is blown up
-cutscene_segment_set(8, "Dino: 'Thank you for your patronage.'", spr_cutscene_castle_6,,,,, cutscene_transitions.shake);
+cutscene_segment_set(8, "Dino: 'Thank you for your patronage.'", spr_cutscene_castle_6,,,, sfx_explode, cutscene_transitions.shake);
 //Super Freaks run inside
 cutscene_segment_set(9, "King Quincy: Ahh, Dino. Never change. Like, ever.'", spr_cutscene_castle_7,,,,, cutscene_transitions.fade);

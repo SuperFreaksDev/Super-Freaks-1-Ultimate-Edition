@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_lightning_3",
-  "creationCodeFile": "${project_dir}/rooms/rm_lightning_2/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/rm_lightning_3/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": true,

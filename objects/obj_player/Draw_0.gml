@@ -3,7 +3,7 @@
 var _frame_delta = frame_delta_player_get();
 var _x = lerp(x_start_frame, x, _frame_delta);
 var _y = lerp(y_start_frame, y, _frame_delta);
-var _icon, _icon_frame = 0, _height;
+var _height;
 
 var _average_x, _average_y, _average_x_previous, _average_y_previous;
 var _rubber_band_distance, _rubber_band_direction, _rubber_band_draw = true;
@@ -37,6 +37,11 @@ switch (state)
 	case player_states.death_fall:
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		_rubber_band_draw = false;
+		break;
+	case player_states.hang:
+		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
+		if (input_check("down", player_number))
+			draw_sprite_ext(spr_menu_arrow_32, 0, _x, _y + 48, 1, 1, 270, c_white, 0.5);
 		break;
 	default:
 		if (jetpack)

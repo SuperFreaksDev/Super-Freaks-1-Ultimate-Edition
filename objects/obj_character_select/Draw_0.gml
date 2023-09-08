@@ -88,7 +88,8 @@ switch (page)
 		}
 		else
 		{
-			draw_verb(_player_num, "confirm", _x - 192, _y);
+			//draw_verb(_player_num, "confirm", _x - 192, _y);
+			draw_text(_x - 192, _y, "Join!");
 		}
 
 		_player_num = 1;
@@ -103,7 +104,8 @@ switch (page)
 		}
 		else
 		{
-			draw_verb(_player_num, "confirm", _x - 68, _y);
+			//draw_verb(_player_num, "confirm", _x - 68, _y);
+			draw_text(_x - 68, _y, "Join!");
 		}
 
 		_player_num = 2;
@@ -118,7 +120,8 @@ switch (page)
 		}
 		else
 		{
-			draw_verb(_player_num, "confirm", _x + 68, _y);
+			//draw_verb(_player_num, "confirm", _x + 68, _y);
+			draw_text(_x + 68, _y, "Join!");
 		}
 
 		_player_num = 3;
@@ -133,7 +136,8 @@ switch (page)
 		}
 		else
 		{
-			draw_verb(_player_num, "jump", _x + 192, _y);
+			//draw_verb(_player_num, "jump", _x + 192, _y);
+			draw_text(_x + 192, _y, "Join!");
 		}
 		break;
 	default:

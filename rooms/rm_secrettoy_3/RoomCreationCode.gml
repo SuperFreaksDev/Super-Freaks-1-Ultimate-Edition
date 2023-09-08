@@ -1,4 +1,4 @@
-room_header(game_states.gameplay, msc_toy, room_directions.up);
+room_header(game_states.gameplay, msc_toy_secret, room_directions.up);
 tile_data_array_level_toy();
 with (global.view)
 {

@@ -88,7 +88,13 @@ timer = 0;
 			option = 0;
 		}
 	});
-	menu_option_add(_page, 4, "Exit", function()
+	menu_option_add(_page, 4, "More Super Freaks Games", function()
+	{
+		main_text = "Super Freaks 1 Ultimate Edition";
+		if (input_check_pressed("confirm", global.player_lead))
+			url_open("https://superfreaks.neocities.org/");
+	});
+	menu_option_add(_page, 5, "Exit", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))

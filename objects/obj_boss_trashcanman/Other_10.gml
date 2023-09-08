@@ -47,7 +47,7 @@ switch (state)
 		speed_y -= 0.25;
 		y += speed_y;
 			
-		if (y <= 224)
+		if (y <= 200)
 			state_next_set(boss_antifreak_states.wait);
 		break;
 	case boss_antifreak_states.wait:
