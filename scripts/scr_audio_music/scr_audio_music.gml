@@ -8,7 +8,7 @@ function music_set(_music = MUSIC_NA)
 		
 	if (_music == _music_previous)
 	{
-		if (!audio_is_playing(_music))
+		if (!audio_is_playing(_music) && _music != MUSIC_NA)
 			music_play();
 		exit;
 	}
