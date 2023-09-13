@@ -8,3 +8,4 @@ speed_v = 0;
 active = false;
 can_despawn = true;
 hitbox.active = hitbox_active.active;
+timer = 0;

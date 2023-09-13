@@ -9,20 +9,23 @@ enum worldmap_icon_data
 /// @function worldmap_init
 function worldmap_init()
 {
-	var _i, _array;
+	var _i, _array, _story_mode;
 	
-	global.worldmap_icons = array_create(array_length(global.levels));
+	global.worldmap_icons = [];
 	
-	for (_i = 0; _i < array_length(global.worldmap_icons); ++_i)
+	for (_story_mode = 0; _story_mode < story_modes.count; _story_mode++)
 	{
-		_array = array_create(4);
-		
-		_array[worldmap_icon_data.status] = level_status.locked;
-		_array[worldmap_icon_data.instance] = undefined;
-		_array[worldmap_icon_data.x] = undefined;
-		_array[worldmap_icon_data.y] = undefined;
-		global.worldmap_icons[_i] = _array;
-	}
+		global.worldmap_icons[_story_mode] = array_create(array_length(global.levels));
 	
-	global.worldmap_icons[1][worldmap_icon_data.status] = level_status.open;
+		for (_i = 0; _i < array_length(global.worldmap_icons[_story_mode]); ++_i)
+		{
+			_array = array_create(4);
+		
+			_array[worldmap_icon_data.status] = level_status_get(_i, _story_mode);
+			_array[worldmap_icon_data.instance] = undefined;
+			_array[worldmap_icon_data.x] = undefined;
+			_array[worldmap_icon_data.y] = undefined;
+			global.worldmap_icons[_story_mode][_i] = _array;
+		}
+	}
 }

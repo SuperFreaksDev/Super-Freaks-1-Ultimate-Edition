@@ -2,24 +2,26 @@
 
 var _func;
 
+circle_size_previous = circle_size;
+
 switch (state)
 {
 	case 0: //Fade In
 		if (state_begin)
 		{
 			frame = 0;
-			alpha = 0;
+			circle_size = 1;
 		}
 			
 		frame = min(frame + 1, 10);
-		alpha = (frame * 0.1);
+		circle_size = 1 - (min(frame, 10) / 10);
 		if (frame == 10)
 			state_next_set(1);
 		break;
 	case 1: //Count Through Unlocks
 		if (state_begin)
 		{
-			alpha = 1;
+			circle_size = 0;
 		}
 			
 		music_stop();
@@ -113,11 +115,15 @@ switch (state)
 		break;
 	case 6:
 		if (state_begin)
-			alpha = 1;
-			
-		alpha -= 0.1;
+		{
+			frame = 0;
+			circle_size = 0;
+		}
 		
-		if (alpha <= 0)
+		frame = min(frame + 1, 10);
+		circle_size = (frame / 10);
+		
+		if (frame == 10)
 			instance_destroy();
 		break;
 }

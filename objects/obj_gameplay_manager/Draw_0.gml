@@ -57,7 +57,8 @@ var _mirror = mirror_flip_get();
 		exit;
 	
 	surface_set_target(global.surface_HUD);
-
+	draw_set_alpha(1);
+	
 	switch (global.game_state)
 	{
 		case game_states.NA:

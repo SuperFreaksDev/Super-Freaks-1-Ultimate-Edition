@@ -10,6 +10,8 @@ if (file_exists("input.settings"))
 	if input_system_verify(_binding_string)
 		input_system_import(_binding_string);
 }
+input_source_mode_set(INPUT_SOURCE_MODE.FIXED);
+global.input_source_mode_previous = INPUT_SOURCE_MODE.FIXED;
 randomize();
 
 #region Init Components
@@ -17,7 +19,7 @@ randomize();
 #endregion
 
 audio_init();
-debug_init(false);
+debug_init(true);
 framerate_game_init();
 gameplay_init();
 room_transition_init();

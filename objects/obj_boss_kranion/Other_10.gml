@@ -144,7 +144,7 @@ switch (state)
 					counter = 3;
 					break;
 				case difficulty_levels.hard:
-					speed_h = 8 * face;
+					speed_h = 7 * face;
 					speed_v = -12;
 					counter = 3;
 					break;

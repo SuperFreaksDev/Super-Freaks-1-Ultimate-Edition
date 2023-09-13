@@ -8,14 +8,14 @@ cutscene_segment_set(0, "Kranion: 'Ouch! You nerds suck!! It's about time I end 
 //Kranion about to Thanos snap
 cutscene_segment_set(1, "'With a snap ah my fingahs, I can blow yah ta smithereenies. You'll nevah beat me again!!'", spr_cutscene_ending_normal_2,,,,, cutscene_transitions.NA);
 //Kranion snaps, and nothing happens
-cutscene_segment_set(2, "'...'", spr_cutscene_ending_normal_3,,,,, cutscene_transitions.NA);
+cutscene_segment_set(2, "'...'", spr_cutscene_ending_normal_3,,, MUSIC_NA, sfx_bonk_coconut_1, cutscene_transitions.NA);
 cutscene_segment_set(3, "'Huh??? Did I forget tah pay thuh electric bill or somethin?'");
 //The Super Freaks wielding all of Kranion's Unlimit Energy, summoning a skateboarding bulldog
 cutscene_segment_set(4, "Scruffy: 'Nah, we just stole all your yorbs while you weren't looking. Go get 'em, boy!'", spr_cutscene_ending_normal_4,,, msc_victory);
 //Kranion running for his life
 cutscene_segment_set(5, "Kranion: 'AHHHH!!!!! GET THAT THING AWAY FROM ME!!!'", spr_cutscene_ending_normal_5,,,,, cutscene_transitions.NA);
 cutscene_segment_set(6, "'ALRIGHT, FINE, I SUCK AT FAST CAHS UNDUHGROUND 2, HAVE YAH STUPID ENAHGY BACK, JUST GET FIDO HEYAH OFF ME!!!'", spr_cutscene_ending_normal_6,,,,, cutscene_transitions.NA);
-cutscene_segment_set(7, "'THIS AIN'T OVAH!!!!!!'");
+cutscene_segment_set(7, "'THIS AIN'T OVAH!!!!!!'",,,,, sfx_yell_goofy);
 //Back at the stadium
 cutscene_segment_set(8, "And so, the Super Freaks saved the United States of Craziness from certain peril once again.", spr_cutscene_ending_normal_7,,, msc_cutscene_ending);
 cutscene_segment_set(9, "Uncle Swordsman: 'Thanks for getting me out of that locker, boys. Sorry I couldn't be more help!'", spr_cutscene_ending_normal_8,,,,, cutscene_transitions.NA);

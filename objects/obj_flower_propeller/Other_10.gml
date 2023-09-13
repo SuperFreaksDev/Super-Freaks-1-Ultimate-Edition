@@ -52,7 +52,20 @@ if (active)
 	{
 		speed_v -= 4;
 		hitbox.active = hitbox_active.inactive;
-		can_despawn = true;
+		timer++;
+		if (timer >= 48)
+		{
+			timer = 0;
+			x = xstart;
+			y = ystart;
+			speed_h = 0;
+			speed_v = 0;
+			hitbox.active = hitbox_active.active;
+			active = false;
+			can_despawn = true;
+			if (in_view(x - 32, y - 96, x + 32, y + 96))
+				sfx_play_global(sfx_pop);
+		}
 	}
 	else
 	{

@@ -88,7 +88,13 @@ timer = 0;
 			option = 0;
 		}
 	});
-	menu_option_add(_page, 4, "Exit", function()
+	menu_option_add(_page, 4, "More Super Freaks Games", function()
+	{
+		main_text = "Super Freaks 1 Ultimate Edition";
+		if (input_check_pressed("confirm", global.player_lead))
+			url_open("https://superfreaks.neocities.org/");
+	});
+	menu_option_add(_page, 5, "Exit", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
@@ -202,7 +208,7 @@ timer = 0;
 		main_text = "Challenge Mode";
 		if (input_check_pressed("confirm", global.player_lead))
 		{
-			if (options[main_menu_pages.challenge][0][menu_option_data.unlocked])
+			if (options[main_menu_pages.challenge][3][menu_option_data.unlocked])
 			{
 				global.game_mode = game_modes.boss_rush;
 				instance_create_layer(0, 0, "layer_instances", obj_character_select);

@@ -22,10 +22,10 @@ event_inherited();
 
 with (obj_worldmap_icon)
 {
-	global.worldmap_icons[level_id][worldmap_icon_data.x] = x;
-	global.worldmap_icons[level_id][worldmap_icon_data.y] = y;
-	global.worldmap_icons[level_id][worldmap_icon_data.instance] = id;
-	switch (global.worldmap_icons[level_id][worldmap_icon_data.status])
+	global.worldmap_icons[global.story_mode][level_id][worldmap_icon_data.x] = x;
+	global.worldmap_icons[global.story_mode][level_id][worldmap_icon_data.y] = y;
+	global.worldmap_icons[global.story_mode][level_id][worldmap_icon_data.instance] = id;
+	switch (global.worldmap_icons[global.story_mode][level_id][worldmap_icon_data.status])
 	{
 		case level_status.locked:
 			visible = false;
@@ -50,10 +50,10 @@ frame = 0;
 
 depth = -9995;
 
-_start_x = global.worldmap_icons[global.level_id][worldmap_icon_data.x];
+_start_x = global.worldmap_icons[global.story_mode][global.level_id][worldmap_icon_data.x];
 if (is_undefined(_start_x))
 	_start_x = 0;
-_start_y = global.worldmap_icons[global.level_id][worldmap_icon_data.y];
+_start_y = global.worldmap_icons[global.story_mode][global.level_id][worldmap_icon_data.y];
 if (is_undefined(_start_y))
 	_start_y = 0;
 
@@ -61,13 +61,13 @@ instance_create(obj_worldmap_player, _start_x, _start_y);
 camera = new comp_camera(clamp(_start_x, _screen_width_half, room_width - _screen_width_half), clamp(_start_y, _screen_height_half, room_height - _screen_height_half));
 view_reset(camera.x, camera.y);
 
-for (_i = 0; _i < array_length(global.worldmap_icons); ++_i)
+for (_i = 0; _i < array_length(global.worldmap_icons[global.story_mode]); ++_i)
 {
-	if (global.worldmap_icons[_i][worldmap_icon_data.status] == global.levels[_i][level_data.status])
+	if (global.worldmap_icons[global.story_mode][_i][worldmap_icon_data.status] == level_status_get(_i))
 		continue;
 	else
 	{
-		if (is_undefined(global.worldmap_icons[_i][worldmap_icon_data.instance]))
+		if (is_undefined(global.worldmap_icons[global.story_mode][_i][worldmap_icon_data.instance]))
 			continue;
 		else
 		{

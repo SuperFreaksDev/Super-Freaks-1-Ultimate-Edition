@@ -33,7 +33,7 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_stadium);
 		});
-		museum_character_create(1,, "Scruffy", "One of the Super Freaks, with a fun loving attitude and a big, toothy grin. While he appears to be a robot, he is actually a crudely drawn stickman wearing an elaborate costume. I'm not sure if that's a belt or TV screen on his chest, and neither is he!", function()
+		museum_character_create(1,, "Scruffy", "John 'Scruffy' Super Freaks is one of the Super Freaks, with a fun loving attitude and a big, toothy grin. While he appears to be a robot, he is actually a crudely drawn stickman wearing an elaborate costume. I'm not sure if that's a belt or TV screen on his chest, and neither is he!", function()
 		{
 			return level_complete_get(level_ids.level_stadium);
 		});
@@ -101,7 +101,7 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
-		museum_character_create(18,, "Yerr Hey", "The founder of the Freak Fathers. He knew he should not study Unlimit Energy on his own, so he brought his friends together to join him. He is as clever as he is goofy.", function()
+		museum_character_create(18,, "Yerr Hey", "The founder of the Freak Fathers. He knew he should not study Unlimit Energy on his own, so he brought his friends together to join him. His goofy appearence hides an incredibly clever mind.", function()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
@@ -109,7 +109,7 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
-		museum_character_create(20,, "Papa Freak", "A Freaky Freak elder who is part of the Freak Fathers. He is incredibly eccentric, yet sometimes his wild thoughts lead to new developments in Unlimt Energy uses. More often than not, however, he just kind of does weird things in his village.", function()
+		museum_character_create(20,, "Papa Freak", "A Freaky Freak elder who is part of the Freak Fathers. He is incredibly eccentric, yet sometimes his wild thoughts lead to new developments in Unlimit Energy uses. More often than not, however, he just kind of does weird things in his village.", function()
 		{
 			return level_complete_get(level_ids.level_freaky_ice);
 		});
@@ -206,7 +206,7 @@ function museum_init()
 		});
 	#endregion
 	
-	museum_load();
+	//museum_load();
 }
 
 /// @functiom museum_character_create
@@ -265,9 +265,9 @@ function museum_load()
 	var _array;
 	var _i;
 	
-	if (file_exists("museum.save"))
+	if (file_exists("Save1/museum.save"))
 	{
-		_json = string_load("museum.save");
+		_json = string_load("Save1/museum.save");
 		_array = json_parse(_json);
 		
 		for (_i = 0; _i < array_length(_array[museum_data.characters]); ++_i)

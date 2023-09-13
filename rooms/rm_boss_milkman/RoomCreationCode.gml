@@ -10,3 +10,10 @@ with (global.view)
 	border[2] = -128;
 }
 tile_data_array_level_park();
+with (obj_metronome)
+{
+	interval = 2;
+	warn_offset = 0;
+	strike_offset = 0;
+	bpm = 162;
+}

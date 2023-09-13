@@ -5,6 +5,12 @@ function player_state_normal()
 	var _move_h = 0, _move_v = 0;
 	var _speed_fall = speed_fall;
 	var _speed_acc = speed_acc, _speed_dec = speed_dec, _speed_frc = speed_frc;
+	var _speed_frc_air = speed_frc_air;
+	if (jetpack)
+	{
+		_speed_dec = _speed_acc;
+		_speed_frc_air = 0.9;
+	}
 	
 	if (state_begin)
 	{
@@ -89,14 +95,14 @@ function player_state_normal()
 					if (speed_h >= -speed_run)
 						speed_h = max(speed_h - _speed_acc, -speed_run);
 					else
-						player_friction_normal();
+						player_friction_normal(_speed_frc, _speed_frc_air);
 					face = -1;
 					skid = false;
 				}
 				break;
 			case 0:
 				if (physics != player_physics_modifiers.rail)
-					player_friction_normal();
+					player_friction_normal(_speed_frc, _speed_frc_air);
 				break;
 			case 1:
 				if (speed_h < 0)
@@ -111,7 +117,7 @@ function player_state_normal()
 					if (speed_h <= speed_run)
 						speed_h = min(speed_h + _speed_acc, speed_run);
 					else
-						player_friction_normal();
+						player_friction_normal(_speed_frc, _speed_frc_air);
 					face = 1;
 					skid = false;
 				}
@@ -132,12 +138,12 @@ function player_state_normal()
 						if (speed_v >= -speed_run)
 							speed_v = max(speed_v - _speed_acc, -speed_run);
 						else
-							speed_v *= speed_frc_air;
+							speed_v *= _speed_frc_air;
 					}
 					ground_on = false;
 					break;
 				case 0:
-					speed_v *= speed_frc_air;
+					speed_v *= _speed_frc_air;
 					break;
 				case 1:
 					if (speed_v < 0)
@@ -147,7 +153,7 @@ function player_state_normal()
 						if (speed_v <= speed_run)
 							speed_v = min(speed_v + _speed_acc, speed_run);
 						else
-							speed_v *= speed_frc_air;
+							speed_v *= _speed_frc_air;
 					}
 					break;
 			}
@@ -158,7 +164,7 @@ function player_state_normal()
 	{
 		if (jetpack)
 		{
-			if (!ball)
+			if (!ball || jetpack_jump_timer < 8)
 			{
 				ball = true;
 				sfx_play_global(sfx_jump);
@@ -270,7 +276,7 @@ function player_state_normal()
 		if (speed_h < 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_left != collider_behaviors_solid.ice && !jetpack && !underwater && !ground_on && (((_move_h == -1 && speed_y > -3) || walljump_auto > 0)))
+			if (behavior_wall_left != collider_behaviors_solid.ice && !jetpack && !underwater && !_collision_down && (((_move_h == -1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = -1;
 				state_next_set(player_states.wall_slide);
@@ -293,7 +299,7 @@ function player_state_normal()
 		if (speed_h > 0)
 		{
 			speed_h = 0;
-			if (behavior_wall_right != collider_behaviors_solid.ice && !jetpack && !underwater && !ground_on && (((_move_h == 1 && speed_y > -3) || walljump_auto > 0)))
+			if (behavior_wall_right != collider_behaviors_solid.ice && !jetpack && !underwater && !_collision_down && (((_move_h == 1 && speed_y > -3) || walljump_auto > 0)))
 			{
 				face = 1;
 				state_next_set(player_states.wall_slide);

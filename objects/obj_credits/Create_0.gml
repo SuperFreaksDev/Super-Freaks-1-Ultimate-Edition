@@ -18,6 +18,7 @@ text = "SUPER FREAKS 1 ULTIMATE EDITION"
 + "\nMetronome code by JorJoe05"
 + "\nGood pixel art pretending to be bad pixel art"
 + "\nmade with Aseprite"
++ "\nThe Creation of Freaky Freak HD Painting by EngineerKappa"
 + "\n"
 + "\nCHARACTERS BY:"
 + "\nSuperFreaksDev"
@@ -25,7 +26,8 @@ text = "SUPER FREAKS 1 ULTIMATE EDITION"
 + "\n"
 + "\nMUSIC:"
 + "\nOriginal music by philRaco and SuperFreaksDev"
-+ "\nAny placeholder music from vgmusic.com"
++ "\nbut mostly phil tbh"
++ "\nFormer placeholder music from vgmusic.com"
 + "\n"
 + "\nSOUND EFFECTS:"
 + "\nWarner Bros."
@@ -44,12 +46,19 @@ text = "SUPER FREAKS 1 ULTIMATE EDITION"
 + "\nAlmyriganHero"
 + "\nphilRaco"
 + "\nMotor Drive"
++ "\nJorJoe05"
++ "\nMasterDisaster64"
++ "\nPaperpuffsDev"
 + "\n"
 + "\n...uh"
 + "\nYeah I'm not sure what else to throw in here"
 + "\nThanks for Playing!"
 + "\nand more importantly..."
-+ "\nSee You Next Game!";
-text_height = string_height(text);
-pos = 0;
-my_speed = 0.25;
++ "\nSee You Next Game!"
++ "\n"
++ "\n"
++ "\nOh, right, press confirm to skip the credits"
++ "\nMusic is nice though isn't it?";
+text_height = string_height_ext(text, -1, 424);
+pos = 1;
+my_speed = 0.075;

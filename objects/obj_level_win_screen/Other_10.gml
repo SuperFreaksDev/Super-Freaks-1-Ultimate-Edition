@@ -1,6 +1,7 @@
 /// @description Step
 
-var _cutscene_room;
+var _level_save = global.level_save_data_list[global.story_mode][global.level_id];
+var _cutscene_room = global.level_cutscene_list[global.story_mode][global.level_id][level_cutscene_data.after];
 
 // Inherit the parent event
 event_inherited();
@@ -56,8 +57,7 @@ switch (state)
 	case 3:
 		if (state_begin)
 		{
-			_cutscene_room = global.levels[global.level_id][level_data.cutscene_room_end];
-			if (global.game_state == game_states.gameplay && global.game_mode == game_modes.normal && global.levels[global.level_id][level_data.status] == level_status.open && _cutscene_room != -1)
+			if (global.game_state == game_states.gameplay && global.game_mode == game_modes.normal && _level_save.status == level_status.open && !is_undefined(_cutscene_room))
 			{
 				spawn_point_set(_cutscene_room);
 				instance_create_layer(0, 0, "layer_instances", obj_room_transition_fade);
@@ -65,9 +65,9 @@ switch (state)
 			else
 				instance_create(obj_room_transition_return);
 			if (perfect_flag)
-				global.levels[global.level_id][level_data.status] = level_status.clear_perfect;
+				_level_save.status = level_status.clear_perfect;
 			else
-				global.levels[global.level_id][level_data.status] = level_status.clear_normal;
+				_level_save.status = level_status.clear_normal;
 			levels_unlock();
 		}
 		frame = 0;

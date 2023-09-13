@@ -22,8 +22,8 @@ function hp_init(_hp = 1)
 
 /// @function enemy_hurt
 /// @param _hp = 1
-/// @param _hurt_timer = 32
-function enemy_hurt(_hp = 1, _hurt_timer = 32)
+/// @param _hurt_timer = 8
+function enemy_hurt(_hp = 1, _hurt_timer = 8)
 {
 	hp = max(hp - _hp, 0);
 	hurt_timer_set(_hurt_timer);

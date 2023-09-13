@@ -301,9 +301,9 @@ switch (state)
 					random_set_seed(694201337);
 					break;
 				default:
-					_cutscene_room = global.levels[global.level_id][level_data.cutscene_room_begin];
+					_cutscene_room = global.level_cutscene_list[global.story_mode][global.level_id][level_cutscene_data.before];
 					randomize();
-					if (!level_complete_get(global.level_id) && _cutscene_room != -1)
+					if (!level_complete_get(global.level_id) && _cutscene_room != undefined)
 					{
 						spawn_point_set(_cutscene_room);
 						instance_create_layer(0, 0, "layer_instances", obj_room_transition_fade);

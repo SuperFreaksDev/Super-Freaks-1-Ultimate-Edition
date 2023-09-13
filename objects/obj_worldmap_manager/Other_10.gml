@@ -9,13 +9,13 @@ var _i;
 switch (state)
 {
 	case 0: //Loop Through Icons
-		for (_i = level_num; _i < array_length(global.worldmap_icons); ++_i)
+		for (_i = level_num; _i < array_length(global.worldmap_icons[global.story_mode]); ++_i)
 		{
-			if (global.worldmap_icons[_i][worldmap_icon_data.status] == global.levels[_i][level_data.status])
+			if (global.worldmap_icons[global.story_mode][_i][worldmap_icon_data.status] == level_status_get(_i))
 				continue;
 			else
 			{
-				if (is_undefined(global.worldmap_icons[_i][worldmap_icon_data.instance]))
+				if (is_undefined(global.worldmap_icons[global.story_mode][_i][worldmap_icon_data.instance]))
 					continue;
 				else
 				{
@@ -30,8 +30,8 @@ switch (state)
 	case 1: //Move to Icon
 		if (state_begin)
 		{
-			target_x = clamp(global.worldmap_icons[level_num][worldmap_icon_data.x], _screen_width_half, room_width - _screen_width_half);
-			target_y = clamp(global.worldmap_icons[level_num][worldmap_icon_data.y], _screen_height_half, room_height - _screen_height_half);
+			target_x = clamp(global.worldmap_icons[global.story_mode][level_num][worldmap_icon_data.x], _screen_width_half, room_width - _screen_width_half);
+			target_y = clamp(global.worldmap_icons[global.story_mode][level_num][worldmap_icon_data.y], _screen_height_half, room_height - _screen_height_half);
 		}
 		
 		camera.x = lerp(camera.x, target_x, 0.25);
@@ -44,11 +44,11 @@ switch (state)
 		if (state_begin)
 		{
 			frame = 0;
-			global.worldmap_icons[level_num][worldmap_icon_data.status] = global.levels[level_num][level_data.status];
+			global.worldmap_icons[global.story_mode][level_num][worldmap_icon_data.status] = level_status_get(level_num);
 			sfx_play_global(sfx_unlock_level);
-			with (global.worldmap_icons[level_num][worldmap_icon_data.instance])
+			with (global.worldmap_icons[global.story_mode][level_num][worldmap_icon_data.instance])
 			{
-				switch (global.worldmap_icons[level_id][worldmap_icon_data.status])
+				switch (global.worldmap_icons[global.story_mode][level_id][worldmap_icon_data.status])
 				{
 					case level_status.locked:
 						visible = false;

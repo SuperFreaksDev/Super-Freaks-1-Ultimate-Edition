@@ -255,6 +255,8 @@ switch (state)
 		
 		if (timer < 200)
 		{
+			if (timer mod 4 == 0)
+				instance_create_layer(x - 256 + random(512), y - 256 + random(512), "layer_instances", obj_kranion_suction_star);
 			if (timer mod (16 - (global.difficulty - 1) * 2) == 0)
 			{
 				sfx_play_global(sfx_explode_short);

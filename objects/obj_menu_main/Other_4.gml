@@ -36,7 +36,7 @@ switch (global.game_mode)
 
 level_complete_list_reset();
 museum_unlocks();
-museum_save();
+//museum_save();
 for (_i = 0; _i < array_length(global.museum_stuff[museum_data.characters]); ++_i)
 {
 	if (global.museum_stuff[museum_data.characters][_i][museum_character_data.unlocked])

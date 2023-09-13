@@ -11,6 +11,8 @@ switch (state)
 		{
 			animation = 0;
 			animation_previous = 0;
+			global.input_source_mode_previous = input_source_mode_get();
+			input_source_mode_set(INPUT_SOURCE_MODE.JOIN);
 			//audio_pause_all();
 			//music_resume();
 			//sfx_play_global(sfx_ding);
@@ -31,6 +33,7 @@ switch (state)
 		if (animation == 0)
 		{
 			state_next_set(pause_menu_states.inactive);
+			input_source_mode_set(global.input_source_mode_previous);
 			instance_destroy();
 		}
 		break;

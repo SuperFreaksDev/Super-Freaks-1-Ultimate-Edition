@@ -105,6 +105,17 @@ while (_frames_game > 0)
 	with (obj_system)
 		instance_step();
 		
+	with (obj_gameplay_manager)
+	{
+		if (the_trophy_appears > 0 || _pause)
+		{
+			trophy_offset = max(trophy_offset - 3, 0);
+			the_trophy_appears--;
+		}
+		else
+			trophy_offset = min(trophy_offset + 3, 32);
+	}
+		
 	if (!_pause)
 	{
 		with (obj_gameplay_manager)

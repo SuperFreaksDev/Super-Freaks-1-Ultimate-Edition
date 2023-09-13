@@ -10,6 +10,7 @@ if (value == 0)
 else
 {
 	draw_set_font(global.font_12);
+	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text_transformed(x + (16 * _mirror), _y, value, _mirror, 1, 0);

@@ -122,7 +122,7 @@
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1440.0,"y":896.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1E3F2FD5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_worldmap_icon","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_worldmap_icon","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"propertyId":{"name":"level_id","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"value":"28",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1632.0,"y":928.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1632.0,"y":864.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_35B55F17","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_worldmap_icon","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_worldmap_icon","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"propertyId":{"name":"level_id","path":"objects/obj_worldmap_icon/obj_worldmap_icon.yy",},"value":"29",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1664.0,"y":640.0,},
