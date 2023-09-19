@@ -109,8 +109,22 @@ function options_reset()
 					player_number = _player_number;
 			}
 		});
+		
+		menu_option_add(0, 5, "Reconnect Controllers", function()
+		{
+			var _screen, _i;
+			//var _player_number = player_number;
+			if (input_check_pressed("confirm", player_number))
+			{
+				for (_i = 0; _i < INPUT_MAX_PLAYERS; ++_i)
+				{
+					player_drop_out_force(_i);
+				}
+				_screen = instance_create_layer(0, 0, "layer_instances", obj_players_connected_screen);
+			}
+		});
 
-		menu_option_add(0, 5, "Exit Level", function()
+		menu_option_add(0, 6, "Exit Level", function()
 		{
 			if (input_check_pressed("confirm", player_number))
 			{

@@ -15,6 +15,9 @@ var _view_y2 = _view_y1 + _view_height;
 var _offset = 0;
 var _binding, _icon;
 var _mirror = mirror_flip_get();
+var _zoom = global.view.z;
+var _heart_zoom = 32;
+var _heart_meter_zoom = _heart_zoom / 100;
 
 #region Draw Water
 	water_draw();
@@ -37,7 +40,7 @@ var _mirror = mirror_flip_get();
 			_player_instance = _list_thing[player_data.instance];
 			_draw_x = lerp(_player_instance.x_start_frame, _player_instance.x, frame_delta_player_get());
 			_draw_y = lerp(_player_instance.y_start_frame, _player_instance.y, frame_delta_player_get());
-			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - 32, _mirror, 1, 0, c_white, 1);
+			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - (32 * _zoom), _mirror * _zoom, _zoom, 0, c_white, 1);
 			
 			if (_player_instance.water_meter < 100 || _player_instance.underwater)
 			{
@@ -45,8 +48,8 @@ var _mirror = mirror_flip_get();
 				if (_player_instance.water_meter < 40 && global.animate >= 4)
 					_bubble_index = 1;
 				_player_water_meter = _player_instance.water_meter;
-		        draw_sprite(spr_HUD_water_meter, 2, _draw_x - 16 + (32 * -_mirror), _draw_y - 64);
-		        draw_sprite_part(spr_HUD_water_meter, _bubble_index, 0, 32 - (_player_water_meter * 0.32), 32, (_player_water_meter * 0.32), _draw_x - 16 + (32 * -_mirror), _draw_y - 32 - (_player_water_meter * 0.32));
+		        draw_sprite_ext(spr_HUD_water_meter, 2, _draw_x - (16 * _zoom) + (32 * _zoom * -_mirror), _draw_y - (64 * _zoom), _zoom, _zoom, 0, c_white, 1);
+		        draw_sprite_general(spr_HUD_water_meter, _bubble_index, 0, 32 - (_player_water_meter * 0.32), 32, (_player_water_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * -_mirror), _draw_y - (32 * _zoom) - (_player_water_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
 			}
 		}
 	}

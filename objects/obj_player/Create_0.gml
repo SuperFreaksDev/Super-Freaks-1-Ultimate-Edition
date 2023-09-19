@@ -58,15 +58,28 @@ character_index = 0;
 	jump_buffer = 0;
 	#macro JUMP_BUFFER_MAX 8
 	etc_buffer = 0;
+	
+	hp = 0;
+	ego_invincible = 0;
 #endregion
 
 #region Collision
 	hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, -8, -12, 8, 20);
 	hurt_timer_set(0);
 	
-	collider_detector_up_set(-6, 0, 6, 0, -16);
-	collider_detector_sides_set(-8, 0, 16, 0, 14);
-	collider_detector_down_set(-8, 0, 8, 0, 24);
+	switch (global.story_mode)
+	{
+		default:
+			collider_detector_up_set(-6, 0, 6, 0, -16);
+			collider_detector_sides_set(-8, 0, 16, 0, 14);
+			collider_detector_down_set(-8, 0, 8, 0, 24);
+			break;
+		case story_modes.kranion:
+			collider_detector_up_set(-10, 0, 10, 0, -24);
+			collider_detector_sides_set(-12, 0, 18, 0, 18);
+			collider_detector_down_set(-12, 0, 12, 0, 32);
+			break;
+	}
 	
 	behavior_ceiling = 0;
 	behavior_floor = 0;

@@ -7,6 +7,7 @@ event_inherited();
 
 animation = 0;
 animation_previous = 0;
+surface = -1;
 depth = -9999;
 
 state_machine_init();

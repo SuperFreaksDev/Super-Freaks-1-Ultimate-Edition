@@ -13,6 +13,7 @@ var _dialog_width, _dialog_height;
 var _animate = lerp(animation_previous, animation, frame_delta_game_get());
 var _text;
 var _font_size;
+var _device_list;
 
 if (!surface_exists(global.surface_HUD))
 	exit;
@@ -31,22 +32,39 @@ _font_size = font_get_size(global.font_12) + 4;
 
 if (_animate > 0)
 {
-	_dialog_width = (string_width_ext("Player " + string(INPUT_MAX_PLAYERS), -1, 320) + 32) * _animate;
-	_dialog_height = ((_font_size * INPUT_MAX_PLAYERS) + 32) * _animate;
+	_dialog_width = (424 * _animate);
+	_dialog_height = ((_font_size * INPUT_MAX_PLAYERS * 2) + 32) * _animate;
 	draw_sprite_stretched(spr_menu, 0, _x - (_dialog_width / 2), _y - (_dialog_height / 2), _dialog_width, _dialog_height);
 }
 
 if (_animate == 1)
 {
+	//draw_set_valign(fa_top);
 	for (_i = 0; _i < INPUT_MAX_PLAYERS; ++_i)
 	{
 		if (input_player_connected(_i))
 			draw_set_color(c_white);
 		else
 			draw_set_color(c_black);
+			
+		_text = "Player " + string(_i + 1) + "\nPress Any Key/Button";
+		_device_list = input_source_get_array(_i);
 		
-		_text = "Player " + string(_i + 1);
-		draw_text(_x, _y + (_font_size * _i) - ((INPUT_MAX_PLAYERS - 1) * _font_size) / 2, _text);
+		if (array_length(_device_list) > 0)
+		{
+			switch (_device_list[0])
+			{
+				case INPUT_KEYBOARD:
+				case INPUT_MOUSE:
+					_text = "Player " + string(_i + 1) + "\nKeyboard and Mouse";
+					break;
+				default:
+					_text = "Player " + string(_i + 1) + "\n" + string_upper(input_player_get_gamepad_type(_i));
+					break;
+			}
+		}
+		
+		draw_text(_x, _y + (_font_size * _i * 2) - ((INPUT_MAX_PLAYERS - 1) * _font_size * 2) / 2, _text);
 	}
 	
 	draw_set_color(c_white);

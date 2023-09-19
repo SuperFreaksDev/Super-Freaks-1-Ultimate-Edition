@@ -136,17 +136,17 @@ switch (state)
 				case difficulty_levels.easy:
 					speed_h = 3 * face;
 					speed_v = -4;
-					counter = 2;
+					counter = 1;
 					break;
 				case difficulty_levels.normal:
-					speed_h = 6 * face;
+					speed_h = 5 * face;
 					speed_v = -8;
-					counter = 3;
+					counter = 2;
 					break;
 				case difficulty_levels.hard:
-					speed_h = 7 * face;
-					speed_v = -12;
-					counter = 3;
+					speed_h = 6 * face;
+					speed_v = -10;
+					counter = 2;
 					break;
 			}
 			animate_speed += 0.0025;
