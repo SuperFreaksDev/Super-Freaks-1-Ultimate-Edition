@@ -291,12 +291,21 @@ function view_step()
 		
 		screen_shake_x = max(abs(screen_shake_x) - 1, 0) * choose(1, -1);
 		screen_shake_y = max(abs(screen_shake_y) - 1, 0) * choose(1, -1);
+		
+		_view_x = clamp(x, _view_width / 2, room_width - (_view_width / 2));
+		_view_y = clamp(y, _view_height / 2, room_height - (_view_height / 2));
 			
 		array_copy(spawn_area_previous, 0, spawn_area, 0, 4);
-		spawn_area[0] = max(0, x - (_screen_width_max * z) / 2);
-		spawn_area[1] = max(0, y - (_screen_height_max * z) / 2);
-		spawn_area[2] = min(room_width, spawn_area[0] + (_screen_width_max * z));
-		spawn_area[3] = min(room_height, spawn_area[1] + (_screen_height_max * z));
+		spawn_area[0] = _view_x - (_view_width / 2);
+		spawn_area[1] = _view_y - (_view_height / 2);
+		spawn_area[2] = _view_x + (_view_width / 2);
+		spawn_area[3] = _view_y + (_view_height / 2);
+		/*
+		spawn_area[0] = max(0, x - (_view_width / 2));
+		spawn_area[1] = max(0, y - (_view_height / 2));
+		spawn_area[2] = min(room_width, spawn_area[0] + _view_width);
+		spawn_area[3] = min(room_height, spawn_area[1] + _view_height);
+		*/
 	}
 }
 

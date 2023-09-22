@@ -7,7 +7,7 @@
   "option_windows_company_info": "SuperFreaksDev",
   "option_windows_copy_exe_to_dest": false,
   "option_windows_copyright_info": "",
-  "option_windows_description_info": "Super Freaks 1 Ultimate Edition",
+  "option_windows_description_info": "The hit game featuring graphics and stuff",
   "option_windows_disable_sandbox": false,
   "option_windows_display_cursor": true,
   "option_windows_display_name": "Super Freaks 1 Ultimate Edition",

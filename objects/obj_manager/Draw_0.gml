@@ -78,6 +78,13 @@ var _view_y2 = _view_y1 + _view_height;
 					draw_rectangle(_x1, _y1, _x2, _y2, true);
 				}
 			}
+			
+			_x1 = global.view.spawn_area[0];
+			_y1 = global.view.spawn_area[1];
+			_x2 = global.view.spawn_area[2];
+			_y2 = global.view.spawn_area[3];
+			
+			draw_rectangle(_x1, _y1, _x2, _y2, true);
 		}
 		if (global.debug_viewer[debug_viewer_types.hitboxes] == true)
 		{

@@ -41,6 +41,8 @@ var _heart_meter_zoom = _heart_zoom / 100;
 			_draw_x = lerp(_player_instance.x_start_frame, _player_instance.x, frame_delta_player_get());
 			_draw_y = lerp(_player_instance.y_start_frame, _player_instance.y, frame_delta_player_get());
 			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - (32 * _zoom), _mirror * _zoom, _zoom, 0, c_white, 1);
+			if (_player_instance.state == player_states.bubble)
+				draw_verb(_player_instance.player_number, "bubble", _draw_x, _draw_y - (72 * _zoom), _zoom * _mirror, _zoom);
 			
 			if (_player_instance.water_meter < 100 || _player_instance.underwater)
 			{

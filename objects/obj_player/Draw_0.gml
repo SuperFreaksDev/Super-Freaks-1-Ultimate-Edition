@@ -30,7 +30,6 @@ switch (state)
 	case player_states.bubble:
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_player_bubble, image_index, _x, _y, 1, 1, 0, c_white, 0.5);
-		draw_verb(player_number, "bubble", _x + 36, _y - 48);
 		_rubber_band_draw = false;
 		break;
 	case player_states.death:
@@ -40,7 +39,7 @@ switch (state)
 		break;
 	case player_states.hang:
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
-		if (input_check("down", player_number))
+		if (input_check("down", player_number) && !game_pause_get())
 			draw_sprite_ext(spr_menu_arrow_32, 0, _x, _y + 48, 1, 1, 270, c_white, 0.5);
 		break;
 	default:

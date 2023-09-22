@@ -39,7 +39,9 @@ function draw_pie(_x, _y, _value, _value_max, _radius, _angle_start = 90)
 /// @param {Int} _action
 /// @param {Real} _x
 /// @param {Real} _y
-function draw_verb(_player_number = 0, _action, _x, _y)
+/// @param {Real} _xscale = 1
+/// @param {Real} _yscale = 1
+function draw_verb(_player_number = 0, _action, _x, _y, _xscale = 1, _yscale = 1)
 {
 	var _frame = 0;
 	var _binding = input_binding_get(_action, _player_number);
@@ -51,5 +53,5 @@ function draw_verb(_player_number = 0, _action, _x, _y)
 	if (global.animate > 4)
 		_frame = 1;
 	
-	draw_sprite(_icon, _frame, _x, _y);
+	draw_sprite_ext(_icon, _frame, _x, _y, _xscale, _yscale, 0, c_white, 1);
 }
