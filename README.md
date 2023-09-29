@@ -2,5 +2,4 @@
  
 Made in Game Maker Studio 2
 
-Game is still a WIP but is nearing completion.
-WIP Godot Port by JorJoe05: https://github.com/JorJoe05/Super-Freaks-1-Ultimate-Godot
+Game is now 100% COMPLETE!!! LET'S MCFREAKIN LOSE IT!!!
