@@ -12,7 +12,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Mega Klaw",
-    "path": "folders/Objects/Bosses/Mega Klaw.yy",
+    "path": "folders/Objects/Enemies/Bosses/Mega Klaw.yy",
   },
   "parentObjectId": {
     "name": "obj_boss",

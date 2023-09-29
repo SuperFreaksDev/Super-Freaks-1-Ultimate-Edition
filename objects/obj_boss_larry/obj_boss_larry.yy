@@ -15,7 +15,7 @@
   ],
   "parent": {
     "name": "Larry McPeel",
-    "path": "folders/Objects/Bosses/Larry McPeel.yy",
+    "path": "folders/Objects/Enemies/Bosses/Larry McPeel.yy",
   },
   "parentObjectId": {
     "name": "obj_enemy",

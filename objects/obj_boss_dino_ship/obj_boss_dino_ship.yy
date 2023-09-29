@@ -13,7 +13,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Dino",
-    "path": "folders/Objects/Bosses/Dino.yy",
+    "path": "folders/Objects/Enemies/Bosses/Dino.yy",
   },
   "parentObjectId": {
     "name": "obj_boss",

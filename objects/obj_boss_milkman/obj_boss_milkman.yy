@@ -13,7 +13,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Milk Man",
-    "path": "folders/Objects/Bosses/Milk Man.yy",
+    "path": "folders/Objects/Enemies/Bosses/Milk Man.yy",
   },
   "parentObjectId": {
     "name": "obj_boss",

@@ -1,0 +1,17 @@
+{
+    "name":  "Example",
+    "sprites":
+    {
+        "path": "spr",
+        "jump":
+        {
+            "frames": 8,
+            "xorig":  24,
+            "yorig":  40
+        }
+    },
+    "sounds":
+    {
+        "path": "snd"
+    }
+}

@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Kranion",
-    "path": "folders/Objects/Bosses/Kranion.yy",
+    "path": "folders/Objects/Enemies/Bosses/Kranion.yy",
   },
   "parentObjectId": {
     "name": "obj_room_transition_parent",

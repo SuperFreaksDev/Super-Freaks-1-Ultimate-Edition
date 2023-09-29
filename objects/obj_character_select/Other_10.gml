@@ -193,14 +193,14 @@ switch (state)
 							{
 								global.player_list[_player_num][player_data.character_index]++;
 					
-								if (global.player_list[_player_num][player_data.character_index] >= character_indexes.count)
+								if (global.player_list[_player_num][player_data.character_index] >= global.character_indexes.count)
 									global.player_list[_player_num][player_data.character_index] = 0;
 					
 								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]++;
 					
-									if (global.player_list[_player_num][player_data.character_index] >= character_indexes.count)
+									if (global.player_list[_player_num][player_data.character_index] >= global.character_indexes.count)
 										global.player_list[_player_num][player_data.character_index] = 0;
 								}
 							}
@@ -209,13 +209,13 @@ switch (state)
 								global.player_list[_player_num][player_data.character_index]--;
 					
 								if (global.player_list[_player_num][player_data.character_index] < 0)
-									global.player_list[_player_num][player_data.character_index] = character_indexes.count - 1;
+									global.player_list[_player_num][player_data.character_index] = global.character_indexes.count - 1;
 						
 								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]--;
 									if (global.player_list[_player_num][player_data.character_index] < 0)
-										global.player_list[_player_num][player_data.character_index] = character_indexes.count - 1;
+										global.player_list[_player_num][player_data.character_index] = global.character_indexes.count - 1;
 								}
 							}
 						}
