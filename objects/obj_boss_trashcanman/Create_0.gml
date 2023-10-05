@@ -16,4 +16,4 @@ attack_x = x;
 attack_y = y;
 can_despawn = false;
 
-character_index = character_indexes.trash_can_man;
+character_index = global.character_indexes.trash_can_man;

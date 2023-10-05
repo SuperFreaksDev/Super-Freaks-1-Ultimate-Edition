@@ -42,7 +42,7 @@ enum player_animations
 	count,
 }
 
-global.character_indexes.count = array_length(struct_get_names(global.character_indexes));
+global.character_count = array_length(struct_get_names(global.character_indexes));
 
 /// @function characters_init
 function characters_init()
@@ -56,7 +56,7 @@ function characters_init()
 	global.player_deathsound   = [];
 	global.characters_unlocked = [];
 	
-	for (_i = 0; _i < global.character_indexes.count; ++_i)
+	for (_i = 0; _i < global.character_count; ++_i)
 	{
 		global.character_names[_i] = "";
 		global.characters_unlocked[_i] = false;
@@ -64,7 +64,7 @@ function characters_init()
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
 	{
-		array_push(global.player_animation, array_create(global.character_indexes.count));
+		array_push(global.player_animation, array_create(global.character_count));
 	}
 	
 	global.characters_unlocked[global.character_indexes.scruffy] = true;
@@ -562,6 +562,8 @@ function player_character_get(_player_number)
 function player_animation_create(_character_index, _animation_index, _sprite)
 {
 	global.player_animation[_animation_index][_character_index] = _sprite;
+	
+	if (_character_index >= 20 && _animation_index != player_animations.hud_face) sprite_set_offset(_sprite, max(0, sprite_get_width(_sprite) / 2), max(0, sprite_get_height(_sprite) - 24));
 	
 	gml_pragma("forceinline");
 }

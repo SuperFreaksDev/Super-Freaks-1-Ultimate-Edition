@@ -42,16 +42,21 @@ function freakloader_init()
 		file_find_close();
 	}
 
-	global.character_indexes.count = array_length(struct_get_names(global.character_indexes)) + array_length(struct_get_names(global.custom_character_indexes));
+	global.character_count = array_length(struct_get_names(global.character_indexes)) + array_length(struct_get_names(global.custom_character_indexes));
 	
-	for (var i = 0; i < array_length(struct_get_names(global.custom_character_indexes)); i++)
+	if (array_length(struct_get_names(global.custom_character_indexes)) > 0)
 	{
-		global.characters_unlocked[global.custom_character_indexes[$ struct_get_names(global.custom_character_indexes)[i]]] = true;
+		for (var i = 0; i < array_length(struct_get_names(global.custom_character_indexes)); i++)
+		{
+			global.characters_unlocked[global.custom_character_indexes[$ struct_get_names(global.custom_character_indexes)[i]]] = true;
+		}
 	}
 }
 
 function freakloader_add_chars()
 {
+	if (array_length(struct_get_names(global.custom_character_indexes)) == 0) exit;
+	
 	var customChars = struct_get_names(global.custom_character_indexes),
 		character_;
 	
@@ -65,19 +70,19 @@ function freakloader_add_chars()
 		_character = global.custom_character_indexes[$ customChars[i]];
 		global.character_names[_character] = charFile.name;
 		player_animation_create(_character, player_animations.hud_face, sprite_add($"{filePath}/{charFile.sprites.path}/hud.png", 2, false, false, 16, 16));
-		player_animation_create(_character, player_animations.idle, sprite_add($"{filePath}/{charFile.sprites.path}/stand.png", 1, false, false, 24, 40));
-		player_animation_create(_character, player_animations.walk, sprite_add($"{filePath}/{charFile.sprites.path}/walk.png", 4, false, false, 24, 40));
-		player_animation_create(_character, player_animations.skid, spr_player_skid_scruffy);
-		player_animation_create(_character, player_animations.hurt, spr_player_hurt_scruffy);
-		player_animation_create(_character, player_animations.death, sprite_add($"{filePath}/{charFile.sprites.path}/death.png", 1, false, false, 24, 40));
-		player_animation_create(_character, player_animations.air, spr_player_air_scruffy);
-		player_animation_create(_character, player_animations.jump, sprite_add($"{filePath}/{charFile.sprites.path}/jump.png", charFile.sprites.jump.frames, false, false, charFile.sprites.jump.xorig, charFile.sprites.jump.yorig));
-		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_scruffy);
-		player_animation_create(_character, player_animations.hang, spr_player_hang_scruffy);
-		player_animation_create(_character, player_animations.climb, spr_player_climb_scruffy);
-		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_scruffy);
-		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_scruffy);
-		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_scruffy);
+		player_animation_create(_character, player_animations.idle, sprite_add($"{filePath}/{charFile.sprites.path}/stand.png", charFile.sprites.stand.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.walk, sprite_add($"{filePath}/{charFile.sprites.path}/walk.png", charFile.sprites.walk.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.skid, sprite_add($"{filePath}/{charFile.sprites.path}/skid.png", charFile.sprites.skid.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.hurt, sprite_add($"{filePath}/{charFile.sprites.path}/hurt.png", charFile.sprites.hurt.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.death, sprite_add($"{filePath}/{charFile.sprites.path}/death.png", charFile.sprites.death.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.air, sprite_add($"{filePath}/{charFile.sprites.path}/air.png", charFile.sprites.air.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.jump, sprite_add($"{filePath}/{charFile.sprites.path}/jump.png", charFile.sprites.jump.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.wall_slide, sprite_add($"{filePath}/{charFile.sprites.path}/wall_slide.png", charFile.sprites.wall_slide.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.hang, sprite_add($"{filePath}/{charFile.sprites.path}/hang.png", charFile.sprites.hang.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.climb, sprite_add($"{filePath}/{charFile.sprites.path}/climb.png", charFile.sprites.climb.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.pole_climb, sprite_add($"{filePath}/{charFile.sprites.path}/pole.png", charFile.sprites.pole.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.pole_turn, sprite_add($"{filePath}/{charFile.sprites.path}/pole_turn.png", charFile.sprites.pole_turn.frames, false, false, 0, 0));
+		player_animation_create(_character, player_animations.rail_grind, sprite_add($"{filePath}/{charFile.sprites.path}/rail.png", charFile.sprites.rail.frames, false, false, 0, 0));
 		
 		player_mugshot_create(_character, sprite_add($"{filePath}/{charFile.sprites.path}/mugshot.png", 1, false, false, 32, 40));
 		
