@@ -294,6 +294,7 @@
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"char.json","CopyToMask":-1,"filePath":"datafiles/chars/example",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"README.txt","CopyToMask":-1,"filePath":"datafiles/chars/example",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"death.ogg","CopyToMask":-1,"filePath":"datafiles/chars/example/snd",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"air.png","CopyToMask":-1,"filePath":"datafiles/chars/example/spr",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"climb.png","CopyToMask":-1,"filePath":"datafiles/chars/example/spr",},
