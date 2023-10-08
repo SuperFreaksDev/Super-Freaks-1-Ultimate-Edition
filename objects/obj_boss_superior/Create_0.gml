@@ -14,4 +14,4 @@ wait = 0;
 attack_angle = 0;
 can_despawn = false;
 
-character_index = character_indexes.superior;
+character_index = global.character_indexes.superior;

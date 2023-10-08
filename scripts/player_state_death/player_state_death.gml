@@ -15,7 +15,7 @@ function player_state_death()
 		collider_attach_clear();
 		with (hitbox)
 			active = hitbox_active.inactive;
-		sfx_play_global(sfx_yell_wilhelm);
+		sfx_play_global(player_deathsound_get(character_index));
 		
 		if (!players_alive())
 		{

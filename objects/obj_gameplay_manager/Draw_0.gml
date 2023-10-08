@@ -100,7 +100,9 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				
 					if (_list_thing[player_data.active] == true)
 					{
-						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 48 + _offset, _view_y1 + 16);
+						var HUDDoDead = (_player_instance.state == player_states.death || _player_instance.state == player_states.bubble);
+						
+						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), HUDDoDead, _view_x1 + 48 + _offset, _view_y1 + 16);
 						if (_list_pos == global.player_lead)
 							draw_sprite(spr_multiplayer_crown, 0, _view_x1 + 48 + _offset, _view_y1 + 40);
 						if (_player_instance.rubber_band == true)

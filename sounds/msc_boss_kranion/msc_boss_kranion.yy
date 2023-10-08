@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 3,
   "conversionMode": 0,
-  "duration": 225.0,
+  "duration": 166.698,
   "parent": {
     "name": "Music",
     "path": "folders/Sounds/Music.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "msc_boss_kranion.ogg",
   "type": 1,
-  "volume": 0.25,
+  "volume": 1.0,
 }

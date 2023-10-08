@@ -83,7 +83,7 @@ switch (page)
 		{
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 248, _y - 32, 1, 1, 90, c_white, 1);
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 248, _y + 8, 1, 1, 270, c_white, 1);
-			draw_sprite(spr_character_select, global.player_list[_player_num][player_data.character_index], _x - 192, _y - 16);
+			draw_sprite(player_mugshot_get(_character_index), 0, _x - 192, _y - 16);
 			draw_text_ext(_x - 192, _y + 32, string(global.character_names[_character_index]), -1, 96);
 		}
 		else
@@ -99,7 +99,7 @@ switch (page)
 		{
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 124, _y - 32, 1, 1, 90, c_white, 1);
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 124, _y + 8, 1, 1, 270, c_white, 1);
-			draw_sprite(spr_character_select, global.player_list[_player_num][player_data.character_index], _x - 68, _y - 16);
+			draw_sprite(player_mugshot_get(_character_index), 0, _x - 68, _y - 16);
 			draw_text_ext(_x - 68, _y + 32, string(global.character_names[_character_index]), -1, 96);
 		}
 		else
@@ -115,7 +115,7 @@ switch (page)
 		{
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 124, _y - 32, 1, 1, 90, c_white, 1);
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 124, _y + 8, 1, 1, 270, c_white, 1);
-			draw_sprite(spr_character_select, global.player_list[_player_num][player_data.character_index], _x + 68, _y - 16);
+			draw_sprite(player_mugshot_get(_character_index), 0, _x + 68, _y - 16);
 			draw_text_ext(_x + 68, _y + 32, string(global.character_names[_character_index]), -1, 96);
 		}
 		else
@@ -131,7 +131,7 @@ switch (page)
 		{
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 248, _y - 32, 1, 1, 90, c_white, 1);
 			draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 248, _y + 8, 1, 1, 270, c_white, 1);
-			draw_sprite(spr_character_select, global.player_list[_player_num][player_data.character_index], _x + 192, _y - 16);
+			draw_sprite(player_mugshot_get(_character_index), 0, _x + 192, _y - 16);
 			draw_text_ext(_x + 192, _y + 32, string(global.character_names[_character_index]), -1, 96);
 		}
 		else

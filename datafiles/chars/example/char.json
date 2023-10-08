@@ -1,0 +1,64 @@
+{
+    "name":  "Example",
+    "sprites":
+    {
+        "path": "spr",
+
+        "stand":
+        {
+            "frames": 1
+        },
+        "walk":
+        {
+            "frames": 4
+        },
+        "skid":
+        {
+            "frames": 1
+        },
+        "hurt":
+        {
+            "frames": 1
+        },
+        "death":
+        {
+            "frames": 1
+        },
+        "air":
+        {
+            "frames": 1
+        },
+        "jump":
+        {
+            "frames": 8
+        },
+        "wall_slide":
+        {
+            "frames": 1
+        },
+        "hang":
+        {
+            "frames": 1
+        },
+        "climb":
+        {
+            "frames": 1
+        },
+        "pole":
+        {
+            "frames": 1
+        },
+        "pole_turn":
+        {
+            "frames": 2
+        },
+        "rail":
+        {
+            "frames": 1
+        }
+    },
+    "sounds":
+    {
+        "path": "snd"
+    }
+}

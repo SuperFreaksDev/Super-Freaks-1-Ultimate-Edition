@@ -19,4 +19,4 @@ attack_y = undefined;
 can_despawn = false;
 blink = false;
 
-character_index = character_indexes.geyzer;
+character_index = global.character_indexes.geyzer;

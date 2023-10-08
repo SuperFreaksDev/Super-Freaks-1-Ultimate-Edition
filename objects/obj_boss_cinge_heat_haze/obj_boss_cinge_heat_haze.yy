@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Cinge",
-    "path": "folders/Objects/Bosses/Cinge.yy",
+    "path": "folders/Objects/Enemies/Bosses/Cinge.yy",
   },
   "parentObjectId": {
     "name": "obj_level_obj",

@@ -14,7 +14,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Skullmobile",
-    "path": "folders/Objects/Bosses/Skullmobile.yy",
+    "path": "folders/Objects/Enemies/Bosses/Skullmobile.yy",
   },
   "parentObjectId": {
     "name": "obj_boss",

@@ -1,27 +1,25 @@
-enum character_indexes
+global.character_indexes =
 {
-	scruffy = 0,
-	quincy,
-	gambi,
-	tikiman,
-	superior,
-	negative_quincy,
-	geyzer,
-	trash_can_man,
-	slaypool,
-	cyquops,
-	gloverine,
-	professor_t,
-	scruffy_2006,
-	quincy_2006,
-	gambi_2006,
-	tikiman_2006,
-	dino,
-	uncle_swordsman,
-	boney_m,
-	brick,
-	
-	count,
+	scruffy: 0,
+	quincy: 1,
+	gambi: 2,
+	tikiman: 3,
+	superior: 4,
+	negative_quincy: 5,
+	geyzer: 6,
+	trash_can_man: 7,
+	slaypool: 8,
+	cyquops: 9,
+	gloverine: 10,
+	professor_t: 11,
+	scruffy_2006: 12,
+	quincy_2006: 13,
+	gambi_2006: 14,
+	tikiman_2006: 15,
+	dino: 16,
+	uncle_swordsman: 17,
+	boney_m: 18,
+	brick: 19
 }
 
 enum player_animations
@@ -44,17 +42,21 @@ enum player_animations
 	count,
 }
 
+global.character_count = array_length(struct_get_names(global.character_indexes));
+
 /// @function characters_init
 function characters_init()
 {
 	var _i;
 	var _character;
 	
-	global.character_names = [];
-	global.player_animation = [];
+	global.character_names	   = [];
+	global.player_animation	   = [];
+	global.player_mugshot      = [];
+	global.player_deathsound   = [];
 	global.characters_unlocked = [];
 	
-	for (_i = 0; _i < character_indexes.count; ++_i)
+	for (_i = 0; _i < global.character_count; ++_i)
 	{
 		global.character_names[_i] = "";
 		global.characters_unlocked[_i] = false;
@@ -62,16 +64,16 @@ function characters_init()
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
 	{
-		array_push(global.player_animation, array_create(character_indexes.count));
+		array_push(global.player_animation, array_create(global.character_count));
 	}
 	
-	global.characters_unlocked[character_indexes.scruffy] = true;
-	global.characters_unlocked[character_indexes.quincy] = true;
-	global.characters_unlocked[character_indexes.gambi] = true;
-	global.characters_unlocked[character_indexes.tikiman] = true;
+	global.characters_unlocked[global.character_indexes.scruffy] = true;
+	global.characters_unlocked[global.character_indexes.quincy] = true;
+	global.characters_unlocked[global.character_indexes.gambi] = true;
+	global.characters_unlocked[global.character_indexes.tikiman] = true;
 	
 	#region Scruffy
-		_character = character_indexes.scruffy;
+		_character = global.character_indexes.scruffy;
 		global.character_names[_character] = "Scruffy";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_scruffy);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_scruffy);
@@ -87,10 +89,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_scruffy);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_scruffy);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_scruffy);
+		
+		player_mugshot_create(_character, spr_character_select_scruffy);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region King Quincy
-		_character = character_indexes.quincy;
+		_character = global.character_indexes.quincy;
 		global.character_names[_character] = "King Quincy";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_quincy);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_quincy);
@@ -106,10 +112,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_quincy);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_quincy);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_quincy);
+		
+		player_mugshot_create(_character, spr_character_select_quincy);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Gambi
-		_character = character_indexes.gambi;
+		_character = global.character_indexes.gambi;
 		global.character_names[_character] = "Gambi";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_gambi);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_gambi);
@@ -125,10 +135,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_gambi);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_gambi);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_gambi);
+		
+		player_mugshot_create(_character, spr_character_select_gambi);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Tikiman
-		_character = character_indexes.tikiman;
+		_character = global.character_indexes.tikiman;
 		global.character_names[_character] = "Tikiman";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_tikiman);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_tikiman);
@@ -144,10 +158,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_tikiman);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_tikiman);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_tikiman);
+		
+		player_mugshot_create(_character, spr_character_select_tikiman);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Superior
-		_character = character_indexes.superior;
+		_character = global.character_indexes.superior;
 		global.character_names[_character] = "Superior";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_superior);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_superior);
@@ -163,10 +181,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_superior);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_superior);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_superior);
+		
+		player_mugshot_create(_character, spr_character_select_superior);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Negative Quincy
-		_character = character_indexes.negative_quincy;
+		_character = global.character_indexes.negative_quincy;
 		global.character_names[_character] = "Negative Quincy";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_negative_quincy);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_negative_quincy);
@@ -182,10 +204,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_negative_quincy);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_negative_quincy);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_negative_quincy);
+		
+		player_mugshot_create(_character, spr_character_select_negative_quincy);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Geyzer
-		_character = character_indexes.geyzer;
+		_character = global.character_indexes.geyzer;
 		global.character_names[_character] = "Geyzer";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_geyzer);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_geyzer);
@@ -201,10 +227,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_geyzer);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_geyzer);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_geyzer);
+		
+		player_mugshot_create(_character, spr_character_select_geyzer);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Trash Can Man
-		_character = character_indexes.trash_can_man;
+		_character = global.character_indexes.trash_can_man;
 		global.character_names[_character] = "Trash Can Man";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_trash_can_man);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_trash_can_man);
@@ -220,10 +250,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_trash_can_man);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_trash_can_man);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_trash_can_man);
+		
+		player_mugshot_create(_character, spr_character_select_trash_can_man);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Les Slaypool
-		_character = character_indexes.slaypool;
+		_character = global.character_indexes.slaypool;
 		global.character_names[_character] = "Les Slaypool";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_slaypool);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_slaypool);
@@ -239,10 +273,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_slaypool);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_slaypool);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_slaypool);
+		
+		player_mugshot_create(_character, spr_character_select_slaypool);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Cyquops
-		_character = character_indexes.cyquops;
+		_character = global.character_indexes.cyquops;
 		global.character_names[_character] = "Cyquops";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_cyquops);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_cyquops);
@@ -258,10 +296,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_cyquops);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_cyquops);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_cyquops);
+		
+		player_mugshot_create(_character, spr_character_select_cyquops);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Gloverine
-		_character = character_indexes.gloverine;
+		_character = global.character_indexes.gloverine;
 		global.character_names[_character] = "Gloverine";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_gloverine);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_gloverine);
@@ -277,10 +319,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_gloverine);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_gloverine);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_gloverine);
+		
+		player_mugshot_create(_character, spr_character_select_gloverine);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Professor T
-		_character = character_indexes.professor_t;
+		_character = global.character_indexes.professor_t;
 		global.character_names[_character] = "Professor T";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_professor_t);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_professor_t);
@@ -296,10 +342,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_professor_t);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_professor_t);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_professor_t);
+		
+		player_mugshot_create(_character, spr_character_select_professor_t);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Scruffy (2006)
-		_character = character_indexes.scruffy_2006;
+		_character = global.character_indexes.scruffy_2006;
 		global.character_names[_character] = "Scruffy (2006)";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_scruffy_2006);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_scruffy_2006);
@@ -315,10 +365,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_scruffy_2006);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_scruffy_2006);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_scruffy_2006);
+		
+		player_mugshot_create(_character, spr_character_select_scruffy_2006);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Quincy (2006)
-		_character = character_indexes.quincy_2006;
+		_character = global.character_indexes.quincy_2006;
 		global.character_names[_character] = "King Quincy (2006)";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_quincy_2006);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_quincy_2006);
@@ -334,10 +388,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_quincy_2006);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_quincy_2006);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_quincy_2006);
+		
+		player_mugshot_create(_character, spr_character_select_quincy_2006);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Gambi (2006)
-		_character = character_indexes.gambi_2006;
+		_character = global.character_indexes.gambi_2006;
 		global.character_names[_character] = "Gambi (2006)";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_gambi_2006);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_gambi_2006);
@@ -353,10 +411,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_gambi_2006);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_gambi_2006);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_gambi_2006);
+		
+		player_mugshot_create(_character, spr_character_select_gambi_2006);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Tikiman (2006)
-		_character = character_indexes.tikiman_2006;
+		_character = global.character_indexes.tikiman_2006;
 		global.character_names[_character] = "Tikiman (2006)";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_tikiman_2006);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_tikiman_2006);
@@ -372,10 +434,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_tikiman_2006);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_tikiman_2006);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_tikiman_2006);
+		
+		player_mugshot_create(_character, spr_character_select_tikiman_2006);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Dino
-		_character = character_indexes.dino;
+		_character = global.character_indexes.dino;
 		global.character_names[_character] = "Dino";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_dino);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_dino);
@@ -391,10 +457,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_dino);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_dino);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_dino);
+		
+		player_mugshot_create(_character, spr_character_select_dino);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Uncle Swordsman
-		_character = character_indexes.uncle_swordsman;
+		_character = global.character_indexes.uncle_swordsman;
 		global.character_names[_character] = "Uncle Swordsman";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_swordsman);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_swordsman);
@@ -410,10 +480,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_swordsman);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_swordsman);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_swordsman);
+		
+		player_mugshot_create(_character, spr_character_select_swordsman);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Boney M
-		_character = character_indexes.boney_m;
+		_character = global.character_indexes.boney_m;
 		global.character_names[_character] = "Boney M";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_boneym);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_boneym);
@@ -429,10 +503,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_boneym);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_boneym);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_boneym);
+		
+		player_mugshot_create(_character, spr_character_select_boneym);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
 	
 	#region Brick
-		_character = character_indexes.brick;
+		_character = global.character_indexes.brick;
 		global.character_names[_character] = "Brick";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_brick);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_brick);
@@ -448,7 +526,14 @@ function characters_init()
 		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_brick);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_brick);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_brick);
+		
+		player_mugshot_create(_character, spr_character_select_brick);
+		
+		player_deathsound_create(_character, sfx_yell_wilhelm);
 	#endregion
+	
+	freakloader_init();
+	freakloader_add_chars();
 }
 
 /// @function player_character_set
@@ -478,6 +563,8 @@ function player_animation_create(_character_index, _animation_index, _sprite)
 {
 	global.player_animation[_animation_index][_character_index] = _sprite;
 	
+	if (_character_index >= 20 && _animation_index != player_animations.hud_face) sprite_set_offset(_sprite, max(0, sprite_get_width(_sprite) / 2), max(0, sprite_get_height(_sprite) - 24));
+	
 	gml_pragma("forceinline");
 }
 
@@ -487,6 +574,34 @@ function player_animation_create(_character_index, _animation_index, _sprite)
 function player_animation_get(_character_index, _animation_index)
 {
 	return global.player_animation[_animation_index][_character_index];
+	
+	gml_pragma("forceinline");
+}
+
+function player_mugshot_create(_character_index, _sprite)
+{
+	global.player_mugshot[_character_index] = _sprite;
+	
+	gml_pragma("forceinline");
+}
+
+function player_mugshot_get(_character_index)
+{
+	return global.player_mugshot[_character_index];
+	
+	gml_pragma("forceinline");
+}
+
+function player_deathsound_create(_character_index, _sound)
+{
+	global.player_deathsound[_character_index] = _sound;
+	
+	gml_pragma("forceinline");
+}
+
+function player_deathsound_get(_character_index)
+{
+	return global.player_deathsound[_character_index];
 	
 	gml_pragma("forceinline");
 }

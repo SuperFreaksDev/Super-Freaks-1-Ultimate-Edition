@@ -14,4 +14,4 @@ wait = 0;
 ground_on = false;
 can_despawn = false;
 
-character_index = character_indexes.negative_quincy;
+character_index = global.character_indexes.negative_quincy;
