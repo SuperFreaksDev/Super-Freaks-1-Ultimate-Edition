@@ -120,7 +120,7 @@ function player_rubberband_activate()
 /// @function player_hurt
 function player_hurt()
 {
-	if (invincible == false && hurt_timer == 0 && state != player_states.hurt)
+	if (invincible == false && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
 		hurt_timer_set(120);
 		if (global.hearts > 0)
@@ -142,6 +142,19 @@ function player_hurt()
 		}
 		else
 			state_next_set(player_states.death, 999);
+	}
+	
+	gml_pragma("forceinline");
+}
+
+/// @function player_kill
+function player_kill()
+{
+	if (invincible == false && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
+	{
+		if (global.hearts > 0)
+			global.hearts--;
+		state_next_set(player_states.death, 999);
 	}
 	
 	gml_pragma("forceinline");

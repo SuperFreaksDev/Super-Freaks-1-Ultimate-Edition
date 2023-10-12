@@ -5,7 +5,7 @@ var _hitbox_self = global.hitbox_collision_stored[hitbox_collision_stored_data.h
 if (_hitbox_self == hitbox)
 {
 	with (other)
-		state_next_set(player_states.death, 999999);
+		player_kill();
 }
 else
 {
