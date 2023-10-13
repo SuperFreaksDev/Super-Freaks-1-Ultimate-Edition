@@ -29,7 +29,7 @@ switch (state)
 		break;
 	case player_states.bubble:
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
-		var bubbleXScale = min(1, sprite_get_width(spr_player_bubble) div sprite_get_width(sprite_index)) + (sprite_get_width(sprite_index) > 48);
+		var bubbleXScale = min(1, sprite_get_width(spr_player_bubble) div sprite_get_width(sprite_index)) + (sprite_get_width(sprite_index) > 64);
 			bubbleYScale = min(1, sprite_get_height(spr_player_bubble) div sprite_get_height(sprite_index)) + (sprite_get_height(sprite_index) > 64);
 		draw_sprite_ext(spr_player_bubble, image_index, _x, _y, bubbleXScale, bubbleYScale, 0, c_white, 0.5);
 		_rubber_band_draw = false;
