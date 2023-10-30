@@ -15,7 +15,7 @@ function player_state_death_fall()
 		with (hitbox)
 			active = hitbox_active.inactive;
 			
-		sfx_play_global(sfx_yell_goofy);
+		sfx_play_global(player_fallsound_get(character_index));
 		
 		if (!players_alive())
 		{

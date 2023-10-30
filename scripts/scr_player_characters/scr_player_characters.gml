@@ -53,7 +53,9 @@ function characters_init()
 	global.character_names	   = [];
 	global.player_animation	   = [];
 	global.player_mugshot      = [];
+	global.player_jumpsound	   = [];
 	global.player_deathsound   = [];
+	global.player_fallsound	   = [];
 	global.characters_unlocked = [];
 	
 	for (_i = 0; _i < global.character_count; ++_i)
@@ -92,7 +94,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_scruffy);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region King Quincy
@@ -115,7 +119,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_quincy);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Gambi
@@ -138,7 +144,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_gambi);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Tikiman
@@ -161,7 +169,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_tikiman);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Superior
@@ -184,7 +194,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_superior);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Negative Quincy
@@ -207,7 +219,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_negative_quincy);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Geyzer
@@ -230,7 +244,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_geyzer);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Trash Can Man
@@ -253,7 +269,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_trash_can_man);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Les Slaypool
@@ -276,7 +294,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_slaypool);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Cyquops
@@ -299,7 +319,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_cyquops);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Gloverine
@@ -322,7 +344,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_gloverine);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Professor T
@@ -345,7 +369,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_professor_t);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Scruffy (2006)
@@ -368,7 +394,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_scruffy_2006);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Quincy (2006)
@@ -391,7 +419,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_quincy_2006);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Gambi (2006)
@@ -414,7 +444,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_gambi_2006);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Tikiman (2006)
@@ -437,7 +469,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_tikiman_2006);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Dino
@@ -460,7 +494,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_dino);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Uncle Swordsman
@@ -483,7 +519,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_swordsman);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Boney M
@@ -506,7 +544,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_boneym);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	#region Brick
@@ -529,7 +569,9 @@ function characters_init()
 		
 		player_mugshot_create(_character, spr_character_select_brick);
 		
+		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
 	#endregion
 	
 	freakloader_init();
@@ -592,6 +634,20 @@ function player_mugshot_get(_character_index)
 	gml_pragma("forceinline");
 }
 
+function player_jumpsound_create(_character_index, _sound)
+{
+	global.player_jumpsound[_character_index] = _sound;
+	
+	gml_pragma("forceinline");
+}
+
+function player_jumpsound_get(_character_index)
+{
+	return global.player_jumpsound[_character_index];
+	
+	gml_pragma("forceinline");
+}
+
 function player_deathsound_create(_character_index, _sound)
 {
 	global.player_deathsound[_character_index] = _sound;
@@ -602,6 +658,20 @@ function player_deathsound_create(_character_index, _sound)
 function player_deathsound_get(_character_index)
 {
 	return global.player_deathsound[_character_index];
+	
+	gml_pragma("forceinline");
+}
+
+function player_fallsound_create(_character_index, _sound)
+{
+	global.player_fallsound[_character_index] = _sound;
+	
+	gml_pragma("forceinline");
+}
+
+function player_fallsound_get(_character_index)
+{
+	return global.player_fallsound[_character_index];
 	
 	gml_pragma("forceinline");
 }

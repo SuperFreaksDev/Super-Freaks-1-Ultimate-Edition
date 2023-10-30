@@ -86,10 +86,22 @@ function freakloader_add_chars()
 		
 		player_mugshot_create(_character, sprite_add($"{filePath}/{charFile.sprites.path}/mugshot.png", 1, false, false, 32, 40));
 		
-		var sndPath  = $"{filePath}/snd/death.ogg",
-			sndToAdd = sfx_yell_wilhelm;
+		var sndPath  = $"{filePath}/snd/jump.ogg",
+			sndToAdd = sfx_jump;
+		
+		if (file_exists(sndPath)) sndToAdd = audio_create_stream(sndPath);
+		player_jumpsound_create(_character, sndToAdd);
+		
+		sndPath  = $"{filePath}/snd/death.ogg";
+		sndToAdd = sfx_yell_wilhelm;
 		
 		if (file_exists(sndPath)) sndToAdd = audio_create_stream(sndPath);
 		player_deathsound_create(_character, sndToAdd);
+		
+		sndPath  = $"{filePath}/snd/fall.ogg";
+		sndToAdd = sfx_yell_goofy;
+		
+		if (file_exists(sndPath)) sndToAdd = audio_create_stream(sndPath);
+		player_fallsound_create(_character, sndToAdd);
 	}
 }

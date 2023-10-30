@@ -167,7 +167,7 @@ function player_state_normal()
 			if (!ball || jetpack_jump_timer < 8)
 			{
 				ball = true;
-				sfx_play_global(sfx_jump);
+				sfx_play_global(player_jumpsound_get(character_index));
 				jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
 			}
 			ground_on = false;
@@ -179,7 +179,7 @@ function player_state_normal()
 				
 			if (!underwater && ground_on) || (underwater) || (coyote_time > 0)
 			{
-				sfx_play_global(sfx_jump);
+				sfx_play_global(player_jumpsound_get(character_index));
 				speed_v = -speed_jump;
 				ground_on = false;
 				coyote_time = 0;
