@@ -374,6 +374,10 @@ switch (state)
 		{
 			state_next_set(-1);
 			level_beat();
+			music_stop();
+			music_set(MUSIC_NA);
+			audio_stop_all();
+			audio_play_sound_on(global.audio_emitter_music, msc_victory_kranion, false, 0);
 		}
 		break;
 }
