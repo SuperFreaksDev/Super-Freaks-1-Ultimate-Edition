@@ -44,6 +44,8 @@ global.water_height = 256;
 
 global.frame = 0;
 
+global.story_mode = story_modes.kranion;
+
 gc_timer = 0;
 gc_enable(false);
 depth = -10005;

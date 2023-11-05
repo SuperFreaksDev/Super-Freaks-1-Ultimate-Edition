@@ -42,7 +42,12 @@ switch (_hitbox_self.behavior)
 			}
 		}
 		else
-			_player_hurt = true;
+		{
+			if (ego_invincible > 0)
+				_enemy_hurt = true;
+			else
+				_player_hurt = true;
+		}
 		break;
 	case enemy_hitbox_behaviors.heavy:
 		with (other)
@@ -71,7 +76,12 @@ switch (_hitbox_self.behavior)
 				lock_controls_horizontal = 20;
 			}
 			else
-				_player_hurt = true;
+			{
+				if (ego_invincible > 0)
+					_enemy_hurt = true;
+				else
+					_player_hurt = true;
+			}
 				
 			repeat(32)
 			{
@@ -113,7 +123,12 @@ switch (_hitbox_self.behavior)
 				lock_controls_horizontal = 20;
 			}
 			else
-				_player_hurt = true;
+			{
+				if (ego_invincible > 0)
+					_enemy_hurt = true;
+				else
+					_player_hurt = true;
+			}
 				
 			repeat(32)
 			{
@@ -131,17 +146,27 @@ switch (_hitbox_self.behavior)
 		}
 		break;
 	case enemy_hitbox_behaviors.hazard:
-		if (other.hurt_timer == 0)
+		with (other)
 		{
-			with (other)
-				player_hurt();
+			if (hurt_timer == 0)
+			{
+				if (ego_invincible > 0)
+					_enemy_hurt = true;
+				else
+					player_hurt();
+			}
 		}
 		break;
 	case enemy_hitbox_behaviors.heavy_hazard:
 		with (other)
 		{
 			if (hurt_timer == 0)
-				player_hurt();
+			{
+				if (ego_invincible > 0)
+					_enemy_hurt = true;
+				else
+					player_hurt();
+			}
 		
 			repeat(32)
 			{
@@ -159,7 +184,8 @@ switch (_hitbox_self.behavior)
 		}
 		break;
 	case enemy_hitbox_behaviors.die:
-		_player_hurt = true;
+		if (ego_invincible == 0)
+			_player_hurt = true;
 		if (hurt_timer == 0)
 			event_user(5);
 		break;

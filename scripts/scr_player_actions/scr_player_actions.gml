@@ -117,15 +117,54 @@ function player_rubberband_activate()
 	gml_pragma("forceinline");
 }
 
+/// @function player_ego_meter
+function player_ego_meter()
+{
+	if (global.story_mode != story_modes.kranion)
+		exit;
+		
+	if (ego_invincible > 0)
+		ego_invincible = max(ego_invincible - 1, 0);
+	else
+	{
+		if (hp > 25)
+			hp = max(hp - 0.125, 25);
+		else
+			hp = min(hp + 0.125, 25);
+	}
+}
+
 /// @function player_hurt
 function player_hurt()
 {
-	if (invincible == false && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
+	var _last_hit = false;
+	
+	switch (global.story_mode)
+	{
+		case story_modes.super_freaks:
+			if (global.hearts == 0)
+				_last_hit = true;
+			break;
+		case story_modes.kranion:
+			if (hp == 0)
+				_last_hit = true;
+			break;
+	}
+	
+	if (ego_invincible == 0 && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
 		hurt_timer_set(120);
-		if (global.hearts > 0)
+		if (!_last_hit)
 		{
-			global.hearts--;
+			switch (global.story_mode)
+			{
+				case story_modes.super_freaks:
+					global.hearts = max(global.hearts - 1, 0);
+					break;
+				case story_modes.kranion:
+					hp = max(hp - 15, 0);
+					break;
+			}
 			if (underwater || jetpack)
 			{
 				speed_h = 1 * -face;
@@ -150,10 +189,19 @@ function player_hurt()
 /// @function player_kill
 function player_kill()
 {
-	if (invincible == false && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
+	if (hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
-		if (global.hearts > 0)
-			global.hearts--;
+		switch (global.story_mode)
+		{
+			case story_modes.super_freaks:
+				if (global.hearts > 0)
+					global.hearts = max(global.hearts - 1, 0);
+				break;
+			case story_modes.kranion:
+				if (hp > 0)
+					hp = 0;
+				break;
+		}
 		state_next_set(player_states.death, 999);
 	}
 	
@@ -172,7 +220,15 @@ function player_crush()
 	{
 		state_next_set(player_states.death, 9999999);
 		sfx_play_global(sfx_hurt);
-		global.hearts = max(global.hearts - 1, 0);
+		switch (global.story_mode)
+		{
+			case story_modes.super_freaks:
+				global.hearts = max(global.hearts - 1, 0);
+				break;
+			case story_modes.kranion:
+				hp = 0;
+				break;
+		}
 	}
 }
 
@@ -188,6 +244,20 @@ function player_fall()
 /// @function player_water_step
 function player_water_step()
 {
+	var _last_hit = false;
+	
+	switch (global.story_mode)
+	{
+		case story_modes.super_freaks:
+			if (global.hearts == 0)
+				_last_hit = true;
+			break;
+		case story_modes.kranion:
+			if (hp == 0)
+				_last_hit = true;
+			break;
+	}
+	
 	if (global.water_active == false)
 		exit;
 		
@@ -212,9 +282,17 @@ function player_water_step()
 					speed_h = 0;
 				if (hurt_timer == 0)
 				{
-					if (global.hearts > 0)
+					if (!_last_hit && ego_invincible == 0)
 					{
-						global.hearts = max(global.hearts - 1, 0);
+						switch (global.story_mode)
+						{
+							case story_modes.super_freaks:
+								global.hearts = max(global.hearts - 1, 0);
+								break;
+							case story_modes.kranion:
+								hp = max(hp - 15, 0);
+								break;
+						}
 						sfx_play_global(sfx_hurt);
 						hurt_timer_set(120);
 						state_next_set(player_states.normal, 999);

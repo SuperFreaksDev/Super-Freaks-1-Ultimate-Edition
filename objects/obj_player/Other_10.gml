@@ -69,6 +69,7 @@ switch (state)
 		player_rubberband_physics();
 		player_enter_bubble();
 		player_view_boundaries();
+		player_ego_meter();
 		player_crush();
 		player_drop_out();
 		break;
@@ -77,6 +78,7 @@ switch (state)
 		player_state_wall_slide();
 		player_enter_bubble();
 		player_view_boundaries();
+		player_ego_meter();
 		player_crush();
 		player_drop_out();
 		break;
@@ -86,6 +88,7 @@ switch (state)
 		player_rubberband_physics();
 		player_enter_bubble();
 		player_view_boundaries();
+		player_ego_meter();
 		player_crush();
 		player_drop_out();
 		break;
@@ -97,24 +100,28 @@ switch (state)
 		break;
 	case player_states.bubble:
 		player_state_bubble();
+		player_ego_meter();
 		player_drop_out();
 		break;
 	case player_states.climb:
 		player_rubberband_activate();
 		player_state_climb();
 		player_rubberband_physics();
+		player_ego_meter();
 		player_drop_out();
 		break;
 	case player_states.pole_climb:
 		player_rubberband_activate();
 		player_state_climb_pole();
 		player_rubberband_physics();
+		player_ego_meter();
 		player_drop_out();
 		break;
 	case player_states.hang:
 		player_rubberband_activate();
 		player_state_hang();
 		player_rubberband_physics();
+		player_ego_meter();
 		player_drop_out();
 		break;
 	default:
