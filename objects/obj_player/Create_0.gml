@@ -61,6 +61,7 @@ character_index = 0;
 	
 	hp = 0;
 	ego_invincible = 0;
+	ego_refill_pause = 0;
 #endregion
 
 #region Collision

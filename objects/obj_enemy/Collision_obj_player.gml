@@ -43,7 +43,7 @@ switch (_hitbox_self.behavior)
 		}
 		else
 		{
-			if (ego_invincible > 0)
+			if (other.ego_invincible > 0)
 				_enemy_hurt = true;
 			else
 				_player_hurt = true;
@@ -184,7 +184,7 @@ switch (_hitbox_self.behavior)
 		}
 		break;
 	case enemy_hitbox_behaviors.die:
-		if (ego_invincible == 0)
+		if (other.ego_invincible == 0)
 			_player_hurt = true;
 		if (hurt_timer == 0)
 			event_user(5);

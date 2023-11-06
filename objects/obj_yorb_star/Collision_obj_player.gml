@@ -1,5 +1,14 @@
 /// @description 
 
-global.hearts = max(global.hearts, 10);
-sfx_play_global(sfx_unlock_level);
 instance_destroy();
+
+switch (global.story_mode)
+{
+	case story_modes.super_freaks:
+		global.hearts = max(global.hearts, 10);
+		sfx_play_global(sfx_unlock_level);
+		break;
+	case story_modes.kranion:
+		player_ego_collect(100);
+		break;
+}

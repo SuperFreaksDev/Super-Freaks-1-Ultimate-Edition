@@ -1,6 +1,10 @@
 /// @description Step
 
-image_alpha -= 0.1;
+timer -= 0.1;
 
-if (image_alpha < 0)
-	instance_destroy();
+if (timer < 0)
+{
+	image_alpha -= 0.25;
+	if (image_alpha < 0)
+		instance_destroy();
+}

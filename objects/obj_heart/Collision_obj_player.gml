@@ -8,8 +8,7 @@ switch (global.story_mode)
 		global.hearts = min(global.hearts + 1, hearts_maximum_get());
 		break;
 	case story_modes.kranion:
-		sfx_play_global(sfx_powerup);
-		hp = 100;
-		ego_invincible = 100;
+		sfx_play_global(sfx_heart);
+		player_ego_collect(15);
 		break;
 }

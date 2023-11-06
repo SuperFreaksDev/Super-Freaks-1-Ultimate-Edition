@@ -120,17 +120,74 @@ function player_rubberband_activate()
 /// @function player_ego_meter
 function player_ego_meter()
 {
+	var _x1, _y1, _x2, _y2;
 	if (global.story_mode != story_modes.kranion)
 		exit;
 		
 	if (ego_invincible > 0)
-		ego_invincible = max(ego_invincible - 1, 0);
+	{
+		if (ego_refill_pause == 0)
+		{
+			ego_invincible = max(ego_invincible - 0.25, 0);
+			if (ego_invincible == 0)
+				hp = 80;
+		}
+		_x1 = x - sprite_get_xoffset(sprite_index);
+		_y1 = y - sprite_get_yoffset(sprite_index);
+		_x2 = random(sprite_width);
+		_y2 = random(sprite_height);
+		instance_create_layer(_x1 + _x2, _y1 + _y2, "layer_instances", obj_invincibility_stars);
+	}
 	else
 	{
-		if (hp > 25)
-			hp = max(hp - 0.125, 25);
+		if (ego_refill_pause == 0)
+		{
+			if (hp > 25)
+				hp = max(hp - 0.125, 25);
+			else
+				hp = min(hp + 0.125, 25);
+		}
+	}
+	
+	ego_refill_pause = max(ego_refill_pause - 1, 0);
+}
+
+/// @function player_ego_collect
+/// @param {Real} _ego = 2
+function player_ego_collect(_ego = 2)
+{
+	if (global.story_mode != story_modes.kranion)
+		exit;
+		
+	with (obj_player)
+	{
+		switch (state)
+		{
+			case player_states.inactive:
+			case player_states.NA:
+			case player_states.debug:
+			case player_states.death:
+			case player_states.death_fall:
+			case player_states.bubble:
+				continue;
+				break;
+			default:
+				break;
+		}
+		
+		ego_refill_pause = 8;
+		
+		if (ego_invincible > 0)
+			ego_invincible = min(ego_invincible + _ego, 100);
 		else
-			hp = min(hp + 0.125, 25);
+		{
+			hp = min(hp + _ego, 100);
+			if (hp == 100)
+			{
+				ego_invincible = 100;
+				sfx_play_global(sfx_powerup);
+			}
+		}
 	}
 }
 
@@ -154,6 +211,7 @@ function player_hurt()
 	if (ego_invincible == 0 && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
 		hurt_timer_set(120);
+		ego_refill_pause = 8;
 		if (!_last_hit)
 		{
 			switch (global.story_mode)
@@ -269,7 +327,7 @@ function player_water_step()
 				water_meter = max(water_meter - 0.18, 0);
 		
 				x += global.water_current;
-				if (global.water_electric_timer > 0 || water_meter == 0)
+				if (global.water_electric_timer > 0 || water_meter == 0 ||ego_invincible == 0)
 					player_hurt();
 			}
 			break;
@@ -280,9 +338,9 @@ function player_water_step()
 				speed_v = -10;
 				if (!ground_on)
 					speed_h = 0;
-				if (hurt_timer == 0)
+				if (hurt_timer == 0 && ego_invincible == 0)
 				{
-					if (!_last_hit && ego_invincible == 0)
+					if (!_last_hit)
 					{
 						switch (global.story_mode)
 						{

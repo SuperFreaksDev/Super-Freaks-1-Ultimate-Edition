@@ -19,7 +19,13 @@ global.character_indexes =
 	dino: 16,
 	uncle_swordsman: 17,
 	boney_m: 18,
-	brick: 19
+	brick: 19,
+	kranion: 20,
+	cranion: 21,
+	sticky: 22,
+	spike: 23,
+	wartnose: 24,
+	pseudo_scruffy: 25
 }
 
 enum player_animations

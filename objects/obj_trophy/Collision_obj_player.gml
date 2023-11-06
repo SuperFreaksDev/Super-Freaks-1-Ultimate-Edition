@@ -12,12 +12,7 @@ switch (global.story_mode)
 		}
 		break;
 	case story_modes.kranion:
-		with (other)
-		{
-			sfx_play_global(sfx_powerup);
-			hp = 100;
-			ego_invincible = 100;
-		}
+		player_ego_collect(100);
 		break;
 }
 if (instance_exists(obj_gameplay_manager))

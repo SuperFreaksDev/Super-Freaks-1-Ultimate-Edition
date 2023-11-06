@@ -84,20 +84,29 @@ function game_timer_draw(_x, _y)
 /// @param _amount = 1
 function yorbs_add(_amount = 1)
 {
-	global.heart_meter += _amount;
-	sfx_play_global(sfx_yorb);
-	
-	if (global.heart_meter > 99)
+	switch (global.story_mode)
 	{
-		if (global.hearts == hearts_maximum_get())
-			global.heart_meter = 99;
-		else
-		{
-			global.hearts++;
-			global.heart_meter = global.heart_meter mod 100;
-			sfx_play_global(sfx_heart);
-		}
+		case story_modes.super_freaks:
+			global.heart_meter += _amount;
+	
+			if (global.heart_meter > 99)
+			{
+				if (global.hearts == hearts_maximum_get())
+					global.heart_meter = 99;
+				else
+				{
+					global.hearts++;
+					global.heart_meter = global.heart_meter mod 100;
+					sfx_play_global(sfx_heart);
+				}
+			}
+			break;
+		case story_modes.kranion:
+			player_ego_collect(2 * _amount);
+			break;
 	}
+	
+	sfx_play_global(sfx_yorb);
 	
 	if (instance_exists(obj_gameplay_manager))
 	{
