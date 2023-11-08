@@ -3,6 +3,7 @@ function player_state_climb_pole()
 	var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 	var _move_h = 0, _move_v = 0;
 	var _climb_obj, _climb_boundaries = false;
+	var _hitbox_width = abs(hitbox.shape_x2 - hitbox.shape_x1);
 	
 	var _sprite_climb = player_animation_get(character_index, player_animations.pole_climb);
 	var _sprite_turn = player_animation_get(character_index, player_animations.pole_turn);
@@ -58,7 +59,7 @@ function player_state_climb_pole()
 			if (face == -1)
 			{
 				face = 1;
-				x = instance_attach.x - 20;
+				x = instance_attach.x - _hitbox_width;
 				x_start_frame = x;
 				sprite_index = _sprite_turn;
 				image_index = 0;
@@ -71,7 +72,7 @@ function player_state_climb_pole()
 			if (face == 1)
 			{
 				face = -1;
-				x = instance_attach.x + 20;
+				x = instance_attach.x + _hitbox_width;
 				x_start_frame = x;
 				sprite_index = _sprite_turn;
 				image_index = 0;

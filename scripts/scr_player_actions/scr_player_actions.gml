@@ -327,7 +327,7 @@ function player_water_step()
 				water_meter = max(water_meter - 0.18, 0);
 		
 				x += global.water_current;
-				if (global.water_electric_timer > 0 || water_meter == 0 ||ego_invincible == 0)
+				if ((global.water_electric_timer > 0 || water_meter == 0) && ego_invincible == 0)
 					player_hurt();
 			}
 			break;

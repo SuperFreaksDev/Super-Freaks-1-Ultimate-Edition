@@ -627,20 +627,20 @@ function characters_init()
 		global.character_names[_character] = "Kranion";
 		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_brick);
 		player_animation_create(_character, player_animations.idle, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.walk, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.skid, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.hurt, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.death, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.air, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.jump, spr_player_stand_kranion);
-		player_animation_create(_character, player_animations.wall_slide, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_kranion);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_kranion);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_kranion);
+		player_animation_create(_character, player_animations.death, spr_player_death_kranion);
+		player_animation_create(_character, player_animations.air, spr_player_walk_kranion);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_kranion);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_kranion);
 		player_animation_create(_character, player_animations.hang, spr_player_stand_kranion);
 		player_animation_create(_character, player_animations.climb, spr_player_stand_kranion);
 		player_animation_create(_character, player_animations.pole_climb, spr_player_stand_kranion);
 		player_animation_create(_character, player_animations.pole_turn, spr_player_stand_kranion);
 		player_animation_create(_character, player_animations.rail_grind, spr_player_stand_kranion);
 		
-		player_mugshot_create(_character, spr_character_select_brick);
+		player_mugshot_create(_character, spr_character_select_kranion);
 		
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
