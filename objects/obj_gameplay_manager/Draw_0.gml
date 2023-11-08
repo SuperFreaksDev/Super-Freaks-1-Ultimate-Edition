@@ -40,7 +40,7 @@ var _heart_meter_zoom = _heart_zoom / 100;
 			_player_instance = _list_thing[player_data.instance];
 			_draw_x = lerp(_player_instance.x_start_frame, _player_instance.x, frame_delta_player_get());
 			_draw_y = lerp(_player_instance.y_start_frame, _player_instance.y, frame_delta_player_get());
-			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - (32 * _zoom), _mirror * _zoom, _zoom, 0, c_white, 1);
+			draw_sprite_ext(spr_player_numbers_arrows, _player_instance.player_number, _draw_x, _draw_y - (abs(_player_instance.hitbox.shape_y1 - _player_instance.hitbox.shape_y2) * _zoom), _mirror * _zoom, _zoom, 0, c_white, 1);
 			if (_player_instance.state == player_states.bubble)
 				draw_verb(_player_instance.player_number, "bubble", _draw_x, _draw_y - (72 * _zoom), _zoom * _mirror, _zoom);
 			
@@ -136,14 +136,17 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				}
 			#endregion
 			#region Draw Hearts
-				if (hearts_maximum_get() > 0)
+				if (global.story_mode != story_modes.kranion)
 				{
-					draw_set_font(global.font_12);
-					draw_set_halign(fa_center);
-					draw_set_valign(fa_middle);
-				    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + _screen_height - 32 + yorb_effect);
-				    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + _screen_height - (global.heart_meter * 0.32) + yorb_effect);
-					draw_text(_view_x1 + 16, _view_y1 + _screen_height - 16 + yorb_effect, string(global.hearts));
+					if (hearts_maximum_get() > 0)
+					{
+						draw_set_font(global.font_12);
+						draw_set_halign(fa_center);
+						draw_set_valign(fa_middle);
+					    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + _screen_height - 32 + yorb_effect);
+					    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + _screen_height - (global.heart_meter * 0.32) + yorb_effect);
+						draw_text(_view_x1 + 16, _view_y1 + _screen_height - 16 + yorb_effect, string(global.hearts));
+					}
 				}
 			#endregion
 			#region Draw Trophies
@@ -167,10 +170,10 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				switch (global.game_mode)
 				{
 					case game_modes.randomizer:
-						draw_text(_view_x1 + 48, _view_y1 + _screen_height, "Level " + string(global.score));
+						draw_text(_view_x1 + (48 * (global.story_mode != story_modes.kranion)), _view_y1 + _screen_height, "Level " + string(global.score));
 						break;
 					default:
-						game_timer_draw(_view_x1 + 48, _view_y1 + _screen_height);
+						game_timer_draw(_view_x1 + (48 * (global.story_mode != story_modes.kranion)), _view_y1 + _screen_height);
 				}
 			#endregion
 			draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);

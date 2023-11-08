@@ -103,5 +103,7 @@ function freakloader_add_chars()
 		
 		if (file_exists(sndPath)) sndToAdd = audio_create_stream(sndPath);
 		player_fallsound_create(_character, sndToAdd);
+		
+		player_hitbox_resize(_character);
 	}
 }

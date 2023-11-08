@@ -58,6 +58,10 @@ function player_state_dropin()
 			state_next_set(player_states.bubble, 999999999);
 			global.player_list[player_number][player_data.active] = true;
 			global.player_list[player_number][player_data.character_index] = character_index;
+			
+			var hbSize = player_hitbox_get(character_index);
+			global.player_list[player_number][player_data.instance].hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, hbSize.x1, hbSize.y1, hbSize.x2, hbSize.y2);
+			
 			x = view_x1_get();
 			y = view_y1_get();
 			x_start_frame = x;

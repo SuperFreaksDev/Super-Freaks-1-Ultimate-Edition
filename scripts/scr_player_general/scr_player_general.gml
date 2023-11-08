@@ -87,6 +87,10 @@ function players_start(_x, _y)
 			if (_list[_player_number][player_data.active] == true)
 			{
 				state_next_set(player_states.normal);
+				
+				var hbSize = player_hitbox_get(character_index);
+				hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, hbSize.x1, hbSize.y1, hbSize.x2, hbSize.y2);
+				
 				jetpack = false;
 			}
 			else

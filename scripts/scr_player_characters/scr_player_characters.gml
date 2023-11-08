@@ -62,6 +62,7 @@ function characters_init()
 	global.player_jumpsound	   = [];
 	global.player_deathsound   = [];
 	global.player_fallsound	   = [];
+	global.player_hitbox_size  = [];
 	global.characters_unlocked = [];
 	
 	for (_i = 0; _i < global.character_count; ++_i)
@@ -79,6 +80,7 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.quincy] = true;
 	global.characters_unlocked[global.character_indexes.gambi] = true;
 	global.characters_unlocked[global.character_indexes.tikiman] = true;
+	global.characters_unlocked[global.character_indexes.kranion] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;
@@ -103,6 +105,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region King Quincy
@@ -128,6 +132,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Gambi
@@ -153,6 +159,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Tikiman
@@ -178,6 +186,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Superior
@@ -203,6 +213,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Negative Quincy
@@ -228,6 +240,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Geyzer
@@ -253,6 +267,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Trash Can Man
@@ -278,6 +294,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Les Slaypool
@@ -303,6 +321,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Cyquops
@@ -328,6 +348,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Gloverine
@@ -353,6 +375,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Professor T
@@ -378,6 +402,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Scruffy (2006)
@@ -403,6 +429,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Quincy (2006)
@@ -428,6 +456,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Gambi (2006)
@@ -453,6 +483,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Tikiman (2006)
@@ -478,6 +510,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Dino
@@ -503,6 +537,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Uncle Swordsman
@@ -528,6 +564,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Boney M
@@ -553,6 +591,8 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
 	#endregion
 	
 	#region Brick
@@ -578,6 +618,35 @@ function characters_init()
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
 		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
+	#endregion
+	
+	#region Kranion
+		_character = global.character_indexes.kranion;
+		global.character_names[_character] = "Kranion";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_brick);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.walk, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.skid, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.hurt, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.death, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.air, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.jump, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.hang, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.climb, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_stand_kranion);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_stand_kranion);
+		
+		player_mugshot_create(_character, spr_character_select_brick);
+		
+		player_jumpsound_create(_character, sfx_jump);
+		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character, -16, -24, 16, 20);
 	#endregion
 	
 	freakloader_init();
@@ -678,6 +747,26 @@ function player_fallsound_create(_character_index, _sound)
 function player_fallsound_get(_character_index)
 {
 	return global.player_fallsound[_character_index];
+	
+	gml_pragma("forceinline");
+}
+
+function player_hitbox_resize(_character_index, _x1 = -8, _y1 = -12, _x2 = 8, _y2 = 20)
+{
+	global.player_hitbox_size[_character_index] =
+	{
+		x1: _x1,
+		y1: _y1,
+		x2: _x2,
+		y2: _y2
+	};
+	
+	gml_pragma("forceinline");
+}
+
+function player_hitbox_get(_character_index)
+{
+	return global.player_hitbox_size[_character_index];
 	
 	gml_pragma("forceinline");
 }
