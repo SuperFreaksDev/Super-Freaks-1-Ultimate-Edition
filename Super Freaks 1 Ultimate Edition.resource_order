@@ -1575,6 +1575,7 @@
     {"name":"rm_supersecret_3","order":4,"path":"rooms/rm_supersecret_3/rm_supersecret_3.yy",},
     {"name":"input_player_export","order":1,"path":"scripts/input_player_export/input_player_export.yy",},
     {"name":"spr_control_icon_keyboard_g","order":6,"path":"sprites/spr_control_icon_keyboard_g/spr_control_icon_keyboard_g.yy",},
+    {"name":"spr_player_walk_sticky","order":1,"path":"sprites/spr_player_walk_sticky/spr_player_walk_sticky.yy",},
     {"name":"rm_secretice_2","order":1,"path":"rooms/rm_secretice_2/rm_secretice_2.yy",},
     {"name":"obj_slowmo_effect","order":11,"path":"objects/obj_slowmo_effect/obj_slowmo_effect.yy",},
     {"name":"spr_player_hurt_gloverine","order":6,"path":"sprites/spr_player_hurt_gloverine/spr_player_hurt_gloverine.yy",},
