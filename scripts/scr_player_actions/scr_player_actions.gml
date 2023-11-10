@@ -196,33 +196,25 @@ function player_hurt()
 {
 	var _last_hit = false;
 	
-	switch (global.story_mode)
-	{
-		case story_modes.super_freaks:
-			if (global.hearts == 0)
-				_last_hit = true;
-			break;
-		case story_modes.kranion:
-			if (hp == 0)
-				_last_hit = true;
-			break;
-	}
-	
 	if (ego_invincible == 0 && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
+		switch (global.story_mode)
+		{
+			case story_modes.super_freaks:
+				if (global.hearts == 0)
+					_last_hit = true;
+				global.hearts = max(global.hearts - 1, 0);
+				break;
+			case story_modes.kranion:
+				hp = max(hp - 25, 0);
+				if (hp == 0)
+					_last_hit = true;
+				break;
+		}
 		hurt_timer_set(120);
 		ego_refill_pause = 16;
 		if (!_last_hit)
 		{
-			switch (global.story_mode)
-			{
-				case story_modes.super_freaks:
-					global.hearts = max(global.hearts - 1, 0);
-					break;
-				case story_modes.kranion:
-					hp = max(hp - 25, 0);
-					break;
-			}
 			if (underwater || jetpack)
 			{
 				speed_h = 1 * -face;
