@@ -175,7 +175,7 @@ function player_ego_collect(_ego = 2)
 				break;
 		}
 		
-		ego_refill_pause = 8;
+		ego_refill_pause = 16;
 		
 		if (ego_invincible > 0)
 			ego_invincible = min(ego_invincible + _ego, 100);
@@ -211,7 +211,7 @@ function player_hurt()
 	if (ego_invincible == 0 && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
 		hurt_timer_set(120);
-		ego_refill_pause = 8;
+		ego_refill_pause = 16;
 		if (!_last_hit)
 		{
 			switch (global.story_mode)
@@ -220,7 +220,7 @@ function player_hurt()
 					global.hearts = max(global.hearts - 1, 0);
 					break;
 				case story_modes.kranion:
-					hp = max(hp - 15, 0);
+					hp = max(hp - 25, 0);
 					break;
 			}
 			if (underwater || jetpack)

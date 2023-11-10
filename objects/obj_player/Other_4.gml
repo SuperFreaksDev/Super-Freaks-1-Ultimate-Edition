@@ -11,6 +11,11 @@ switch (state)
 	case player_states.death_fall:
 		invincible = false;
 		jetpack = false;
+		if (global.story_mode = story_modes.kranion)
+		{
+			ego_invincible = 0;
+			hp = min(hp, 25);
+		}
 	case player_states.bubble:
 		state_next_set(player_states.normal);
 		hitbox.active = hitbox_active.active;
