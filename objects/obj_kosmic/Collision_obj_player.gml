@@ -4,8 +4,7 @@ var _hitbox_self = global.hitbox_collision_stored[hitbox_collision_stored_data.h
 
 if (_hitbox_self == hitbox)
 {
-	with (other)
-		event_inherited();
+	event_inherited();
 }
 else
 {
