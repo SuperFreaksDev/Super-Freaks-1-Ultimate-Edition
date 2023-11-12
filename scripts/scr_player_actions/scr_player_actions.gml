@@ -248,6 +248,7 @@ function player_kill()
 					global.hearts = max(global.hearts - 1, 0);
 				break;
 			case story_modes.kranion:
+				ego_invincible = 0;
 				if (hp > 0)
 					hp = 0;
 				break;

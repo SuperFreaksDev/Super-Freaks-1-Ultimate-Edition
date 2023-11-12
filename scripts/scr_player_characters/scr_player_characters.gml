@@ -81,6 +81,7 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.gambi] = true;
 	global.characters_unlocked[global.character_indexes.tikiman] = true;
 	global.characters_unlocked[global.character_indexes.kranion] = true;
+	global.characters_unlocked[global.character_indexes.sticky] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;
@@ -641,6 +642,33 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_kranion);
 		
 		player_mugshot_create(_character, spr_character_select_kranion);
+		
+		player_jumpsound_create(_character, sfx_jump);
+		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character, -16, -24, 16, 20);
+	#endregion
+	
+	#region Sticky
+		_character = global.character_indexes.sticky;
+		global.character_names[_character] = "Sticky";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_sticky);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_sticky);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_sticky);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_sticky);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_sticky);
+		player_animation_create(_character, player_animations.death, spr_player_death_sticky);
+		player_animation_create(_character, player_animations.air, spr_player_air_sticky);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_sticky);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_sticky);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_sticky);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_sticky);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_sticky);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_sticky);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_sticky);
+		
+		player_mugshot_create(_character, spr_character_select_sticky);
 		
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
