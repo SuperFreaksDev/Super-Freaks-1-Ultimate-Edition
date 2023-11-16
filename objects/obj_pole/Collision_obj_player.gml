@@ -5,6 +5,7 @@ var _grab = false;
 var _center_x = x;
 var _player_facing_pole_sign = sign(other.x - _center_x);
 var _player_move_sign = sign(other.x - other.x_previous);
+var _hitbox_width = abs(other.hitbox.shape_x2 - other.hitbox.shape_x1);
 
 if (other.instance_attach == _my_id)
 {
@@ -45,7 +46,7 @@ if (_grab)
 			if (state != player_states.pole_climb)
 				state_next_set(player_states.pole_climb, 5);
 			face = -_player_facing_pole_sign;
-			x = (_center_x - 20 * face);
+			x = (_center_x - _hitbox_width * face);
 		}
 	}
 }

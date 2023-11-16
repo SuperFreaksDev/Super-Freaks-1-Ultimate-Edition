@@ -6,6 +6,12 @@ switch (state)
 	case player_states.inactive:
 	case player_states.drop_in:
 		jetpack = false;
+		if (global.story_mode = story_modes.kranion)
+		{
+			ego_invincible = 0;
+			ego_refill_pause = 0;
+			hp = 0;
+		}
 		break;
 	case player_states.death:
 	case player_states.death_fall:
@@ -14,7 +20,8 @@ switch (state)
 		if (global.story_mode = story_modes.kranion)
 		{
 			ego_invincible = 0;
-			hp = min(hp, 25);
+			ego_refill_pause = 0;
+			hp = 0;
 		}
 	case player_states.bubble:
 		state_next_set(player_states.normal);
