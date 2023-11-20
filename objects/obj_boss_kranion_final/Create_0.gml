@@ -17,7 +17,10 @@ enum boss_kranion_final_states
 	death_2,
 }
 
-boss_name = "Kranion Ultimate Edition";
+if (global.story_mode == story_modes.kranion)
+	boss_name = "Cranion Ultimate Edition";
+else
+	boss_name = "Kranion Ultimate Edition";
 hp_init(16);
 	
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, _radius);
@@ -39,3 +42,19 @@ spike_angle = 0;
 spike_angle_previous = 0;
 spike_speed = 0;
 animate_speed = 0.25;
+
+switch (global.story_mode)
+{
+	case story_modes.kranion:
+		sprite_aura = spr_boss_cranion_ultimate_aura;
+		sprite_spikes = spr_boss_cranion_ultimate_spikes;
+		sprite_face = spr_boss_cranion_ultimate_face;
+		sprite_death = spr_boss_cranion_death;
+		break;
+	default:
+		sprite_aura = spr_boss_kranion_ultimate_aura;
+		sprite_spikes = spr_boss_kranion_ultimate_spikes;
+		sprite_face = spr_boss_kranion_ultimate_face;
+		sprite_death = spr_boss_kranion_death;
+		break;
+}

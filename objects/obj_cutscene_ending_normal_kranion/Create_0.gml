@@ -8,7 +8,7 @@ cutscene_segment_set(0, "Sticky: 'Finally, it's over.'", spr_cutscene_placeholde
 cutscene_segment_set(1, "Kranion: 'Shame we had tah beat up such a cool guy tho.'");
 cutscene_segment_set(2, "Sticky: 'Yeah, one of you is bad enough!'");
 //Kranion and Sticky at each other's throats
-cutscene_segment_set(3, "Kranion: 'Yah wanna say that tah my face?'", spr_cutscene_placeholder);
+cutscene_segment_set(3, "Kranion: 'Yah wanna say that tah my face?'", spr_cutscene_intro_kranion_6);
 cutscene_segment_set(4, "Sticky: 'I just did, and I'd do it again, you good for nothing meathead!'");
 cutscene_segment_set(5, "Kranion: 'We don't have meat, we'ah skeletons!'");
 cutscene_segment_set(6, "Sticky: 'It's a figure of speech, you moron!!!!!'");

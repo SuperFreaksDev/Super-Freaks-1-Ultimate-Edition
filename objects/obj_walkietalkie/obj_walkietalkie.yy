@@ -32,6 +32,7 @@
   "physicsStartAwake": true,
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"hint","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":true,"rangeMax":31.0,"rangeMin":0.0,"value":"\"What's up gamers\"","varType":2,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"hint_kranion","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"\"","varType":2,},
   ],
   "solid": false,
   "spriteId": {

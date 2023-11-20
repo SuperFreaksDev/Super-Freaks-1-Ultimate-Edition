@@ -28,7 +28,10 @@ with (other)
 if (_hit && !room_transition_active_get())
 {
 	_hint_screen = instance_create_layer(0, 0, "layer_instances", obj_hint_screen);
-	_hint_screen.hint = hint;
+	if (global.story_mode == story_modes.kranion && hint_kranion != "")
+		_hint_screen.hint = hint_kranion;
+	else
+		_hint_screen.hint = hint;
 	_hint_screen.player_number = _player_num;
 	game_pause_set(true);
 }

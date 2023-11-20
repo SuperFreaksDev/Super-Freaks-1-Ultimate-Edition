@@ -22,14 +22,14 @@ if (state == boss_kranion_final_states.intro_1)
 
 if (state == boss_kranion_final_states.death_2)
 {
-	draw_sprite(spr_boss_kranion_death, 0, _x, _y);
+	draw_sprite(sprite_death, 0, _x, _y);
 }
 else
 {
-	draw_sprite_ext(spr_boss_kranion_ultimate_aura, 0, _x, _y, aura_size, aura_size, _aura_angle, c_white, 1);
-	draw_sprite_ext(spr_boss_kranion_ultimate_spikes, 0, _x, _y, spike_size, spike_size, _spike_angle, c_white, 1);
+	draw_sprite_ext(sprite_aura, 0, _x, _y, aura_size, aura_size, _aura_angle, c_white, 1);
+	draw_sprite_ext(sprite_spikes, 0, _x, _y, spike_size, spike_size, _spike_angle, c_white, 1);
 	draw_sprite(spr_boss_kranion_ultimate_body, 0, _x, _y);
-	draw_sprite_ext(spr_boss_kranion_ultimate_face, image_index, _x, _y, 1, 1, _face_angle, c_white, 1);
+	draw_sprite_ext(sprite_face, image_index, _x, _y, 1, 1, _face_angle, c_white, 1);
 }
 
 if (state == boss_kranion_final_states.intro_1)

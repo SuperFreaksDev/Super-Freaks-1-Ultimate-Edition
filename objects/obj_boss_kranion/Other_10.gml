@@ -12,7 +12,7 @@ switch (state)
 	case boss_kranion_states.normal:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_stand;
+			sprite_index = sprite_stand;
 			image_index = 0;
 			animate_speed = 0.15;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
@@ -37,12 +37,12 @@ switch (state)
 			}
 		}
 		else if (timer >= 80)
-			sprite_index = spr_boss_kranion_prepare;
+			sprite_index = sprite_prepare;
 		break;
 	case boss_kranion_states.spin:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_spin;
+			sprite_index = sprite_spin;
 			image_index = 0;
 			animate_speed = 0.5;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
@@ -118,7 +118,7 @@ switch (state)
 	case boss_kranion_states.bounce:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_roll;
+			sprite_index = sprite_roll;
 			image_index = 0;
 			animate_speed = 0.5;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
@@ -209,7 +209,7 @@ switch (state)
 	case boss_kranion_states.jump:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_stand;
+			sprite_index = sprite_stand;
 			image_index = 0;
 			animate_speed = 0;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
@@ -286,7 +286,7 @@ switch (state)
 	case boss_kranion_states.stun:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_death;
+			sprite_index = sprite_death;
 			image_index = 0;
 			animate_speed = 0;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
@@ -339,7 +339,7 @@ switch (state)
 	case boss_kranion_states.death:
 		if (state_begin)
 		{
-			sprite_index = spr_boss_kranion_death;
+			sprite_index = sprite_death;
 			image_index = 0;
 			animate_speed = 0.15;
 			hitbox.behavior = enemy_hitbox_behaviors.normal;
