@@ -3,6 +3,7 @@
 enum main_menu_pages
 {
 	main = 0,
+	story,
 	demo,
 	challenge,
 	challenge_freeplay,
@@ -37,32 +38,24 @@ timer = 0;
 
 #region Main
 	_page = main_menu_pages.main;
-
-	menu_option_add(_page, 0, "Adventure", function()
+	menu_option_add(_page, 0, "Super Freaks Story", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 		{
-			if (!level_complete_get(level_ids.level_stadium))
-			{
-				global.game_mode = game_modes.normal;
-				global.level_id = level_ids.level_stadium;
-				instance_create(obj_character_select);
-			}
-			else
-			{
-				spawn_point_set(rm_worldmap);
-				instance_create(obj_room_transition_fade);
-			}
+			page = main_menu_pages.story;
+			option = 0;
+			global.story_mode = story_modes.super_freaks;
 		}
 	});
-	menu_option_add(_page, 1, "Challenge", function()
+	menu_option_add(_page, 1, "Bad Guys Story", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 		{
-			page = main_menu_pages.challenge;
+			page = main_menu_pages.story;
 			option = 0;
+			global.story_mode = story_modes.kranion;
 		}
 	});
 	menu_option_add(_page, 2, "Museum", function()
@@ -99,6 +92,47 @@ timer = 0;
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 			game_end();
+	});
+#endregion
+
+#region Story
+	_page = main_menu_pages.story;
+	menu_option_add(_page, 0, "Adventure", function()
+	{
+		main_text = "Super Freaks 1 Ultimate Edition";
+		if (input_check_pressed("confirm", global.player_lead))
+		{
+			if (!level_complete_get(level_ids.level_stadium, global.story_mode))
+			{
+				global.game_mode = game_modes.normal;
+				global.level_id = level_ids.level_stadium;
+				instance_create(obj_character_select);
+			}
+			else
+			{
+				spawn_point_set(rm_worldmap);
+				instance_create(obj_room_transition_fade);
+			}
+		}
+		else if (input_check_pressed("deny", global.player_lead))
+		{
+			page = main_menu_pages.main;
+			option = 0;
+		}
+	});
+	menu_option_add(_page, 1, "Challenge", function()
+	{
+		main_text = "Super Freaks 1 Ultimate Edition";
+		if (input_check_pressed("confirm", global.player_lead))
+		{
+			page = main_menu_pages.challenge;
+			option = 0;
+		}
+		else if (input_check_pressed("deny", global.player_lead))
+		{
+			page = main_menu_pages.main;
+			option = 1;
+		}
 	});
 #endregion
 
@@ -166,7 +200,7 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
-			page = main_menu_pages.main;
+			page = main_menu_pages.story;
 			option = 1;
 		}
 	}, global.unlocks[unlocks.free_play][unlock_data.unlocked]);
@@ -185,7 +219,7 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
-			page = main_menu_pages.main;
+			page = main_menu_pages.story;
 			option = 1;
 		}
 	}, global.unlocks[unlocks.randomizer][unlock_data.unlocked]);
@@ -199,7 +233,7 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
-			page = main_menu_pages.main;
+			page = main_menu_pages.story;
 			option = 1;
 		}
 	});
@@ -218,7 +252,7 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
-			page = main_menu_pages.main;
+			page = main_menu_pages.story;
 			option = 1;
 		}
 	}, global.unlocks[unlocks.boss_rush][unlock_data.unlocked]);

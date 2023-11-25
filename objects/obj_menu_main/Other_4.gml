@@ -5,7 +5,7 @@ var _i;
 switch (global.game_mode)
 {
 	case game_modes.normal:
-		page = main_menu_pages.main;
+		page = main_menu_pages.story;
 		option = 0;
 		break;
 	case game_modes.free_play:
@@ -31,6 +31,8 @@ switch (global.game_mode)
 		cutscene_index = global.game_mode_subtype;
 		break;
 	default:
+		page = main_menu_pages.main;
+		option = 0;
 		break;
 }
 
