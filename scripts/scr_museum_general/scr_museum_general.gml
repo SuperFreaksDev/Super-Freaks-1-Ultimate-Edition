@@ -228,7 +228,11 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss, story_modes.kranion);
 		});
-		museum_cutscene_create(17,, "Credits", rm_cutscene_credits, function()
+		museum_cutscene_create(17,, "Secret Ending - Bad Guys", rm_cutscene_ending_secret_villains, function()
+		{
+			return level_complete_get(level_ids.level_supersecret_boss, story_modes.kranion);
+		});
+		museum_cutscene_create(18,, "Credits", rm_cutscene_credits, function()
 		{
 			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
 		});
