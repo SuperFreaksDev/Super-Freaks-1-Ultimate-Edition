@@ -700,6 +700,15 @@ function player_character_get(_player_number)
 	gml_pragma("forceinline");
 }
 
+/// @function player_character_get_unlocked
+/// @param _player_number
+function player_character_get_unlocked(_player_number)
+{
+	return global.characters_unlocked[_player_number];
+	
+	gml_pragma("forceinline");
+}
+
 /// @function player_animation_create
 /// @param _character_index
 /// @param _animation_index

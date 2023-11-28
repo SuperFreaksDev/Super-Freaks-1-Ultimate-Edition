@@ -43,34 +43,43 @@ switch (page)
 	case menu_character_select_pages.difficulty_select:
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_top);
-		draw_text(_x - 148, _y - 100, "Difficulty");
-		draw_text(_x + 148, _y - 100, "Hearts");
+		
+		draw_text(_x - (148 * (global.story_mode != story_modes.kranion)), _y - 100, "Difficulty");
 		
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_middle);
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _x - 228, _y - 40 + (40 * _difficulty_option), 1, 1, 0, c_white, 1);
-		draw_text(_x - 212, _y, "Easy\n\nNormal\n\nHard");
 		
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_middle);
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y - 40, 1, 1, 90, c_white, 1);
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y + 40, 1, 1, 270, c_white, 1);
-		draw_text(_x + 84, _y, "Start With\n" + string(hearts_minimum_get()));
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y - 40, 1, 1, 90, c_white, 1);
-		draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y + 40, 1, 1, 270, c_white, 1);
-		draw_text(_x + 212, _y, "Maximum\n" + string(hearts_maximum_get()));
+		var diffX = _x - (24 * (global.story_mode == story_modes.kranion)) - (212 * (global.story_mode != story_modes.kranion))
+		draw_sprite_ext(spr_menu_arrow_16, _frame, diffX - 16, _y - 40 + (40 * _difficulty_option), 1, 1, 0, c_white, 1);
+		draw_text(diffX, _y, "Easy\n\nNormal\n\nHard");
 		
-		switch (option)
+		if (global.story_mode != story_modes.kranion)
 		{
-			case 0:
-				draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 148, _y + 80, 1, 1, 90, c_white, 1);
-				break;
-			case 1:
-				draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 84, _y + 80, 1, 1, 90, c_white, 1);
-				break;
-			case 2:
-				draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 212, _y + 80, 1, 1, 90, c_white, 1);
-				break;
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_top);
+			draw_text(_x + 148, _y - 100, "Hearts");
+			
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y - 40, 1, 1, 90, c_white, 1);
+			draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 84, _y + 40, 1, 1, 270, c_white, 1);
+			draw_text(_x + 84, _y, "Start With\n" + string(hearts_minimum_get()));
+			draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y - 40, 1, 1, 90, c_white, 1);
+			draw_sprite_ext(spr_menu_arrow_16, _frame, _x + 212, _y + 40, 1, 1, 270, c_white, 1);
+			draw_text(_x + 212, _y, "Maximum\n" + string(hearts_maximum_get()));
+			
+			switch (option)
+			{
+				case 0:
+					draw_sprite_ext(spr_menu_arrow_32, _frame, _x - 148, _y + 80, 1, 1, 90, c_white, 1);
+					break;
+				case 1:
+					draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 84, _y + 80, 1, 1, 90, c_white, 1);
+					break;
+				case 2:
+					draw_sprite_ext(spr_menu_arrow_32, _frame, _x + 212, _y + 80, 1, 1, 90, c_white, 1);
+					break;
+			}
 		}
 		break;
 	case menu_character_select_pages.character_select:

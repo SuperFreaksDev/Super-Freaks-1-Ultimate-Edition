@@ -113,17 +113,20 @@ switch (state)
 				if (is_undefined(global.player_lead))
 					exit;
 				
-				if (input_check_pressed("left", global.player_lead))
+				if (global.story_mode != story_modes.kranion)
 				{
-					option--;
-					if (option < 0)
-						option = 2;
-				} 
-				else if (input_check_pressed("right", global.player_lead))
-				{
-					option++;
-					if (option > 2)
-						option = 0;
+					if (input_check_pressed("left", global.player_lead))
+					{
+						option--;
+						if (option < 0)
+							option = 2;
+					} 
+					else if (input_check_pressed("right", global.player_lead))
+					{
+						option++;
+						if (option > 2)
+							option = 0;
+					}
 				}
 				
 				switch (option)
