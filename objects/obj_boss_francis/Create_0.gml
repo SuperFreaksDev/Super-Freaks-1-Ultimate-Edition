@@ -39,7 +39,7 @@ claw_right_pos_previous = claw_right_pos;
 claw_right_angle = 270;
 claw_right_angle_previous = claw_right_angle;
 
-chain_segments = 5;
+chain_segments = 6;
 chain_size = 0;
 
 hitbox = new comp_hitbox_circle(,,, enemy_hitbox_behaviors.heavy,, 112);
@@ -97,7 +97,7 @@ switch (global.boss_phase)
 	case 3:
 		state_next_set(boss_francis_states.buzzsaw);
 		size = 0.5;
-		speed_h_max = 2;
+		speed_h_max = 1;
 		claws_active = false;
 		hp = 6;
 		y = 736;

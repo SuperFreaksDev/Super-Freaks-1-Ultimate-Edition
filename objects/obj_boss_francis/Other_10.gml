@@ -275,7 +275,7 @@ switch (state)
 						swing_speed = 2;
 						break;
 					case difficulty_levels.hard:
-						swing_speed = 1.5;
+						swing_speed = 1.25;
 						break;
 				}
 			}

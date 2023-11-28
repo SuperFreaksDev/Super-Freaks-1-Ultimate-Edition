@@ -17,6 +17,7 @@ switch (global.boss_phase)
 		break;
 	case 1:
 		instance_create_layer(800, 456, "layer_instances", obj_boss_dino_ship);
-		
+		if (global.game_mode != game_modes.boss_rush)
+			music_set(msc_boss_dino_2);
 		break;
 }
