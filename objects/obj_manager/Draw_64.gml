@@ -35,11 +35,12 @@ if (global.debug)
 	draw_set_valign(fa_top);
 	draw_set_font(font_normal);
 
-	_debug_text = string(fps_real) + "/" + string(fps) + " :FPS"
-	+ "\n" + string(game_state_name_get()) + " :Game State"
-	+ "\n" + string(game_mode_name_get()) + " :Game Mode"
-	+ "\n" + string(room_get_name(room)) + " :Room"
-	+ "\n" + string(instance_count) + " :Instances";
+	_debug_text = $"{string(fps_real)}/{string(fps)} :FPS\n"
+	+ $"{string(game_state_name_get())} :Game State\n"
+	+ $"{string(game_mode_name_get())} :Game Mode\n"
+	+ $"{string(story_mode_name_get())} :Story Mode\n"
+	+ $"{string(room_get_name(room))} :Room\n"
+	+ $"{+ string(instance_count)} :Instances";
 
 	_zone_text = "Zones: ";
 	for (_i = 0; _i < array_length(global.zones); ++_i)
