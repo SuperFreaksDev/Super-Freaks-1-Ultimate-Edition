@@ -63,13 +63,12 @@ function characters_init()
 	global.player_deathsound   = [];
 	global.player_fallsound	   = [];
 	global.player_hitbox_size  = [];
-	global.characters_unlocked = [[]];
+	global.characters_unlocked = [];
 	
 	for (_i = 0; _i < global.character_count; ++_i)
 	{
 		global.character_names[_i] = "";
-		global.characters_unlocked[_i][story_modes.super_freaks] = false;
-		global.characters_unlocked[_i][story_modes.kranion] = false;
+		global.characters_unlocked[_i] = false;
 	}
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
@@ -77,12 +76,12 @@ function characters_init()
 		array_push(global.player_animation, array_create(global.character_count));
 	}
 	
-	global.characters_unlocked[global.character_indexes.scruffy][story_modes.super_freaks] = true;
-	global.characters_unlocked[global.character_indexes.quincy][story_modes.super_freaks] = true;
-	global.characters_unlocked[global.character_indexes.gambi][story_modes.super_freaks] = true;
-	global.characters_unlocked[global.character_indexes.tikiman][story_modes.super_freaks] = true;
-	global.characters_unlocked[global.character_indexes.kranion][story_modes.kranion] = true;
-	global.characters_unlocked[global.character_indexes.sticky][story_modes.kranion] = true;
+	global.characters_unlocked[global.character_indexes.scruffy] = true;
+	global.characters_unlocked[global.character_indexes.quincy] = true;
+	global.characters_unlocked[global.character_indexes.gambi] = true;
+	global.characters_unlocked[global.character_indexes.tikiman] = true;
+	global.characters_unlocked[global.character_indexes.kranion] = true;
+	global.characters_unlocked[global.character_indexes.sticky] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;
@@ -703,10 +702,9 @@ function player_character_get(_player_number)
 
 /// @function player_character_get_unlocked
 /// @param _player_number
-/// @param _story_mode global.story_mode
-function player_character_get_unlocked(_player_number, _story_mode = global.story_mode)
+function player_character_get_unlocked(_player_number)
 {
-	return global.characters_unlocked[_player_number][_story_mode];
+	return global.characters_unlocked[_player_number];
 	
 	gml_pragma("forceinline");
 }

@@ -579,22 +579,6 @@ function level_status_get(_level_id = global.level_id, _story_mode = global.stor
 	gml_pragma("forceinline");
 }
 
-/// @function levels_get_all_completed
-/// @param {Int} _story_mode = global.story_mode
-function levels_get_all_completed(_story_mode = global.story_mode)
-{
-	var _arr = [];
-	
-	for (var i = 0; i < array_length(global.levels); i++)
-	{
-		if (global.level_save_data_list[_story_mode][i].status > 1) array_push(_arr, i);
-	}
-	show_debug_message(_arr);
-	return _arr;
-	
-	gml_pragma("forceinline");
-}
-
 /// @function level_complete_get
 /// @param {Int} _level_id = global.level_id
 /// @param {Int} _story_mode = global.story_mode

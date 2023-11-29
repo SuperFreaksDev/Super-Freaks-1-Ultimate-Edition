@@ -10,7 +10,6 @@
     {"name":"inst_49EC6FA7_6","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
     {"name":"inst_4BE08588","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
     {"name":"inst_7731DFA0","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
-    {"name":"inst_1C082A7F","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
     {"name":"inst_4015369D","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
     {"name":"inst_49963967","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
     {"name":"inst_33D17157","path":"rooms/rm_secretcanyon_2/rm_secretcanyon_2.yy",},
@@ -190,14 +189,10 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"0",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Normal\", \"Hard\"",},
           ],"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":528.0,"y":752.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1C082A7F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_skizzor","path":"objects/obj_skizzor/obj_skizzor.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"fast_forward","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":848.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4015369D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_skizzor","path":"objects/obj_skizzor/obj_skizzor.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"fast_forward","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
-          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1232.0,"y":848.0,},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1104.0,"y":848.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_49963967","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_background_canyon","path":"objects/obj_background_canyon/obj_background_canyon.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_background_parent","path":"objects/obj_background_parent/obj_background_parent.yy",},"propertyId":{"name":"alternate","path":"objects/obj_background_parent/obj_background_parent.yy",},"value":"True",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":768.0,},
@@ -243,6 +238,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5A425489","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"propertyId":{"name":"drop_type","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"value":"\"Barrel_Bounce\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"2",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"propertyId":{"name":"timer_frequency","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"value":"80",},
           ],"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":4848.0,"y":656.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_105C05BB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_fusedropper","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"propertyId":{"name":"drop_type","path":"objects/obj_fusedropper/obj_fusedropper.yy",},"value":"\"Bomb\"",},

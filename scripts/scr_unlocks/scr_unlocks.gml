@@ -106,92 +106,76 @@ function unlocks_init()
 		return level_perfect_get(level_ids.level_normal_fruit_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.superior][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.superior][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.superior] = true;
 	});
 	unlock_create(unlocks.character_negative_quincy, "Unlock Negative Quincy", "You can now play as King Quincy's Anti Freaks counterpart, Negative Quincy! Be very glad you're not playing against him.", function()
 	{
 		return level_perfect_get(level_ids.level_crazy_toy_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.negative_quincy][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.negative_quincy][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.negative_quincy] = true;
 	});
 	unlock_create(unlocks.character_geyzer, "Unlock Geyzer", "You can now play as Gambi's Anti Freaks counterpart, Geyzer! But don't touch him, what with all that edge he's got.", function()
 	{
 		return level_perfect_get(level_ids.level_insane_hippie_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.geyzer][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.geyzer][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.geyzer] = true;
 	});
 	unlock_create(unlocks.character_trash_can_man, "Unlock Trash Can Man", "You can now play as Tikiman's Anti Freaks counterpart, Trash Can Man! If he had it his way, you'd have to buy him.", function()
 	{
 		return level_perfect_get(level_ids.level_freaky_ice_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.trash_can_man][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.trash_can_man][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.trash_can_man] = true;
 	});
 	unlock_create(unlocks.character_2006, "Unlock 2006 Super Freaks", "You can now play as the 2006 Super Freaks! They're almost old enough to get their drivers licenses!", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_boss_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.scruffy_2006][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.scruffy_2006][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.quincy_2006][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.quincy_2006][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.gambi_2006][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.gambi_2006][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.tikiman_2006][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.tikiman_2006][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.scruffy_2006] = true;
+		global.characters_unlocked[global.character_indexes.quincy_2006] = true;
+		global.characters_unlocked[global.character_indexes.gambi_2006] = true;
+		global.characters_unlocked[global.character_indexes.tikiman_2006] = true;
 	});
 	unlock_create(unlocks.character_dino, "Unlock Dino", "You can now play as Kranion's right hand man, Dino! Give him the victory he's never had!", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_boss);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.dino][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.dino][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.dino] = true;
 	});
 	unlock_create(unlocks.character_x_freaks, "Unlock X-Freaks", "You can now play as the X-Freaks! These guys are First Class! ...yeah I know, that joke kinda sucked. Great movie though!", function()
 	{
 		return level_perfect_get(level_ids.level_ludicrous_barrel_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.slaypool][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.slaypool][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.cyquops][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.cyquops][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.gloverine][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.gloverine][story_modes.kranion] = true;
-		global.characters_unlocked[global.character_indexes.professor_t][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.professor_t][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.slaypool] = true;
+		global.characters_unlocked[global.character_indexes.cyquops] = true;
+		global.characters_unlocked[global.character_indexes.gloverine] = true;
+		global.characters_unlocked[global.character_indexes.professor_t] = true;
 	});
 	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest!", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_final_boss);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.uncle_swordsman] = true;
 	});
 	unlock_create(unlocks.character_boneym, "Unlock Boney M", "You can now play as Boney M! You know, the little robot guy that walks back and forth, and you bonk him on the head and he falls off the screen and makes a funny slide whistle sound. Gives me a good chuckle every time.", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_conveyor_secret);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.boney_m][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.boney_m][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.boney_m] = true;
 	});
 	unlock_create(unlocks.character_brick, "Unlock Brick", "You can now play as a brick! An actual brick. Like the kind you make walls out of. Don't tell me you weren't expecting a really stupid 100% reward!", function()
 	{
 		return level_perfect_get(level_ids.level_supersecret_boss);
 	}, function()
 	{
-		global.characters_unlocked[global.character_indexes.brick][story_modes.super_freaks] = true;
-		global.characters_unlocked[global.character_indexes.brick][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.brick] = true;
 	});
 	
 	unlocks_load();

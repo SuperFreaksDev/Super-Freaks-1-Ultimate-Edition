@@ -9,8 +9,8 @@
     "path": "folders/Rooms/Levels/Freaky World/Starscraper.yy",
   },
   "points": [
-    {"speed":100.0,"x":608.0,"y":2528.0,},
-    {"speed":100.0,"x":1120.0,"y":2528.0,},
+    {"speed":100.0,"x":608.0,"y":2544.0,},
+    {"speed":100.0,"x":1120.0,"y":2544.0,},
   ],
   "precision": 4,
 }

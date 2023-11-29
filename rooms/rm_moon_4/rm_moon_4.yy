@@ -48,7 +48,6 @@
     {"name":"inst_2F8D17CB","path":"rooms/rm_moon_4/rm_moon_4.yy",},
     {"name":"inst_67AEBE62","path":"rooms/rm_moon_4/rm_moon_4.yy",},
     {"name":"inst_2670998F","path":"rooms/rm_moon_4/rm_moon_4.yy",},
-    {"name":"inst_271F5BC2","path":"rooms/rm_moon_4/rm_moon_4.yy",},
     {"name":"inst_A18F18B","path":"rooms/rm_moon_4/rm_moon_4.yy",},
     {"name":"inst_71765632","path":"rooms/rm_moon_4/rm_moon_4.yy",},
     {"name":"inst_DEA59B0","path":"rooms/rm_moon_4/rm_moon_4.yy",},
@@ -424,12 +423,6 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_time_star","path":"objects/obj_time_star/obj_time_star.yy",},"propertyId":{"name":"time","path":"objects/obj_time_star/obj_time_star.yy",},"value":"900",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4544.0,"y":560.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2670998F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_jetpack","path":"objects/obj_jetpack/obj_jetpack.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":2976.0,"y":800.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_271F5BC2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_gunnery","path":"objects/obj_gunnery/obj_gunnery.yy",},"properties":[
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"6",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"difficulty","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"\"Hard\"",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"fast_forward","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
-            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_gunnery","path":"objects/obj_gunnery/obj_gunnery.yy",},"propertyId":{"name":"walk_speed","path":"objects/obj_gunnery/obj_gunnery.yy",},"value":"2",},
-          ],"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"x":5856.0,"y":752.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_A18F18B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_kranitron_laser_offscreen","path":"objects/obj_kranitron_laser_offscreen/obj_kranitron_laser_offscreen.yy",},"properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"fast_forward","path":"objects/obj_level_obj/obj_level_obj.yy",},"value":"False",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":48.0,"y":800.0,},
