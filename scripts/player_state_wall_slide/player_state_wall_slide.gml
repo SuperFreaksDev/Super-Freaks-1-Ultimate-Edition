@@ -50,7 +50,7 @@ function player_state_wall_slide()
 		
 	if (jump_buffer > 0)
 	{
-		sfx_play_global(sfx_jump);
+		sfx_play_global(player_jumpsound_get(character_index));
 		ball = true;
 		speed_h = face * -4;
 		speed_v = -speed_jump;

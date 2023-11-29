@@ -125,6 +125,12 @@ timer = 0;
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 		{
+			var _level_list = levels_get_all_completed();
+			show_debug_message(_level_list);
+			
+			options[main_menu_pages.challenge][0][menu_option_data.unlocked] = (array_length(_level_list) > 0);
+			show_debug_message($"Unlocked: {options[main_menu_pages.challenge][0][menu_option_data.unlocked]}")
+			
 			page = main_menu_pages.challenge;
 			option = 0;
 		}
@@ -263,7 +269,7 @@ timer = 0;
 		{
 			var _index;
 			var _name_world, _name_level, _room;
-			var _level_list = global.level_list[level_lists.completed];
+			var _level_list = levels_get_all_completed();
 			var _level_max = array_length(_level_list);
 		
 			main_text = "Challenge Mode - Free Play";
