@@ -196,15 +196,15 @@ switch (state)
 							{
 								global.player_list[_player_num][player_data.character_index]++;
 					
-								if (global.player_list[_player_num][player_data.character_index] >= global.character_count)
-									global.player_list[_player_num][player_data.character_index] = 0;
+								if (global.player_list[_player_num][player_data.character_index] >= array_length(unlockedChars) - 1)
+									global.player_list[_player_num][player_data.character_index] = unlockedChars[0];
 					
-								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]] == false)
+								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]][global.story_mode] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]++;
 					
-									if (global.player_list[_player_num][player_data.character_index] >= global.character_count)
-										global.player_list[_player_num][player_data.character_index] = 0;
+									if (global.player_list[_player_num][player_data.character_index] >= array_length(unlockedChars) - 1)
+										global.player_list[_player_num][player_data.character_index] = unlockedChars[0];
 								}
 							}
 							else if (input_check_pressed("down", _player_num) || input_check_long("down", _player_num))
@@ -212,13 +212,13 @@ switch (state)
 								global.player_list[_player_num][player_data.character_index]--;
 					
 								if (global.player_list[_player_num][player_data.character_index] < 0)
-									global.player_list[_player_num][player_data.character_index] = global.character_count - 1;
+									global.player_list[_player_num][player_data.character_index] = array_length(unlockedChars) - 1;
 						
-								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]] == false)
+								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]][global.story_mode] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]--;
 									if (global.player_list[_player_num][player_data.character_index] < 0)
-										global.player_list[_player_num][player_data.character_index] = global.character_count - 1;
+										global.player_list[_player_num][player_data.character_index] = array_length(unlockedChars) - 1;
 								}
 							}
 						}

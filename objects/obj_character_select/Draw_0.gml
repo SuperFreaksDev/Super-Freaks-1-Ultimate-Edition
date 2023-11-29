@@ -87,6 +87,8 @@ switch (page)
 		draw_set_valign(fa_top);
 		_player_num = 0;
 		_character_index = global.player_list[_player_num][player_data.character_index];
+		
+		show_debug_message(_character_index);
 		draw_sprite(spr_player_numbers, _player_num, _x - 192, _y - 72);
 		if (global.player_list[_player_num][player_data.active])
 		{
