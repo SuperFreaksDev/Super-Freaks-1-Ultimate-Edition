@@ -326,7 +326,6 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"stand.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"walk.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"wall_slide.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
-    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"HOW TO USE CUSTOM CHARACTERS.txt","CopyToMask":-1,"filePath":"datafiles/chars",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"controllertypes.csv","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"licenses.txt","CopyToMask":-1,"filePath":"datafiles",},
