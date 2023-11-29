@@ -1,5 +1,20 @@
 function player_state_dropin()
 {
+	var unlockedChars = [];
+
+	for (var i = 0; i < array_length(struct_get_names(global.character_indexes)); i++)
+	{
+		if (global.characters_unlocked[i][global.story_mode])
+			array_push(unlockedChars, i);
+	}
+
+	if (!array_contains(unlockedChars, global.player_list[player_number][player_data.character_index]))
+	{
+		global.player_list[player_number][player_data.character_index] = unlockedChars[0];
+	}
+	
+	show_debug_message(unlockedChars);
+	
 	if (state_begin)
 	{
 		visible = false;
@@ -22,15 +37,15 @@ function player_state_dropin()
 		{
 			global.player_list[player_number][player_data.character_index]++;
 					
-			if (global.player_list[player_number][player_data.character_index] >= global.character_count)
-				global.player_list[player_number][player_data.character_index] = 0;
+			if (global.player_list[player_number][player_data.character_index] > unlockedChars[array_length(unlockedChars) - 1])
+				global.player_list[player_number][player_data.character_index] = unlockedChars[0];
 					
-			while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]] == false)
+			while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]][global.story_mode] == false)
 			{
 				global.player_list[player_number][player_data.character_index]++;
 					
-				if (global.player_list[player_number][player_data.character_index] >= global.character_count)
-					global.player_list[player_number][player_data.character_index] = 0;
+				if (global.player_list[player_number][player_data.character_index] > unlockedChars[array_length(unlockedChars) - 1])
+					global.player_list[player_number][player_data.character_index] = unlockedChars[0];
 			}
 		
 			character_index = global.player_list[player_number][player_data.character_index];
@@ -41,13 +56,13 @@ function player_state_dropin()
 			global.player_list[player_number][player_data.character_index]--;
 					
 			if (global.player_list[player_number][player_data.character_index] < 0)
-				global.player_list[player_number][player_data.character_index] = global.character_count - 1;
+				global.player_list[player_number][player_data.character_index] = unlockedChars[array_length(unlockedChars) - 1];
 						
-			while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]] == false)
+			while (global.characters_unlocked[global.player_list[player_number][player_data.character_index]][global.story_mode] == false)
 			{
 				global.player_list[player_number][player_data.character_index]--;
 				if (global.player_list[player_number][player_data.character_index] < 0)
-					global.player_list[player_number][player_data.character_index] = global.character_count - 1;
+					global.player_list[player_number][player_data.character_index] = unlockedChars[array_length(unlockedChars) - 1];
 			}
 		
 			character_index = global.player_list[player_number][player_data.character_index];
