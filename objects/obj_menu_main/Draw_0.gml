@@ -37,7 +37,7 @@ draw_text(0, 0, string(main_text));
 switch (page)
 {
 	case main_menu_pages.challenge_freeplay:
-		_index = global.level_list[level_lists.completed][global.level_demo];
+		_index = levels_get_all_completed()[global.level_demo];
 		_name_world = level_name_world_get(_index);
 		_name_level = level_name_get(_index);
 		

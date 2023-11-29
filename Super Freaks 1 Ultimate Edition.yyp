@@ -326,7 +326,10 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"stand.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"walk.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"wall_slide.png","CopyToMask":-1,"filePath":"datafiles/chars/!example/spr",},
+<<<<<<< Updated upstream
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"8bitmario.zip","CopyToMask":-1,"filePath":"datafiles/chars",},
+=======
+>>>>>>> Stashed changes
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"char.json","CopyToMask":-1,"filePath":"datafiles/chars/8bitmario",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"death.ogg","CopyToMask":-1,"filePath":"datafiles/chars/8bitmario/snd",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"fall.ogg","CopyToMask":-1,"filePath":"datafiles/chars/8bitmario/snd",},

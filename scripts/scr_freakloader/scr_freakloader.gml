@@ -27,8 +27,10 @@ function freakloader_init()
 				}
 				else
 				{
-					global.custom_character_indexes[$ loadDir] = (array_length(struct_get_names(global.character_indexes)) + array_length(struct_get_names(global.custom_character_indexes)));
+					global.character_indexes[$ loadDir] = array_length(struct_get_names(global.character_indexes));
+					global.custom_character_indexes[$ loadDir] = array_length(struct_get_names(global.character_indexes));
 					show_debug_message($"Character \"{loadDir}\" successfully loaded!");
+	
 					loadDir = file_find_next();
 				}
 			}
@@ -42,15 +44,7 @@ function freakloader_init()
 		file_find_close();
 	}
 
-	global.character_count = array_length(struct_get_names(global.character_indexes)) + array_length(struct_get_names(global.custom_character_indexes));
-	
-	if (array_length(struct_get_names(global.custom_character_indexes)) > 0)
-	{
-		for (var i = 0; i < array_length(struct_get_names(global.custom_character_indexes)); i++)
-		{
-			global.characters_unlocked[global.custom_character_indexes[$ struct_get_names(global.custom_character_indexes)[i]]] = true;
-		}
-	}
+	global.character_count = array_length(struct_get_names(global.character_indexes));
 }
 
 function freakloader_add_chars()
@@ -67,7 +61,7 @@ function freakloader_add_chars()
 			charFile = json_parse(buffer_read(buf, buffer_string));
 		buffer_delete(buf);
 		
-		_character = global.custom_character_indexes[$ customChars[i]];
+		_character = global.character_indexes[$ customChars[i]];
 		global.character_names[_character] = charFile.name;
 		player_animation_create(_character, player_animations.hud_face, sprite_add($"{filePath}/{charFile.sprites.path}/hud.png", 2, false, false, 16, 16));
 		player_animation_create(_character, player_animations.idle, sprite_add($"{filePath}/{charFile.sprites.path}/stand.png", charFile.sprites.stand.frames, false, false, 0, 0));
@@ -105,5 +99,10 @@ function freakloader_add_chars()
 		player_fallsound_create(_character, sndToAdd);
 		
 		player_hitbox_resize(_character);
+		
+		var _charID = (global.character_count - (array_length(struct_get_names(global.custom_character_indexes)) - i));
+		
+		global.characters_unlocked[_charID][story_modes.super_freaks] = true;
+		global.characters_unlocked[_charID][story_modes.kranion] = true;
 	}
 }
