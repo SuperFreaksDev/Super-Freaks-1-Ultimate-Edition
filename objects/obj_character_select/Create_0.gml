@@ -18,10 +18,18 @@ for (var i = 0; i < array_length(struct_get_names(global.character_indexes)); i+
 		{
 			for (_player_num = 0; _player_num <= player_numbers.count; _player_num++)
 			{
-				global.player_list[_player_num][player_data.character_index] = i;
+				//global.player_list[_player_num][player_data.character_index] = i;
 			}
 		}
 		array_push(unlockedChars, i);
+}
+
+for (var _player_num = 0; _player_num < player_numbers.count; _player_num++)
+{
+	if (!array_contains(unlockedChars, global.player_list[_player_num][player_data.character_index]))
+	{
+		global.player_list[_player_num][player_data.character_index] = unlockedChars[0];
+	}
 }
 
 // Inherit the parent event

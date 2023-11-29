@@ -196,14 +196,14 @@ switch (state)
 							{
 								global.player_list[_player_num][player_data.character_index]++;
 					
-								if (global.player_list[_player_num][player_data.character_index] >= array_length(unlockedChars) - 1)
+								if (global.player_list[_player_num][player_data.character_index] > unlockedChars[array_length(unlockedChars) - 1])
 									global.player_list[_player_num][player_data.character_index] = unlockedChars[0];
 					
 								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]][global.story_mode] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]++;
 					
-									if (global.player_list[_player_num][player_data.character_index] >= array_length(unlockedChars) - 1)
+									if (global.player_list[_player_num][player_data.character_index] > unlockedChars[array_length(unlockedChars) - 1])
 										global.player_list[_player_num][player_data.character_index] = unlockedChars[0];
 								}
 							}
@@ -212,13 +212,13 @@ switch (state)
 								global.player_list[_player_num][player_data.character_index]--;
 					
 								if (global.player_list[_player_num][player_data.character_index] < 0)
-									global.player_list[_player_num][player_data.character_index] = array_length(unlockedChars) - 1;
+									global.player_list[_player_num][player_data.character_index] = unlockedChars[array_length(unlockedChars) - 1];
 						
 								while (global.characters_unlocked[global.player_list[_player_num][player_data.character_index]][global.story_mode] == false)
 								{
 									global.player_list[_player_num][player_data.character_index]--;
 									if (global.player_list[_player_num][player_data.character_index] < 0)
-										global.player_list[_player_num][player_data.character_index] = array_length(unlockedChars) - 1;
+										global.player_list[_player_num][player_data.character_index] = unlockedChars[array_length(unlockedChars) - 1];
 								}
 							}
 						}
