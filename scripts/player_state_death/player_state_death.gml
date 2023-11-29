@@ -13,8 +13,7 @@ function player_state_death()
 		instance_attach = undefined;
 		
 		collider_attach_clear();
-		with (hitbox)
-			active = hitbox_active.inactive;
+		hitbox.active = hitbox_active.inactive;
 		sfx_play_global(player_deathsound_get(character_index));
 		
 		if (!players_alive())
