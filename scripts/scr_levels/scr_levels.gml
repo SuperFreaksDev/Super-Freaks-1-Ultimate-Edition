@@ -480,6 +480,13 @@ function levels_init()
 	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret][level_cutscene_data.before] = rm_cutscene_encore;
 	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret_boss][level_cutscene_data.before] = rm_cutscene_antifreaks_battle;
 	global.level_cutscene_list[story_modes.super_freaks][level_ids.level_supersecret_boss][level_cutscene_data.after] = rm_cutscene_ending_secret;
+	
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_stadium][level_cutscene_data.before] = rm_cutscene_intro_kranion;
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_stadium][level_cutscene_data.after] = rm_cutscene_antifreaks_intro_villains;
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_freaky_ice][level_cutscene_data.before] = rm_cutscene_freak_fathers_villains;
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_kranion_final_boss][level_cutscene_data.before] = rm_cutscene_cranion;
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_kranion_final_boss][level_cutscene_data.after] = rm_cutscene_ending_normal_villains;
+	global.level_cutscene_list[story_modes.kranion][level_ids.level_supersecret_boss][level_cutscene_data.after] = rm_cutscene_ending_secret_villains;
 }
 
 /// @function levels_save
