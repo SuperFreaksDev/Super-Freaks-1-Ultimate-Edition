@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d2f0c9ec-e80e-49cd-a0c4-7514066590a8","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Sticky",
     "path": "folders/Sprites/Player Characters/Sticky.yy",
@@ -60,7 +60,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 36,
-    "yorigin": 40,
+    "yorigin": 56,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

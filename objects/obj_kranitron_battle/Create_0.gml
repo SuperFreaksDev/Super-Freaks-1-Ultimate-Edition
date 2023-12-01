@@ -16,7 +16,7 @@ laser_alpha = 0;
 can_despawn = false;
 animate_speed = 0;
 hp_init(6);
-boss_name = "Kranitron K";
+boss_name = "Kranitron K 'Greg'";
 yorb_amount = 0;
 
 state_next_set(0);

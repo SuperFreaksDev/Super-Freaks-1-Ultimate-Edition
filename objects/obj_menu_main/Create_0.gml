@@ -144,6 +144,7 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
+			page = main_menu_pages.main;
 			switch (global.story_mode)
 			{
 				case story_modes.super_freaks:
