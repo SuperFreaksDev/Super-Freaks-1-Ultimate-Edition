@@ -117,7 +117,15 @@ timer = 0;
 		else if (input_check_pressed("deny", global.player_lead))
 		{
 			page = main_menu_pages.main;
-			option = 0;
+			switch (global.story_mode)
+			{
+				case story_modes.super_freaks:
+					option = 0;
+					break;
+				case story_modes.kranion:
+					option = 1;
+					break;
+			}
 		}
 	});
 	menu_option_add(_page, 1, "Challenge", function()
@@ -136,8 +144,15 @@ timer = 0;
 		}
 		else if (input_check_pressed("deny", global.player_lead))
 		{
-			page = main_menu_pages.main;
-			option = 1;
+			switch (global.story_mode)
+			{
+				case story_modes.super_freaks:
+					option = 0;
+					break;
+				case story_modes.kranion:
+					option = 1;
+					break;
+			}
 		}
 	});
 #endregion

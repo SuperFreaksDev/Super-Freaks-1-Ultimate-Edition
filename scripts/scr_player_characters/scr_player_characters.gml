@@ -4,25 +4,25 @@ global.character_indexes =
 	quincy: 1,
 	gambi: 2,
 	tikiman: 3,
-	superior: 4,
-	negative_quincy: 5,
-	geyzer: 6,
-	trash_can_man: 7,
-	slaypool: 8,
-	cyquops: 9,
-	gloverine: 10,
-	professor_t: 11,
-	scruffy_2006: 12,
-	quincy_2006: 13,
-	gambi_2006: 14,
-	tikiman_2006: 15,
-	dino: 16,
-	uncle_swordsman: 17,
-	boney_m: 18,
-	brick: 19,
-	kranion: 20,
-	cranion: 21,
-	sticky: 22,
+	kranion: 4,
+	cranion: 5,
+	sticky: 6,
+	superior: 7,
+	negative_quincy: 8,
+	geyzer: 9,
+	trash_can_man: 10,
+	slaypool: 11,
+	cyquops: 12,
+	gloverine: 13,
+	professor_t: 14,
+	scruffy_2006: 15,
+	quincy_2006: 16,
+	gambi_2006: 17,
+	tikiman_2006: 18,
+	dino: 19,
+	uncle_swordsman: 20,
+	boney_m: 21,
+	brick: 22,
 	spike: 23,
 	wartnose: 24,
 	pseudo_scruffy: 25
@@ -643,6 +643,33 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_kranion);
 		
 		player_mugshot_create(_character, spr_character_select_kranion);
+		
+		player_jumpsound_create(_character, sfx_jump);
+		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character, -16, -24, 16, 20);
+	#endregion
+	
+	#region Cranion
+		_character = global.character_indexes.cranion;
+		global.character_names[_character] = "Cranion";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_cranion);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_cranion);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_cranion);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_cranion);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_cranion);
+		player_animation_create(_character, player_animations.death, spr_player_death_cranion);
+		player_animation_create(_character, player_animations.air, spr_player_air_cranion);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_cranion);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_cranion);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_cranion);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_cranion);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_cranion);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_cranion);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_cranion);
+		
+		player_mugshot_create(_character, spr_character_select_cranion);
 		
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);

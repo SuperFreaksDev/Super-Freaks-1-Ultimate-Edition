@@ -36,6 +36,8 @@ function player_state_death()
 	sprite_index = player_animation_get(character_index, player_animations.death);
 	image_index = 0;
 	
+	hitbox.active = hitbox_active.inactive;
+	
 	timer_death++;
 	if (timer_death >= 64)
 		player_death_reset();

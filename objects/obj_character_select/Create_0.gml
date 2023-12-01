@@ -1,5 +1,7 @@
 /// @description Init
 
+var _player_num;
+
 enum menu_character_select_pages
 {
 	difficulty_select = 0,

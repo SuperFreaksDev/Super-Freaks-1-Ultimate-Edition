@@ -34,6 +34,9 @@ enum unlocks
 	character_swordsman,
 	character_boneym,
 	character_brick,
+	character_cranion,
+	freaks_in_badguys,
+	badguys_in_freaks,
 }
 
 /// @function unlocks_init
@@ -177,6 +180,14 @@ function unlocks_init()
 		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.super_freaks] = true;
 		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.kranion] = true;
 	});
+	unlock_create(unlocks.character_cranion, "Unlock Cranion", "You can now play as Cranion! He's just a blue guy living in a blue world!", function()
+	{
+		return level_perfect_get(level_ids.level_kranion_final_boss, story_modes.kranion);
+	}, function()
+	{
+		global.characters_unlocked[global.character_indexes.cranion][story_modes.super_freaks] = true;
+		global.characters_unlocked[global.character_indexes.cranion][story_modes.kranion] = true;
+	});
 	unlock_create(unlocks.character_boneym, "Unlock Boney M", "You can now play as Boney M! You know, the little robot guy that walks back and forth, and you bonk him on the head and he falls off the screen and makes a funny slide whistle sound. Gives me a good chuckle every time.", function()
 	{
 		return level_perfect_get(level_ids.level_kranion_conveyor_secret);
@@ -192,6 +203,24 @@ function unlocks_init()
 	{
 		global.characters_unlocked[global.character_indexes.brick][story_modes.super_freaks] = true;
 		global.characters_unlocked[global.character_indexes.brick][story_modes.kranion] = true;
+	});
+	unlock_create(unlocks.badguys_in_freaks, "Unlock Kranion and Sticky in Super Freaks Story", "You can now play as Kranion and Sticky in the Super Freaks Story! The skeletons appeared!", function()
+	{
+		return level_perfect_get(level_ids.level_supersecret_boss, story_modes.super_freaks);
+	}, function()
+	{
+		global.characters_unlocked[global.character_indexes.kranion][story_modes.super_freaks] = true;
+		global.characters_unlocked[global.character_indexes.sticky][story_modes.super_freaks] = true;
+	});
+	unlock_create(unlocks.freaks_in_badguys, "Unlock Super Freaks in Bad Guys Story", "You can now play as the Super Freaks in the Bad Guys Story! I'm freaks!", function()
+	{
+		return level_perfect_get(level_ids.level_supersecret_boss, story_modes.super_freaks);
+	}, function()
+	{
+		global.characters_unlocked[global.character_indexes.scruffy][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.quincy][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.gambi][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.tikiman][story_modes.kranion] = true;
 	});
 	
 	unlocks_load();
