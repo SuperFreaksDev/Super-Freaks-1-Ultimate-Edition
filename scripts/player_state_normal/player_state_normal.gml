@@ -3,6 +3,7 @@ function player_state_normal()
 	var _collider, _collider_speed_x, _collider_speed_y;
 	var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 	var _move_h = 0, _move_v = 0;
+	var _speedup_h = 0;
 	var _speed_fall = speed_fall;
 	var _speed_acc = speed_acc, _speed_dec = speed_dec, _speed_frc = speed_frc;
 	var _speed_frc_air = speed_frc_air;
@@ -39,6 +40,13 @@ function player_state_normal()
 	{
 		case player_physics_modifiers.slime:
 		case player_physics_modifiers.rail:
+			if (lock_controls_horizontal == 0)
+			{
+				if (input_check("left", player_number))
+					_speedup_h -= 1;
+				if (input_check("right", player_number))
+					_speedup_h += 1;
+			}
 			break;
 		default:
 			if (lock_controls_horizontal == 0)
@@ -365,19 +373,25 @@ function player_state_normal()
 					if (physics != player_physics_modifiers.rail)
 						physics = player_physics_modifiers.rail;
 						
-					speed_h = 5 * face;
+					//speed_h = 5 * face + _speedup_h;
 					break;
 				case collider_behaviors_solid.rail_left:
 					if (physics != player_physics_modifiers.rail)
 						physics = player_physics_modifiers.rail;
 						
-					speed_h = -5;
+					//speed_h = -5 + _speedup_h;
+					if (speed_h < -12 || speed_h > -4)
+						speed_h = approach(speed_h, clamp(speed_h, -12, -4), 2);
+					speed_h = approach(speed_h, -5+_speedup_h, 0.1);
 					break;
 				case collider_behaviors_solid.rail_right:
 					if (physics != player_physics_modifiers.rail)
 						physics = player_physics_modifiers.rail;
 						
-					speed_h = 5;
+					//speed_h = 5 + _speedup_h;
+					if (speed_h < 4 || speed_h > 12)
+						speed_h = approach(speed_h, clamp(speed_h, 4, 12), 2);
+					speed_h = approach(speed_h, 5+_speedup_h, 0.1);
 					break;
 			}
 		}
