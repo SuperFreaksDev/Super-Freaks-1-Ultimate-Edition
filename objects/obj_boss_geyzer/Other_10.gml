@@ -121,6 +121,7 @@ switch (state)
 			timer = 0;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
 			sprite_index = player_animation_get(character_index, player_animations.jump);
+			image_index = 0;
 			animate_speed = 0.25;
 		}
 		
@@ -135,7 +136,7 @@ switch (state)
 	case boss_antifreak_states.attack_3:
 		if (state_begin)
 		{
-			timer = 112 - (global.difficulty * 16);
+			timer = 128 - (global.difficulty * 16);
 			hitbox.behavior = enemy_hitbox_behaviors.heavy;
 			sprite_index = player_animation_get(character_index, player_animations.air);
 			animate_speed = 0;

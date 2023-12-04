@@ -106,9 +106,9 @@ switch (state)
 		
 		y += (3 / _fast_forward);
 		
-		if (y >= 512)
+		if (y >= 628)
 		{
-			y = 512;
+			y = 628;
 			state_next_set(boss_antifreak_states.attack_2);
 		}
 		break;
@@ -117,7 +117,11 @@ switch (state)
 		{
 			speed_x = (1.5 + global.difficulty) * face;
 			laser.active = hitbox_active.passive;
+			hitbox.behavior = enemy_hitbox_behaviors.heavy;
+			sprite_index = player_animation_get(character_index, player_animations.air);
 			sfx_play_global(sfx_laser_huge_fire);
+			animate_speed = 0;
+			image_index = 1;
 		}
 		
 		x += speed_x;
@@ -142,7 +146,7 @@ switch (state)
 			laser.active = hitbox_active.inactive;
 			sprite_index = player_animation_get(character_index, player_animations.air);
 			animate_speed = 0;
-			image_index = 1;
+			image_index = 2;
 		}
 		
 		speed_y = min(speed_y + 0.25, 6);
