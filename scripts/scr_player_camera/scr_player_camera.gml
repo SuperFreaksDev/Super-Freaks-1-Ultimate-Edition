@@ -1,6 +1,6 @@
 /// @function player_camera_extend_x
 /// @param _multiplier = 2.5
-function player_camera_extend_x(_multiplier = 2.5)
+function player_camera_extend_x(_multiplier = 1.5)
 {
 	camera.x += ((x - x_start_frame) * _multiplier);
 	camera.x = clamp(camera.x, x - 64, x + 64);
@@ -10,7 +10,7 @@ function player_camera_extend_x(_multiplier = 2.5)
 
 /// @function player_camera_extend_y
 /// @param _multiplier = 2.5
-function player_camera_extend_y(_multiplier = 2.5)
+function player_camera_extend_y(_multiplier = 1.5)
 {
 	camera.y += ((y - y_start_frame) * _multiplier);
 	camera.y = clamp(camera.y, y - 48, y + 32);

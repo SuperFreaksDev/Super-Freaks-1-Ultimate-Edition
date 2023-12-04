@@ -1675,6 +1675,7 @@
     {"name":"input_y","order":5,"path":"scripts/input_y/input_y.yy",},
     {"name":"__input_class_gamepad_motion","order":8,"path":"scripts/__input_class_gamepad_motion/__input_class_gamepad_motion.yy",},
     {"name":"rm_star_4","order":22,"path":"rooms/rm_star_4/rm_star_4.yy",},
+    {"name":"scr_approach","order":6,"path":"scripts/scr_approach/scr_approach.yy",},
     {"name":"sfx_collect","order":8,"path":"sounds/sfx_collect/sfx_collect.yy",},
     {"name":"msc_park","order":8,"path":"sounds/msc_park/msc_park.yy",},
     {"name":"rm_cutscene_intro_kranion","order":13,"path":"rooms/rm_cutscene_intro_kranion/rm_cutscene_intro_kranion.yy",},
