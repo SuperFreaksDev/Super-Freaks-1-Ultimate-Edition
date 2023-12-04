@@ -1,6 +1,7 @@
 /// @description Step
 
-var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
+var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false, _jump = false;
+var _x1 = x - 16, _x2 = x + 16, _y1 = y - 128, _y2 = y;
 
 collision_flags = 0;
 
@@ -17,7 +18,21 @@ switch (state)
 		}
 		enemy_behavior_ground(speed_acc,,move_speed, speed_grv);
 		
-		if (ground_on && collision_rectangle(x - 16, y - 128, x + 16, y, obj_player_parent, false, false))
+		if (ground_on)
+		{
+			with (obj_player)
+			{
+				if (!player_is_alive())
+					continue;
+				if (rectangle_in_rectangle(x + hitbox.shape_x1, y + hitbox.shape_y1, x + hitbox.shape_x2, y + hitbox.shape_y2, _x1, _y1, _x2, _y2))
+				{
+					_jump = true;
+					break;
+				}
+			}
+		}
+		
+		if (_jump)
 			state_next_set(1);
 
 		#region Collision Reaction

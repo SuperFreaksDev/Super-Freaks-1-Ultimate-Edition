@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"107d920d-7106-48c9-9d83-3a2ff823cf48",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9def5e04-1b55-48fa-b157-f1a45d073d9f",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 360,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9f75ddeb-b481-4daa-8ed3-2b40c7aea64f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"55e3008f-c5e8-45c2-b1b4-d4bd86054d34","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"107d920d-7106-48c9-9d83-3a2ff823cf48","path":"sprites/spr_cutscene_intro_kranion_5/spr_cutscene_intro_kranion_5.yy",},},},"Disabled":false,"id":"a918d657-913b-4249-87d4-773d59b796e0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9def5e04-1b55-48fa-b157-f1a45d073d9f","path":"sprites/spr_cutscene_intro_kranion_5/spr_cutscene_intro_kranion_5.yy",},},},"Disabled":false,"id":"c0a6ce94-10ab-4d47-ae5c-95a66b06236e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -65,8 +65,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "texgroup_cutscenes",
+    "path": "texturegroups/texgroup_cutscenes",
   },
   "type": 0,
   "VTile": false,

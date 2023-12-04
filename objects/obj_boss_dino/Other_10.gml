@@ -48,7 +48,8 @@ switch (state)
 		if (state_begin)
 		{
 			sfx_play_global(sfx_slide_whistle_up);
-			music_set(msc_boss_dino_2);
+			if (global.game_mode != game_modes.boss_rush)
+				music_set(msc_boss_dino_2);
 			sprite_index = spr_player_air_dino;
 			image_index = 0;
 			animate_speed = 0;

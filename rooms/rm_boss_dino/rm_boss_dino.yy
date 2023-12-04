@@ -2,7 +2,7 @@
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
   "name": "rm_boss_dino",
-  "creationCodeFile": "${project_dir}/rooms/rm_boss_dino/RoomCreationCode.gml",
+  "creationCodeFile": "rooms/rm_boss_dino/RoomCreationCode.gml",
   "inheritCode": false,
   "inheritCreationOrder": true,
   "inheritLayers": true,

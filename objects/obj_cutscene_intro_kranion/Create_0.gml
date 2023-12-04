@@ -20,7 +20,7 @@ cutscene_segment_set(6, "Kranion: 'YOU FRIGGIN MORONS!!!!! This day blows! First
 cutscene_segment_set(7, "'I hate tah say it, but there's only one guy I can go tah. This is gonna SUCK.'");
 
 //Sticky
-cutscene_segment_set(8, "Sticky: 'So what's the matter? Some other evil skeleton steal your thunder, eh? Where have I heard that one before?'", spr_cutscene_intro_kranion_5,,, msc_cutscene_intro);
+cutscene_segment_set(8, "Sticky: 'So what's the matter? Some other evil skeleton steal your thunder, eh? Where have I heard that one before?'", spr_cutscene_intro_kranion_5,,, msc_cutscene_sticky);
 cutscene_segment_set(9, "Kranion: 'Hey shut thuh freak up, not my fault you're ah weirdo no one likes.'");
 
 //Kranion and Sticky bickering

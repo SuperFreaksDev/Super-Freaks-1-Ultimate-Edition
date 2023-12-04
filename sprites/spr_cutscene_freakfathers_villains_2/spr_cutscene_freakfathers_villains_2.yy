@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f7d1db49-9851-4573-9b97-b6e802f566e5",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d420c3c2-c78c-4e11-916b-ab4e2eb7e872",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 360,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c36146ac-41d2-4e9d-a487-bc8c85b6c3ae","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b14b61a7-371d-42cf-8402-858c66181300","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f7d1db49-9851-4573-9b97-b6e802f566e5","path":"sprites/spr_cutscene_freakfathers_villains_2/spr_cutscene_freakfathers_villains_2.yy",},},},"Disabled":false,"id":"a405e1c1-3e51-4853-8d2b-effa5e924d2e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d420c3c2-c78c-4e11-916b-ab4e2eb7e872","path":"sprites/spr_cutscene_freakfathers_villains_2/spr_cutscene_freakfathers_villains_2.yy",},},},"Disabled":false,"id":"a79aa87d-26cf-457a-b1a4-8e7f51d53ad2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -65,8 +65,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "texgroup_cutscenes",
+    "path": "texturegroups/texgroup_cutscenes",
   },
   "type": 0,
   "VTile": false,

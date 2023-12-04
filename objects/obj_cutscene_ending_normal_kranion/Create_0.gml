@@ -4,7 +4,7 @@
 event_inherited();
 
 //Kranion and Sticky standing next to a dizzy Cranion
-cutscene_segment_set(0, "Sticky: 'Finally, it's over.'", spr_cutscene_ending_normal_villains_1,,, msc_cutscene_ending);
+cutscene_segment_set(0, "Sticky: 'Finally, it's over.'", spr_cutscene_ending_normal_villains_1,,, msc_cutscene_sticky);
 cutscene_segment_set(1, "Kranion: 'Shame we had tah beat up such a cool guy tho.'");
 cutscene_segment_set(2, "Sticky: 'Yeah, one of you is bad enough!'");
 //Kranion and Sticky at each other's throats
@@ -15,7 +15,7 @@ cutscene_segment_set(6, "Sticky: 'It's a figure of speech, you moron!!!!!'");
 cutscene_segment_set(7, "Kranion: 'Wait no, we do have meat sometimes, just whenevah it's funny--'");
 cutscene_segment_set(8, "Sticky: 'Shut up!!!! Adfgouiasbdfguoabsuogbasdfuogb'");
 //Super Freaks
-cutscene_segment_set(9, "Scruffy: 'Ah, I love a good family reunion.'", spr_cutscene_ending_normal_villains_2);
+cutscene_segment_set(9, "Scruffy: 'Ah, I love a good family reunion.'", spr_cutscene_ending_normal_villains_2, msc_cutscene_ending);
 cutscene_segment_set(10, "Kranion: 'Stay outta this, ya freakin dweebs!!!'");
 cutscene_segment_set(11, "Sticky: 'Yeah, if you don't scram, after I grind this numbskull into a fine bone marrow powder, you're next!!!'");
 cutscene_segment_set(12, "Kranion: 'Not befoah I strangle yah with that friggin kilt!!!'");
