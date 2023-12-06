@@ -11,7 +11,7 @@ cutscene_segment_set(1, "Kranion: 'Yah yah, rub it in why dontcha. Anyway, I'm g
 cutscene_segment_set(2, "'Great, yah were all waitin for me. Now one ah ya's go turn my TV on and grab my friggin slippah's, I gotta catch thuh new episode ah Pawn Freaks.'", spr_cutscene_intro_kranion_2);
 
 //Dino
-cutscene_segment_set(3, "Dino: 'Halt, imposter!'", spr_cutscene_intro_kranion_3,,, msc_boss_cinge);
+cutscene_segment_set(3, "Dino: 'Halt, imposter!'", spr_cutscene_intro_kranion_3,,, msc_boss_dino_2);
 cutscene_segment_set(4, "Kranion: 'Not thuh freakin time tah be a diphead.'");
 cutscene_segment_set(5, "Dino: 'A convincing imitation, but the REAL Kranion arrived 35 minutes ago. He is not to be disturbed. Kranibots, attack!!!'");
 

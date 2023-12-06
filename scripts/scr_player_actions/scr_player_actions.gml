@@ -196,6 +196,9 @@ function player_hurt()
 {
 	var _last_hit = false;
 	
+	if (room_transition_active_get())
+		exit;
+	
 	if (ego_invincible == 0 && hurt_timer == 0 && state != player_states.hurt && state != player_states.bubble)
 	{
 		switch (global.story_mode)
@@ -315,6 +318,8 @@ function player_water_step()
 	switch (global.water_type)
 	{
 		case water_types.water:
+			if (room_transition_active_get())
+				exit;
 			if (underwater)
 			{
 				water_meter = max(water_meter - 0.18, 0);
@@ -328,6 +333,8 @@ function player_water_step()
 		case water_types.lemonade:
 			if (y + collider_detector_down[collider_detector_vertical_data.y] > global.water_height)
 			{
+				if (room_transition_active_get())
+					exit;
 				speed_v = -10;
 				if (!ground_on)
 					speed_h = 0;
