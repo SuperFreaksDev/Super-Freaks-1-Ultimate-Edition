@@ -3,7 +3,7 @@ function screen_shaders_init()
 {
 	global.shaders_list = [];
 	
-	screen_shader_add(, "N/A");
+	screen_shader_add(, "None");
 	screen_shader_add(shader_grayscale, "Justice is Gray");
 }
 
