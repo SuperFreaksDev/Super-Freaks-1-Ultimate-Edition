@@ -14,6 +14,8 @@ character_index = 0;
 #endregion
 
 #region Physics
+	#macro AURA_WALK 2
+	#macro AURA_JUMP 2
 	player_physics_set_normal();
 
 	face = 1;
@@ -62,6 +64,7 @@ character_index = 0;
 	hp = 0;
 	ego_invincible = 0;
 	ego_refill_pause = 0;
+	aura = 0;
 #endregion
 
 #region Collision

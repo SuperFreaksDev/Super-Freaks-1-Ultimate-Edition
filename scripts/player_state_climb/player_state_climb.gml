@@ -4,6 +4,7 @@ function player_state_climb()
 	var _move_h = 0, _move_v = 0;
 	var _climb_obj, _climb_off = false, _climb_boundaries = false;
 	var _player_pos;
+	var _climb_speed = speed_run + (AURA_WALK * (aura / 100));
 	
 	if (state_begin)
 	{
@@ -46,14 +47,14 @@ function player_state_climb()
 	switch (_move_h)
 	{
 		case -1:
-			x -= 3;
+			x -= _climb_speed;
 			face = -1;
 			animate_speed = 0.125;
 			break;
 		case 0:
 			break;
 		case 1:
-			x += 3;
+			x += _climb_speed;
 			face = 1;
 			animate_speed = 0.125;
 			break;
@@ -62,14 +63,14 @@ function player_state_climb()
 	switch (_move_v)
 	{
 		case -1:
-			y -= 3;
+			y -= _climb_speed;
 			animate_speed = 0.125;
 			break;
 		case 0:
 			speed_v = 0;
 			break;
 		case 1:
-			y += 3;
+			y += _climb_speed;
 			animate_speed = 0.125;
 			break;
 	}

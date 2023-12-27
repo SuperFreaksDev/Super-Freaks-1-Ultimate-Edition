@@ -8,6 +8,7 @@ function player_state_inactive()
 		ball = false;
 		hitbox.active = hitbox_active.inactive;
 		rubber_band_can_slingshot = false;
+		aura = false;
 	}
 	
 	//if (button_jump == controls_action_states.press)

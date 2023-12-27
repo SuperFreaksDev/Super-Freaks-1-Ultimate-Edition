@@ -7,25 +7,26 @@ global.character_indexes =
 	kranion: 4,
 	cranion: 5,
 	sticky: 6,
-	superior: 7,
-	negative_quincy: 8,
-	geyzer: 9,
-	trash_can_man: 10,
-	slaypool: 11,
-	cyquops: 12,
-	gloverine: 13,
-	professor_t: 14,
-	scruffy_2006: 15,
-	quincy_2006: 16,
-	gambi_2006: 17,
-	tikiman_2006: 18,
-	dino: 19,
-	uncle_swordsman: 20,
-	boney_m: 21,
-	brick: 22,
-	spike: 23,
-	wartnose: 24,
-	pseudo_scruffy: 25
+	uncle_swordsman: 7,
+	one_eyed_bandit: 8,
+	superior: 9,
+	negative_quincy: 10,
+	geyzer: 11,
+	trash_can_man: 12,
+	slaypool: 13,
+	cyquops: 14,
+	gloverine: 15,
+	professor_t: 16,
+	scruffy_2006: 17,
+	quincy_2006: 18,
+	gambi_2006: 19,
+	tikiman_2006: 20,
+	dino: 21,
+	boney_m: 22,
+	brick: 23,
+	spike: 24,
+	wartnose: 25,
+	pseudo_scruffy: 26
 }
 
 enum player_animations
@@ -70,6 +71,7 @@ function characters_init()
 		global.character_names[_i] = "";
 		global.characters_unlocked[_i][story_modes.super_freaks] = false;
 		global.characters_unlocked[_i][story_modes.kranion] = false;
+		global.characters_unlocked[_i][story_modes.swordsman] = false;
 	}
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
@@ -81,8 +83,11 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.quincy][story_modes.super_freaks] = true;
 	global.characters_unlocked[global.character_indexes.gambi][story_modes.super_freaks] = true;
 	global.characters_unlocked[global.character_indexes.tikiman][story_modes.super_freaks] = true;
+	
 	global.characters_unlocked[global.character_indexes.kranion][story_modes.kranion] = true;
 	global.characters_unlocked[global.character_indexes.sticky][story_modes.kranion] = true;
+	
+	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.swordsman] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;

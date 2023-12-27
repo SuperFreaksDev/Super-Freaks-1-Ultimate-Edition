@@ -11,6 +11,7 @@ function player_state_death()
 		jump_buffer = 0;
 		coyote_time = 0;
 		instance_attach = undefined;
+		aura = false;
 		
 		collider_attach_clear();
 		hitbox.active = hitbox_active.inactive;

@@ -3,7 +3,7 @@
 var _frame_delta = frame_delta_player_get();
 var _x = lerp(x_start_frame, x, _frame_delta);
 var _y = lerp(y_start_frame, y, _frame_delta);
-var _height;
+var _height = collider_detector_down[collider_detector_vertical_data.y];
 
 var _average_x, _average_y, _average_x_previous, _average_y_previous;
 var _rubber_band_distance, _rubber_band_direction, _rubber_band_draw = true;
@@ -17,7 +17,6 @@ switch (state)
 	case player_states.normal:
 		if (physics == player_physics_modifiers.rail && ground_on)
 		{
-			_height = collider_detector_down[collider_detector_vertical_data.y];
 			draw_sprite_ext(sprite_index, image_index, _x + lengthdir_x(_height, angle_ground + 90), _y + _height + lengthdir_y(_height, angle_ground + 90), 1, 1, angle_ground, c_white, 1);
 		}
 		else
@@ -49,6 +48,13 @@ switch (state)
 			draw_sprite_ext(spr_jetpack, jetpack_index, _x - (24 * face), _y, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(sprite_index, image_index, _x, _y, face, 1, 0, c_white, 1);
 		break;
+}
+
+if (aura > 0)
+{
+	gpu_set_blendmode(bm_add);
+	draw_sprite_ext(spr_aura, jetpack_index, _x, _y + _height, 0.5 + ((aura / 100) / 2), 0.5 + ((aura / 100) / 2), 0, c_white, 0.5);
+	gpu_set_blendmode(bm_normal);
 }
 
 if (_rubber_band_draw == true && rubber_band && !is_undefined(_average_x) && !is_undefined(_average_x_previous))

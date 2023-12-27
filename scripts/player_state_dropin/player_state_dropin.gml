@@ -26,7 +26,7 @@ function player_state_dropin()
 		sfx_play_global(sfx_ding);
 	}
 	
-	if (!input_player_connected(player_number))
+	if (!input_player_connected(player_number) || input_check_pressed("drop_out", player_number))
 	{
 		state_next_set(player_states.inactive, 999999999);
 	}

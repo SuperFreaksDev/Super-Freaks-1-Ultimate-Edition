@@ -39,9 +39,9 @@ else
 	water_meter = 100;
 }
 
+jetpack_index = jetpack_index + 0.5 mod 3;
 if (jetpack)
 {
-	jetpack_index = jetpack_index + 0.5 mod sprite_get_number(spr_jetpack);
 	jetpack_jump_timer = max(jetpack_jump_timer - 1, 0);
 	if (jetpack_jump_timer == 0)
 		ball = false;

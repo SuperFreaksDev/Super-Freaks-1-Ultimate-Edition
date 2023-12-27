@@ -12,6 +12,7 @@ function player_state_death_fall()
 		instance_attach = undefined;
 		collider_attach_clear();
 		global.hearts = max(global.hearts--, 0);
+		aura = false;
 		with (hitbox)
 			active = hitbox_active.inactive;
 			

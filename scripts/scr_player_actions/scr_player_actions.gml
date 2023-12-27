@@ -152,13 +152,10 @@ function player_ego_meter()
 	ego_refill_pause = max(ego_refill_pause - 1, 0);
 }
 
-/// @function player_ego_collect
+/// @function player_meter_collect
 /// @param {Real} _ego = 2
-function player_ego_collect(_ego = 2)
+function player_meter_collect(_ego = 2)
 {
-	if (global.story_mode != story_modes.kranion)
-		exit;
-		
 	with (obj_player)
 	{
 		switch (state)
@@ -175,18 +172,27 @@ function player_ego_collect(_ego = 2)
 				break;
 		}
 		
-		ego_refill_pause = 16;
-		
-		if (ego_invincible > 0)
-			ego_invincible = min(ego_invincible + _ego, 100);
-		else
+		switch (global.story_mode)
 		{
-			hp = min(hp + _ego, 100);
-			if (hp == 100)
-			{
-				ego_invincible = 100;
-				sfx_play_global(sfx_powerup);
-			}
+			case story_modes.kranion:
+				ego_refill_pause = 16;
+		
+				if (ego_invincible > 0)
+					ego_invincible = min(ego_invincible + _ego, 100);
+				else
+				{
+					hp = min(hp + _ego, 100);
+					if (hp == 100)
+					{
+						ego_invincible = 100;
+						sfx_play_global(sfx_powerup);
+					}
+				}
+				break;
+			case story_modes.swordsman:
+				if (aura < 100)
+					aura = min(aura + _ego, 100);
+				break;
 		}
 	}
 }
@@ -212,6 +218,12 @@ function player_hurt()
 				hp = max(hp - 25, 0);
 				if (hp == 0)
 					_last_hit = true;
+				break;
+			case story_modes.swordsman:
+				if (aura == 0)
+					_last_hit = true;
+				else
+					aura = 0;
 				break;
 		}
 		hurt_timer_set(120);
@@ -255,6 +267,9 @@ function player_kill()
 				if (hp > 0)
 					hp = 0;
 				break;
+			case story_modes.swordsman:
+				aura = 0;
+				break;
 		}
 		state_next_set(player_states.death, 999);
 	}
@@ -281,6 +296,10 @@ function player_crush()
 				break;
 			case story_modes.kranion:
 				hp = 0;
+				ego_invincible = 0;
+				break;
+			case story_modes.swordsman:
+				aura = 0;
 				break;
 		}
 	}
@@ -308,6 +327,10 @@ function player_water_step()
 			break;
 		case story_modes.kranion:
 			if (hp == 0)
+				_last_hit = true;
+			break;
+		case story_modes.swordsman:
+			if (aura == 0)
 				_last_hit = true;
 			break;
 	}
@@ -349,6 +372,9 @@ function player_water_step()
 								break;
 							case story_modes.kranion:
 								hp = max(hp - 15, 0);
+								break;
+							case story_modes.swordsman:
+								aura = 0;
 								break;
 						}
 						sfx_play_global(sfx_hurt);

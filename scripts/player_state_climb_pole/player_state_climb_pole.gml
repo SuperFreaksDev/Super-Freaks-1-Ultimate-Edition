@@ -84,7 +84,7 @@ function player_state_climb_pole()
 	switch (_move_v)
 	{
 		case -1:
-			y -= 2;
+			y -= 2 + (AURA_WALK * (aura / 100));
 			if (sprite_index == _sprite_climb)
 				animate_speed = 0.125;
 			break;
@@ -94,7 +94,7 @@ function player_state_climb_pole()
 				animate_speed = 0;
 			break;
 		case 1:
-			y += 4;
+			y += 4 + (AURA_WALK * (aura / 100));
 			if (sprite_index == _sprite_climb)
 			{
 				image_index = 0;

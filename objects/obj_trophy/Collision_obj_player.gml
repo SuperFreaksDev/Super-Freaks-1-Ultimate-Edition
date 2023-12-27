@@ -12,7 +12,8 @@ switch (global.story_mode)
 		}
 		break;
 	case story_modes.kranion:
-		player_ego_collect(100);
+	case story_modes.swordsman:
+		player_meter_collect(100);
 		break;
 }
 if (instance_exists(obj_gameplay_manager))

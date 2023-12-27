@@ -136,7 +136,7 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				}
 			#endregion
 			#region Draw Hearts
-				if (global.story_mode != story_modes.kranion)
+				if (global.story_mode == story_modes.super_freaks)
 				{
 					if (hearts_maximum_get() > 0)
 					{
@@ -170,10 +170,10 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				switch (global.game_mode)
 				{
 					case game_modes.randomizer:
-						draw_text(_view_x1 + (48 * (global.story_mode != story_modes.kranion)), _view_y1 + _screen_height, "Level " + string(global.score));
+						draw_text(_view_x1 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + _screen_height, "Level " + string(global.score));
 						break;
 					default:
-						game_timer_draw(_view_x1 + (48 * (global.story_mode != story_modes.kranion)), _view_y1 + _screen_height);
+						game_timer_draw(_view_x1 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + _screen_height);
 				}
 			#endregion
 			draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);

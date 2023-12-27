@@ -285,6 +285,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Kranion","folderPath":"folders/Sprites/Player Characters/Kranion.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Les Slaypool","folderPath":"folders/Sprites/Player Characters/Les Slaypool.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Negative Quincy","folderPath":"folders/Sprites/Player Characters/Negative Quincy.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"One Eyed Bandit","folderPath":"folders/Sprites/Player Characters/One Eyed Bandit.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Professor T","folderPath":"folders/Sprites/Player Characters/Professor T.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Pseudo Scruffy","folderPath":"folders/Sprites/Player Characters/Pseudo Scruffy.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scruffy (2006)","folderPath":"folders/Sprites/Player Characters/Scruffy (2006).yy",},
@@ -336,7 +337,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.8.2.108",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"spr_player_hang_scruffy","path":"sprites/spr_player_hang_scruffy/spr_player_hang_scruffy.yy",},},
@@ -872,6 +873,7 @@
     {"id":{"name":"msc_canyon","path":"sounds/msc_canyon/msc_canyon.yy",},},
     {"id":{"name":"input_gamepad_check_released","path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},},
     {"id":{"name":"path_star_2_hard_1","path":"paths/path_star_2_hard_1/path_star_2_hard_1.yy",},},
+    {"id":{"name":"spr_aura","path":"sprites/spr_aura/spr_aura.yy",},},
     {"id":{"name":"input_profile_reset_bindings","path":"scripts/input_profile_reset_bindings/input_profile_reset_bindings.yy",},},
     {"id":{"name":"obj_headshot","path":"objects/obj_headshot/obj_headshot.yy",},},
     {"id":{"name":"spr_control_icon_keyboard_d","path":"sprites/spr_control_icon_keyboard_d/spr_control_icon_keyboard_d.yy",},},

@@ -4,6 +4,7 @@ function player_state_normal()
 	var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 	var _move_h = 0, _move_v = 0;
 	var _speedup_h = 0;
+	var _speed_run = speed_run + (AURA_WALK * (aura / 100));
 	var _speed_fall = speed_fall;
 	var _speed_acc = speed_acc, _speed_dec = speed_dec, _speed_frc = speed_frc;
 	var _speed_frc_air = speed_frc_air;
@@ -100,8 +101,8 @@ function player_state_normal()
 				}
 				else
 				{
-					if (speed_h >= -speed_run)
-						speed_h = max(speed_h - _speed_acc, -speed_run);
+					if (speed_h >= -_speed_run)
+						speed_h = max(speed_h - _speed_acc, -_speed_run);
 					else
 						player_friction_normal(_speed_frc, _speed_frc_air);
 					face = -1;
@@ -122,8 +123,8 @@ function player_state_normal()
 				}
 				else
 				{
-					if (speed_h <= speed_run)
-						speed_h = min(speed_h + _speed_acc, speed_run);
+					if (speed_h <= _speed_run)
+						speed_h = min(speed_h + _speed_acc, _speed_run);
 					else
 						player_friction_normal(_speed_frc, _speed_frc_air);
 					face = 1;
@@ -143,8 +144,8 @@ function player_state_normal()
 						speed_v += -_speed_dec;
 					else
 					{
-						if (speed_v >= -speed_run)
-							speed_v = max(speed_v - _speed_acc, -speed_run);
+						if (speed_v >= -_speed_run)
+							speed_v = max(speed_v - _speed_acc, -_speed_run);
 						else
 							speed_v *= _speed_frc_air;
 					}
@@ -158,8 +159,8 @@ function player_state_normal()
 						speed_v += _speed_dec;
 					else
 					{
-						if (speed_v <= speed_run)
-							speed_v = min(speed_v + _speed_acc, speed_run);
+						if (speed_v <= _speed_run)
+							speed_v = min(speed_v + _speed_acc, _speed_run);
 						else
 							speed_v *= _speed_frc_air;
 					}
@@ -188,7 +189,7 @@ function player_state_normal()
 			if (!underwater && ground_on) || (underwater) || (coyote_time > 0)
 			{
 				sfx_play_global(player_jumpsound_get(character_index));
-				speed_v = -speed_jump;
+				speed_v = -(speed_jump + (AURA_JUMP * (aura / 100)));
 				ground_on = false;
 				coyote_time = 0;
 				if (skid)
