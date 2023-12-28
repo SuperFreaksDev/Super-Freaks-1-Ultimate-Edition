@@ -29,8 +29,9 @@ function music_set(_music = MUSIC_NA)
 /// @function music_play
 function music_play()
 {
-	global.music_id = audio_play_sound_on(global.audio_emitter_music, global.music, true, 0);
-	global.music_is_playing = true;
+		music_stop();
+		global.music_id = audio_play_sound_on(global.audio_emitter_music, global.music, true, 0);
+		global.music_is_playing = true;
 }
 
 /// @function music_stop

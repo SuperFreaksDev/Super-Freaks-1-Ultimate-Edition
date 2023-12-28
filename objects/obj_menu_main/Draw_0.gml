@@ -71,6 +71,17 @@ switch (page)
 		draw_set_valign(fa_top);
 		draw_text(_screen_width / 2, _screen_height / 2 + 112, string(global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.name]));
 		break;
+	case main_menu_pages.museum_jukebox:
+		_index = museum_items[museum_data.songs][song_index];
+		
+		draw_sprite(spr_worldmap_pictures, _index, _screen_width / 2, _screen_height / 2);
+		draw_sprite_ext(spr_menu_arrow_32, _frame, _screen_width / 2 - 96, _screen_height / 2, 1, 1, 180, c_white, 1);
+		draw_sprite_ext(spr_menu_arrow_32, _frame, _screen_width / 2 + 96, _screen_height / 2, 1, 1, 0, c_white, 1);
+		
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_top);
+		draw_text(_screen_width / 2, _screen_height / 2 + 112, string(global.museum_stuff[museum_data.songs][_index][museum_song_data.name]) + "\n" + string(global.museum_stuff[museum_data.songs][_index][museum_song_data.artist]));
+		break;
 	default:
 		_text_x = 24;
 		_text_y = 24;

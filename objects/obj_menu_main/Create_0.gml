@@ -11,6 +11,7 @@ enum main_menu_pages
 	museum,
 	museum_characters,
 	museum_theater,
+	museum_jukebox,
 	options,
 	options_controls,
 	options_audio,
@@ -31,9 +32,10 @@ main_text = "";
 bottom_text = "";
 index = 0;
 player_number = 0;
-museum_items = [[], []];
+museum_items = [[], [], []];
 character_card_index = 0;
 cutscene_index = 0;
+song_index = 0;
 timer = 0;
 
 #region Main
@@ -608,6 +610,24 @@ timer = 0;
 			option = 2;
 		}
 	});
+	menu_option_add(_page, 2, "Jukebox", function()
+	{
+		main_text = "Museum";
+		bottom_text = "Put on some headphones and listen to this game's BANGER soundtrack!";
+		if (input_check_pressed("confirm", global.player_lead))
+		{
+			if (input_check_pressed("confirm", global.player_lead))
+			{
+				page = main_menu_pages.museum_jukebox;
+				option = 0;
+			}
+		}
+		else if (input_check_pressed("deny", global.player_lead))
+		{
+			page = main_menu_pages.main;
+			option = 2;
+		}
+	});
 	
 	#region Character Cards
 		_page = main_menu_pages.museum_characters;
@@ -673,6 +693,45 @@ timer = 0;
 			{
 				page = main_menu_pages.museum;
 				option = 1;
+			}
+		});
+	#endregion
+	
+	#region Jukebox
+		_page = main_menu_pages.museum_jukebox;
+	
+		menu_option_add(_page, 0, "Jukebox", function()
+		{
+			var _max = array_length(museum_items[museum_data.songs]);
+			show_debug_message(_max)
+			var _index, _song;
+		
+			main_text = "Museum - Jukebox";
+		
+			if (input_check_pressed("left", global.player_lead))
+			{
+				song_index--;
+				if (song_index < 0)
+					song_index = _max - 1;
+			}
+			else if (input_check_pressed("right", global.player_lead))
+			{
+				song_index = (song_index + 1) mod _max;
+			}
+		
+			if (input_check_pressed("confirm", global.player_lead))
+			{
+				_index = museum_items[museum_data.songs][song_index];
+				_song = global.museum_stuff[museum_data.songs][_index][museum_song_data.song];
+				
+				music_stop();
+				music_set(_song);
+				music_play();
+			}
+			else if (input_check_pressed("deny", global.player_lead))
+			{
+				page = main_menu_pages.museum;
+				option = 2;
 			}
 		});
 	#endregion

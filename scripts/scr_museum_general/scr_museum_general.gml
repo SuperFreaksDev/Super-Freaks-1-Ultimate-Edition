@@ -2,6 +2,7 @@ enum museum_data
 {
 	characters = 0,
 	cutscenes,
+	songs,
 }
 
 enum museum_character_data
@@ -20,6 +21,14 @@ enum museum_cutscene_data
 	name,
 	room,
 	unlock_func,
+}
+
+enum museum_song_data
+{
+	image_index = 0,
+	name,
+	artist,
+	song,
 }
 
 /// @function museum_init
@@ -238,10 +247,52 @@ function museum_init()
 		});
 	#endregion
 	
+	#region Jukebox
+		museum_song_create(0,, "Title Theme", "PhilRaco", msc_title);
+		museum_song_create(1,, "Main Menu", "PhilRaco", msc_menu);
+		museum_song_create(2,, "World Map", "PhilRaco", msc_worldmap);
+		
+		museum_song_create(3,, "Mystic Island - Super Freaks Stadium", "PhilRaco", msc_stadium);
+		
+		museum_song_create(4,, "Normal World - Fruit Juice Factory", "PhilRaco", msc_fruit);
+		museum_song_create(5,, "Normal World - Skyway Highway", "PhilRaco", msc_skyway);
+		museum_song_create(6,, "Normal World - Fruit Juice Secret", "PhilRaco", msc_fruit);
+		museum_song_create(7,, "Normal World - Vs Cinge", "PhilRaco", msc_boss_cinge);
+		
+		museum_song_create(8,, "Crazy World - Toy Block Bridge", "PhilRaco", msc_toy);
+		museum_song_create(9,, "Crazy World - Playful Park", "PhilRaco", msc_park);
+		museum_song_create(10,, "Crazy World - Toy Block Secret", "PhilRaco", msc_toy_secret);
+		museum_song_create(11,, "Crazy World - Vs Milk Man", "PhilRaco", msc_boss_1);
+		
+		museum_song_create(12,, "Ludicrous World - Barrel Canyon Cliffs", "PhilRaco", msc_canyon);
+		museum_song_create(13,, "Ludicrous World - Shipwreck Poopdeck", "PhilRaco", msc_ship);
+		museum_song_create(14,, "Ludicrous World - Barrel Secret", "PhilRaco", msc_canyon_secret);
+		museum_song_create(15,, "Ludicrous World - Vs Mega Klaw", "PhilRaco", msc_boss_1);
+		
+		museum_song_create(16,, "Insane World - Forever Flowery Fields", "PhilRaco", msc_hippie);
+		museum_song_create(17,, "Insane World - Lightning Rod Lake", "PhilRaco", msc_lightning);
+		museum_song_create(18,, "Insane World - Flowery Secret", "PhilRaco", msc_hippie);
+		museum_song_create(19,, "Insane World - Vs Larry McPeel", "PhilRaco", msc_boss_1);
+		
+		museum_song_create(20,, "Freaky World - Cool n Chill Caverns", "PhilRaco", msc_ice);
+		museum_song_create(21,, "Freaky World - Starscraper", "PhilRaco", msc_star);
+		museum_song_create(22,, "Freaky World - Cool n Chill Secret", "PhilRaco", msc_ice_secret);
+		museum_song_create(23,, "Freaky World - Vs Francis", "PhilRaco", msc_boss_1);
+		
+		museum_song_create(24,, "Castle Kranion - Conveyor Castle", "PhilRaco", msc_castle);
+		museum_song_create(25,, "Castle Kranion - Mecha Moon", "PhilRaco", msc_moon);
+		museum_song_create(26,, "Castle Kranion - Conveyor Secret", "PhilRaco", msc_castle);
+		museum_song_create(27,, "Castle Kranion - Moon Secret", "PhilRaco", msc_moon);
+		museum_song_create(28,, "Castle Kranion - Vs Dino (Phase 1)", "PhilRaco", msc_boss_dino);
+		museum_song_create(29,, "Castle Kranion - Vs Dino (Phase 2)", "PhilRaco", msc_boss_dino_2);
+		museum_song_create(30,, "Castle Kranion - Vs Kranion", "PhilRaco", msc_boss_kranion);
+		museum_song_create(31,, "Castle Kranion - Kranion Ultimate Edition", "PhilRaco", msc_boss_kranion_2);
+		museum_song_create(32,, "Castle Kranion - Kranion's Secret Weapon", "PhilRaco", msc_boss_skullmobile);
+	#endregion
 	//museum_load();
 }
 
-/// @functiom museum_character_create
+/// @function museum_character_create
 /// @param _index
 /// @param _image_index = _index
 /// @param _name = ""
@@ -256,7 +307,7 @@ function museum_character_create(_index, _image_index = _index, _name = "", _bio
 	global.museum_stuff[museum_data.characters][_index][museum_character_data.unlock_func] = _unlock_func;
 }
 
-/// @functiom museum_cutscene_create
+/// @function museum_cutscene_create
 /// @param _index
 /// @param _image_index = _index
 /// @param _name = ""
@@ -269,6 +320,20 @@ function museum_cutscene_create(_index, _image_index = _index, _name = "", _room
 	global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.room] = _room;
 	global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.unlocked] = false;
 	global.museum_stuff[museum_data.cutscenes][_index][museum_cutscene_data.unlock_func] = _unlock_func;
+}
+
+/// @function museum_song_create
+/// @param _index
+/// @param _image_index = _index
+/// @param _name = ""
+/// @param _artist = ""
+/// @param _song = msc_title
+function museum_song_create(_index, _image_index = _index, _name = "", _artist = "", _song = msc_title)
+{
+	global.museum_stuff[museum_data.songs][_index][museum_song_data.image_index] = _image_index;
+	global.museum_stuff[museum_data.songs][_index][museum_song_data.name] = _name;
+	global.museum_stuff[museum_data.songs][_index][museum_song_data.artist] = _artist;
+	global.museum_stuff[museum_data.songs][_index][museum_song_data.song] = _song;
 }
 
 /// @function museum_save

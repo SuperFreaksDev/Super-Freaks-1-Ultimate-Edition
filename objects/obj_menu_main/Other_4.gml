@@ -49,5 +49,9 @@ for (_i = 0; _i < array_length(global.museum_stuff[museum_data.cutscenes]); ++_i
 	if (global.museum_stuff[museum_data.cutscenes][_i][museum_cutscene_data.unlocked])
 		array_push(museum_items[museum_data.cutscenes], _i);
 }
+for (_i = 0; _i < array_length(global.museum_stuff[museum_data.songs]); ++_i)
+{
+	array_push(museum_items[museum_data.songs], _i);
+}
 
 show_debug_message("Museum Items: " + string(museum_items));
