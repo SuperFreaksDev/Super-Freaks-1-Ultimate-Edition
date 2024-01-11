@@ -145,7 +145,7 @@ function player_ego_meter()
 			if (hp > 25)
 				hp = max(hp - 0.125, 25);
 			else
-				hp = min(hp + 0.125, 25);
+				hp = min(hp + 0.1, 25);
 		}
 	}
 	
@@ -215,9 +215,9 @@ function player_hurt()
 				global.hearts = max(global.hearts - 1, 0);
 				break;
 			case story_modes.kranion:
-				hp = max(hp - 25, 0);
-				if (hp == 0)
+				if (hp < 25)
 					_last_hit = true;
+				hp = max(hp - 25, 0);
 				break;
 			case story_modes.swordsman:
 				if (aura == 0)
@@ -227,7 +227,7 @@ function player_hurt()
 				break;
 		}
 		hurt_timer_set(120);
-		ego_refill_pause = 16;
+		ego_refill_pause = 32;
 		if (!_last_hit)
 		{
 			if (underwater || jetpack)
