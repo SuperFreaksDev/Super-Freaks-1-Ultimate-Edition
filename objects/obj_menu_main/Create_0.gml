@@ -882,6 +882,7 @@ timer = 0;
 			global.visuals_settings[visuals_data.screen_shake] = option_screenshake;
 			global.visuals_settings[visuals_data.background_blur] = option_background;
 			global.visuals_settings[visuals_data.shader] = option_shader;
+			global.visuals_settings[visuals_data.static_menu_bg] = option_static_menu_bg;
 			sfx_play_global(sfx_ding);
 			screen_set();
 			visuals_save();
@@ -899,6 +900,7 @@ timer = 0;
 			option_screenshake = global.visuals_settings[visuals_data.screen_shake];
 			option_background = global.visuals_settings[visuals_data.background_blur];
 			option_shader = global.visuals_settings[visuals_data.shader];
+			option_static_menu_bg = global.visuals_settings[visuals_data.static_menu_bg];
 		}
 		
 		visual_options_reset();
@@ -1136,6 +1138,27 @@ timer = 0;
 				options[main_menu_pages.options_visual][8][menu_option_data.text] = "Screen Shader: " + string(global.shaders_list[option_shader][1]);
 			}
 		});
+		
+		menu_option_add(_page, 9, "Static menu background: " + string(boolean_string_onoff(option_static_menu_bg)), function()
+		{
+			main_text = "Options - Visual";
+			bottom_text = "Confirm to save changes";
+			if (input_check_pressed("confirm", global.player_lead))
+			{
+				visual_options_set();
+			}
+			else if (input_check_pressed("deny", global.player_lead))
+			{
+				page = main_menu_pages.options;
+				option = 1;
+				visual_options_reset();
+			}
+			else if (input_check_pressed("left", global.player_lead) || input_check_pressed("right", global.player_lead))
+			{
+				option_static_menu_bg = !option_static_menu_bg;
+				options[main_menu_pages.options_visual][9][menu_option_data.text] = "Static menu background: " + string(boolean_string_onoff(option_static_menu_bg));
+			}
+		})
 	#endregion
 	
 	#region Audio
