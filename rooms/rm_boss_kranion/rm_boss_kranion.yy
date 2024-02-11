@@ -33,8 +33,8 @@
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"layer_background","animationFPS":60.0,"animationSpeedType":0,"colour":4278190090,"depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],
   "parent": {
-    "name": "Vs Kranion",
-    "path": "folders/Rooms/Levels/Castle Kranion/Vs Kranion.yy",
+    "name": "Vs Kranion - Cranion - Marrow Prime",
+    "path": "folders/Rooms/Levels/Castle Kranion/Vs Kranion - Cranion - Marrow Prime.yy",
   },
   "parentRoom": {
     "name": "rm_level_parent",

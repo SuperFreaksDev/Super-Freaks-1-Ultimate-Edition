@@ -67,6 +67,11 @@ enum level_ids
 	level_kranion_boss,
 	level_kranion_final_boss,
 	
+	level_apex,
+	
+	level_special_2006,
+	level_special_sticky,
+	
 	count,
 }
 
@@ -292,6 +297,22 @@ function levels_init()
 	level_create(level_ids.level_kranion_final_boss, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
 		return level_complete_get(level_ids.level_kranion_boss);
+	}, 0);
+	
+	//Final Battle
+	level_create(level_ids.level_apex, rm_comingsoon, "Final Battle", "Vs Apex", function()
+	{
+		return false;
+	}, 0);
+	
+	//Special Stages
+	level_create(level_ids.level_special_2006, rm_comingsoon, "Special Stage", "2006 Medley", function()
+	{
+		return false;
+	}, 0);
+	level_create(level_ids.level_special_sticky, rm_comingsoon, "Special Stage", "Vs Sticky", function()
+	{
+		return false;
 	}, 0);
 	
 	#region Level Lists
