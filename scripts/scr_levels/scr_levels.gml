@@ -521,14 +521,21 @@ function levels_save()
 function levels_load()
 {
 	var _json;
-	var _struct;
+	var _array;
+	var _level, _story;
 	
 	if (file_exists("Save1/progress_0.save"))
 	{
 		_json = string_load("Save1/progress_0.save");
-		_struct = json_parse(_json);
+		_array = json_parse(_json);
 		
-		global.level_save_data_list = _struct;
+		for (_story = 0; _story < story_modes.count; ++_story)
+		{
+			for (_level = 0; _level < array_length(_array[_story]); ++_level)
+			{
+				global.level_save_data_list[_story][_level] = _array[_story][_level];
+			}
+		}
 		level_complete_list_reset();
 	}
 }
@@ -613,9 +620,10 @@ function levels_get_all_completed(_story_mode = global.story_mode)
 {
 	var _arr = [];
 
-	for (var i = 0; i < array_length(global.levels); i++)
+	for (var i = 0; i < array_length(global.level_save_data_list[_story_mode]); i++)
 	{
-		if (global.level_save_data_list[_story_mode][i].status > 1) array_push(_arr, i);
+		if (global.level_save_data_list[_story_mode][i].status > 1) 
+			array_push(_arr, i);
 	}
 	show_debug_message(_arr);
 	return _arr;

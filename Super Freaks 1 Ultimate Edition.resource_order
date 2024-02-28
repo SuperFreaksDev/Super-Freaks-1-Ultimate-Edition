@@ -273,6 +273,12 @@
     {"name":"Things","order":6,"path":"folders/Sprites/Things.yy",},
     {"name":"Tile Sets","order":24,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":30,"path":"folders/Timelines.yy",},
+    {"name":"Sticky","order":10,"path":"folders/Sprites/Bosses/Sticky.yy",},
+    {"name":"Marrow Prime","order":11,"path":"folders/Sprites/Bosses/Marrow Prime.yy",},
+    {"name":"Apex","order":12,"path":"folders/Sprites/Bosses/Apex.yy",},
+    {"name":"Robo Sticky","order":1,"path":"folders/Sprites/Bosses/Sticky/Robo Sticky.yy",},
+    {"name":"Sticky Stilts","order":2,"path":"folders/Sprites/Bosses/Sticky/Sticky Stilts.yy",},
+    {"name":"Sticky Octopus","order":3,"path":"folders/Sprites/Bosses/Sticky/Sticky Octopus.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_player_hang_scruffy","order":12,"path":"sprites/spr_player_hang_scruffy/spr_player_hang_scruffy.yy",},

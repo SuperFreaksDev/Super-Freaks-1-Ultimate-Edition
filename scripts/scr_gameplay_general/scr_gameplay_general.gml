@@ -24,6 +24,8 @@ enum story_modes
 	swordsman,
 	
 	count,
+	
+	final,
 }
 
 enum speedrun_modes

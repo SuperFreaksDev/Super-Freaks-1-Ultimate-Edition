@@ -72,6 +72,7 @@ function characters_init()
 		global.characters_unlocked[_i][story_modes.super_freaks] = false;
 		global.characters_unlocked[_i][story_modes.kranion] = false;
 		global.characters_unlocked[_i][story_modes.swordsman] = false;
+		global.characters_unlocked[_i][story_modes.final] = false;
 	}
 	
 	for (_i = 0; _i < player_animations.count; ++_i)
@@ -88,6 +89,14 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.sticky][story_modes.kranion] = true;
 	
 	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.swordsman] = true;
+	
+	global.characters_unlocked[global.character_indexes.scruffy][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.quincy][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.gambi][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.tikiman][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.kranion][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.sticky][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.final] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;
