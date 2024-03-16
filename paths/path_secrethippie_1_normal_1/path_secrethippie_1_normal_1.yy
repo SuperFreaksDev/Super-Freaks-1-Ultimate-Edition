@@ -1,14 +1,14 @@
 {
-  "resourceType": "GMPath",
-  "resourceVersion": "1.0",
-  "name": "path_secrethippie_1_normal_1",
-  "closed": true,
-  "kind": 1,
-  "parent": {
-    "name": "Flowery Secret",
-    "path": "folders/Rooms/Levels/Insane World/Flowery Secret.yy",
+  "$GMPath":"",
+  "%Name":"path_secrethippie_1_normal_1",
+  "closed":true,
+  "kind":1,
+  "name":"path_secrethippie_1_normal_1",
+  "parent":{
+    "name":"Flowery Secret",
+    "path":"folders/Rooms/Levels/Insane World/Flowery Secret.yy",
   },
-  "points": [
+  "points":[
     {"speed":100.0,"x":3344.0,"y":1008.0,},
     {"speed":100.0,"x":3040.0,"y":704.0,},
     {"speed":100.0,"x":2944.0,"y":656.0,},
@@ -23,5 +23,7 @@
     {"speed":100.0,"x":2096.0,"y":1184.0,},
     {"speed":100.0,"x":3344.0,"y":1184.0,},
   ],
-  "precision": 4,
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
 }

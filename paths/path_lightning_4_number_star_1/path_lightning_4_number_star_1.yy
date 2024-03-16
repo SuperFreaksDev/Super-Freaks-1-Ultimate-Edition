@@ -1,14 +1,14 @@
 {
-  "resourceType": "GMPath",
-  "resourceVersion": "1.0",
-  "name": "path_lightning_4_number_star_1",
-  "closed": false,
-  "kind": 0,
-  "parent": {
-    "name": "Lightning Rod Lake",
-    "path": "folders/Rooms/Levels/Insane World/Lightning Rod Lake.yy",
+  "$GMPath":"",
+  "%Name":"path_lightning_4_number_star_1",
+  "closed":false,
+  "kind":0,
+  "name":"path_lightning_4_number_star_1",
+  "parent":{
+    "name":"Lightning Rod Lake",
+    "path":"folders/Rooms/Levels/Insane World/Lightning Rod Lake.yy",
   },
-  "points": [
+  "points":[
     {"speed":100.0,"x":2848.0,"y":576.0,},
     {"speed":100.0,"x":3104.0,"y":816.0,},
     {"speed":100.0,"x":3392.0,"y":544.0,},
@@ -18,5 +18,7 @@
     {"speed":100.0,"x":4752.0,"y":400.0,},
     {"speed":100.0,"x":5136.0,"y":240.0,},
   ],
-  "precision": 4,
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_lines",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Math",
-    "path": "folders/Scripts/Math.yy",
+  "$GMScript":"",
+  "%Name":"scr_lines",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_lines",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Scripts/Math.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

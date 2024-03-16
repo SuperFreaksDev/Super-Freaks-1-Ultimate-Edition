@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_hitbox_collisions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Hitbox",
-    "path": "folders/Components/Hitbox.yy",
+  "$GMScript":"",
+  "%Name":"scr_hitbox_collisions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_hitbox_collisions",
+  "parent":{
+    "name":"Hitbox",
+    "path":"folders/Components/Hitbox.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

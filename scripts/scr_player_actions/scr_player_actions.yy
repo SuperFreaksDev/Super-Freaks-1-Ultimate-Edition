@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_player_actions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Players",
-    "path": "folders/Objects/Players.yy",
+  "$GMScript":"",
+  "%Name":"scr_player_actions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_player_actions",
+  "parent":{
+    "name":"Players",
+    "path":"folders/Objects/Players.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

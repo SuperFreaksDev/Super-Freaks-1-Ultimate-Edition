@@ -694,8 +694,23 @@ function level_name_world_get(_level_id = global.level_id)
 /// @param {int} _level_id = global.level_id
 function level_name_get(_level_id = global.level_id)
 {
-	var _level = global.levels[_level_id];
-	return _level.name_level;
+	var _level = global.levels[_level_id],
+		_name  = _level.name_level;
+		
+	if (_name == "Vs Kranion")
+	{
+		switch (global.story_mode)
+		{
+			case story_modes.kranion:
+				_name = "Vs ???";
+			break;
+			case story_modes.swordsman:
+				_name = "Vs Marrow Prime";
+			break;
+		}
+	}
+	
+	return _name;
 	
 	gml_pragma("forceinline");
 }

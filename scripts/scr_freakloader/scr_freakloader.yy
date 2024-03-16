@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_freakloader",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Players",
-    "path": "folders/Objects/Players.yy",
+  "$GMScript":"",
+  "%Name":"scr_freakloader",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_freakloader",
+  "parent":{
+    "name":"Players",
+    "path":"folders/Objects/Players.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

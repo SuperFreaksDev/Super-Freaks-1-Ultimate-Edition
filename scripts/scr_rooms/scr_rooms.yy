@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_rooms",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Level",
-    "path": "folders/Scripts/Level.yy",
+  "$GMScript":"",
+  "%Name":"scr_rooms",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_rooms",
+  "parent":{
+    "name":"Level",
+    "path":"folders/Scripts/Level.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

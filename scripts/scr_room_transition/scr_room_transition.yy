@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_room_transition",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Visual",
-    "path": "folders/Scripts/Visual.yy",
+  "$GMScript":"",
+  "%Name":"scr_room_transition",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_room_transition",
+  "parent":{
+    "name":"Visual",
+    "path":"folders/Scripts/Visual.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
