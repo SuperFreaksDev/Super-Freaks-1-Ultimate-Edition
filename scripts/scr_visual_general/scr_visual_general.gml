@@ -10,6 +10,7 @@ enum visuals_data
 	background_blur,
 	screen_shake,
 	upscale_internal,
+	static_menu_bg,
 }
 
 #macro SCREEN_WIDTH_MIN 640
@@ -79,6 +80,7 @@ function visuals_default()
 	global.visuals_settings[visuals_data.background_blur] = false;
 	global.visuals_settings[visuals_data.screen_shake] = true;
 	global.visuals_settings[visuals_data.upscale_internal] = 2;
+	global.visuals_settings[visuals_data.static_menu_bg] = false;
 }
 
 /// @function screen_set
@@ -215,4 +217,10 @@ function screen_shake_get()
 function background_blur_get()
 {
 	return global.visuals_settings[visuals_data.background_blur];
+}
+
+/// @function static_menu_bg_get
+function static_menu_bg_get()
+{
+	return global.visuals_settings[visuals_data.static_menu_bg];
 }
