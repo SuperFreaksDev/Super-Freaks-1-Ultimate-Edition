@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_difficulty",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Gameplay",
-    "path": "folders/Scripts/Gameplay.yy",
+  "$GMScript":"",
+  "%Name":"scr_difficulty",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_difficulty",
+  "parent":{
+    "name":"Gameplay",
+    "path":"folders/Scripts/Gameplay.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

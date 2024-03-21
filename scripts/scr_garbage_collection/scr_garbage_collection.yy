@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_garbage_collection",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "System",
-    "path": "folders/Scripts/System.yy",
+  "$GMScript":"",
+  "%Name":"scr_garbage_collection",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_garbage_collection",
+  "parent":{
+    "name":"System",
+    "path":"folders/Scripts/System.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

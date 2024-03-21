@@ -1,4 +1,4 @@
-/// @description Debug Menu Shortcut
+/// @desc Debug Menu Shortcut
 
 if (global.debug && !room_transition_active_get() && room != rm_menu_main)
 {

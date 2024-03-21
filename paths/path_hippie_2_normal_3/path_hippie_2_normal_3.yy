@@ -1,14 +1,14 @@
 {
-  "resourceType": "GMPath",
-  "resourceVersion": "1.0",
-  "name": "path_hippie_2_normal_3",
-  "closed": true,
-  "kind": 1,
-  "parent": {
-    "name": "Forever Flowery Fields",
-    "path": "folders/Rooms/Levels/Insane World/Forever Flowery Fields.yy",
+  "$GMPath":"",
+  "%Name":"path_hippie_2_normal_3",
+  "closed":true,
+  "kind":1,
+  "name":"path_hippie_2_normal_3",
+  "parent":{
+    "name":"Forever Flowery Fields",
+    "path":"folders/Rooms/Levels/Insane World/Forever Flowery Fields.yy",
   },
-  "points": [
+  "points":[
     {"speed":100.0,"x":3744.0,"y":432.0,},
     {"speed":100.0,"x":3856.0,"y":560.0,},
     {"speed":100.0,"x":3984.0,"y":496.0,},
@@ -21,5 +21,7 @@
     {"speed":100.0,"x":4656.0,"y":288.0,},
     {"speed":100.0,"x":3824.0,"y":288.0,},
   ],
-  "precision": 4,
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
 }

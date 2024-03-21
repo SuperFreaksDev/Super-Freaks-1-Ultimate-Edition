@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_booleans",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Math",
-    "path": "folders/Scripts/Math.yy",
+  "$GMScript":"",
+  "%Name":"scr_booleans",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_booleans",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Scripts/Math.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

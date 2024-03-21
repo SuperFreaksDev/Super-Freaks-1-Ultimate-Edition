@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_cutscenes",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Cutscenes",
-    "path": "folders/Objects/System/Cutscenes.yy",
+  "$GMScript":"",
+  "%Name":"scr_cutscenes",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_cutscenes",
+  "parent":{
+    "name":"Cutscenes",
+    "path":"folders/Objects/System/Cutscenes.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

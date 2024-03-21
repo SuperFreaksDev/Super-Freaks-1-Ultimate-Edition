@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Animation Curves","order":34,"path":"folders/Animation Curves.yy",},
     {"name":"Components","order":32,"path":"folders/Components.yy",},
     {"name":"Camera","order":1,"path":"folders/Components/Camera.yy",},
@@ -134,6 +134,7 @@
     {"name":"Shaders","order":28,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":26,"path":"folders/Sounds.yy",},
     {"name":"Bosses","order":5,"path":"folders/Sprites/Bosses.yy",},
+    {"name":"Apex","order":12,"path":"folders/Sprites/Bosses/Apex.yy",},
     {"name":"Cinge","order":1,"path":"folders/Sprites/Bosses/Cinge.yy",},
     {"name":"Cranion","order":9,"path":"folders/Sprites/Bosses/Cranion.yy",},
     {"name":"Phase 2","order":4,"path":"folders/Sprites/Bosses/Cranion/Phase 2.yy",},
@@ -143,9 +144,14 @@
     {"name":"Phase 1","order":5,"path":"folders/Sprites/Bosses/Kranion/Phase 1.yy",},
     {"name":"Phase 2","order":6,"path":"folders/Sprites/Bosses/Kranion/Phase 2.yy",},
     {"name":"Larry McPeel","order":4,"path":"folders/Sprites/Bosses/Larry McPeel.yy",},
+    {"name":"Marrow Prime","order":11,"path":"folders/Sprites/Bosses/Marrow Prime.yy",},
     {"name":"Mega Klaw","order":3,"path":"folders/Sprites/Bosses/Mega Klaw.yy",},
     {"name":"Milk Man","order":2,"path":"folders/Sprites/Bosses/Milk Man.yy",},
     {"name":"Skullmobile","order":7,"path":"folders/Sprites/Bosses/Skullmobile.yy",},
+    {"name":"Sticky","order":10,"path":"folders/Sprites/Bosses/Sticky.yy",},
+    {"name":"Robo Sticky","order":1,"path":"folders/Sprites/Bosses/Sticky/Robo Sticky.yy",},
+    {"name":"Sticky Octopus","order":3,"path":"folders/Sprites/Bosses/Sticky/Sticky Octopus.yy",},
+    {"name":"Sticky Stilts","order":2,"path":"folders/Sprites/Bosses/Sticky/Sticky Stilts.yy",},
     {"name":"Controls","order":2,"path":"folders/Sprites/Controls.yy",},
     {"name":"Keyboard","order":11,"path":"folders/Sprites/Controls/Keyboard.yy",},
     {"name":"Commands","order":1,"path":"folders/Sprites/Controls/Keyboard/Commands.yy",},
@@ -273,14 +279,8 @@
     {"name":"Things","order":6,"path":"folders/Sprites/Things.yy",},
     {"name":"Tile Sets","order":24,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":30,"path":"folders/Timelines.yy",},
-    {"name":"Sticky","order":10,"path":"folders/Sprites/Bosses/Sticky.yy",},
-    {"name":"Marrow Prime","order":11,"path":"folders/Sprites/Bosses/Marrow Prime.yy",},
-    {"name":"Apex","order":12,"path":"folders/Sprites/Bosses/Apex.yy",},
-    {"name":"Robo Sticky","order":1,"path":"folders/Sprites/Bosses/Sticky/Robo Sticky.yy",},
-    {"name":"Sticky Stilts","order":2,"path":"folders/Sprites/Bosses/Sticky/Sticky Stilts.yy",},
-    {"name":"Sticky Octopus","order":3,"path":"folders/Sprites/Bosses/Sticky/Sticky Octopus.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"spr_player_hang_scruffy","order":12,"path":"sprites/spr_player_hang_scruffy/spr_player_hang_scruffy.yy",},
     {"name":"spr_player_climb_superior","order":9,"path":"sprites/spr_player_climb_superior/spr_player_climb_superior.yy",},
     {"name":"rm_secretice_3","order":3,"path":"rooms/rm_secretice_3/rm_secretice_3.yy",},

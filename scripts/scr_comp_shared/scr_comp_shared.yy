@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_comp_shared",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Shared",
-    "path": "folders/Components/Shared.yy",
+  "$GMScript":"",
+  "%Name":"scr_comp_shared",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_comp_shared",
+  "parent":{
+    "name":"Shared",
+    "path":"folders/Components/Shared.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

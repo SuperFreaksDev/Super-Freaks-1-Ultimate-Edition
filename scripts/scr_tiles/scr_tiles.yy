@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_tiles",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Tilemaps",
-    "path": "folders/Components/Collider/Tilemaps.yy",
+  "$GMScript":"",
+  "%Name":"scr_tiles",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_tiles",
+  "parent":{
+    "name":"Tilemaps",
+    "path":"folders/Components/Collider/Tilemaps.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

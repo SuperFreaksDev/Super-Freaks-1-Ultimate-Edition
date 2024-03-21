@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_audio_sfx",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Audio",
-    "path": "folders/Scripts/Audio.yy",
+  "$GMScript":"",
+  "%Name":"scr_audio_sfx",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_audio_sfx",
+  "parent":{
+    "name":"Audio",
+    "path":"folders/Scripts/Audio.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

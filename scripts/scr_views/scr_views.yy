@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_views",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Visual",
-    "path": "folders/Scripts/Visual.yy",
+  "$GMScript":"",
+  "%Name":"scr_views",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_views",
+  "parent":{
+    "name":"Visual",
+    "path":"folders/Scripts/Visual.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
