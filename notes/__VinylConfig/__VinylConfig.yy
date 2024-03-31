@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"__VinylConfig",
+  "name":"__VinylConfig",
+  "parent":{
+    "name":"Vinyl",
+    "path":"folders/Vinyl.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

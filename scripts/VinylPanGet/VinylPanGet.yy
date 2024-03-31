@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylPanGet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylPanGet",
+  "parent":{
+    "name":"Positional",
+    "path":"folders/Vinyl/Positional.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

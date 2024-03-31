@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylUpdateCallbackGet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylUpdateCallbackGet",
+  "parent":{
+    "name":"Other",
+    "path":"folders/Vinyl/Other.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

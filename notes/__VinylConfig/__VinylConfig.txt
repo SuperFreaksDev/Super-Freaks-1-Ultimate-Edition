@@ -1,0 +1,32 @@
+// Please see https://jujuadams.github.io/Vinyl for documentation
+
+{
+    stacks: {
+        
+    }
+    
+    knobs: {
+        
+    }
+    
+    labels: {
+        
+    }
+    
+    assets: {
+        msc_park: {
+			bpm: 140
+		}
+		msc_lightning: {
+			bpm: 147
+		}
+    }
+    
+    patterns: {
+        
+    }
+    
+    effect chains: {
+        
+    }
+}

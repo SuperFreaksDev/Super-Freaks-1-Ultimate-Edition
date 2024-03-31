@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylSystemGetPoolInactiveCount",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylSystemGetPoolInactiveCount",
+  "parent":{
+    "name":"Other",
+    "path":"folders/Vinyl/Other.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylPitchSet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylPitchSet",
+  "parent":{
+    "name":"Pitch",
+    "path":"folders/Vinyl/Pitch.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

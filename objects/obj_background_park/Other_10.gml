@@ -13,7 +13,8 @@ if (scroll >= _back_width)
 
 light_alpha = max(light_alpha - 0.1, 0);
 index = min(index + 0.25, 2);
-if (metronome_strike())
+
+if (VinylBPMPulseGet(global.music_id))//if (metronome_strike())
 {
 	light_alpha = 0.8;
 	index = 0;
