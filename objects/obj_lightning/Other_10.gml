@@ -14,7 +14,7 @@ switch (state)
 		
 		timer++;
 		
-		if (VinylBPMPulseGet(global.music_id) && (VinylBeatCountGet(global.music_id) % 9 == 6) && timer >= delay)//if (metronome_warn() and timer >= delay)
+		if (metronome_warn() and timer >= delay)
 			state_next_set(1);
 		break;
 	case 1: //Warning
@@ -42,9 +42,9 @@ switch (state)
 		image_alpha = max(image_alpha - 0.05, 0);
 		timer++;
 		
-		//if (timer >= 64)
-		//	state_next_set(0)
-		if (VinylBPMPulseGet(global.music_id) && (VinylBeatCountGet(global.music_id) % 9 == 8))//if (metronome_strike())
+		if (timer >= 64)
+			state_next_set(0)
+		if (metronome_strike())
 			state_next_set(2);
 		break;
 	case 2: //Strike

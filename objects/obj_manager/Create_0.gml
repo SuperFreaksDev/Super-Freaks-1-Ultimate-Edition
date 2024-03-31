@@ -44,9 +44,6 @@ global.water_height = 256;
 
 global.frame = 0;
 
-global.music = -1;
-global.music_id = 0;
-
 global.story_mode = story_modes.kranion;
 
 gc_timer = 0;
