@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylLengthGet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylLengthGet",
+  "parent":{
+    "name":"Other",
+    "path":"folders/Vinyl/Other.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

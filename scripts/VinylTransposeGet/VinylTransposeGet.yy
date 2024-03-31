@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylTransposeGet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylTransposeGet",
+  "parent":{
+    "name":"Transposition",
+    "path":"folders/Vinyl/Transposition.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylEmitterDebugDraw",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylEmitterDebugDraw",
+  "parent":{
+    "name":"Positional",
+    "path":"folders/Vinyl/Positional.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

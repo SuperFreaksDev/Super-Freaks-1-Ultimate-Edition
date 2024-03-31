@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylResume",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylResume",
+  "parent":{
+    "name":"Pausing",
+    "path":"folders/Vinyl/Pausing.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -8,13 +8,13 @@ enum audio_data
 function audio_init()
 {
 	global.audio_settings = [];
-	global.audio_emitter_music = audio_emitter_create();
+	global.audio_emitter_music = VinylEmitterPoint(0, 0);//audio_emitter_create();
 	global.audio_emitter_sfx = audio_emitter_create();
 		
 	audio_default();
 	audio_load();
 
-	audio_emitter_gain(global.audio_emitter_music, volume_music_get());
+	//audio_emitter_gain(global.audio_emitter_music, volume_music_get());
 	audio_emitter_gain(global.audio_emitter_sfx, volume_sfx_get());
 		
 	global.music = MUSIC_NA;

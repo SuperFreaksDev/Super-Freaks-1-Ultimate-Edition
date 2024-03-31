@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"VinylOutputGainGet",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"VinylOutputGainGet",
+  "parent":{
+    "name":"Gain",
+    "path":"folders/Vinyl/Gain.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
