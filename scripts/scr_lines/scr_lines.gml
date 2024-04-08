@@ -10,8 +10,6 @@ function y_intercept_get(_x, _y, _slope)
 	gml_pragma("forceinline");
 }
 
-
-
 /// @function line_normalise
 /// @param _x1
 /// @param _y1
