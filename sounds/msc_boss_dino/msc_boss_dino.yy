@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":3,
   "conversionMode":0,
-  "duration":77.041,
+  "duration":297.72598,
   "name":"msc_boss_dino",
   "parent":{
     "name":"Music",
@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"msc_boss_dino.ogg",
   "type":1,
-  "volume":0.25,
+  "volume":1.0,
 }

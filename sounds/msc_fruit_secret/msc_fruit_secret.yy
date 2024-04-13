@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"msc_park",
+  "%Name":"msc_fruit_secret",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":3,
   "conversionMode":0,
-  "duration":389.008,
-  "name":"msc_park",
+  "duration":183.65799,
+  "name":"msc_fruit_secret",
   "parent":{
     "name":"Music",
     "path":"folders/Sounds/Music.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"msc_park.ogg",
-  "type":0,
+  "soundFile":"msc_fruit_secret.ogg",
+  "type":1,
   "volume":1.0,
 }

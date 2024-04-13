@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"msc_star.ogg",
   "type":1,
-  "volume":0.25,
+  "volume":1.0,
 }
