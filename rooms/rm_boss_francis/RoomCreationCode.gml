@@ -1,4 +1,4 @@
-var _music = msc_boss_1;
+var _music = msc_boss_francis;
 
 if (global.game_mode == game_modes.boss_rush)
 	_music = msc_bossrush;
