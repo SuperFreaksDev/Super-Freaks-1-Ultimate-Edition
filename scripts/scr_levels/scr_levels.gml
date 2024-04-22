@@ -300,7 +300,7 @@ function levels_init()
 	}, 0);
 	
 	//Final Battle
-	level_create(level_ids.level_apex, rm_comingsoon, "Final Battle", "Vs Apex", function()
+	level_create(level_ids.level_apex, rm_boss_apex, "Final Battle", "Vs Apex", function()
 	{
 		return false;
 	}, 0);
