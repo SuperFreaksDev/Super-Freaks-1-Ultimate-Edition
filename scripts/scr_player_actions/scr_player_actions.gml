@@ -121,6 +121,7 @@ function player_rubberband_activate()
 function player_ego_meter()
 {
 	var _x1, _y1, _x2, _y2;
+	
 	if (global.story_mode != story_modes.kranion)
 		exit;
 		

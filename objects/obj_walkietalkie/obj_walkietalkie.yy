@@ -31,8 +31,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"hint","filters":[],"listItems":[],"multiselect":false,"name":"hint","rangeEnabled":true,"rangeMax":31.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"What's up gamers\"","varType":2,},
-    {"$GMObjectProperty":"","%Name":"hint_kranion","filters":[],"listItems":[],"multiselect":false,"name":"hint_kranion","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
+    {"$GMObjectProperty":"v1","%Name":"hint","filters":[],"listItems":[],"multiselect":false,"name":"hint","rangeEnabled":true,"rangeMax":31.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"What's up gamers\"","varType":2,},
+    {"$GMObjectProperty":"v1","%Name":"hint_kranion","filters":[],"listItems":[],"multiselect":false,"name":"hint_kranion","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

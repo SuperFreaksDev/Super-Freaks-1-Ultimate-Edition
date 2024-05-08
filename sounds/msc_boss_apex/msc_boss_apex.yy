@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":172.4865,
+  "duration":208.0,
   "name":"msc_boss_apex",
   "parent":{
     "name":"Music",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"msc_boss_apex.mp3",
+  "soundFile":"msc_boss_apex.ogg",
   "type":0,
   "volume":1.0,
 }
