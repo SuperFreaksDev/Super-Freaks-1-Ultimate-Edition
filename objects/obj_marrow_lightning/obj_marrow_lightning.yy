@@ -1,23 +1,22 @@
 {
   "$GMObject":"",
-  "%Name":"obj_marrow_fireball",
+  "%Name":"obj_marrow_lightning",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_marrow_fireball",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_level_obj","path":"objects/obj_level_obj/obj_level_obj.yy",},"propertyId":{"name":"zone_index","path":"objects/obj_level_obj/obj_level_obj.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-3",},
-  ],
+  "name":"obj_marrow_lightning",
+  "overriddenProperties":[],
   "parent":{
     "name":"Marrow Prime",
     "path":"folders/Objects/Enemies/Bosses/Marrow Prime.yy",
   },
   "parentObjectId":{
-    "name":"obj_enemy_fireball",
-    "path":"objects/obj_enemy_fireball/obj_enemy_fireball.yy",
+    "name":"obj_level_obj",
+    "path":"objects/obj_level_obj/obj_level_obj.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -32,15 +31,13 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"speed","filters":[],"listItems":[],"multiselect":false,"name":"speed","rangeEnabled":true,"rangeMax":16.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_boss_marrow_prime_blast",
-    "path":"sprites/spr_boss_marrow_prime_blast/spr_boss_marrow_prime_blast.yy",
+    "name":"spr_boss_marrow_prime_lightning",
+    "path":"sprites/spr_boss_marrow_prime_lightning/spr_boss_marrow_prime_lightning.yy",
   },
   "spriteMaskId":null,
   "visible":true,

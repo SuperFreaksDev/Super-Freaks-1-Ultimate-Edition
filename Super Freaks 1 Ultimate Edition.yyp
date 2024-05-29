@@ -358,7 +358,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.0.137",
+    "IDEVersion":"2024.4.1.152",
   },
   "name":"Super Freaks 1 Ultimate Edition",
   "resources":[
@@ -507,6 +507,7 @@
     {"id":{"name":"obj_logos","path":"objects/obj_logos/obj_logos.yy",},},
     {"id":{"name":"obj_manager","path":"objects/obj_manager/obj_manager.yy",},},
     {"id":{"name":"obj_marrow_fireball","path":"objects/obj_marrow_fireball/obj_marrow_fireball.yy",},},
+    {"id":{"name":"obj_marrow_lightning","path":"objects/obj_marrow_lightning/obj_marrow_lightning.yy",},},
     {"id":{"name":"obj_master","path":"objects/obj_master/obj_master.yy",},},
     {"id":{"name":"obj_mcginty","path":"objects/obj_mcginty/obj_mcginty.yy",},},
     {"id":{"name":"obj_menu_main","path":"objects/obj_menu_main/obj_menu_main.yy",},},
@@ -1413,6 +1414,7 @@
     {"id":{"name":"spr_boss_larry_intro","path":"sprites/spr_boss_larry_intro/spr_boss_larry_intro.yy",},},
     {"id":{"name":"spr_boss_larry_spikes","path":"sprites/spr_boss_larry_spikes/spr_boss_larry_spikes.yy",},},
     {"id":{"name":"spr_boss_marrow_prime_blast","path":"sprites/spr_boss_marrow_prime_blast/spr_boss_marrow_prime_blast.yy",},},
+    {"id":{"name":"spr_boss_marrow_prime_lightning","path":"sprites/spr_boss_marrow_prime_lightning/spr_boss_marrow_prime_lightning.yy",},},
     {"id":{"name":"spr_boss_marrow_prime_sit_attack_prepare","path":"sprites/spr_boss_marrow_prime_sit_attack_prepare/spr_boss_marrow_prime_sit_attack_prepare.yy",},},
     {"id":{"name":"spr_boss_marrow_prime_sit_attack","path":"sprites/spr_boss_marrow_prime_sit_attack/spr_boss_marrow_prime_sit_attack.yy",},},
     {"id":{"name":"spr_boss_marrow_prime_sit","path":"sprites/spr_boss_marrow_prime_sit/spr_boss_marrow_prime_sit.yy",},},

@@ -24,7 +24,7 @@
   ],
   "name":"spr_boss_marrow_prime_sit_attack_prepare",
   "nineSlice":null,
-  "origin":4,
+  "origin":9,
   "parent":{
     "name":"Marrow Prime",
     "path":"folders/Sprites/Bosses/Marrow Prime.yy",
@@ -80,7 +80,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":88,
-    "yorigin":96,
+    "yorigin":104,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
