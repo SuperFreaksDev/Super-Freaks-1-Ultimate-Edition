@@ -41,9 +41,9 @@ switch (state)
 		
 		if (timer < 1)
 		{
-			_attack_choice = choose(0, 1);
+			_attack_choice = choose(0, 1, 2);
 			if (_attack_choice == 1 && instance_exists(obj_marrow_lightning))
-				_attack_choice = 0;
+				_attack_choice = choose(0, 2);
 				
 			switch (_attack_choice)
 			{
@@ -62,6 +62,9 @@ switch (state)
 					break;
 				case 1:
 					instance_create_layer(random_range(600, 1000), 840, "layer_instances", obj_marrow_lightning);
+					break;
+				case 2:
+					instance_create_layer(x, y - 424, "layer_instances", obj_marrow_meteor);
 					break;
 			}
 			state_next_set(boss_marrow1_states.idle);
