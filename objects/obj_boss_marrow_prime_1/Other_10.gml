@@ -3,6 +3,8 @@
 var _i,
 	_target,
 	_attack_choice;
+	
+var _fast_forward = fast_forward_level_get() + global.frame_machine_level.multiplier;
 
 // Inherit the parent event
 event_inherited();
@@ -37,7 +39,7 @@ switch (state)
 			sfx_play_global(sfx_powerup);
 		}
 		
-		timer--;
+		timer -= (1 / _fast_forward);
 		
 		if (timer < 1)
 		{
@@ -48,13 +50,35 @@ switch (state)
 			switch (_attack_choice)
 			{
 				case 0:
-					for (_i = 0; _i < 8; ++_i)
+					for (_i = 0; _i < 4; ++_i)
 					{
-						instance_create_layer(x - 72, y - 72, "layer_instances", obj_marrow_fireball, 
+						instance_create_layer(x - (72 * face), y - 80, "layer_instances", obj_marrow_fireball, 
 						{
 							speed: 3,
-							direction: 45 * _i,
+							direction: 45 + (90 * _i),
 						});
+					}
+					if (global.difficulty == difficulty_levels.hard)
+					{
+						for (_i = 0; _i < 4; ++_i)
+						{
+							instance_create_layer(x - (72 * face), y - 80, "layer_instances", obj_marrow_fireball, 
+							{
+								speed: 3,
+								direction: 90 * _i,
+							});
+						}
+					}
+					if (global.difficulty == difficulty_levels.hard)
+					{
+						for (_i = 0; _i < 8; ++_i)
+						{
+							instance_create_layer(x - (72 * face), y - 80, "layer_instances", obj_marrow_fireball, 
+							{
+								speed: 1,
+								direction: 22.5 + (45 * _i),
+							});
+						}
 					}
 			
 					sfx_play_global(sfx_explode);
@@ -64,7 +88,18 @@ switch (state)
 					instance_create_layer(random_range(600, 1000), 840, "layer_instances", obj_marrow_lightning);
 					break;
 				case 2:
-					instance_create_layer(x, y - 424, "layer_instances", obj_marrow_meteor);
+					if (choose(0, 1))
+					{
+						_target = player_nearest_alive();
+						if (!is_undefined(_target))
+							_attack_choice = _target.x;
+						else
+							_attack_choice = random_range(688, 896);
+					}
+					else
+						_attack_choice = x;
+						
+					instance_create_layer(clamp(_attack_choice, 688, 896), y - 524, "layer_instances", obj_marrow_meteor);
 					break;
 			}
 			state_next_set(boss_marrow1_states.idle);

@@ -7,5 +7,6 @@ event_inherited();
 text = "v2.0\n12/8/2023\nBy SuperFreaksDev/Joe Mama\nOriginal Game: 2006 - 2016";
 camera = new comp_camera(room_width / 2, room_height / 2);
 depth = -5;
+sfx_play_global(sfx_title_voice);
 
 gml_pragma("UnityBuild", "true");

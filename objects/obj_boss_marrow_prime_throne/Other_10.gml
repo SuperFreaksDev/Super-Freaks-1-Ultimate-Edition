@@ -32,7 +32,7 @@ else
 }
 
 if (global.boss_phase > 1)
-	platform.solid_y1 = true;
+	platform.solid_y1 = collider_solidity.semi_solid;
 else
 {
 	_x = x;

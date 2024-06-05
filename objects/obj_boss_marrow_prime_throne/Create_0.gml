@@ -21,5 +21,7 @@ else
 
 if (global.boss_phase < 2)
 	instance_create(obj_boss_marrow_prime_1, x, y);
+else
+	instance_create(obj_boss_marrow_prime_2, x, y);
 
 depth = 6;

@@ -12,8 +12,6 @@ switch (global.story_mode)
 {
 	case story_modes.swordsman: //Marrow Prime
 		_boss_instance = instance_create_layer(800, 0, "layer_instances", obj_boss_marrow_prime_throne);
-		if (global.game_mode != game_modes.boss_rush)
-			music_set(msc_boss_kranion_2);
 		break;
 	default: //Kranion/Cranion
 		switch (global.boss_phase)

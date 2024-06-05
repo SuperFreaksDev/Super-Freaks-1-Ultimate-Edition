@@ -15,7 +15,7 @@ switch (state)
 		
 		timer++;
 		
-		if (timer >= 36)
+		if (timer >= timer_max)
 			state_next_set(1);
 		break;
 	case 1: //Strike
@@ -34,25 +34,37 @@ switch (state)
 		{
 			if (spawn_left)
 			{
-				_x = x - 96;
-				if (_x > 528)
+				if (global.difficulty == difficulty_levels.easy)
+					_x = x - 128;
+				else
+					_x = x - 96;
+					
+				if (_x > 576)
 				{
 					with (instance_create_layer(_x, y, "layer_instances", obj_marrow_lightning))
 					{
 						spawn_left = true;
 						spawn_right = false;
+						if (global.difficulty == difficulty_levels.hard)
+							timer_max = 16;
 					}
 				}
 			}
 			if (spawn_right)
 			{
-				_x = x + 96;
-				if (_x < 1072)
+				if (global.difficulty == difficulty_levels.easy)
+					_x = x + 128;
+				else
+					_x = x + 96;
+					
+				if (_x < 1024)
 				{
 					with (instance_create_layer(_x, y, "layer_instances", obj_marrow_lightning))
 					{
 						spawn_left = false;
 						spawn_right = true;
+						if (global.difficulty == difficulty_levels.hard)
+							timer_max = 16;
 					}
 				}
 			}

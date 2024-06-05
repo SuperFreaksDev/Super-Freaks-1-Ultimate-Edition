@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Marrow Prime",
-    "path":"folders/Sprites/Bosses/Marrow Prime.yy",
+    "name":"Shared",
+    "path":"folders/Sprites/Bosses/Marrow Prime/Shared.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

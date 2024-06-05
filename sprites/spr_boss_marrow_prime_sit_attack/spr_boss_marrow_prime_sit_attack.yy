@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Marrow Prime",
-    "path":"folders/Sprites/Bosses/Marrow Prime.yy",
+    "name":"Phase 1",
+    "path":"folders/Sprites/Bosses/Marrow Prime/Phase 1.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
