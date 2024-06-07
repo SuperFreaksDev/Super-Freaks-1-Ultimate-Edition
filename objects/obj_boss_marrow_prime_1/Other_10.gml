@@ -58,7 +58,7 @@ switch (state)
 							direction: 45 + (90 * _i),
 						});
 					}
-					if (global.difficulty == difficulty_levels.hard)
+					if (global.difficulty > difficulty_levels.easy)
 					{
 						for (_i = 0; _i < 4; ++_i)
 						{

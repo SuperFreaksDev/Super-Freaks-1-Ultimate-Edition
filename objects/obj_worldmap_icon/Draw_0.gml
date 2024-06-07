@@ -22,14 +22,13 @@ if (pic_alpha > 0)
 	
 	if (level_id == level_ids.level_kranion_final_boss)
 	{
-		show_debug_message(level_name_get(level_id))
 		switch (global.story_mode)
 		{
 			case story_modes.kranion:
-				_img = 0;
+				_img = 31;
 			break;
 			case story_modes.swordsman:
-				_img = 0;
+				_img = 32;
 			break;
 		}
 	}

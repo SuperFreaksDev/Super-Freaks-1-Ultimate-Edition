@@ -52,7 +52,17 @@ victory_quote = choose("You did it!",
 "What was with those homies dissing my freaks? Why did they gotta front?",
 "FREAK I HATE IT!!!!",
 "Kino joeshima freakmentum",
-"Mr. Freaksdev I am going to remove your collar bones");
+"Mr. Freaksdev I am going to remove your collar bones",
+"Super Freaks 4 Episode 1 as you turely imagined it",
+"5th Super Freak coming soon",
+"I have no choice, none whatsoever, but to give this freaky sausage a 5 out of 5!",
+"Uh super freaks? Yeah, I sure hope it does",
+"Four different meat Scruffys!",
+"Freak you, you freaking freak, always naysaying! Everything I create! You create something like Super Freaks 1 Ultimate Edition!",
+"Scruffy King Quincy",
+"Gambi Tikiman",
+"It looks like you're trying to play Super Freaks 1 Ultimate Edition. Do you need some help?",
+"Erwal");
 
 screen_shake(0, 0);
 global.frame_machine_level.pause = true;

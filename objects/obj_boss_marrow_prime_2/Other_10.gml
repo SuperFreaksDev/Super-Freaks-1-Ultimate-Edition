@@ -97,7 +97,7 @@ switch (state)
 							direction: 45 + (90 * _i),
 						});
 					}
-					if (global.difficulty == difficulty_levels.hard)
+					if (global.difficulty > difficulty_levels.easy)
 					{
 						for (_i = 0; _i < 4; ++_i)
 						{
@@ -185,6 +185,45 @@ switch (state)
 				sfx_play_global(sfx_crash_2);
 				state_next_set(boss_marrow2_states.idle);
 			}
+		}
+		break;
+	case boss_marrow2_states.death:
+		if (state_begin)
+		{
+			sprite_index = choose(spr_boss_marrow_prime_jump, spr_boss_marrow_prime_death_funny);
+			image_index = 0;
+			animate_speed = 0.15;
+			hitbox.behavior = enemy_hitbox_behaviors.normal;
+			hitbox.active = hitbox_active.inactive;
+			timer = 0;
+			if (global.game_mode != game_modes.boss_rush)
+				music_stop();
+				
+			with (obj_marrow_fireball)
+				instance_destroy();
+			with (obj_marrow_lightning)
+				instance_destroy();
+			with (obj_marrow_meteor)
+				instance_destroy();
+		}
+			
+		if (timer < 128)
+		{
+			if (timer mod 16 == 0)
+				instance_create_layer(x - 80 + random(160), y - 80 + random(160), "layer_instances", obj_boss_explosion);
+			timer++;
+		}
+		else
+		{
+			with instance_create_layer(x, y, "layer_instances", obj_boss_explosion)
+			{
+				image_xscale = 4;
+				image_yscale = 4;
+			}
+			sfx_play_global(sfx_explode);
+			screen_shake(0, 20);
+			instance_destroy();
+			instance_create(obj_marrow_death, x, y);
 		}
 		break;
 	default:

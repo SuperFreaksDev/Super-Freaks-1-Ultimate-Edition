@@ -1,0 +1,16 @@
+/// @description Init
+
+// Inherit the parent event
+event_inherited();
+
+timer = 0;
+animate_speed = 0;
+
+sfx_play_global(sfx_petah_knee);
+
+depth = -1;
+ground_on = false;
+speed_v = 0;
+speed_grv = 0.25;
+
+collider_detector_down_set(,,,, 24);

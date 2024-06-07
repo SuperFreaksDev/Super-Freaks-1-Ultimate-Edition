@@ -5,22 +5,22 @@
   "bbox_bottom":239,
   "bbox_left":59,
   "bbox_right":204,
-  "bbox_top":44,
+  "bbox_top":41,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"17b56bad-9228-43df-bea1-6d34423b1c8b","name":"17b56bad-9228-43df-bea1-6d34423b1c8b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"53c36dac-fc54-4771-b0d6-1ffc76b24f10","name":"53c36dac-fc54-4771-b0d6-1ffc76b24f10","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"9ca7e4d1-a4fa-44cc-b00f-ec4723b1017c","name":"9ca7e4d1-a4fa-44cc-b00f-ec4723b1017c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"2b211a4a-4ab5-4e4d-9062-2c8f8dddbf01","name":"2b211a4a-4ab5-4e4d-9062-2c8f8dddbf01","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":240,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"b6c1d121-d12c-4c90-81e7-6df29b779157","blendMode":0,"displayName":"default","isLocked":false,"name":"b6c1d121-d12c-4c90-81e7-6df29b779157","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"1582dd93-6c01-4c4f-bd22-0e1c8410e31e","blendMode":0,"displayName":"default","isLocked":false,"name":"1582dd93-6c01-4c4f-bd22-0e1c8410e31e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_boss_marrow_prime_cast_prepare",
   "nineSlice":null,
@@ -70,11 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"17b56bad-9228-43df-bea1-6d34423b1c8b","path":"sprites/spr_boss_marrow_prime_cast_prepare/spr_boss_marrow_prime_cast_prepare.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a6e8f18b-41e7-4a53-8444-8c867cea8c65","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9ca7e4d1-a4fa-44cc-b00f-ec4723b1017c","path":"sprites/spr_boss_marrow_prime_cast_prepare/spr_boss_marrow_prime_cast_prepare.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"908b050e-a9ab-47ad-b87d-a9be57a09373","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"53c36dac-fc54-4771-b0d6-1ffc76b24f10","path":"sprites/spr_boss_marrow_prime_cast_prepare/spr_boss_marrow_prime_cast_prepare.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"625c8b70-2b76-4f0d-b210-969cabe3619f","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2b211a4a-4ab5-4e4d-9062-2c8f8dddbf01","path":"sprites/spr_boss_marrow_prime_cast_prepare/spr_boss_marrow_prime_cast_prepare.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b46adfb5-0dc3-48a3-8928-84b723369eea","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
