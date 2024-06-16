@@ -46,7 +46,7 @@ function comp_hitbox_AABB(_x_offset = 0, _y_offset = 0, _active = hitbox_active.
 	shape_x2 = _shape_x2;
 	shape_y2 = _shape_y2;
 	
-	show_debug_message([shape_x1, shape_y1, shape_x2, shape_y2]);
+	//show_debug_message([shape_x1, shape_y1, shape_x2, shape_y2]);
 	
 	/// @function draw
 	static draw = function()

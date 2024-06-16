@@ -2,6 +2,7 @@ enum enemy_hitbox_behaviors
 {
 	normal = 0,
 	heavy,
+	heavy_360,
 	heavy_invulnerable,
 	hazard,
 	heavy_hazard,

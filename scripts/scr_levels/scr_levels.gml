@@ -625,7 +625,7 @@ function levels_get_all_completed(_story_mode = global.story_mode)
 		if (global.level_save_data_list[_story_mode][i].status > 1) 
 			array_push(_arr, i);
 	}
-	show_debug_message(_arr);
+	//show_debug_message(_arr);
 	return _arr;
 
 	gml_pragma("forceinline");
@@ -696,6 +696,16 @@ function level_name_get(_level_id = global.level_id)
 {
 	var _level = global.levels[_level_id],
 		_name  = _level.name_level;
+		
+	if (_name == "Vs Mega Klaw")
+	{
+		switch (global.story_mode)
+		{
+			case story_modes.swordsman:
+				_name = "Vs Spike";
+			break;
+		}
+	}
 		
 	if (_name == "Vs Kranion")
 	{

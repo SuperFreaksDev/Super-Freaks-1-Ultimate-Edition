@@ -62,7 +62,8 @@ victory_quote = choose("You did it!",
 "Scruffy King Quincy",
 "Gambi Tikiman",
 "It looks like you're trying to play Super Freaks 1 Ultimate Edition. Do you need some help?",
-"Erwal");
+"Erwal",
+"Wubba, wubba. I'm in the freak today, boy!");
 
 screen_shake(0, 0);
 global.frame_machine_level.pause = true;

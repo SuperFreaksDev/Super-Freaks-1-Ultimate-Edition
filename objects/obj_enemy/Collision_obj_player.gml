@@ -8,6 +8,7 @@ var _hitbox_player_behavior = _hitbox_player.behavior;
 var _enemy_hurt = false;
 var _player_hurt = false;
 var _enemy_hurt_timer = hurt_timer;
+var _direction;
 
 player_hit = other;
 player_hit_speed_x = other.x - other.x_start_frame;
@@ -71,6 +72,56 @@ switch (_hitbox_self.behavior)
 					//speed_h = 4 * sign(-speed_h);
 					speed_h = 4 * sign(((x + x_start_frame) / 2) - _hitbox_self_x);
 					speed_v = 3 * sign(((y + y_start_frame) / 2) - _hitbox_self_y);
+					//speed_v = min(speed_v, -5);
+				}
+				lock_controls_horizontal = 20;
+			}
+			else
+			{
+				if (ego_invincible > 0)
+					_enemy_hurt = true;
+				else
+					_player_hurt = true;
+			}
+				
+			repeat(32)
+			{
+				if (hitbox_collision_check(_hitbox_self, _hitbox_player))
+				{
+					x += sign(x - _hitbox_self_x);
+					//x += speed_h * 2;
+					if (!ground_on)
+						y += sign(y - _hitbox_self_y);
+						//y += speed_v * 2;
+				}
+				else
+					break;
+			}
+		}
+		break;
+	case enemy_hitbox_behaviors.heavy_360:
+		with (other)
+		{
+			if (ball)
+			{
+				//speed_h = 4 * sign(x - _hitbox_self_x);
+				_enemy_hurt = true;
+				_direction = point_direction(_hitbox_self_x, _hitbox_self_y, x, y);
+				if (underwater || jetpack)
+				{
+					//speed_h = 4 * sign(-speed_h);
+					//speed_v = 4 * sign(-speed_v);
+					speed_h = lengthdir_x(4, _direction);
+					speed_v = lengthdir_y(4, _direction);
+					jetpack_jump_timer = JETPACK_JUMP_TIMER_MAX;
+					lock_friction = 8;
+					lock_controls_vertical = 20;
+				}
+				else
+				{
+					//speed_h = 4 * sign(-speed_h);
+					speed_h = lengthdir_x(4, _direction);
+					speed_v = lengthdir_y(4, _direction);
 					//speed_v = min(speed_v, -5);
 				}
 				lock_controls_horizontal = 20;
