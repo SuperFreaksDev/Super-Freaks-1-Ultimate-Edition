@@ -74,7 +74,7 @@ switch (state)
 			global.boss_phase = 2;
 			hitbox.active = hitbox_active.inactive;
 			image_index = 1;
-			swing_speed = sign(swing_speed) * 8;
+			swing_speed = -sign(swing_speed) * 8;
 			if (global.game_mode != game_modes.boss_rush)
 				music_stop();
 		}

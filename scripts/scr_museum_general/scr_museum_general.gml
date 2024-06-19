@@ -232,7 +232,15 @@ function museum_init()
 		{
 			return level_complete_get(level_ids.level_supersecret_boss, story_modes.kranion);
 		});
-		museum_cutscene_create(18,, "Credits", rm_cutscene_credits, function()
+		museum_cutscene_create(18,, "Unretirement", rm_cutscene_intro_swordsman, function()
+		{
+			return level_complete_get(level_ids.level_stadium, story_modes.swordsman);
+		});
+		museum_cutscene_create(19,, "Freak Father Freakcation", rm_cutscene_freak_fathers_swordsman, function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_cutscene_create(20,, "Credits", rm_cutscene_credits, function()
 		{
 			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
 		});
