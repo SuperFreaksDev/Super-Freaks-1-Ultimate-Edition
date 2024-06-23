@@ -532,7 +532,8 @@ function levels_load()
 		_json = string_load("Save1/progress_0.save");
 		_array = json_parse(_json);
 		
-		for (_story = 0; _story < story_modes.count; ++_story)
+		//for (_story = 0; _story < story_modes.count; ++_story)
+		for (_story = 0; _story < array_length(_array); ++_story)
 		{
 			for (_level = 0; _level < array_length(_array[_story]); ++_level)
 			{

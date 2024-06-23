@@ -89,6 +89,12 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.sticky][story_modes.kranion] = true;
 	
 	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.swordsman] = true;
+	global.characters_unlocked[global.character_indexes.one_eyed_bandit][story_modes.swordsman] = true;
+	
+	global.characters_unlocked[global.character_indexes.superior][story_modes.anti_freaks] = true;
+	global.characters_unlocked[global.character_indexes.negative_quincy][story_modes.anti_freaks] = true;
+	global.characters_unlocked[global.character_indexes.geyzer][story_modes.anti_freaks] = true;
+	global.characters_unlocked[global.character_indexes.trash_can_man][story_modes.anti_freaks] = true;
 	
 	global.characters_unlocked[global.character_indexes.scruffy][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.quincy][story_modes.final] = true;
@@ -97,6 +103,10 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.kranion][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.sticky][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.superior][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.negative_quincy][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.geyzer][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.trash_can_man][story_modes.final] = true;
 	
 	#region Scruffy
 		_character = global.character_indexes.scruffy;
@@ -576,6 +586,33 @@ function characters_init()
 		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_swordsman);
 		
 		player_mugshot_create(_character, spr_character_select_swordsman);
+		
+		player_jumpsound_create(_character, sfx_jump);
+		player_deathsound_create(_character, sfx_yell_wilhelm);
+		player_fallsound_create(_character, sfx_yell_goofy);
+		
+		player_hitbox_resize(_character);
+	#endregion
+	
+	#region One Eyed Bandit
+		_character = global.character_indexes.one_eyed_bandit;
+		global.character_names[_character] = "One Eyed Bandit";
+		player_animation_create(_character, player_animations.hud_face, spr_player_HUD_bandit);
+		player_animation_create(_character, player_animations.idle, spr_player_stand_bandit);
+		player_animation_create(_character, player_animations.walk, spr_player_walk_bandit);
+		player_animation_create(_character, player_animations.skid, spr_player_skid_bandit);
+		player_animation_create(_character, player_animations.hurt, spr_player_hurt_bandit);
+		player_animation_create(_character, player_animations.death, spr_player_death_bandit);
+		player_animation_create(_character, player_animations.air, spr_player_air_bandit);
+		player_animation_create(_character, player_animations.jump, spr_player_jump_bandit);
+		player_animation_create(_character, player_animations.wall_slide, spr_player_wall_slide_bandit);
+		player_animation_create(_character, player_animations.hang, spr_player_hang_bandit);
+		player_animation_create(_character, player_animations.climb, spr_player_climb_bandit);
+		player_animation_create(_character, player_animations.pole_climb, spr_player_pole_bandit);
+		player_animation_create(_character, player_animations.pole_turn, spr_player_pole_turn_bandit);
+		player_animation_create(_character, player_animations.rail_grind, spr_player_rail_bandit);
+		
+		player_mugshot_create(_character, spr_character_select_bandit);
 		
 		player_jumpsound_create(_character, sfx_jump);
 		player_deathsound_create(_character, sfx_yell_wilhelm);
