@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_garbage_collection",
   "isCompatibility":false,
   "isDnD":false,

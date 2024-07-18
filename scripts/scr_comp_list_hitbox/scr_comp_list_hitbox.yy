@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_comp_list_hitbox",
   "isCompatibility":false,
   "isDnD":false,

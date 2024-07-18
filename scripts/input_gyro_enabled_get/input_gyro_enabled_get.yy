@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_gyro_enabled_get",
   "isCompatibility":false,
   "isDnD":false,

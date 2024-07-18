@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_visual_framerate",
   "isCompatibility":false,
   "isDnD":false,

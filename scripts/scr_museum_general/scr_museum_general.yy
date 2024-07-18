@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_museum_general",
   "isCompatibility":false,
   "isDnD":false,

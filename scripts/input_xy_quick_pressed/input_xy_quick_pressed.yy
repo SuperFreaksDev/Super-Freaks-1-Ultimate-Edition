@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_xy_quick_pressed",
   "isCompatibility":false,
   "isDnD":false,

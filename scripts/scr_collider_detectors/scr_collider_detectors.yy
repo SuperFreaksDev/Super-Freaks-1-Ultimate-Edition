@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_collider_detectors",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_level_sky",
   "isCompatibility":false,
   "isDnD":false,

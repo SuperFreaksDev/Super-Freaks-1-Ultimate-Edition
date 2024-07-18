@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"__input_release_multimonitor_cursor",
   "isCompatibility":false,
   "isDnD":false,

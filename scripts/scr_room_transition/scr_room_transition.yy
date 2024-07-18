@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_room_transition",
   "isCompatibility":false,
   "isDnD":false,

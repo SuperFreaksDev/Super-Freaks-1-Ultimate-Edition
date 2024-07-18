@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_level_canyon",
   "isCompatibility":false,
   "isDnD":false,

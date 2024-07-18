@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"input_cursor_previous_x",
   "isCompatibility":false,
   "isDnD":false,

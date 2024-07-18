@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"player_state_climb_pole",
   "isCompatibility":false,
   "isDnD":false,

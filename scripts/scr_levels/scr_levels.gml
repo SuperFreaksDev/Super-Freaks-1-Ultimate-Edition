@@ -510,6 +510,7 @@ function levels_init()
 	global.level_cutscene_list[story_modes.kranion][level_ids.level_supersecret_boss][level_cutscene_data.after] = rm_cutscene_ending_secret_villains;
 	
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_stadium][level_cutscene_data.before] = rm_cutscene_intro_swordsman;
+	global.level_cutscene_list[story_modes.swordsman][level_ids.level_stadium][level_cutscene_data.after] = rm_cutscene_after_stadium_swordsman;
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_freaky_ice][level_cutscene_data.before] = rm_cutscene_freak_fathers_swordsman;
 }
 

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_level_fruit",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_collider_callbacks",
   "isCompatibility":false,
   "isDnD":false,

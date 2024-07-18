@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_visual_aspect_ratio",
   "isCompatibility":false,
   "isDnD":false,

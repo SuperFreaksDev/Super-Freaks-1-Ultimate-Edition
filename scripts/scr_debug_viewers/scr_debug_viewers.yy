@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_debug_viewers",
   "isCompatibility":false,
   "isDnD":false,
