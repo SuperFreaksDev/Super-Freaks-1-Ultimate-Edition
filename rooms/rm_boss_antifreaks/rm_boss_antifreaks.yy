@@ -11,7 +11,7 @@
     {"name":"inst_25296D0F","path":"rooms/rm_boss_antifreaks/rm_boss_antifreaks.yy",},
     {"name":"inst_3C603F63","path":"rooms/rm_boss_antifreaks/rm_boss_antifreaks.yy",},
     {"name":"inst_3E20441A","path":"rooms/rm_boss_antifreaks/rm_boss_antifreaks.yy",},
-    {"name":"inst_1C2901CB","path":"rooms/rm_boss_antifreaks/rm_boss_antifreaks.yy",},
+    {"name":"inst_562ED061","path":"rooms/rm_boss_antifreaks/rm_boss_antifreaks.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -25,7 +25,7 @@
         {"$GMRInstance":"v1","%Name":"inst_25296D0F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_25296D0F","objectId":{"name":"obj_background_stadium","path":"objects/obj_background_stadium/obj_background_stadium.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":816.0,},
         {"$GMRInstance":"v1","%Name":"inst_3C603F63","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3C603F63","objectId":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":608.0,"y":736.0,},
         {"$GMRInstance":"v1","%Name":"inst_3E20441A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3E20441A","objectId":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1120.0,"y":736.0,},
-        {"$GMRInstance":"v1","%Name":"inst_1C2901CB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1C2901CB","objectId":{"name":"obj_boss_controller_antifreaks","path":"objects/obj_boss_controller_antifreaks/obj_boss_controller_antifreaks.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1120.0,"y":832.0,},
+        {"$GMRInstance":"v1","%Name":"inst_562ED061","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_562ED061","objectId":{"name":"obj_boss_extra_controller","path":"objects/obj_boss_extra_controller/obj_boss_extra_controller.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":848.0,"y":880.0,},
       ],"layers":[],"name":"layer_instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"layer_tiles_special","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":true,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"layer_tiles_special","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":30,"SerialiseWidth":54,"TileCompressedData":[-1620,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"tileset_special","path":"tilesets/tileset_special/tileset_special.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"layer_tiles_normal","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":true,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"layer_tiles_normal","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":30,"SerialiseWidth":54,"TileCompressedData":[
@@ -43,8 +43,8 @@
   ],
   "name":"rm_boss_antifreaks",
   "parent":{
-    "name":"Vs Anti Freaks",
-    "path":"folders/Rooms/Levels/Mystic Island/Vs Anti Freaks.yy",
+    "name":"Vs Anti Freaks - The Shadow",
+    "path":"folders/Rooms/Levels/Mystic Island/Vs Anti Freaks - The Shadow.yy",
   },
   "parentRoom":{
     "name":"rm_level_parent",
