@@ -1,22 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"obj_boss_shadow",
+  "%Name":"obj_boss_shadow_bomb",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":16,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":15,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_boss_shadow",
+  "name":"obj_boss_shadow_bomb",
   "overriddenProperties":[],
   "parent":{
     "name":"The Shadow",
     "path":"folders/Objects/Enemies/Bosses/The Shadow.yy",
   },
   "parentObjectId":{
-    "name":"obj_boss",
-    "path":"objects/obj_boss/obj_boss.yy",
+    "name":"obj_level_obj",
+    "path":"objects/obj_level_obj/obj_level_obj.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_boss_shadow_idle",
-    "path":"sprites/spr_boss_shadow_idle/spr_boss_shadow_idle.yy",
+    "name":"spr_boss_shadow_bomb_appear",
+    "path":"sprites/spr_boss_shadow_bomb_appear/spr_boss_shadow_bomb_appear.yy",
   },
   "spriteMaskId":null,
   "visible":true,
