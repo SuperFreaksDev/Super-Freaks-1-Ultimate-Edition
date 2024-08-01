@@ -153,7 +153,7 @@ function levels_init()
 	
 	level_create(level_ids.test, rm_test_1, "Test World", "Test Level");
 	
-	level_create(level_ids.level_stadium, rm_stadium_1, "Mystic Island", "Super Freaks Stadium");
+	level_create(level_ids.level_stadium, rm_stadium_1, "Mystic Island", "Super Freaks Stadium",,, spr_worldmap_pic_stadium);
 	level_create(level_ids.level_supersecret, rm_supersecret_1, "Mystic Island", "Exciting Encore", function()
 	{
 		var _i;
@@ -168,115 +168,125 @@ function levels_init()
 		}
 		
 		return true;
-	}, 0);
+	}, 0, spr_worldmap_pic_encore);
 	level_create(level_ids.level_supersecret_boss, rm_boss_antifreaks, "Mystic Island", "Vs Anti Freaks", function()
 	{
 		return level_complete_get(level_ids.level_supersecret);
-	}, 0);
+	}, 0, spr_worldmap_pic_antifreaks);
+	with (global.levels[level_ids.level_supersecret_boss])
+	{
+		sprite_index = [spr_worldmap_pic_antifreaks, spr_worldmap_pic_antifreaks, spr_worldmap_pic_shadow, spr_worldmap_pic_antifreaks];
+		name_level = ["Vs Anti Freaks", "Vs Anti Freaks", "Vs The Shadow", "Vs Anti Freaks"];
+	}
 	
 	//Normal World
 	level_create(level_ids.level_normal_fruit, rm_fruit_1, "Normal World", "Fruit Juice Factory", function()
 	{
 		return level_complete_get(level_ids.level_stadium);
-	});
+	},, spr_worldmap_pic_fruit);
 	level_create(level_ids.level_normal_sky, rm_skyway_1, "Normal World", "Skyway Highway", function()
 	{
 		return level_complete_get(level_ids.level_stadium);
-	});
+	},, spr_worldmap_pic_skyway);
 	level_create(level_ids.level_normal_fruit_secret, rm_secretfruit_1, "Normal World", "Fruit Juice Secret", function()
 	{
 		return level_perfect_get(level_ids.level_normal_fruit) && level_perfect_get(level_ids.level_normal_sky);
-	});
+	},, spr_worldmap_pic_fruit_secret);
 	level_create(level_ids.level_normal_boss, rm_boss_cinge, "Normal World", "Vs Cinge", function()
 	{
 		return (level_complete_get(level_ids.level_normal_fruit) && level_complete_get(level_ids.level_normal_sky));
-	}, 0);
+	}, 0, spr_worldmap_pic_cinge);
 	
 	//Crazy World
 	level_create(level_ids.level_crazy_toy, rm_toy_1, "Crazy World", "Toy Block Bridge", function()
 	{
 		return level_complete_get(level_ids.level_normal_boss);
-	});
+	},, spr_worldmap_pic_toyblock);
 	level_create(level_ids.level_crazy_park, rm_park_1, "Crazy World", "Playful Park", function()
 	{
 		return level_complete_get(level_ids.level_normal_boss);
-	});
+	},, spr_worldmap_pic_park);
 	level_create(level_ids.level_crazy_toy_secret, rm_secrettoy_1, "Crazy World", "Toy Block Secret", function()
 	{
 		return level_perfect_get(level_ids.level_crazy_toy) && level_perfect_get(level_ids.level_crazy_park);
-	});
+	},, spr_worldmap_pic_toyblock_secret);
 	level_create(level_ids.level_crazy_boss, rm_boss_milkman, "Crazy World", "Vs Milk Man", function()
 	{
 		return (level_complete_get(level_ids.level_crazy_toy) && level_complete_get(level_ids.level_crazy_park));
-	}, 0);
+	}, 0, spr_worldmap_pic_milkman);
 	
 	//Ludicrous World
 	level_create(level_ids.level_ludicrous_barrel, rm_canyon_1, "Ludicrous World", "Barrel Canyon Cliffs", function()
 	{
 		return level_complete_get(level_ids.level_crazy_boss);
-	});
+	},, spr_worldmap_pic_barrel);
 	level_create(level_ids.level_ludicrous_water, rm_ship_1, "Ludicrous World", "Shipwreck Poopdeck", function()
 	{
 		return level_complete_get(level_ids.level_crazy_boss);
-	});
+	},, spr_worldmap_pic_shipwreck);
 	level_create(level_ids.level_ludicrous_barrel_secret, rm_secretcanyon_1, "Ludicrous World", "Barrel Secret", function()
 	{
 		return (level_perfect_get(level_ids.level_ludicrous_barrel) && level_perfect_get(level_ids.level_ludicrous_water));
-	});
+	},, spr_worldmap_pic_barrel_secret);
 	level_create(level_ids.level_ludicrous_boss, rm_boss_megaklaw, "Ludicrous World", "Vs Mega Klaw", function()
 	{
 		return (level_complete_get(level_ids.level_ludicrous_barrel) && level_complete_get(level_ids.level_ludicrous_water));
-	}, 0);
+	}, 0, spr_worldmap_pic_megaklaw);
+	with (global.levels[level_ids.level_ludicrous_boss])
+	{
+		sprite_index = [spr_worldmap_pic_megaklaw, spr_worldmap_pic_megaklaw, spr_worldmap_pic_spike, spr_worldmap_pic_spike];
+		name_level = ["Vs Mega Klaw", "Vs Mega klaw", "Vs Spike", "Vs Spike"];
+	}
 	
 	//Insane World
 	level_create(level_ids.level_insane_hippie, rm_hippie_1, "Insane World", "Forever Flowery Fields", function()
 	{
 		return level_complete_get(level_ids.level_ludicrous_boss);
-	});
+	},, spr_worldmap_pic_flower);
 	level_create(level_ids.level_insane_lightning, rm_lightning_1, "Insane World", "Lightning Rod Lake", function()
 	{
 		return level_complete_get(level_ids.level_ludicrous_boss);
-	});
+	},, spr_worldmap_pic_lightning);
 	level_create(level_ids.level_insane_hippie_secret, rm_secrethippie_1, "Insane World", "Flowery Secret", function()
 	{
 		return (level_perfect_get(level_ids.level_insane_hippie) && level_perfect_get(level_ids.level_insane_lightning));
-	});
+	},, spr_worldmap_pic_flower_secret);
 	level_create(level_ids.level_insane_boss, rm_boss_larry, "Insane World", "Vs Larry McPeel", function()
 	{
 		return (level_complete_get(level_ids.level_insane_hippie) && level_complete_get(level_ids.level_insane_lightning));
-	}, 0);
+	}, 0, spr_worldmap_pic_larry);
 	
 	//Freaky World
 	level_create(level_ids.level_freaky_ice, rm_ice_1, "Freaky World", "Cool n Chill Caverns", function()
 	{
 		return level_complete_get(level_ids.level_insane_boss);
-	});
+	},, spr_worldmap_pic_cool);
 	level_create(level_ids.level_freaky_star, rm_star_1, "Freaky World", "Starscraper", function()
 	{
 		return level_complete_get(level_ids.level_insane_boss);
-	});
+	},, spr_worldmap_pic_starscraper);
 	level_create(level_ids.level_freaky_ice_secret, rm_secretice_1, "Freaky World", "Cool n Chill Secret", function()
 	{
 		return (level_perfect_get(level_ids.level_freaky_ice) && level_perfect_get(level_ids.level_freaky_star));
-	});
+	},, spr_worldmap_pic_cool_secret);
 	level_create(level_ids.level_freaky_boss, rm_boss_francis, "Freaky World", "Vs Francis", function()
 	{
 		return (level_complete_get(level_ids.level_freaky_ice) && level_complete_get(level_ids.level_freaky_star));
-	}, 0);
+	}, 0, spr_worldmap_pic_francis);
 	
 	//Castle Kranion
 	level_create(level_ids.level_kranion_conveyor, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()
 	{
 		return level_complete_get(level_ids.level_freaky_boss);
-	});
+	},, spr_worldmap_pic_conveyor);
 	level_create(level_ids.level_kranion_moon, rm_moon_1, "Castle Kranion", "Mecha Moon", function()
 	{
 		return level_complete_get(level_ids.level_freaky_boss);
-	});
+	},, spr_worldmap_pic_moon);
 	level_create(level_ids.level_kranion_conveyor_secret, rm_secretcastle_1, "Castle Kranion", "Conveyor Secret", function()
 	{
 		return (level_perfect_get(level_ids.level_kranion_conveyor) && level_perfect_get(level_ids.level_kranion_moon));
-	});
+	},, spr_worldmap_pic_conveyor_secret);
 	level_create(level_ids.level_kranion_moon_secret, rm_secretmoon_1, "Castle Kranion", "Moon Secret", function()
 	{
 		return level_complete_get(level_ids.level_normal_fruit_secret)
@@ -285,19 +295,24 @@ function levels_init()
 		&& level_complete_get(level_ids.level_insane_hippie_secret)
 		&& level_complete_get(level_ids.level_freaky_ice_secret)
 		&& level_complete_get(level_ids.level_kranion_conveyor_secret);
-	});
+	},, spr_worldmap_pic_moon_secret);
 	level_create(level_ids.level_kranion_boss_secret, rm_boss_secretkranion, "Castle Kranion", "Kranion's Secret Weapon", function()
 	{
 		return level_complete_get(level_ids.level_kranion_moon_secret);
-	}, 0);
+	}, 0, spr_worldmap_pic_kranion_secret);
 	level_create(level_ids.level_kranion_boss, rm_boss_dino, "Castle Kranion", "Vs Dino", function()
 	{
 		return (level_complete_get(level_ids.level_kranion_conveyor) && level_complete_get(level_ids.level_kranion_moon));
-	}, 0);
+	}, 0, spr_worldmap_pic_dino);
 	level_create(level_ids.level_kranion_final_boss, rm_boss_kranion, "Castle Kranion", "Vs Kranion", function()
 	{
 		return level_complete_get(level_ids.level_kranion_boss);
-	}, 0);
+	}, 0, spr_worldmap_pic_kranion);
+	with (global.levels[level_ids.level_kranion_final_boss])
+	{
+		sprite_index = [spr_worldmap_pic_kranion, spr_worldmap_pic_cranion, spr_worldmap_pic_marrowprime, spr_worldmap_pic_kranion];
+		name_level = ["Vs Kranion", "Vs ???", "Vs Marrow Prime", "Vs Kranion Minus"];
+	}
 	
 	//Final Battle
 	level_create(level_ids.level_apex, rm_boss_apex, "Final Battle", "Vs Apex", function()
@@ -571,18 +586,22 @@ function level_complete_list_reset()
 /// @param {string} _name_level = ""
 /// @param {function} _unlock_method = function(){return false;}
 /// @param {int} _trophies_max = 3
-function level_create(_level_id, _room = rm_level_parent, _name_world = "", _name_level = "", _unlock_method = function(){return false;}, _trophies_max = 3)
+/// @param _sprite_index = spr_worldmap_pic_blank
+function level_create(_level_id, _room = rm_level_parent, _name_world = "", _name_level = "", _unlock_method = function(){return false;}, _trophies_max = 3, _sprite_index = spr_worldmap_pic_blank)
 {
 	var _level = global.levels[_level_id];
 	
 	with (_level)
 	{
-		name_level = _name_level;
+		name_level = [_name_level, _name_level, _name_level, _name_level];
 		name_world = _name_world;
 		room_starting = _room;
 		unlock_method = _unlock_method;
 		trophies_max = _trophies_max;
+		sprite_index = [_sprite_index, _sprite_index, _sprite_index, _sprite_index];
 	}
+	
+	return _level;
 }
 
 /// @function levels_unlock
@@ -698,35 +717,26 @@ function level_name_world_get(_level_id = global.level_id)
 
 /// @function level_name_get
 /// @param {int} _level_id = global.level_id
-function level_name_get(_level_id = global.level_id)
+/// @param {int} _story_mode = global.story_mode
+function level_name_get(_level_id = global.level_id, _story_mode = global.story_mode)
 {
 	var _level = global.levels[_level_id],
-		_name  = _level.name_level;
-		
-	if (_name == "Vs Mega Klaw")
-	{
-		switch (global.story_mode)
-		{
-			case story_modes.swordsman:
-				_name = "Vs Spike";
-			break;
-		}
-	}
-		
-	if (_name == "Vs Kranion")
-	{
-		switch (global.story_mode)
-		{
-			case story_modes.kranion:
-				_name = "Vs ???";
-			break;
-			case story_modes.swordsman:
-				_name = "Vs Marrow Prime";
-			break;
-		}
-	}
+		_name  = _level.name_level[_story_mode];
 	
 	return _name;
+	
+	gml_pragma("forceinline");
+}
+
+/// @function level_sprite_get
+/// @param {int} _level_id = global.level_id
+/// @param {int} _story_mode = global.story_mode
+function level_sprite_get(_level_id = global.level_id, _story_mode = global.story_mode)
+{
+	var _level  = global.levels[_level_id],
+		_sprite = _level.sprite_index[_story_mode];
+	
+	return _sprite;
 	
 	gml_pragma("forceinline");
 }

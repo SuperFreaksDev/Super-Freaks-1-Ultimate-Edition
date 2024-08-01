@@ -68,7 +68,17 @@ timer = 0;
 			global.story_mode = story_modes.swordsman;
 		}
 	}, true);
-	menu_option_add(_page, 3, "Final Battle", function()
+	menu_option_add(_page, 3, "Anti Freaks Story (Coming Soon!)", function()
+	{
+		main_text = "Super Freaks 1 Ultimate Edition";
+		if (input_check_pressed("confirm", global.player_lead))
+		{
+			page = main_menu_pages.story;
+			option = 0;
+			global.story_mode = story_modes.anti_freaks;
+		}
+	}, false);
+	menu_option_add(_page, 4, "Final Battle (Coming Soon!)", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
@@ -77,8 +87,8 @@ timer = 0;
 			global.level_id = level_ids.level_apex;
 			instance_create(obj_character_select);
 		}
-	}, true);
-	menu_option_add(_page, 4, "Museum", function()
+	}, false);
+	menu_option_add(_page, 5, "Museum", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
@@ -92,7 +102,7 @@ timer = 0;
 				sfx_play_global(sfx_honk);
 		}
 	}, global.unlocks[unlocks.museum][unlock_data.unlocked]);
-	menu_option_add(_page, 5, "Options", function()
+	menu_option_add(_page, 6, "Options", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
@@ -101,13 +111,13 @@ timer = 0;
 			option = 0;
 		}
 	});
-	menu_option_add(_page, 6, "More Super Freaks Games", function()
+	menu_option_add(_page, 7, "More Super Freaks Games", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 			url_open("https://superfreaks.neocities.org/");
 	});
-	menu_option_add(_page, 7, "Exit", function()
+	menu_option_add(_page, 8, "Exit", function()
 	{
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
@@ -137,15 +147,7 @@ timer = 0;
 		else if (input_check_pressed("deny", global.player_lead))
 		{
 			page = main_menu_pages.main;
-			switch (global.story_mode)
-			{
-				case story_modes.super_freaks:
-					option = 0;
-					break;
-				case story_modes.kranion:
-					option = 1;
-					break;
-			}
+			option = global.story_mode;
 		}
 	});
 	menu_option_add(_page, 1, "Challenge", function()
