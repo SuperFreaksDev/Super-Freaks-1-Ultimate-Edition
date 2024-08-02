@@ -41,7 +41,7 @@ switch (page)
 		_name_world = level_name_world_get(_index);
 		_name_level = level_name_get(_index);
 		
-		draw_sprite(spr_worldmap_pictures, _index, _screen_width / 2, _screen_height / 2);
+		draw_sprite(level_sprite_get(_index), 0, _screen_width / 2, _screen_height / 2);
 		draw_sprite_ext(spr_menu_arrow_32, _frame, _screen_width / 2 - 96, _screen_height / 2, 1, 1, 180, c_white, 1);
 		draw_sprite_ext(spr_menu_arrow_32, _frame, _screen_width / 2 + 96, _screen_height / 2, 1, 1, 0, c_white, 1);
 		
