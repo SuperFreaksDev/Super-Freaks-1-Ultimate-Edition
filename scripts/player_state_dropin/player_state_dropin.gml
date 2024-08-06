@@ -23,6 +23,7 @@ function player_state_dropin()
 		ball = false;
 		hitbox.active = hitbox_active.inactive;
 		rubber_band_can_slingshot = false;
+		aura = 0;
 		sfx_play_global(sfx_ding);
 	}
 	

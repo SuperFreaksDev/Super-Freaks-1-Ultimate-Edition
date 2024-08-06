@@ -10,6 +10,7 @@ switch (state)
 		{
 			ego_invincible = 0;
 			ego_refill_pause = 0;
+			aura = 0;
 			hp = 0;
 		}
 		break;
@@ -21,6 +22,7 @@ switch (state)
 		{
 			ego_invincible = 0;
 			ego_refill_pause = 0;
+			aura = 0;
 			hp = 0;
 		}
 	case player_states.bubble:

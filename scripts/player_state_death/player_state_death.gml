@@ -11,10 +11,12 @@ function player_state_death()
 		jump_buffer = 0;
 		coyote_time = 0;
 		instance_attach = undefined;
-		aura = false;
+		aura = 0;
 		
 		collider_attach_clear();
 		hitbox.active = hitbox_active.inactive;
+		sprite_index = player_animation_get(character_index, player_animations.death);
+		image_index = 0;
 		sfx_play_global(player_deathsound_get(character_index));
 		
 		if (!players_alive())
@@ -33,9 +35,6 @@ function player_state_death()
 		
 	x += speed_h;
 	y += speed_v;
-	
-	sprite_index = player_animation_get(character_index, player_animations.death);
-	image_index = 0;
 	
 	hitbox.active = hitbox_active.inactive;
 	

@@ -274,6 +274,12 @@ function levels_init()
 	{
 		return (level_complete_get(level_ids.level_freaky_ice) && level_complete_get(level_ids.level_freaky_star));
 	}, 0, spr_worldmap_pic_francis);
+	with (global.levels[level_ids.level_freaky_boss])
+	{
+		sprite_index = [spr_worldmap_pic_francis, spr_worldmap_pic_wartnose, spr_worldmap_pic_wartnose, spr_worldmap_pic_francis];
+		room_starting = [rm_boss_francis, rm_boss_wartnose, rm_boss_wartnose, rm_boss_francis];
+		name_level = ["Vs Francis", "Vs Wartnose", "Vs Wartnose", "Vs Francis"];
+	}
 	
 	//Castle Kranion
 	level_create(level_ids.level_kranion_conveyor, rm_castle_1, "Castle Kranion", "Conveyor Castle", function()

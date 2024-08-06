@@ -60,6 +60,7 @@ function player_state_normal()
 			break;
 	}
 	_move_h *= mirror_flip_get();
+	_speedup_h *= mirror_flip_get();
 	if (lock_controls_vertical == 0)
 	{
 		if (input_check("up", player_number))
@@ -383,7 +384,7 @@ function player_state_normal()
 					//speed_h = -5 + _speedup_h;
 					if (speed_h < -12 || speed_h > -4)
 						speed_h = approach(speed_h, clamp(speed_h, -12, -4), 2);
-					speed_h = approach(speed_h, -5+_speedup_h, 0.1);
+					speed_h = approach(speed_h, -5 + _speedup_h, 0.1);
 					break;
 				case collider_behaviors_solid.rail_right:
 					if (physics != player_physics_modifiers.rail)
@@ -392,7 +393,7 @@ function player_state_normal()
 					//speed_h = 5 + _speedup_h;
 					if (speed_h < 4 || speed_h > 12)
 						speed_h = approach(speed_h, clamp(speed_h, 4, 12), 2);
-					speed_h = approach(speed_h, 5+_speedup_h, 0.1);
+					speed_h = approach(speed_h, 5 + _speedup_h, 0.1);
 					break;
 			}
 		}

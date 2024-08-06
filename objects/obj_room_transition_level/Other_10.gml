@@ -59,12 +59,10 @@ switch (state)
 			
 			with (obj_player)
 			{
-				if (global.story_mode = story_modes.kranion)
-				{
-					ego_invincible = 0;
-					ego_refill_pause = 0;
-					hp = 0;
-				}
+				ego_invincible = 0;
+				ego_refill_pause = 0;
+				aura = 0;
+				hp = 0;
 			}
 		}
 		animate = (frame / 20) + 1;

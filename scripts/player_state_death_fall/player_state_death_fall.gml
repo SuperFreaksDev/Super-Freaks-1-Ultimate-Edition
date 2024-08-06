@@ -16,6 +16,9 @@ function player_state_death_fall()
 		with (hitbox)
 			active = hitbox_active.inactive;
 			
+		sprite_index = player_animation_get(character_index, player_animations.death);
+		image_index = 0;
+			
 		sfx_play_global(player_fallsound_get(character_index));
 		
 		if (!players_alive())
@@ -34,9 +37,6 @@ function player_state_death_fall()
 		
 	x += speed_h;
 	y += speed_v;
-	
-	sprite_index = player_animation_get(character_index, player_animations.death);
-	image_index = 0;
 	
 	timer_death++;
 	if (timer_death >= 64)
