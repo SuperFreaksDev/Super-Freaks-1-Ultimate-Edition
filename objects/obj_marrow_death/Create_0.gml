@@ -5,6 +5,7 @@ event_inherited();
 
 timer = 0;
 animate_speed = 0;
+fast_forward = false;
 
 sfx_play_global(sfx_petah_knee);
 

@@ -2,6 +2,7 @@
 
 var _angle;
 var _length;
+var _i = 0;
 
 // Inherit the parent event
 event_inherited();
@@ -33,9 +34,9 @@ switch (state)
 		//swing_speed = min(swing_speed + 0.1, 1.5);
 		spike_size = max(spike_size - 0.1, 0);
 		
-		timer--;
+		timer = max(timer - 1, 0);
 		
-		if (timer < 0)
+		if (timer == 0 && global.difficulty > difficulty_levels.easy)
 			state_next_set(boss_spike_states.prepare);
 		break;
 	case boss_spike_states.prepare:
@@ -49,7 +50,12 @@ switch (state)
 		timer--;
 		
 		if (timer < 0)
-			state_next_set(boss_spike_states.spike);
+		{
+			if (global.difficulty == difficulty_levels.hard)
+				state_next_set(choose(boss_spike_states.spike, boss_spike_states.shoot));
+			else
+				state_next_set(boss_spike_states.spike);
+		}
 		break;
 	case boss_spike_states.spike:
 		if (state_begin)
@@ -61,6 +67,27 @@ switch (state)
 		}
 		//swing_speed = min(swing_speed + 0.1, 1.5);
 		spike_size = min(spike_size + 0.1, 1);
+		
+		timer--;
+		
+		if (timer < 0)
+			state_next_set(boss_spike_states.normal);
+		break;
+	case boss_spike_states.shoot:
+		if (state_begin)
+		{
+			timer = 16;
+			image_index = 2;
+			sfx_play_global(sfx_explode);
+			for (_i = 0; _i < 8; ++_i)
+			{
+				instance_create_layer(x + thing_x, y + thing_y, "layer_instances", obj_enemy_fireball, 
+				{
+					speed: 5,
+					direction: 22.5 + (45 * _i),
+				});
+			}
+		}
 		
 		timer--;
 		

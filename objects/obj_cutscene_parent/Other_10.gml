@@ -50,6 +50,7 @@ if (!room_transition_active_get())
 		        {
 		            text = string(text_next);
 		            text_draw = 0;
+					
 					_sound_effect = segment[segment_current][cutscene_segment.sfx];
 					if (_sound_effect != -1)
 						sfx_play_global(_sound_effect, false, 0);

@@ -235,7 +235,8 @@ function levels_init()
 	with (global.levels[level_ids.level_ludicrous_boss])
 	{
 		sprite_index = [spr_worldmap_pic_megaklaw, spr_worldmap_pic_megaklaw, spr_worldmap_pic_spike, spr_worldmap_pic_spike];
-		name_level = ["Vs Mega Klaw", "Vs Mega klaw", "Vs Spike", "Vs Spike"];
+		room_starting = [rm_boss_megaklaw, rm_boss_megaklaw, rm_boss_spike, rm_boss_spike];
+		name_level = ["Vs Mega Klaw", "Vs Mega Klaw", "Vs Spike", "Vs Spike"];
 	}
 	
 	//Insane World
@@ -526,7 +527,9 @@ function levels_init()
 	
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_stadium][level_cutscene_data.before] = rm_cutscene_intro_swordsman;
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_stadium][level_cutscene_data.after] = rm_cutscene_after_stadium_swordsman;
+	global.level_cutscene_list[story_modes.swordsman][level_ids.level_ludicrous_barrel][level_cutscene_data.before] = rm_cutscene_training_swordsman;
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_freaky_ice][level_cutscene_data.before] = rm_cutscene_freak_fathers_swordsman;
+	global.level_cutscene_list[story_modes.swordsman][level_ids.level_kranion_final_boss][level_cutscene_data.before] = rm_cutscene_prime_swordsman;
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_kranion_final_boss][level_cutscene_data.after] = rm_cutscene_ending_normal_swordsman;
 	global.level_cutscene_list[story_modes.swordsman][level_ids.level_supersecret_boss][level_cutscene_data.after] = rm_cutscene_ending_secret_swordsman;
 }
@@ -596,7 +599,7 @@ function level_create(_level_id, _room = rm_level_parent, _name_world = "", _nam
 	{
 		name_level = [_name_level, _name_level, _name_level, _name_level];
 		name_world = _name_world;
-		room_starting = _room;
+		room_starting = [_room, _room, _room, _room];
 		unlock_method = _unlock_method;
 		trophies_max = _trophies_max;
 		sprite_index = [_sprite_index, _sprite_index, _sprite_index, _sprite_index];
@@ -701,7 +704,7 @@ function level_perfect_get(_level_id = global.level_id, _story_mode = global.sto
 function level_room_get(_level_id = global.level_id)
 {
 	var _level = global.levels[_level_id];
-	return _level.room_starting;
+	return _level.room_starting[global.story_mode];
 	
 	gml_pragma("forceinline");
 }

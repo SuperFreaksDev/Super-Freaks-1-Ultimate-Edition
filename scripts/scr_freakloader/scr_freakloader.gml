@@ -104,5 +104,7 @@ function freakloader_add_chars()
 		
 		global.characters_unlocked[_charID][story_modes.super_freaks] = true;
 		global.characters_unlocked[_charID][story_modes.kranion] = true;
+		global.characters_unlocked[_charID][story_modes.swordsman] = true;
+		global.characters_unlocked[_charID][story_modes.anti_freaks] = true;
 	}
 }

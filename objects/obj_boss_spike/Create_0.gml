@@ -6,10 +6,11 @@ enum boss_spike_states
 	normal,
 	prepare,
 	spike,
+	shoot,
 	death,
 }
 
-chain_segments = 10;
+chain_segments = 9;
 chain_multiplier = 0.70;
 chain_multiplier_max = 0.70;
 swing_speed = 0;
@@ -36,8 +37,8 @@ switch (global.boss_phase)
 {
 	case 0:
 		state_next_set(boss_spike_states.intro);
-		chain_multiplier = 0.70;
-		chain_multiplier_max = 0.70;
+		chain_multiplier = 0.75;
+		chain_multiplier_max = 0.75;
 		break;
 	case 1:
 		hp = 10;
