@@ -10,7 +10,7 @@
   "managed":true,
   "name":"obj_boneblaster",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_boneym","path":"objects/obj_boneym/obj_boneym.yy",},"propertyId":{"name":"walk_speed","path":"objects/obj_boneym/obj_boneym.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_boneym","path":"objects/obj_boneym/obj_boneym.yy",},"propertyId":{"name":"walk_speed","path":"objects/obj_boneym/obj_boneym.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1",},
   ],
   "parent":{
     "name":"Enemies",

@@ -28,10 +28,30 @@ with (other)
 if (_hit && !room_transition_active_get())
 {
 	_hint_screen = instance_create_layer(0, 0, "layer_instances", obj_hint_screen);
-	if (global.story_mode == story_modes.kranion && hint_kranion != "")
-		_hint_screen.hint = hint_kranion;
-	else
-		_hint_screen.hint = hint;
+	switch (global.story_mode)
+	{
+		case story_modes.kranion:
+			if (hint_kranion != "")
+				_hint_screen.hint = hint_kranion;
+			else
+				_hint_screen.hint = hint;
+			break;
+		case story_modes.swordsman:
+			if (hint_swordsman != "")
+				_hint_screen.hint = hint_swordsman;
+			else
+				_hint_screen.hint = hint;
+			break;
+		case story_modes.anti_freaks:
+			if (hint_antifreaks != "")
+				_hint_screen.hint = hint_kranion;
+			else
+				_hint_screen.hint = hint;
+			break;
+		default:
+			_hint_screen.hint = hint;
+			break;
+	}
 	_hint_screen.player_number = _player_num;
 	game_pause_set(true);
 }

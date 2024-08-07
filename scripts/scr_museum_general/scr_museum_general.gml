@@ -53,109 +53,125 @@ function museum_init()
 		{
 			return true;
 		});
-		museum_character_create(6,, "The Anti Freaks", "The infamous evil doppelgangers of the Super Freaks. Each individually 'wronged', they came together to try to outdo the Super Freaks, but fail every time. One would think they'd learn, but they'll keep doing this 4ever!...yeah, I know that foreshadowing was awful.", function()
-		{
-			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
-		});
-		museum_character_create(7,, "Superior", "Scruffy's anti counterpart is obsessed with proving he is the better of the two. His cool mustache is certainly a bullet point in his favor. Unfortunately for him, he tries way too hard and just fails miserably. You have to admire the effort though!", function()
-		{
-			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
-		});
-		museum_character_create(8,, "Negative Quincy", "A robot version of King Quincy. While Quincy is chill, Negative Quincy takes this to the extreme. He lives in a junkyard which he never cleans, and he blows up stuff for fun. He greatly dislikes authority, but that's lowkey a little relatable.", function()
-		{
-			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
-		});
-		museum_character_create(9,, "Geyzer", "Geyzer is a fellow ghost-but-not-really, like Gambi. He is brooding and emo, though really this is just for show. He's the only Anti Freak with any real sense of morality, but even then he's still kind of a jerk.", function()
-		{
-			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
-		});
-		museum_character_create(10,, "Trash Can Man", "Formerly Tikiman's lab assistant. He's got a huge ego and can sell you a used napkin with his fake charisma. He's smart, but in none of the ways that really matter--just ask him about his submarine incident and see how he reacts!", function()
-		{
-			return level_complete_get(level_ids.level_stadium, story_modes.super_freaks) || level_complete_get(level_ids.level_stadium, story_modes.kranion);
-		});
-		museum_character_create(11,, "The X-Freaks", "The Super Freaks of Universe-SF1963X, known for mutations that give them superpowers. In their universe, they've founded a school for Freak Mutants after the humans deemed them all a threat. They have been successful enough in their heroics to join the Multisociety of Super Freaks.", function()
-		{
-			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
-		});
-		museum_character_create(12,, "Les Slaypool", "Scruffy's X-Freaks equivalent has a mutant immortality, letting him tank any dangerous situation. He can also annoy his foes with quips, which is a talent not many can do well. Can you imagine a universe where everyone quipped like that constantly? That would get old quick, wouldn't it?", function()
-		{
-			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
-		});
-		museum_character_create(13,, "Cyquops", "The X-Freaks' version of King Quincy is every bit as mature and dignified as his original counterpart--that is to say, just barely enough. Whatever you do, don't yank off his cool helmet. His laser vision goes out of control without it on!", function()
-		{
-			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
-		});
-		museum_character_create(14,, "Gloverine", "Gambi's X-Freaks counterpart is also quick to anger. His mutant power is being a Canadian. This makes him say 'eh' a lot, but with those blade gloves, he's a killer lumberjack like any good Canadian.", function()
-		{
-			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
-		});
-		museum_character_create(15,, "Professor T", "The founding member of the X-Freaks and a counterpart of Tikiman. He has incredibly powerful telekinesis and the voice of a Shakespearean actor, qualities which make him a dignified leader. This all came at the cost of his legs, but he has a super cool wheelchair to make up for it.", function()
-		{
-			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
-		});
-		museum_character_create(16,, "A Brick", "A block, typically of a reddish hue, made of clay and meant to be glued together with other bricks. They are typically layed on top of each other to form walls, or side by side to make roads, by masons. Bricks have a rich thousands of years history of use as construction material.", function()
-		{
-			return level_complete_get(level_ids.level_supersecret_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_supersecret_boss, story_modes.kranion);
-		});
-		museum_character_create(17,, "The Freak Fathers", "A group of Freak mystics who live on Freaky World. They can sense fluctuations in Unlimit Energy. They are as wise as they are goofy--some have speculated this is because they are the oldest Freaks in existence.", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(18,, "Yerr Hey", "The founder of the Freak Fathers. He knew he should not study Unlimit Energy on his own, so he brought his friends together to join him. His goofy appearence hides an incredibly clever mind.", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(19,, "Treak", "The oldest Tree Freak, who is part of the Freak Fathers. He is the wisest of the fathers, but gets too caught up in old stories about how he walked to and from school in the snow...stories he doesn't remember right!", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(20,, "Papa Freak", "A Freaky Freak elder who is part of the Freak Fathers. He is incredibly eccentric, yet sometimes his wild thoughts lead to new developments in Unlimit Energy uses. More often than not, however, he just kind of does weird things in his village.", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(21,, "Noh Bodee", "A face and hands who is in the Freak Fathers. His lack of body allows him to fly anywhere and even appear inside someone's mind. He often uses this astral projection to warn the Super Freaks of danger.", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(22,, "Goob", "The Freak Fathers' beloved Freak dog. He is just as attuned to Unlimit Energy as the fathers are, but his keen dog senses take this to a whole other level. His full name is Goobert.", function()
-		{
-			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion);
-		});
-		museum_character_create(23,, "Kranion", "Michael 'Mikey' Ribson Jr., aka Kranion, was not the galaxy's first villain but is at this point the most well known. He is known for his Southie accent and attitude. When he wants something, he gets it, unless it ruins the day of his frenemies the Super Freaks.", function()
+		museum_character_create(6,, "One Eyed Bandit", "One Eyed Bandit is the SECOND strongest warrior in the universe. He's always trying to win a fight against Uncle Swordsman to take the top spot. Weird hobby aside, he's a nice guy!", function()
 		{
 			return true;
 		});
-		museum_character_create(24,, "Cranion", "A doppelganger of Kranion who is completely identical other than his more blue color scheme and his name, spelt with a hard C instead of a K. Yeah, I don't get it either.", function()
+		museum_character_create(7,, "The Anti Freaks", "The infamous evil doppelgangers of the Super Freaks. Each individually 'wronged', they came together to try to outdo the Super Freaks, but fail every time. One would think they'd learn, but they'll keep doing this 4ever!...yeah, I know that foreshadowing was awful.", function()
+		{
+			return true;
+		});
+		museum_character_create(8,, "Superior", "Scruffy's anti counterpart is obsessed with proving he is the better of the two. His cool mustache is certainly a bullet point in his favor. Unfortunately for him, he tries way too hard and just fails miserably. You have to admire the effort though!", function()
+		{
+			return true;
+		});
+		museum_character_create(9,, "Negative Quincy", "A robot version of King Quincy. While Quincy is chill, Negative Quincy takes this to the extreme. He lives in a junkyard which he never cleans, and he blows up stuff for fun. He greatly dislikes authority, but that's lowkey a little relatable.", function()
+		{
+			return true;
+		});
+		museum_character_create(10,, "Geyzer", "Geyzer is a fellow ghost-but-not-really, like Gambi. He is brooding and emo, though really this is just for show. He's the only Anti Freak with any real sense of morality, but even then he's still kind of a jerk.", function()
+		{
+			return true;
+		});
+		museum_character_create(11,, "Trash Can Man", "Formerly Tikiman's lab assistant. He's got a huge ego and can sell you a used napkin with his fake charisma. He's smart, but in none of the ways that really matter--just ask him about his submarine incident and see how he reacts!", function()
+		{
+			return true;
+		});
+		museum_character_create(12,, "The Shadow", "The evil equivalent of Uncle Swordsman. He is not of the same reality; he is an antimatter being of the Negative Zone, who must astral project himself into the Positive Zone. He gathered the Anti Freaks and gave them some kind of mission, whether they like it or not!", function()
+		{
+			return level_complete_get(level_ids.level_stadium, story_modes.swordsman) || level_complete_get(level_ids.level_stadium, story_modes.anti_freaks);
+		});
+		museum_character_create(13,, "The X-Freaks", "The Super Freaks of Universe-SF1963X, known for mutations that give them superpowers. In their universe, they've founded a school for Freak Mutants after the humans deemed them all a threat. They have been successful enough in their heroics to join the Multisociety of Super Freaks.", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
+		});
+		museum_character_create(14,, "Les Slaypool", "Scruffy's X-Freaks equivalent has a mutant immortality, letting him tank any dangerous situation. He can also annoy his foes with quips, which is a talent not many can do well. Can you imagine a universe where everyone quipped like that constantly? That would get old quick, wouldn't it?", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
+		});
+		museum_character_create(15,, "Cyquops", "The X-Freaks' version of King Quincy is every bit as mature and dignified as his original counterpart--that is to say, just barely enough. Whatever you do, don't yank off his cool helmet. His laser vision goes out of control without it on!", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
+		});
+		museum_character_create(16,, "Gloverine", "Gambi's X-Freaks counterpart is also quick to anger. His mutant power is being a Canadian. This makes him say 'eh' a lot, but with those blade gloves, he's a killer lumberjack like any good Canadian.", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
+		});
+		museum_character_create(17,, "Professor T", "The founding member of the X-Freaks and a counterpart of Tikiman. He has incredibly powerful telekinesis and the voice of a Shakespearean actor, qualities which make him a dignified leader. This all came at the cost of his legs, but he has a super cool wheelchair to make up for it.", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_barrel, story_modes.super_freaks);
+		});
+		museum_character_create(18,, "A Brick", "A block, typically of a reddish hue, made of clay and meant to be glued together with other bricks. They are typically layed on top of each other to form walls, or side by side to make roads, by masons. Bricks have a rich thousands of years history of use as construction material.", function()
+		{
+			return level_complete_get(level_ids.level_supersecret_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_supersecret_boss, story_modes.kranion) || level_complete_get(level_ids.level_supersecret_boss, story_modes.swordsman) || level_complete_get(level_ids.level_supersecret_boss, story_modes.anti_freaks);
+		});
+		museum_character_create(19,, "The Freak Fathers", "A group of Freak mystics who live on Freaky World. They can sense fluctuations in Unlimit Energy. They are as wise as they are goofy--some have speculated this is because they are the oldest Freaks in existence.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(20,, "Yerr Hey", "The founder of the Freak Fathers. He knew he should not study Unlimit Energy on his own, so he brought his friends together to join him. His goofy appearence hides an incredibly clever mind.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(21,, "Treak", "The oldest Tree Freak, who is part of the Freak Fathers. He is the wisest of the fathers, but gets too caught up in old stories about how he walked to and from school in the snow...stories he doesn't remember right!", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(22,, "Papa Freak", "A Freaky Freak elder who is part of the Freak Fathers. He is incredibly eccentric, yet sometimes his wild thoughts lead to new developments in Unlimit Energy uses. More often than not, however, he just kind of does weird things in his village.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(23,, "Noh Bodee", "A face and hands who is in the Freak Fathers. His lack of body allows him to fly anywhere and even appear inside someone's mind. He often uses this astral projection to warn the Super Freaks of danger.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(24,, "Goob", "The Freak Fathers' beloved Freak dog. He is just as attuned to Unlimit Energy as the fathers are, but his keen dog senses take this to a whole other level. His full name is Goobert.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_ice, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_ice, story_modes.kranion) || level_complete_get(level_ids.level_freaky_ice, story_modes.swordsman);
+		});
+		museum_character_create(25,, "Kranion", "Michael 'Mikey' Ribson Jr., aka Kranion, was not the galaxy's first villain but is at this point the most well known. He is known for his Southie accent and attitude. When he wants something, he gets it, unless it ruins the day of his frenemies the Super Freaks.", function()
+		{
+			return true;
+		});
+		museum_character_create(26,, "Cranion", "A doppelganger of Kranion who is completely identical other than his more blue color scheme and his name, spelt with a hard C instead of a K. Yeah, I don't get it either.", function()
 		{
 			return level_complete_get(level_ids.level_kranion_final_boss, story_modes.kranion);
 		});
-		museum_character_create(25,, "Sticky", "Sticky is the half-brother of Kranion, another evil skeleton who menaced the Super Freaks when they were younger. He and Kranion despise each other even on a good day. Lately he's been working on a secret project.", function()
+		museum_character_create(27,, "Sticky", "Sticky is the half-brother of Kranion, another evil skeleton who menaced the Super Freaks when they were younger. He and Kranion despise each other even on a good day. Lately he's been working on a secret project.", function()
 		{
-			return level_complete_get(level_ids.level_stadium, story_modes.kranion);
+			return true;
 		});
-		museum_character_create(26,, "Dino", "William Nancy Dino is the biggest loser in the whole galaxy. Despite his unparalleled skills in all forms of science and robotics, he has failed to do anything useful with them, instead choosing to be Kranion's right hand man in hopes the big lout will reward him with unlimited power.", function()
+		museum_character_create(28,, "Dino", "William Nancy Dino is the biggest loser in the whole galaxy. Despite his unparalleled skills in all forms of science and robotics, he has failed to do anything useful with them, instead choosing to be Kranion's right hand man in hopes the big lout will reward him with unlimited power.", function()
 		{
-			return level_complete_get(level_ids.level_kranion_conveyor, story_modes.super_freaks) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.kranion);
+			return level_complete_get(level_ids.level_kranion_conveyor, story_modes.super_freaks) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.kranion) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.swordsman) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.anti_freaks);
 		});
-		museum_character_create(27,, "Cinge", "Cinge is a cyborg like being known as a 'Californian', who can light himself on fire. He's actually a pretty nice guy, who is genuinely friends with the Super Freaks--unfortunately, he's fallen in with the wrong crowd: Kranion's crowd.", function()
+		museum_character_create(29,, "Cinge", "Cinge is a cyborg like being known as a 'Californian', who can light himself on fire. He's actually a pretty nice guy, who is genuinely friends with the Super Freaks--unfortunately, he's fallen in with the wrong crowd: Kranion's crowd.", function()
 		{
-			return level_complete_get(level_ids.level_normal_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_normal_boss, story_modes.kranion);
+			return level_complete_get(level_ids.level_normal_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_normal_boss, story_modes.kranion) || level_complete_get(level_ids.level_normal_boss, story_modes.swordsman) || level_complete_get(level_ids.level_normal_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(28,, "Milk Man", "A milk bottle robot who, get this, is sour. He just wants to sleep and watch TV, and primarily mumbles under his breath. He will fight you pretty intensely just to make sure you won't bother him again.", function()
+		museum_character_create(30,, "Milk Man", "A milk bottle robot who, get this, is sour. He just wants to sleep and watch TV, and primarily mumbles under his breath. He will fight you pretty intensely just to make sure you won't bother him again.", function()
 		{
-			return level_complete_get(level_ids.level_crazy_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_crazy_boss, story_modes.kranion);
+			return level_complete_get(level_ids.level_crazy_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_crazy_boss, story_modes.kranion) || level_complete_get(level_ids.level_crazy_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(29,, "Mega Klaw", "A robot far stronger than even base level Kranion, and with the persona of a wrestler! Luckily, he's too nice and friendly to be malicious. He just likes to show off his strength.", function()
+		museum_character_create(31,, "Mega Klaw", "A robot far stronger than even base level Kranion, and with the persona of a wrestler! Luckily, he's too nice and friendly to be malicious. He just likes to show off his strength.", function()
 		{
 			return level_complete_get(level_ids.level_ludicrous_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_ludicrous_boss, story_modes.kranion);
 		});
-		museum_character_create(30,, "Larry McPeel", "A distant cousin of the Super Freaks. He isn't a bad guy, but he uses Unlimit Energy to do irritating and sometimes life threatening pranks. Kranion frequently recruits him, but even he gets annoyed with Larry!", function()
+		museum_character_create(32,, "Spike", "A robot orange who is a powerful minion of the Ribsons. He is simple minded but deep, and for some reason he has absolutely immaculate taste. Ask him what his favorite TV series is, you won't be disappointed.", function()
+		{
+			return level_complete_get(level_ids.level_ludicrous_boss, story_modes.swordsman) || level_complete_get(level_ids.level_ludicrous_boss, story_modes.anti_freaks);
+		});
+		museum_character_create(33,, "Larry McPeel", "A distant cousin of the Super Freaks. He isn't a bad guy, but he uses Unlimit Energy to do irritating and sometimes life threatening pranks. Kranion frequently recruits him, but even he gets annoyed with Larry!", function()
 		{
 			return level_complete_get(level_ids.level_insane_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_insane_boss, story_modes.kranion);
 		});
-		museum_character_create(31,, "Francis", "Of all of Kranion's friends, Francis is the most screwed up. He likes starting fires more than the guy actually made of fire! A favorite hobby of his is to hypnotize people and creatures into doing stupid things for his own amusement.", function()
+		museum_character_create(34,, "Francis", "Of all of Kranion's friends, Francis is the most screwed up. He likes starting fires more than the guy actually made of fire! A favorite hobby of his is to hypnotize people and creatures into doing stupid things for his own amusement.", function()
 		{
-			return level_complete_get(level_ids.level_freaky_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_boss, story_modes.kranion);
+			return level_complete_get(level_ids.level_freaky_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_boss, story_modes.anti_freaks);
+		});
+		museum_character_create(35,, "Wartnose", "Trained by Lord Humerus himself, Wartnose is a powerful wizard and accomplished nerd. What appears to be a snake like body is actually an incredibly long neck, with his microscopic body at the other end! I don't get it either.", function()
+		{
+			return level_complete_get(level_ids.level_freaky_boss, story_modes.kranion) || level_complete_get(level_ids.level_freaky_boss, story_modes.swordsman);
 		});
 	#endregion
 	
