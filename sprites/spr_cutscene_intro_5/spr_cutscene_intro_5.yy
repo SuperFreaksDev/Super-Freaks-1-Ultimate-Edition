@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Intro",
-    "path":"folders/Sprites/Cutscenes/Intro.yy",
+    "name":"Welcome to the USC",
+    "path":"folders/Sprites/Cutscenes/Welcome to the USC.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

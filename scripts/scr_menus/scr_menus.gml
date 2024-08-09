@@ -27,9 +27,13 @@ function menu_step(_player_number = 0)
 	var _option_current, _option_func;
 	
 	_option_current = options[page][option];
-	_option_func = _option_current[menu_option_data.func];
 	
-	_option_func();
+	if (options[page][option][menu_option_data.unlocked])
+	{
+		_option_func = _option_current[menu_option_data.func];
+	
+		_option_func();
+	}
 }
 
 /// @function menu_draw_default

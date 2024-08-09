@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":269.80695,
+  "duration":118.86,
   "name":"msc_boss_marrow",
   "parent":{
     "name":"Music",
