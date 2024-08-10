@@ -221,7 +221,7 @@ function player_hurt()
 				hp = max(hp - 25, 0);
 				break;
 			case story_modes.swordsman:
-				if (aura == 0)
+				if (aura < AURA_INVINCIBLE)
 					_last_hit = true;
 				else
 					aura = 0;
