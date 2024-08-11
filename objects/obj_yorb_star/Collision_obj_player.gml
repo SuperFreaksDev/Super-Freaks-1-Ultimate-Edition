@@ -9,6 +9,7 @@ switch (global.story_mode)
 		sfx_play_global(sfx_unlock_level);
 		break;
 	case story_modes.kranion:
+	case story_modes.swordsman:
 		player_meter_collect(100);
 		break;
 }

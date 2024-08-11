@@ -113,7 +113,7 @@ switch (state)
 				if (is_undefined(global.player_lead))
 					exit;
 				
-				if (global.story_mode != story_modes.kranion)
+				if (global.story_mode == story_modes.super_freaks)
 				{
 					if (input_check_pressed("left", global.player_lead))
 					{

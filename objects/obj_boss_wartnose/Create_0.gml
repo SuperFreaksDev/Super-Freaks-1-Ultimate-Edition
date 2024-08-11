@@ -4,6 +4,7 @@ enum boss_wartnose_states
 {
 	intro = 0,
 	lower,
+	raise,
 	shuffle,
 	attack,
 	death,

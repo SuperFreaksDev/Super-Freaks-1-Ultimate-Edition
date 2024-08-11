@@ -51,7 +51,7 @@ switch (state)
 		
 		if (timer < 0)
 		{
-			if (global.difficulty == difficulty_levels.hard)
+			if (global.difficulty != difficulty_levels.easy)
 				state_next_set(choose(boss_spike_states.spike, boss_spike_states.shoot));
 			else
 				state_next_set(boss_spike_states.spike);
@@ -79,13 +79,27 @@ switch (state)
 			timer = 16;
 			image_index = 2;
 			sfx_play_global(sfx_explode);
-			for (_i = 0; _i < 8; ++_i)
+			if (global.difficulty == difficulty_levels.hard)
 			{
-				instance_create_layer(x + thing_x, y + thing_y, "layer_instances", obj_enemy_fireball, 
+				for (_i = 0; _i < 8; ++_i)
 				{
-					speed: 5,
-					direction: 22.5 + (45 * _i),
-				});
+					instance_create_layer(x + thing_x, y + thing_y, "layer_instances", obj_enemy_fireball, 
+					{
+						speed: 5,
+						direction: 22.5 + (45 * _i),
+					});
+				}
+			}
+			else
+			{
+				for (_i = 0; _i < 4; ++_i)
+				{
+					instance_create_layer(x + thing_x, y + thing_y, "layer_instances", obj_enemy_fireball, 
+					{
+						speed: 5,
+						direction: 22.5 + (90 * _i),
+					});
+				}
 			}
 		}
 		

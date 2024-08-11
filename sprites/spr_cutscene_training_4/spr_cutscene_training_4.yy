@@ -93,8 +93,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"texgroup_cutscenes",
+    "path":"texturegroups/texgroup_cutscenes",
   },
   "type":0,
   "VTile":false,

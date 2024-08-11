@@ -45,6 +45,17 @@ switch (state)
 		timer--;
 			
 		if (timer < 1)
+			state_next_set(boss_wartnose_states.raise);
+		break;
+	case boss_wartnose_states.raise:
+		if (state_begin)
+		{
+			hide = true;
+			timer = 16;
+		}
+		timer--;
+			
+		if (timer < 1)
 			state_next_set(boss_wartnose_states.shuffle);
 		break;
 	case boss_wartnose_states.shuffle:
