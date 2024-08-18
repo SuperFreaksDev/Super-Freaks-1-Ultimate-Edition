@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-if (global.boss_phase == 0 && hp <= 12)
+if (global.boss_phase == 0 && hp <= 10)
 {
 	global.boss_phase = 1;
 	toughness++;

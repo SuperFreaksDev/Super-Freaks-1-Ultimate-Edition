@@ -8,6 +8,9 @@ var _zone = zone_index,
 	_attack_direction,
 	_attack_speed,
 	_attack_count;
+	
+var _x1, _y1, _x2, _y2,
+	_obstruction = false;
 
 // Inherit the parent event
 event_inherited();
@@ -36,7 +39,7 @@ switch (state)
 			timer = 64;
 			sprite_index = spr_boss_shadow_idle;
 			image_index = 0;
-			animate_speed = 0.125;
+			animate_speed = 0.175;
 		}
 		
 		timer--;
@@ -48,10 +51,10 @@ switch (state)
 		if (state_begin)
 		{
 			hitbox.active = hitbox_active.passive;
-			timer = 64;
+			timer = 36;
 			sprite_index = spr_boss_shadow_idle;
 			image_index = 0;
-			animate_speed = 0.125;
+			animate_speed = 0.175;
 		}
 		
 		timer--;
@@ -65,7 +68,7 @@ switch (state)
 			hitbox.active = hitbox_active.passive;
 			sprite_index = spr_boss_shadow_attack;
 			image_index = 0;
-			animate_speed = 0.125;
+			animate_speed = 0.175;
 		}
 		
 		if (animation_about_to_end())
@@ -76,7 +79,7 @@ switch (state)
 		{
 			hitbox.active = hitbox_active.passive;
 			animate_speed = 0;
-			timer = 96;
+			timer = 36;
 			_attack_speed = lerp(2, 6, toughness / toughness_max);
 			instance_create_layer(x, y, "layer_instances", obj_boss_shadow_dragon, 
 					{
@@ -96,7 +99,7 @@ switch (state)
 		{
 			hitbox.active = hitbox_active.passive;
 			animate_speed = 0;
-			timer = 96;
+			timer = 64;
 			repeat(ceil(lerp(2, 6, toughness / toughness_max)))
 			{
 				location_current = (location_current + 1) mod array_length(locations);
@@ -116,10 +119,10 @@ switch (state)
 		{
 			hitbox.active = hitbox_active.passive;
 			animate_speed = 0;
-			timer = 96;
+			timer = 36;
 			_target = player_nearest_alive();
-			_attack_speed = lerp(3, 12, toughness / toughness_max);
-			_attack_direction = 45;
+			_attack_speed = lerp(2, 6, toughness / toughness_max);
+			_attack_direction = 0;
 			_attack_count = 4;
 			for (_i = 0; _i < _attack_count; ++_i)
 			{
@@ -159,9 +162,31 @@ switch (state)
 			sprite_index = spr_boss_shadow_melt;
 			image_index = 3;
 			animate_speed = 0;
-			x = locations[location_current][0];
-			y = locations[location_current][1];
-			location_current = (location_current + 1) mod array_length(locations);
+			
+			while (true)
+			{
+				_obstruction = false;
+				location_current = (location_current + 1) mod array_length(locations);
+				x = locations[location_current][0];
+				y = locations[location_current][1];
+				
+				_x1 = x + hitbox.shape_x1 - 48;
+				_y1 = y + hitbox.shape_y1 - 48;
+				_x2 = x + hitbox.shape_x2 + 48;
+				_y2 = y + hitbox.shape_y2 + 48;
+				
+				with (obj_player)
+				{
+					if (player_is_alive())
+					{
+						if (point_in_rectangle(x, y, _x1, _y1, _x2, _y2))
+							_obstruction = true;
+					}
+				}
+				
+				if (!_obstruction)
+					break;
+			}
 		}
 		
 		image_index = max(image_index - 0.15, 0);
@@ -178,8 +203,7 @@ switch (state)
 			hitbox.active = hitbox_active.inactive;
 			timer = 0;
 			audio_stop_sound(sfx_run_1);
-			if (global.game_mode != game_modes.boss_rush)
-				music_stop();
+			music_stop();
 				
 			with (obj_boss_shadow_bomb)
 				instance_destroy();
@@ -191,7 +215,7 @@ switch (state)
 			global.boss_phase = 2;
 		}
 		
-		image_index = min(image_index + 0.05, image_number);
+		image_index = min(image_index + 0.05, image_number - 1);
 			
 		if (timer < 128)
 		{

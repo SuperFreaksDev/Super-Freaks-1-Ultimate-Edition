@@ -11,5 +11,9 @@ timer--;
 if (timer < 1)
 {
 	instance_destroy();
-	instance_create_layer(x, y - 32, "layer_instances", obj_explosion_bomb);
+	instance_create_layer(x, y - 32, "layer_instances", obj_explosion_bomb,
+	{
+		image_xscale: 1.5,
+		image_yscale: 1.5,
+	});
 }

@@ -17,9 +17,9 @@ enum boss_shadow_states
 event_inherited();
 
 boss_name = "The Shadow";
-hp_init(24);
+hp_init(20);
 hitbox = new comp_hitbox_AABB(,, hitbox_active.inactive, enemy_hitbox_behaviors.heavy,, -48, -48, 48, 64);
-yorb_amount = 10;
+yorb_amount = 20;
 
 locations = 
 [
@@ -37,6 +37,7 @@ location_current = 0;
 depth = 5;
 toughness = 0;
 toughness_max = 3;
+fast_forward = false;
 
 switch (global.difficulty)
 {
@@ -59,9 +60,11 @@ switch (global.boss_phase)
 	case 0:
 		break;
 	case 1:
+		hp = 10;
 		toughness++;
 		break;
 	case 2:
+		hp = 0;
 		state_next_set(boss_shadow_states.death, 99999);
 		break;
 }
