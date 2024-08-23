@@ -18,8 +18,9 @@ timer++;
 if (timer > 80)
 	image_index = 1;
 	
-if (timer > 192)
+if (timer == 192)
 {
+	timer++;
 	level_beat();
 	if (global.game_mode != game_modes.boss_rush)
 	{

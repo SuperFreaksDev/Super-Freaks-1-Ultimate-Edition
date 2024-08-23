@@ -236,6 +236,7 @@ timer = 0;
 			if (options[main_menu_pages.challenge][0][menu_option_data.unlocked])
 			{
 				page = main_menu_pages.challenge_freeplay;
+				global.level_id = level_ids.level_stadium;
 				index = global.level_id;
 				option = 0;
 			}

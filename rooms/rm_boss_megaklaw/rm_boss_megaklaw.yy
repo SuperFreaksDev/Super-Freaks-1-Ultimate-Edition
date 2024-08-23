@@ -39,8 +39,8 @@
   ],
   "name":"rm_boss_megaklaw",
   "parent":{
-    "name":"Vs Mega Klaw - Spike",
-    "path":"folders/Rooms/Levels/Ludicrous World/Vs Mega Klaw - Spike.yy",
+    "name":"Vs Mega Klaw",
+    "path":"folders/Rooms/Levels/Ludicrous World/Vs Mega Klaw.yy",
   },
   "parentRoom":{
     "name":"rm_level_parent",
