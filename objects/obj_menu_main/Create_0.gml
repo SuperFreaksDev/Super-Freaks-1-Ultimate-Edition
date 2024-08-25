@@ -237,6 +237,7 @@ timer = 0;
 			{
 				page = main_menu_pages.challenge_freeplay;
 				global.level_id = level_ids.level_stadium;
+				global.level_demo = 0;
 				index = global.level_id;
 				option = 0;
 			}

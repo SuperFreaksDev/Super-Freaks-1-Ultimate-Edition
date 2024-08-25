@@ -153,6 +153,10 @@ switch (state)
 			global.boss_phase = 2;
 			sprite_index = spr_boss_wartnose_death;
 			music_stop();
+			with (obj_pointy)
+				enemy_hurt(100);
+			with (obj_enemy_fireball)
+				instance_destroy();
 		}
 		
 		y++;

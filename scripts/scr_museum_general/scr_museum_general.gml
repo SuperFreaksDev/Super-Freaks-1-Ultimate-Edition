@@ -141,35 +141,39 @@ function museum_init()
 		{
 			return true;
 		});
-		museum_character_create(28,, "Dino", "William Nancy Dino is the biggest loser in the whole galaxy. Despite his unparalleled skills in all forms of science and robotics, he has failed to do anything useful with them, instead choosing to be Kranion's right hand man in hopes the big lout will reward him with unlimited power.", function()
+		museum_character_create(28,, "Marrow Prime", "Kranion and Sticky's dad, and the universe's strongest being, thanks to overthrowing the underworld in his youth. Lately he's retired and enjoys life as a bumbling sitcom dad. Unfortunately for us, sometimes he yearns for the good old days.", function()
+		{
+			return true;
+		});
+		museum_character_create(29,, "Dino", "William Nancy Dino is the biggest loser in the whole galaxy. Despite his unparalleled skills in all forms of science and robotics, he has failed to do anything useful with them, instead choosing to be Kranion's right hand man in hopes the big lout will reward him with unlimited power.", function()
 		{
 			return level_complete_get(level_ids.level_kranion_conveyor, story_modes.super_freaks) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.kranion) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.swordsman) || level_complete_get(level_ids.level_kranion_conveyor, story_modes.anti_freaks);
 		});
-		museum_character_create(29,, "Cinge", "Cinge is a cyborg like being known as a 'Californian', who can light himself on fire. He's actually a pretty nice guy, who is genuinely friends with the Super Freaks--unfortunately, he's fallen in with the wrong crowd: Kranion's crowd.", function()
+		museum_character_create(30,, "Cinge", "Cinge is a cyborg like being known as a 'Californian', who can light himself on fire. He's actually a pretty nice guy, who is genuinely friends with the Super Freaks--unfortunately, he's fallen in with the wrong crowd: Kranion's crowd.", function()
 		{
 			return level_complete_get(level_ids.level_normal_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_normal_boss, story_modes.kranion) || level_complete_get(level_ids.level_normal_boss, story_modes.swordsman) || level_complete_get(level_ids.level_normal_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(30,, "Milk Man", "A milk bottle robot who, get this, is sour. He just wants to sleep and watch TV, and primarily mumbles under his breath. He will fight you pretty intensely just to make sure you won't bother him again.", function()
+		museum_character_create(31,, "Milk Man", "A milk bottle robot who, get this, is sour. He just wants to sleep and watch TV, and primarily mumbles under his breath. He will fight you pretty intensely just to make sure you won't bother him again.", function()
 		{
 			return level_complete_get(level_ids.level_crazy_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_crazy_boss, story_modes.kranion) || level_complete_get(level_ids.level_crazy_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(31,, "Mega Klaw", "A robot far stronger than even base level Kranion, and with the persona of a wrestler! Luckily, he's too nice and friendly to be malicious. He just likes to show off his strength.", function()
+		museum_character_create(32,, "Mega Klaw", "A robot far stronger than even base level Kranion, and with the persona of a wrestler! Luckily, he's too nice and friendly to be malicious. He just likes to show off his strength.", function()
 		{
 			return level_complete_get(level_ids.level_ludicrous_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_ludicrous_boss, story_modes.kranion);
 		});
-		museum_character_create(32,, "Spike", "A robot orange who is a powerful minion of the Ribsons. He is simple minded but deep, and for some reason he has absolutely immaculate taste. Ask him what his favorite TV series is, you won't be disappointed.", function()
+		museum_character_create(33,, "Spike", "A robot orange who is a powerful minion of the Ribsons. He is simple minded but deep, and for some reason he has absolutely immaculate taste. Ask him what his favorite TV series is, you won't be disappointed.", function()
 		{
 			return level_complete_get(level_ids.level_ludicrous_boss, story_modes.swordsman) || level_complete_get(level_ids.level_ludicrous_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(33,, "Larry McPeel", "A distant cousin of the Super Freaks. He isn't a bad guy, but he uses Unlimit Energy to do irritating and sometimes life threatening pranks. Kranion frequently recruits him, but even he gets annoyed with Larry!", function()
+		museum_character_create(34,, "Larry McPeel", "A distant cousin of the Super Freaks. He isn't a bad guy, but he uses Unlimit Energy to do irritating and sometimes life threatening pranks. Kranion frequently recruits him, but even he gets annoyed with Larry!", function()
 		{
 			return level_complete_get(level_ids.level_insane_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_insane_boss, story_modes.kranion);
 		});
-		museum_character_create(34,, "Francis", "Of all of Kranion's friends, Francis is the most screwed up. He likes starting fires more than the guy actually made of fire! A favorite hobby of his is to hypnotize people and creatures into doing stupid things for his own amusement.", function()
+		museum_character_create(35,, "Francis", "Of all of Kranion's friends, Francis is the most screwed up. He likes starting fires more than the guy actually made of fire! A favorite hobby of his is to hypnotize people and creatures into doing stupid things for his own amusement.", function()
 		{
 			return level_complete_get(level_ids.level_freaky_boss, story_modes.super_freaks) || level_complete_get(level_ids.level_freaky_boss, story_modes.anti_freaks);
 		});
-		museum_character_create(35,, "Wartnose", "Trained by Lord Humerus himself, Wartnose is a powerful wizard and accomplished nerd. What appears to be a snake like body is actually an incredibly long neck, with his microscopic body at the other end! I don't get it either.", function()
+		museum_character_create(36,, "Wartnose", "Trained by Lord Humerus himself, Wartnose is a powerful wizard and accomplished nerd. What appears to be a snake like body is actually an incredibly long neck, with his microscopic body at the other end! I don't get it either.", function()
 		{
 			return level_complete_get(level_ids.level_freaky_boss, story_modes.kranion) || level_complete_get(level_ids.level_freaky_boss, story_modes.swordsman);
 		});

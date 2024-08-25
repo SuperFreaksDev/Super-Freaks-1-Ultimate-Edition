@@ -30,6 +30,7 @@ switch (state)
 			timer = 112;
 			image_index = 0;
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_360;
+			blink = false;
 		}
 		//swing_speed = min(swing_speed + 0.1, 1.5);
 		spike_size = max(spike_size - 0.1, 0);
@@ -48,6 +49,7 @@ switch (state)
 		//swing_speed = min(swing_speed + 0.1, 1.5);
 		
 		timer--;
+		blink = !blink;
 		
 		if (timer < 0)
 		{
@@ -60,7 +62,11 @@ switch (state)
 	case boss_spike_states.spike:
 		if (state_begin)
 		{
-			timer = 48;
+			blink = false;
+			if (global.difficulty == difficulty_levels.hard)
+				timer = 64;
+			else
+				timer = 48;
 			image_index = 2;
 			sfx_play_global(sfx_pluck);
 			hitbox.behavior = enemy_hitbox_behaviors.heavy_hazard;
@@ -76,6 +82,7 @@ switch (state)
 	case boss_spike_states.shoot:
 		if (state_begin)
 		{
+			blink = false;
 			timer = 16;
 			image_index = 2;
 			sfx_play_global(sfx_explode);
@@ -111,6 +118,7 @@ switch (state)
 	case boss_spike_states.death:
 		if (state_begin)
 		{
+			blink = false;
 			timer = 0;
 			global.boss_phase = 2;
 			hitbox.active = hitbox_active.inactive;

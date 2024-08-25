@@ -17,6 +17,7 @@ swing_speed = 0;
 animate_speed = 0;
 spike_size = 0;
 yorb_amount = 5;
+blink = false;
 
 // Inherit the parent event
 event_inherited();

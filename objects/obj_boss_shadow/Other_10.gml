@@ -97,6 +97,7 @@ switch (state)
 	case boss_shadow_states.attack_bombs:
 		if (state_begin)
 		{
+			sfx_play_global(sfx_splat);
 			hitbox.active = hitbox_active.passive;
 			animate_speed = 0;
 			timer = 64;
@@ -149,6 +150,7 @@ switch (state)
 			sprite_index = spr_boss_shadow_melt;
 			image_index = 0;
 			animate_speed = 0;
+			sfx_play_global(sfx_splat);
 		}
 		
 		image_index = min(image_index + 0.15, 3);

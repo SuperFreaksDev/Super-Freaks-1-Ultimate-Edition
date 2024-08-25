@@ -61,7 +61,7 @@ switch (state)
 					_target = player_nearest_alive();
 					if (!is_undefined(_target))
 					{
-						sfx_play_global(sfx_explode_short);
+						sfx_play_global(sfx_flame);
 						_angle = point_direction(x + (76 * face), y + 48, _target.x, _target.y);
 						_fireball = instance_create_layer(x + (76 * face), y + 48, "layer_instances", obj_enemy_fireball, 
 						{

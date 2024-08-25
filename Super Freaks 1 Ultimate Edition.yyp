@@ -1378,6 +1378,7 @@
     {"id":{"name":"sfx_falling_piano_1","path":"sounds/sfx_falling_piano_1/sfx_falling_piano_1.yy",},},
     {"id":{"name":"sfx_falling_piano_2","path":"sounds/sfx_falling_piano_2/sfx_falling_piano_2.yy",},},
     {"id":{"name":"sfx_fanfare","path":"sounds/sfx_fanfare/sfx_fanfare.yy",},},
+    {"id":{"name":"sfx_flame","path":"sounds/sfx_flame/sfx_flame.yy",},},
     {"id":{"name":"sfx_gun_cock","path":"sounds/sfx_gun_cock/sfx_gun_cock.yy",},},
     {"id":{"name":"sfx_heart","path":"sounds/sfx_heart/sfx_heart.yy",},},
     {"id":{"name":"sfx_hit","path":"sounds/sfx_hit/sfx_hit.yy",},},
