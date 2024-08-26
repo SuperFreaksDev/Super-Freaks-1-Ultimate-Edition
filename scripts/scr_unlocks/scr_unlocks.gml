@@ -37,6 +37,7 @@ enum unlocks
 	character_cranion,
 	freaks_in_badguys,
 	badguys_in_freaks,
+	one_eyed_bandit,
 }
 
 /// @function unlocks_init
@@ -196,7 +197,9 @@ function unlocks_init()
 	});
 	unlock_create(unlocks.character_swordsman, "Unlock Uncle Swordsman", "You can now play as Uncle Swordsman! He's a cut above the rest!", function()
 	{
-		return level_perfect_get(level_ids.level_kranion_final_boss);
+		return level_perfect_get(level_ids.level_kranion_final_boss, story_modes.super_freaks) 
+			|| level_perfect_get(level_ids.level_kranion_final_boss, story_modes.kranion) 
+			|| level_perfect_get(level_ids.level_kranion_final_boss, story_modes.anti_freaks);
 	}, function()
 	{
 		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.super_freaks] = true;
@@ -266,6 +269,20 @@ function unlocks_init()
 		global.characters_unlocked[global.character_indexes.quincy][story_modes.anti_freaks] = true;
 		global.characters_unlocked[global.character_indexes.gambi][story_modes.anti_freaks] = true;
 		global.characters_unlocked[global.character_indexes.tikiman][story_modes.anti_freaks] = true;
+	});
+	unlock_create(unlocks.one_eyed_bandit, "Unlock Uncle Swordsman and One Eyed Bandit in all stories", "You can now play as Uncle Swordsman (if you didn't unlock him already) and the One Eyed Bandit in all storylines! This is to go even further beyond!", function()
+	{
+		return level_perfect_get(level_ids.level_supersecret_boss, story_modes.swordsman);
+	}, function()
+	{
+		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.super_freaks] = true;
+		global.characters_unlocked[global.character_indexes.one_eyed_bandit][story_modes.super_freaks] = true;
+		
+		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.kranion] = true;
+		global.characters_unlocked[global.character_indexes.one_eyed_bandit][story_modes.kranion] = true;
+		
+		global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.anti_freaks] = true;
+		global.characters_unlocked[global.character_indexes.one_eyed_bandit][story_modes.anti_freaks] = true;
 	});
 	
 	unlocks_load();

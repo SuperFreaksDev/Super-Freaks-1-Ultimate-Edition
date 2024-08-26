@@ -16,7 +16,7 @@ event_inherited();
 hp_init(40);
 
 timer = 0;
-yorb_amount = 5;
+yorb_amount = 10;
 
 hitbox = new comp_hitbox_AABB(,, hitbox_active.passive, enemy_hitbox_behaviors.heavy,, -48, -64, 48, 96);
 face = 1;
