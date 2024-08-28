@@ -13,7 +13,7 @@ function player_state_dropin()
 		global.player_list[player_number][player_data.character_index] = unlockedChars[0];
 	}
 	
-	show_debug_message(unlockedChars);
+	//show_debug_message(unlockedChars);
 	
 	if (state_begin)
 	{
@@ -76,7 +76,13 @@ function player_state_dropin()
 			global.player_list[player_number][player_data.character_index] = character_index;
 			
 			var hbSize = player_hitbox_get(character_index);
-			global.player_list[player_number][player_data.instance].hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, hbSize.x1, hbSize.y1, hbSize.x2, hbSize.y2);
+			with (global.player_list[player_number][player_data.instance].hitbox)
+			{
+				hitbox.shape_x1 = hbSize.x1;
+				hitbox.shape_y1 = hbSize.y1;
+				hitbox.shape_x2 = hbSize.x2;
+				hitbox.shape_y2 = hbSize.y2;
+			}
 			
 			x = view_x1_get();
 			y = view_y1_get();

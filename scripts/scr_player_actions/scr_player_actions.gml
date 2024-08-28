@@ -157,6 +157,7 @@ function player_ego_meter()
 /// @param {Real} _ego = 2
 function player_meter_collect(_ego = 2)
 {
+	var _aura_previous;
 	with (obj_player)
 	{
 		switch (state)
@@ -192,7 +193,14 @@ function player_meter_collect(_ego = 2)
 				break;
 			case story_modes.swordsman:
 				if (aura < 100)
+				{
+					_aura_previous = aura;
 					aura = min(aura + _ego, 100);
+					if (aura == 100)
+						sfx_play_global(sfx_powerup);
+					else if (aura >= AURA_INVINCIBLE && _aura_previous < AURA_INVINCIBLE)
+						sfx_play_global(sfx_powerup);
+				}
 				break;
 		}
 	}

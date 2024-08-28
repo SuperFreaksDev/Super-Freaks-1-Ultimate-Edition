@@ -1,5 +1,7 @@
 /// @description Init
 
+var _hitbox_size;
+
 // Inherit the parent event
 event_inherited();
 
@@ -69,7 +71,9 @@ character_index = 0;
 #endregion
 
 #region Collision
-	hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, -8, -12, 8, 20);
+	_hitbox_size = player_hitbox_get(character_index);
+	hitbox = new comp_hitbox_AABB(,, hitbox_active.active,,, _hitbox_size.x1, _hitbox_size.y1, _hitbox_size.x2, _hitbox_size.y2);
+	//hitbox = new comp_hitbox_AABB(,, hitbox_active.active,,, -8, -12, 8, 20);
 	hurt_timer_set(0);
 	
 	//switch (global.story_mode)

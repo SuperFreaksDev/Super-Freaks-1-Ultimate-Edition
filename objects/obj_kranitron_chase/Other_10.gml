@@ -25,6 +25,6 @@ switch (state)
 			screen_shake(0, 6);
 			sfx_play_global(sfx_crash_1);
 		}
-		x += 1.5;
+		x += 1.25;
 		break;
 }

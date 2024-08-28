@@ -13,8 +13,7 @@ function player_state_death_fall()
 		collider_attach_clear();
 		global.hearts = max(global.hearts--, 0);
 		aura = false;
-		with (hitbox)
-			active = hitbox_active.inactive;
+		hitbox.active = hitbox_active.inactive;
 			
 		sprite_index = player_animation_get(character_index, player_animations.death);
 		image_index = 0;

@@ -19,8 +19,7 @@ function player_state_normal()
 		visible = true;
 		camera.active = true;
 		rubber_band_can_slingshot = true;
-		with (hitbox)
-			active = hitbox_active.active;
+		hitbox.active = hitbox_active.active;
 	}
 	
 	behavior_ceiling = 0;

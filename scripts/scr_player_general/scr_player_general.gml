@@ -78,33 +78,19 @@ function players_start(_x, _y)
 			_player_instance.character_index = _list[_player_number][player_data.character_index];
 			
 			_list[_player_number][player_data.instance] = _player_instance;
+			with (_player_instance)
+			{
+				if (_list[_player_number][player_data.active] == true)
+					state_next_set(player_states.normal);
+				else
+					state_next_set(player_states.inactive, 99999999);
+			}
 		}
 		
 		with (_player_instance)
 		{
 			x = _x;
 			y = _y;
-			if (_list[_player_number][player_data.active] == true)
-			{
-				state_next_set(player_states.normal);
-				
-				var hbSize = player_hitbox_get(character_index);
-				hitbox = new comp_hitbox_AABB(,,hitbox_active.active,,, hbSize.x1, hbSize.y1, hbSize.x2, hbSize.y2);
-				
-				jetpack = false;
-			}
-			else
-			{
-				switch (state)
-				{
-					case player_states.inactive:
-					case player_states.drop_in:
-						break;
-					default:
-						state_next_set(player_states.inactive, 99999999);
-						break;
-				}
-			}
 		}
 	}
 }

@@ -88,6 +88,7 @@ switch (global.game_mode)
 				draw_sprite(spr_trophy, 0, _view_x1 + _trophy_rec_x1 + (_i * _trophy_separate), _view_y1 + _screen_height_half);
 			}
 		}
+		draw_set_alpha(1);
 		break;
 }
 

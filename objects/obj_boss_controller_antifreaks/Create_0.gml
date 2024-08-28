@@ -49,7 +49,7 @@ get_total_hp = function()
 		_hp += hp;
 	}
 
-	hp_init(_total * 8);
+	hp_init(_total * 6);
 	hp = _hp;
 }
 
@@ -77,7 +77,7 @@ for (_i = 0; _i < array_length(antifreaks); ++_i)
 		with (_instance)
 		{
 			state_next_set(boss_antifreak_states.intro, 99999);
-			hp_init(8);
+			hp_init(6);
 			timer = random_range(48, 64);
 			wait = _wait;
 			_wait += 72;

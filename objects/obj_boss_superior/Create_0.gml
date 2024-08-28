@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-hp_init(8);
+hp_init(6);
 
 collider_detector_up_set(-6, 0, 6, 0, -16);
 collider_detector_sides_set(-8, 0, 16, 0, 14);

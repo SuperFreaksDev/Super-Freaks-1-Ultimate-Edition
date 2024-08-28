@@ -125,7 +125,7 @@ switch (state)
 			animate_speed = 0.25;
 		}
 		
-		timer = min(timer + 0.02, 1);
+		timer = min(timer + 0.015, 1);
 		
 		x = lerp(start_x, attack_x, timer);
 		y = lerp(start_y, attack_y, timer);

@@ -36,8 +36,6 @@ function player_state_death()
 	x += speed_h;
 	y += speed_v;
 	
-	hitbox.active = hitbox_active.inactive;
-	
 	timer_death++;
 	if (timer_death >= 64)
 		player_death_reset();
