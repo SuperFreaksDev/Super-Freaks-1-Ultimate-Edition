@@ -1,5 +1,7 @@
 /// @description 
 
+var _hitbox_size = player_hitbox_get(character_index);
+
 switch (state)
 {
 	case player_states.debug:
@@ -66,3 +68,11 @@ camera.yprevious = y;
 
 timer_death = 0;
 jetpack = false;
+
+with (hitbox)
+{
+	shape_x1 = _hitbox_size.x1;
+	shape_y1 = _hitbox_size.y1;
+	shape_x2 = _hitbox_size.x2;
+	shape_y2 = _hitbox_size.y2;
+}

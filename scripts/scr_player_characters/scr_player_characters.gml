@@ -72,6 +72,7 @@ function characters_init()
 		global.characters_unlocked[_i][story_modes.super_freaks] = false;
 		global.characters_unlocked[_i][story_modes.kranion] = false;
 		global.characters_unlocked[_i][story_modes.swordsman] = false;
+		global.characters_unlocked[_i][story_modes.anti_freaks] = false;
 		global.characters_unlocked[_i][story_modes.final] = false;
 	}
 	
@@ -103,6 +104,7 @@ function characters_init()
 	global.characters_unlocked[global.character_indexes.kranion][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.sticky][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.uncle_swordsman][story_modes.final] = true;
+	global.characters_unlocked[global.character_indexes.one_eyed_bandit][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.superior][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.negative_quincy][story_modes.final] = true;
 	global.characters_unlocked[global.character_indexes.geyzer][story_modes.final] = true;
@@ -797,7 +799,8 @@ function player_animation_create(_character_index, _animation_index, _sprite)
 {
 	global.player_animation[_animation_index][_character_index] = _sprite;
 	
-	if (_character_index >= 20 && _animation_index != player_animations.hud_face) sprite_set_offset(_sprite, max(0, sprite_get_width(_sprite) / 2), max(0, sprite_get_height(_sprite) - 24));
+	if (_character_index >= 20 && _animation_index != player_animations.hud_face) 
+		sprite_set_offset(_sprite, max(0, sprite_get_width(_sprite) / 2), max(0, sprite_get_height(_sprite) - 24));
 	
 	gml_pragma("forceinline");
 }
