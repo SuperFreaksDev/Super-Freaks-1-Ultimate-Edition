@@ -6,6 +6,7 @@ var _debug_text, _zone_text;
 var _i;
 var _zone_active;
 var _shader = global.shaders_list[global.visuals_settings[visuals_data.shader]][0];
+var _use_texture_size = global.shaders_list[global.visuals_settings[visuals_data.shader]][2];
 var _mirror = false;
 
 if (global.game_state == game_states.gameplay && global.modifiers[modifiers.mirror] == true)
@@ -19,6 +20,8 @@ if (surface_get_target() != -1)
 
 if (_shader != -1 && shaders_are_supported())
 	shader_set(_shader);
+    if (_use_texture_size)
+        shader_set_uniform_f(shader_get_uniform(_shader, "texture_size"), _screen_width, _screen_height);
 	
 if (_mirror)
 	draw_surface_ext(application_surface, _screen_width, 0, -1, 1, 0, c_white, 1);
