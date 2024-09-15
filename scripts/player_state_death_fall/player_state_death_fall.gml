@@ -14,6 +14,7 @@ function player_state_death_fall()
 		global.hearts = max(global.hearts--, 0);
 		aura = false;
 		hitbox.active = hitbox_active.inactive;
+		jump_strength = JUMP_STRENGTH_MIN;
 			
 		sprite_index = player_animation_get(character_index, player_animations.death);
 		image_index = 0;

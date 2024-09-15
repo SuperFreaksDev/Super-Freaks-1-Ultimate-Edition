@@ -391,7 +391,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"Super Freaks 1 Ultimate Edition",
   "resources":[
@@ -2389,6 +2389,8 @@
     {"id":{"name":"spr_portal","path":"sprites/spr_portal/spr_portal.yy",},},
     {"id":{"name":"spr_propello_prepare","path":"sprites/spr_propello_prepare/spr_propello_prepare.yy",},},
     {"id":{"name":"spr_propello","path":"sprites/spr_propello/spr_propello.yy",},},
+    {"id":{"name":"spr_rage_meter_full","path":"sprites/spr_rage_meter_full/spr_rage_meter_full.yy",},},
+    {"id":{"name":"spr_rage_meter","path":"sprites/spr_rage_meter/spr_rage_meter.yy",},},
     {"id":{"name":"spr_ray","path":"sprites/spr_ray/spr_ray.yy",},},
     {"id":{"name":"spr_rolling_apple","path":"sprites/spr_rolling_apple/spr_rolling_apple.yy",},},
     {"id":{"name":"spr_rotato_spikeball","path":"sprites/spr_rotato_spikeball/spr_rotato_spikeball.yy",},},

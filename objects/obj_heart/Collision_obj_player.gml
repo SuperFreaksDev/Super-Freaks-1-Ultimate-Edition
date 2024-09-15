@@ -12,6 +12,7 @@ switch (global.story_mode)
 		player_meter_collect(15);
 		break;
 	case story_modes.swordsman:
+	case story_modes.anti_freaks:
 		sfx_play_global(sfx_heart);
 		player_meter_collect(20);
 		break;

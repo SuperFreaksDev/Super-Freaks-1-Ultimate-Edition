@@ -54,14 +54,26 @@ var _heart_meter_zoom = _heart_zoom / 100;
 		        draw_sprite_general(spr_HUD_water_meter, _bubble_index, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * -_mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
 			}
 			
-			if (global.story_mode == story_modes.kranion)
+			switch (global.story_mode)
 			{
-				_player_meter = _player_instance.hp;
-		        draw_sprite_ext(spr_ego_meter, 0, _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (64 * _zoom), _zoom, _zoom, 0, c_white, 1);
-		        draw_sprite_general(spr_ego_meter, 1, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
+				case story_modes.kranion:
+					_player_meter = _player_instance.hp;
+			        draw_sprite_ext(spr_ego_meter, 0, _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (64 * _zoom), _zoom, _zoom, 0, c_white, 1);
+			        draw_sprite_general(spr_ego_meter, 1, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
 				
-				_player_meter = _player_instance.ego_invincible;
-				draw_sprite_general(spr_ego_meter_full, global.animate, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
+					_player_meter = _player_instance.ego_invincible;
+					draw_sprite_general(spr_ego_meter_full, global.animate, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
+					break;
+				case story_modes.anti_freaks:
+					_player_meter = _player_instance.aura;
+			        draw_sprite_ext(spr_rage_meter, 0, _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (64 * _zoom), _zoom, _zoom, 0, c_white, 1);
+			        draw_sprite_general(spr_rage_meter, 1, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
+				
+					//_player_meter = _player_instance.ego_invincible;
+					//draw_sprite_general(spr_rage_meter_full, global.animate, 0, 32 - (_player_meter * 0.32), 32, (_player_meter * 0.32), _draw_x - (16 * _zoom) + (32 * _zoom * _mirror), _draw_y - (32 * _zoom) - (_player_meter * 0.32 * _zoom), _zoom, _zoom, 0, c_white, c_white, c_white, c_white, 1);
+					break;
+				default:
+					break;
 			}
 		}
 	}

@@ -11,8 +11,7 @@ switch (global.story_mode)
 			global.hearts = min(global.hearts + 1, hearts_maximum_get());
 		}
 		break;
-	case story_modes.kranion:
-	case story_modes.swordsman:
+	default:
 		player_meter_collect(100);
 		break;
 }

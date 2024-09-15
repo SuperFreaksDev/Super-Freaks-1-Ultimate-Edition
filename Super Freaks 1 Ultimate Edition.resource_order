@@ -2071,6 +2071,8 @@
     {"name":"spr_pole","order":16,"path":"sprites/spr_pole/spr_pole.yy",},
     {"name":"spr_portal","order":1,"path":"sprites/spr_portal/spr_portal.yy",},
     {"name":"spr_propello_prepare","order":1,"path":"sprites/spr_propello_prepare/spr_propello_prepare.yy",},
+    {"name":"spr_rage_meter_full","order":16,"path":"sprites/spr_rage_meter_full/spr_rage_meter_full.yy",},
+    {"name":"spr_rage_meter","order":15,"path":"sprites/spr_rage_meter/spr_rage_meter.yy",},
     {"name":"spr_ray","order":2,"path":"sprites/spr_ray/spr_ray.yy",},
     {"name":"spr_rolling_apple","order":2,"path":"sprites/spr_rolling_apple/spr_rolling_apple.yy",},
     {"name":"spr_rotato_spikeball","order":1,"path":"sprites/spr_rotato_spikeball/spr_rotato_spikeball.yy",},

@@ -44,7 +44,7 @@ global.water_height = 256;
 
 global.frame = 0;
 
-global.story_mode = story_modes.kranion;
+global.story_mode = story_modes.super_freaks;
 
 gc_timer = 0;
 gc_enable(false);

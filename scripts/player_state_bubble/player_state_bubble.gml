@@ -26,6 +26,7 @@ function player_state_bubble()
 		coyote_time = 0;
 		instance_attach = undefined;
 		rubber_band_can_slingshot = false;
+		jump_strength = JUMP_STRENGTH_MIN;
 		
 		x = clamp(x, _view_x1, _view_x2);
 		y = clamp(y, _view_y1, _view_y2);

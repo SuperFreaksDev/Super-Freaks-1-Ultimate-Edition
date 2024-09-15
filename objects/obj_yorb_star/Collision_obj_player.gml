@@ -8,8 +8,7 @@ switch (global.story_mode)
 		global.hearts = max(global.hearts, 10);
 		sfx_play_global(sfx_unlock_level);
 		break;
-	case story_modes.kranion:
-	case story_modes.swordsman:
+	default:
 		player_meter_collect(100);
 		break;
 }

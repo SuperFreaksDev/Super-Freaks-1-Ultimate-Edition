@@ -4,10 +4,14 @@ function player_state_normal()
 	var _collision_left = false, _collision_right = false, _collision_up = false, _collision_down = false;
 	var _move_h = 0, _move_v = 0;
 	var _speedup_h = 0;
-	var _speed_run = speed_run + (AURA_WALK * (aura / 100));
+	var _speed_run = speed_run;
 	var _speed_fall = speed_fall;
 	var _speed_acc = speed_acc, _speed_dec = speed_dec, _speed_frc = speed_frc;
 	var _speed_frc_air = speed_frc_air;
+	
+	if (global.story_mode == story_modes.swordsman)
+		_speed_run += (AURA_WALK * (aura / 100));
+	
 	if (jetpack)
 	{
 		_speed_dec = _speed_acc;
@@ -168,7 +172,54 @@ function player_state_normal()
 			}
 		}
 	#endregion
-		
+	
+	
+	if (global.story_mode == story_modes.anti_freaks)
+	{
+		if (input_check("jump", player_number))
+		{
+			if (is_undefined(aura_stored))
+				aura_stored = aura;
+				
+			if (aura_stored > 5)
+			{
+				if (jump_strength > 0)
+					instance_create_layer(x - 12 + random(24), y - 12 + random(24), "layer_instances", obj_yorb_collected_single);
+				if (jump_strength < JUMP_STRENGTH_MAX)
+				{
+					jump_strength++;
+					if (jump_strength > 0)
+						aura = max(aura - 2, 0);
+				}
+			}
+		}
+		else if (input_check_released("jump", player_number))
+		{
+			if (jump_strength > 0)
+			{
+				jump_buffer = 0;
+				coyote_time = 0;
+				ground_on = false;
+				ball = true;
+				skid = false;
+				speed_v = -lerp(speed_jump, speed_jump * 2, jump_strength / JUMP_STRENGTH_MAX);
+				speed_h *= lerp(1, 4, jump_strength / JUMP_STRENGTH_MAX);
+				sfx_play_global(sfx_explode_short);
+				_collider = collider_attach[collider_attach_data.collider];
+				if (!is_undefined(_collider))
+				{
+					_collider_speed_x = collider_attach[collider_attach_data.speed_x];
+					_collider_speed_y = collider_attach[collider_attach_data.speed_y];
+					speed_h += _collider_speed_x;
+					speed_v = min(speed_v, _collider_speed_y);
+					collider_attach_clear();
+				}
+			}
+			jump_strength = JUMP_STRENGTH_MIN;
+			aura_stored = undefined;
+		}
+	}
+	
 	if (jump_buffer > 0)
 	{
 		if (jetpack)
@@ -189,7 +240,16 @@ function player_state_normal()
 			if (!underwater && ground_on) || (underwater) || (coyote_time > 0)
 			{
 				sfx_play_global(player_jumpsound_get(character_index));
-				speed_v = -(speed_jump + (AURA_JUMP * (aura / 100)));
+				switch (global.story_mode)
+				{
+					default:
+						speed_v = -speed_jump;
+						break;
+					case story_modes.swordsman:
+						speed_v = -(speed_jump + (AURA_JUMP * (aura / 100)));
+						break;
+				}
+				
 				ground_on = false;
 				coyote_time = 0;
 				if (skid)

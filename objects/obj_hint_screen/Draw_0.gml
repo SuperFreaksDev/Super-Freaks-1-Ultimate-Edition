@@ -26,7 +26,7 @@ if (_animate > 0)
 {
 	_dialog_width = (string_width_ext(hint, -1, 320) + 32) * _animate;
 	_dialog_height = (string_height_ext(hint, -1, 320) + 32) * _animate;
-	draw_sprite_stretched(spr_textbox_uncle_swordsman, 0, _x - (_dialog_width / 2), _y - (_dialog_height / 2), _dialog_width, _dialog_height);
+	draw_sprite_stretched(spr_textbox_uncle_swordsman, image_index, _x - (_dialog_width / 2), _y - (_dialog_height / 2), _dialog_width, _dialog_height);
 }
 	
 if (_animate == 1)	

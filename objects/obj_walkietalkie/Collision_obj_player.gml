@@ -28,6 +28,7 @@ with (other)
 if (_hit && !room_transition_active_get())
 {
 	_hint_screen = instance_create_layer(0, 0, "layer_instances", obj_hint_screen);
+	_hint_screen.image_index = 0;
 	switch (global.story_mode)
 	{
 		case story_modes.kranion:
@@ -44,9 +45,10 @@ if (_hit && !room_transition_active_get())
 			break;
 		case story_modes.anti_freaks:
 			if (hint_antifreaks != "")
-				_hint_screen.hint = hint_kranion;
+				_hint_screen.hint = hint_antifreaks;
 			else
 				_hint_screen.hint = hint;
+			_hint_screen.image_index = 1;
 			break;
 		default:
 			_hint_screen.hint = hint;

@@ -62,12 +62,16 @@ character_index = 0;
 	jump_buffer = 0;
 	#macro JUMP_BUFFER_MAX 8
 	etc_buffer = 0;
+	#macro JUMP_STRENGTH_MAX 15
+	#macro JUMP_STRENGTH_MIN -12
+	jump_strength = JUMP_STRENGTH_MIN;
 	
 	hp = 0;
 	ego_invincible = 0;
 	ego_refill_pause = 0;
 	#macro AURA_INVINCIBLE 30
 	aura = 0;
+	aura_stored = undefined;
 #endregion
 
 #region Collision

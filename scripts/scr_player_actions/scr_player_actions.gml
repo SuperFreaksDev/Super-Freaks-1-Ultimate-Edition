@@ -202,6 +202,15 @@ function player_meter_collect(_ego = 2)
 						sfx_play_global(sfx_powerup);
 				}
 				break;
+			case story_modes.anti_freaks:
+				if (aura < 100)
+				{
+					_aura_previous = aura;
+					aura = min(aura + _ego, 100);
+					if (aura == 100)
+						sfx_play_global(sfx_powerup);
+				}
+				break;
 		}
 	}
 }
@@ -230,6 +239,12 @@ function player_hurt()
 				break;
 			case story_modes.swordsman:
 				if (aura < AURA_INVINCIBLE)
+					_last_hit = true;
+				else
+					aura = 0;
+				break;
+			case story_modes.anti_freaks:
+				if (aura < 10)
 					_last_hit = true;
 				else
 					aura = 0;
@@ -277,6 +292,7 @@ function player_kill()
 					hp = 0;
 				break;
 			case story_modes.swordsman:
+			case story_modes.anti_freaks:
 				aura = 0;
 				break;
 		}
@@ -308,6 +324,7 @@ function player_crush()
 				ego_invincible = 0;
 				break;
 			case story_modes.swordsman:
+			case story_modes.anti_freaks:
 				aura = 0;
 				break;
 		}

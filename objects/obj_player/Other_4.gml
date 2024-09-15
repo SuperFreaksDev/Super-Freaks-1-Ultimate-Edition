@@ -53,6 +53,7 @@ speed_v = 0;
 ground_on = false;
 instance_attach = undefined;
 water_meter = 100;
+jump_strength = JUMP_STRENGTH_MIN;
 
 lock_controls_horizontal = 0;
 lock_controls_vertical = 0;

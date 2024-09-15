@@ -101,10 +101,7 @@ function yorbs_add(_amount = 1)
 				}
 			}
 			break;
-		case story_modes.kranion:
-			player_meter_collect(2 * _amount);
-			break;
-		case story_modes.swordsman:
+		default:
 			player_meter_collect(2 * _amount);
 			break;
 	}

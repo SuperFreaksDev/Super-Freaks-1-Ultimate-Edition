@@ -51,30 +51,32 @@ switch (state)
 		break;
 }
 
-if (aura > 0)
+if (global.story_mode == story_modes.swordsman)
 {
-	if (aura >= 100)
+	if (aura > 0)
 	{
-		_aura_sprite = spr_aura_3;
-		gpu_set_blendmode(bm_add);
-		draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 0.5 + ((aura / 100) / 2), 0.5 + ((aura / 100) / 2), 0, c_white, 0.5);
-		gpu_set_blendmode(bm_normal);
+		if (aura >= 100)
+		{
+			_aura_sprite = spr_aura_3;
+			gpu_set_blendmode(bm_add);
+			draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 0.5 + ((aura / 100) / 2), 0.5 + ((aura / 100) / 2), 0, c_white, 0.5);
+			gpu_set_blendmode(bm_normal);
+		}
+		else if (aura >= AURA_INVINCIBLE)
+		{
+			_aura_sprite = spr_aura_2;
+			gpu_set_blendmode(bm_add);
+			draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 0.5 + ((aura / 100) / 2), 0.5 + ((aura / 100) / 2), 0, c_white, 0.5);
+			gpu_set_blendmode(bm_normal);
+		}
+		else
+		{
+			_aura_sprite = spr_aura_1;
+			gpu_set_blendmode(bm_add);
+			draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 1, 1, 0, c_white, 0.5);
+			gpu_set_blendmode(bm_normal);
+		}
 	}
-	else if (aura >= AURA_INVINCIBLE)
-	{
-		_aura_sprite = spr_aura_2;
-		gpu_set_blendmode(bm_add);
-		draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 0.5 + ((aura / 100) / 2), 0.5 + ((aura / 100) / 2), 0, c_white, 0.5);
-		gpu_set_blendmode(bm_normal);
-	}
-	else
-	{
-		_aura_sprite = spr_aura_1;
-		gpu_set_blendmode(bm_add);
-		draw_sprite_ext(_aura_sprite, jetpack_index, _x, _y + _height, 1, 1, 0, c_white, 0.5);
-		gpu_set_blendmode(bm_normal);
-	}
-
 }
 
 if (_rubber_band_draw == true && rubber_band && !is_undefined(_average_x) && !is_undefined(_average_x_previous))
