@@ -69,7 +69,20 @@ victory_quote_array = [
 "Grab a slice of bread and staple it to a tree!",
 "Is this sightreadable?",
 "Also try Mr. Shootem Breaks Out!",
-"How 'bout that freak's face when he saw the gyatt"
+"How 'bout that freak's face when he saw the gyatt",
+"Slide to freak out",
+"You wanna know how brainrotted I am?",
+"Gimme freaks, gimme fire, gimme that which I desire!",
+"I wonder what yorbs taste like",
+"Based and freakpilled",
+"Bang a u-ie back to cardboard manufacturing",
+"You know who else likes Super Freaks 1 Ultimate Edition? MY MOM!!!",
+",Cand you imagine if this happen to you imagine to you real life and that’s why i’m always kind anyone i always meet you knever what they’re going through maybe ground pound angle slope crate kill scruffy instantly you never kjow what someonr struggle with their own personal crate",
+"Hi Arri",
+"My honest reaction:",
+"Play with all 47 of your friends!",
+"Have you seen Heavy Metal anywhere?",
+"Im super high and freaky"
 ];
 
 victory_quote_array_windows = [
@@ -98,7 +111,7 @@ switch (os_type)
     case os_linux:
         array_push(victory_quote_array, victory_quote_array_linux);
         if (current_weekday == 2) //check if Tuesday
-            array_push(victory_quote_array, "Is your printer working?");
+            array_push(victory_quote_array, "Happy Tuesday! Is your printer working?");
         break;
     case os_android:
         array_push(victory_quote_array, victory_quote_array_android);
