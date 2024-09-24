@@ -4,7 +4,7 @@ function player_state_climb()
 	var _move_h = 0, _move_v = 0;
 	var _climb_obj, _climb_off = false, _climb_boundaries = false;
 	var _player_pos;
-	var _climb_speed = speed_run + (AURA_WALK * (aura / 100));
+	var _climb_speed = speed_run;
 	
 	if (state_begin)
 	{
@@ -24,6 +24,9 @@ function player_state_climb()
 		rubber_band_can_slingshot = false;
 		physics = player_physics_modifiers.normal;
 	}
+	
+	if (global.story_mode == story_modes.swordsman)
+		_climb_speed += (AURA_WALK * (aura / 100))
 	
 	animate_speed = 0;
 	hurt_timer_step();

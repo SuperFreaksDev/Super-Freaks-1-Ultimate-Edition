@@ -203,7 +203,10 @@ function player_state_normal()
 				ball = true;
 				skid = false;
 				speed_v = -lerp(speed_jump, speed_jump * 2, jump_strength / JUMP_STRENGTH_MAX);
-				speed_h *= lerp(1, 4, jump_strength / JUMP_STRENGTH_MAX);
+				if (physics != player_physics_modifiers.rail)
+					speed_h *= lerp(1, 4, jump_strength / JUMP_STRENGTH_MAX);
+				else
+					speed_h *= lerp(1, 1.25, jump_strength / JUMP_STRENGTH_MAX);
 				sfx_play_global(sfx_explode_short);
 				_collider = collider_attach[collider_attach_data.collider];
 				if (!is_undefined(_collider))

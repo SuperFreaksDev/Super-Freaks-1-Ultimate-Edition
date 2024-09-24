@@ -29,8 +29,13 @@ function player_view_boundaries()
 	{
 		x = _view_x1 + _width;
 		crush_flags = bit_set(crush_flags, collision_flag_bits.left);
-		if (speed_h < 0)
-			speed_h = 0;
+		if (speed_h > 0)
+		{
+			if (physics == player_physics_modifiers.rail)
+				speed_h = max(speed_h, -3);
+			else
+				speed_h = 0;
+		}
 	}
 	
 	if (x + _width >= _view_x2)
@@ -38,7 +43,12 @@ function player_view_boundaries()
 		crush_flags = bit_set(crush_flags, collision_flag_bits.right);
 		x = _view_x2 - _width;
 		if (speed_h > 0)
-			speed_h = 0;
+		{
+			if (physics == player_physics_modifiers.rail)
+				speed_h = min(speed_h, 3);
+			else
+				speed_h = 0;
+		}
 	}
 	
 	gml_pragma("forceinline");
