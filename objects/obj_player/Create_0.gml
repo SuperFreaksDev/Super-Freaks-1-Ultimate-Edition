@@ -72,6 +72,7 @@ character_index = 0;
 	#macro AURA_INVINCIBLE 30
 	aura = 0;
 	aura_stored = undefined;
+	can_fireball = true;
 #endregion
 
 #region Collision

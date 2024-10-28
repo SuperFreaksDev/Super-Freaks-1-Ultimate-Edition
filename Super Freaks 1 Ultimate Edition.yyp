@@ -561,6 +561,7 @@
     {"id":{"name":"obj_marrow_meteor","path":"objects/obj_marrow_meteor/obj_marrow_meteor.yy",},},
     {"id":{"name":"obj_master","path":"objects/obj_master/obj_master.yy",},},
     {"id":{"name":"obj_mcginty","path":"objects/obj_mcginty/obj_mcginty.yy",},},
+    {"id":{"name":"obj_menu_main_new","path":"objects/obj_menu_main_new/obj_menu_main_new.yy",},},
     {"id":{"name":"obj_menu_main","path":"objects/obj_menu_main/obj_menu_main.yy",},},
     {"id":{"name":"obj_menu_parent","path":"objects/obj_menu_parent/obj_menu_parent.yy",},},
     {"id":{"name":"obj_menu_pause","path":"objects/obj_menu_pause/obj_menu_pause.yy",},},
@@ -922,6 +923,7 @@
     {"id":{"name":"rm_skyway_2","path":"rooms/rm_skyway_2/rm_skyway_2.yy",},},
     {"id":{"name":"rm_skyway_3","path":"rooms/rm_skyway_3/rm_skyway_3.yy",},},
     {"id":{"name":"rm_skyway_4","path":"rooms/rm_skyway_4/rm_skyway_4.yy",},},
+    {"id":{"name":"rm_stadium_1_antifreaks","path":"rooms/rm_stadium_1_antifreaks/rm_stadium_1_antifreaks.yy",},},
     {"id":{"name":"rm_stadium_1","path":"rooms/rm_stadium_1/rm_stadium_1.yy",},},
     {"id":{"name":"rm_stadium_2","path":"rooms/rm_stadium_2/rm_stadium_2.yy",},},
     {"id":{"name":"rm_stadium_3","path":"rooms/rm_stadium_3/rm_stadium_3.yy",},},
@@ -2645,6 +2647,7 @@
     {"roomId":{"name":"rm_cutscene_training_swordsman","path":"rooms/rm_cutscene_training_swordsman/rm_cutscene_training_swordsman.yy",},},
     {"roomId":{"name":"rm_cutscene_prime_swordsman","path":"rooms/rm_cutscene_prime_swordsman/rm_cutscene_prime_swordsman.yy",},},
     {"roomId":{"name":"rm_boss_wartnose","path":"rooms/rm_boss_wartnose/rm_boss_wartnose.yy",},},
+    {"roomId":{"name":"rm_stadium_1_antifreaks","path":"rooms/rm_stadium_1_antifreaks/rm_stadium_1_antifreaks.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[

@@ -176,50 +176,61 @@ function player_state_normal()
 	
 	if (global.story_mode == story_modes.anti_freaks)
 	{
-		if (input_check("jump", player_number))
+		if (input_check_pressed("jump", player_number))
 		{
-			if (is_undefined(aura_stored))
-				aura_stored = aura;
+			if (!ground_on)
+				can_fireball = true;
+			else
+				can_fireball = false;
+		}
+			
+		if (can_fireball)
+		{
+			if (input_check("jump", player_number))
+			{
+				if (is_undefined(aura_stored))
+					aura_stored = aura;
 				
-			if (aura_stored > 5)
+				if (aura_stored > 5)
+				{
+					if (jump_strength > 0)
+						instance_create_layer(x - 12 + random(24), y - 12 + random(24), "layer_instances", obj_yorb_collected_single);
+					if (jump_strength < JUMP_STRENGTH_MAX)
+					{
+						jump_strength++;
+						if (jump_strength > 0)
+							aura = max(aura - 2, 0);
+					}
+				}
+			}
+			else if (input_check_released("jump", player_number))
 			{
 				if (jump_strength > 0)
-					instance_create_layer(x - 12 + random(24), y - 12 + random(24), "layer_instances", obj_yorb_collected_single);
-				if (jump_strength < JUMP_STRENGTH_MAX)
 				{
-					jump_strength++;
-					if (jump_strength > 0)
-						aura = max(aura - 2, 0);
+					jump_buffer = 0;
+					coyote_time = 0;
+					ground_on = false;
+					ball = true;
+					skid = false;
+					speed_v = -lerp(speed_jump, speed_jump * 2, jump_strength / JUMP_STRENGTH_MAX);
+					if (physics != player_physics_modifiers.rail)
+						speed_h *= lerp(1, 4, jump_strength / JUMP_STRENGTH_MAX);
+					else
+						speed_h *= lerp(1, 1.25, jump_strength / JUMP_STRENGTH_MAX);
+					sfx_play_global(sfx_explode_short);
+					_collider = collider_attach[collider_attach_data.collider];
+					if (!is_undefined(_collider))
+					{
+						_collider_speed_x = collider_attach[collider_attach_data.speed_x];
+						_collider_speed_y = collider_attach[collider_attach_data.speed_y];
+						speed_h += _collider_speed_x;
+						speed_v = min(speed_v, _collider_speed_y);
+						collider_attach_clear();
+					}
 				}
+				jump_strength = JUMP_STRENGTH_MIN;
+				aura_stored = undefined;
 			}
-		}
-		else if (input_check_released("jump", player_number))
-		{
-			if (jump_strength > 0)
-			{
-				jump_buffer = 0;
-				coyote_time = 0;
-				ground_on = false;
-				ball = true;
-				skid = false;
-				speed_v = -lerp(speed_jump, speed_jump * 2, jump_strength / JUMP_STRENGTH_MAX);
-				if (physics != player_physics_modifiers.rail)
-					speed_h *= lerp(1, 4, jump_strength / JUMP_STRENGTH_MAX);
-				else
-					speed_h *= lerp(1, 1.25, jump_strength / JUMP_STRENGTH_MAX);
-				sfx_play_global(sfx_explode_short);
-				_collider = collider_attach[collider_attach_data.collider];
-				if (!is_undefined(_collider))
-				{
-					_collider_speed_x = collider_attach[collider_attach_data.speed_x];
-					_collider_speed_y = collider_attach[collider_attach_data.speed_y];
-					speed_h += _collider_speed_x;
-					speed_v = min(speed_v, _collider_speed_y);
-					collider_attach_clear();
-				}
-			}
-			jump_strength = JUMP_STRENGTH_MIN;
-			aura_stored = undefined;
 		}
 	}
 	

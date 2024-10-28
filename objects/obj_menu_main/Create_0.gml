@@ -84,6 +84,7 @@ timer = 0;
 		if (input_check_pressed("confirm", global.player_lead))
 		{
 			global.game_mode = game_modes.normal;
+			global.story_mode = story_modes.super_freaks;
 			global.level_id = level_ids.level_apex;
 			instance_create(obj_character_select);
 		}
@@ -93,7 +94,7 @@ timer = 0;
 		main_text = "Super Freaks 1 Ultimate Edition";
 		if (input_check_pressed("confirm", global.player_lead))
 		{
-			if (options[main_menu_pages.main][2][menu_option_data.unlocked])
+			if (options[main_menu_pages.main][5][menu_option_data.unlocked])
 			{
 				page = main_menu_pages.museum;
 				option = 0;
@@ -174,6 +175,15 @@ timer = 0;
 					break;
 				case story_modes.kranion:
 					option = 1;
+					break;
+				case story_modes.swordsman:
+					option = 2;
+					break;
+				case story_modes.anti_freaks:
+					option = 3;
+					break;
+				case story_modes.final:
+					option = 4;
 					break;
 			}
 		}
