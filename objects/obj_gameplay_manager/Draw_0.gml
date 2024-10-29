@@ -115,34 +115,34 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				draw_set_color(c_white);
 				for (_list_pos = 0; _list_pos < array_length(_player_list); ++_list_pos)
 				{
-					_offset = (_list_pos * (_screen_width / 4));
+                    _offset = (_list_pos * 128); //(_screen_width / 4)
 					_list_thing = _player_list[_list_pos];
 					_player_instance = _list_thing[player_data.instance];
-					draw_sprite(spr_player_numbers, _list_pos, _view_x1 + 16 + _offset, _view_y1 + 16);
+                    draw_sprite(spr_player_numbers, _list_pos, _view_x1 + 24 + _offset, _view_y1 + 24 + ((_list_pos == global.player_lead) ? 8 : 0));
 				
 					if (_list_thing[player_data.active] == true)
 					{
 						var HUDDoDead = (_player_instance.state == player_states.death || _player_instance.state == player_states.bubble);
 						
-						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), HUDDoDead, _view_x1 + 48 + _offset, _view_y1 + 16);
+						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), HUDDoDead, _view_x1 + 56 + _offset, _view_y1 + 24);
 						if (_list_pos == global.player_lead)
-							draw_sprite(spr_multiplayer_crown, 0, _view_x1 + 48 + _offset, _view_y1 + 40);
+							draw_sprite(spr_multiplayer_crown, 0, _view_x1 + 24 + _offset, _view_y1 + 16);
 						if (_player_instance.rubber_band == true)
-							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 80 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 1);
+							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 88 + _offset, _view_y1 + 24, 1, 1, 0, c_white, 1);
 						else
-							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 80 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 0.5);
+							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 88 + _offset, _view_y1 + 24, 1, 1, 0, c_white, 0.5);
 					}
 					else
 					{
 						if (_player_instance.state == player_states.drop_in)
 						{
-							draw_sprite_ext(spr_menu_arrow_16, 0, _view_x1 + 48 + _offset, _view_y1 + 16, 1, 1, 180, c_white, 1);
-							draw_sprite_ext(spr_menu_arrow_16, 0, _view_x1 + 112 + _offset, _view_y1 + 16, 1, 1, 0, c_white, 1);
-							draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 80 + _offset, _view_y1 + 16);
+							draw_sprite_ext(spr_menu_arrow_16, 0, _view_x1 + 56 + _offset, _view_y1 + 24, 1, 1, 180, c_white, 1);
+							draw_sprite_ext(spr_menu_arrow_16, 0, _view_x1 + 120 + _offset, _view_y1 + 24, 1, 1, 0, c_white, 1);
+							draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), 0, _view_x1 + 88 + _offset, _view_y1 + 24);
 						}
 						else
 						{
-							draw_text(_view_x1 + 48 + _offset, _view_y1 + 16, "Join!");
+							draw_text(_view_x1 + 56 + _offset, _view_y1 + 24, "Join!");
 						}
 					}
 				}
@@ -155,9 +155,9 @@ var _heart_meter_zoom = _heart_zoom / 100;
 						draw_set_font(global.font_12);
 						draw_set_halign(fa_center);
 						draw_set_valign(fa_middle);
-					    draw_sprite(spr_HUD_heart, 0, _view_x1, _view_y1 + _screen_height - 32 + yorb_effect);
-					    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1, _view_y1 + _screen_height - (global.heart_meter * 0.32) + yorb_effect);
-						draw_text(_view_x1 + 16, _view_y1 + _screen_height - 16 + yorb_effect, string(global.hearts));
+					    draw_sprite(spr_HUD_heart, 0, _view_x1 + 8, _view_y1 + 48 + yorb_effect);
+					    draw_sprite_part(spr_HUD_heart, 1, 0, 32 - (global.heart_meter * 0.32), 32, (global.heart_meter * 0.32), _view_x1 + 8, _view_y1 + 80 - (global.heart_meter * 0.32) + yorb_effect);
+						draw_text(_view_x1 + 24, _view_y1 + 64 + yorb_effect, string(global.hearts));
 					}
 				}
 			#endregion
@@ -182,10 +182,10 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				switch (global.game_mode)
 				{
 					case game_modes.randomizer:
-						draw_text(_view_x1 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + _screen_height, "Level " + string(global.score));
+						draw_text(_view_x1 + 8 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + 64, "Level " + string(global.score));
 						break;
 					default:
-						game_timer_draw(_view_x1 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + _screen_height);
+						game_timer_draw(_view_x1 + 8 + (48 * (global.story_mode == story_modes.super_freaks)), _view_y1 + 64);
 				}
 			#endregion
 			draw_set_projection_2D(_view_x1, _view_y1, _view_width, _view_height);
