@@ -10,7 +10,7 @@ if (instance_number(object_index) > 1)
 }
 
 global.demo = false;
-input_join_params_set(1, 4, undefined, undefined);
+input_join_params_set(1, 4, undefined, undefined, false);
 if (file_exists("input.settings"))
 {
 	_binding_string = string_load("input.settings");
