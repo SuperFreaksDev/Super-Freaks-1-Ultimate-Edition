@@ -3,7 +3,7 @@
 var _binding_string;
 
 global.demo = false;
-input_multiplayer_params_set(1, 4, false);
+input_join_params_set(1, 4);
 if (file_exists("input.settings"))
 {
 	_binding_string = string_load("input.settings");
