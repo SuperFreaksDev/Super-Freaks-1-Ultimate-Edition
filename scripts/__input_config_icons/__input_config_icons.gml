@@ -12,13 +12,13 @@
 
 //Special case: When a non-binding value is being evaluated
 //              This should only happen if Input is given an invalid input argument
-input_icon_not_a_binding("Not a binding");
+input_icon_not_a_binding(spr_control_icon_not_binding); //"Not a binding"
 
 //Special case: When an empty binding is being evaluated
-input_icon_empty("Empty");
+input_icon_empty(spr_control_icon_empty); //"Empty"
 
 //Special case: When a touch binding (virtual button) is being evaluated
-input_icon_touch("Virtual button");
+input_icon_touch("VB"); //"Virtual button"
 
 
 
