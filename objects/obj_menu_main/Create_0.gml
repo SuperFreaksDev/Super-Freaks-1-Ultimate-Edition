@@ -1190,6 +1190,7 @@ timer = 0;
 		/// @function audio_options_set
 		audio_options_set = function()
 		{
+            volume_master_set(option_volume_master);
 			volume_music_set(option_volume_music);
 			volume_sfx_set(option_volume_sfx);
 			sfx_play_global(sfx_ding);
@@ -1199,13 +1200,40 @@ timer = 0;
 		/// @function audio_options_reset
 		audio_options_reset = function()
 		{
+            option_volume_master = volume_master_get();
 			option_volume_music = volume_music_get();
 			option_volume_sfx = volume_sfx_get();
 		}
 		
 		audio_options_reset();
 		
-		menu_option_add(_page, 0, "Music Volume: " + string(floor(option_volume_music * 100)) + "%", function()
+        menu_option_add(_page, 0, "Master Volume: " + string(round(option_volume_master * 100)) + "%", function() 
+        {
+            main_text = "Options - Audio";
+            bottom_text = "Confirm to save changes";
+            if (input_check_pressed("confirm", global.player_lead))
+            {
+                audio_options_set();
+            }
+            else if (input_check_pressed("deny", global.player_lead))
+            {
+                page = main_menu_pages.options;
+                option = 2;
+                audio_options_reset();
+            }
+            else if (input_check_pressed("left", global.player_lead))
+            {
+                option_volume_master = max(option_volume_master - 0.05, 0);
+                options[main_menu_pages.options_audio][0][menu_option_data.text] = "Master Volume: " + string(round(option_volume_master * 100)) + "%";
+            }
+            else if (input_check_pressed("right", global.player_lead))
+            {
+                option_volume_master = min(option_volume_master + 0.05, 1);
+                options[main_menu_pages.options_audio][0][menu_option_data.text] = "Master Volume: " + string(round(option_volume_master * 100)) + "%";
+            }
+        });
+        
+        menu_option_add(_page, 1, "Music Volume: " + string(round(option_volume_music * 100)) + "%", function()
 		{
 			main_text = "Options - Audio";
 			bottom_text = "Confirm to save changes";
@@ -1222,16 +1250,16 @@ timer = 0;
 			else if (input_check_pressed("left", global.player_lead))
 			{
 				option_volume_music = max(option_volume_music - 0.05, 0);
-				options[main_menu_pages.options_audio][0][menu_option_data.text] = "Music Volume: " + string(floor(option_volume_music * 100)) + "%";
+                options[main_menu_pages.options_audio][1][menu_option_data.text] = "Music Volume: " + string(round(option_volume_music * 100)) + "%";
 			}
 			else if (input_check_pressed("right", global.player_lead))
 			{
 				option_volume_music = min(option_volume_music + 0.05, 1);
-				options[main_menu_pages.options_audio][0][menu_option_data.text] = "Music Volume: " + string(floor(option_volume_music * 100)) + "%";
+                options[main_menu_pages.options_audio][1][menu_option_data.text] = "Music Volume: " + string(round(option_volume_music * 100)) + "%";
 			}
 		});
 		
-		menu_option_add(_page, 1, "SFX Volume: " + string(floor(option_volume_sfx * 100)) + "%", function()
+        menu_option_add(_page, 2, "SFX Volume: " + string(round(option_volume_sfx * 100)) + "%", function()
 		{
 			main_text = "Options - Audio";
 			bottom_text = "Confirm to save changes";
@@ -1248,12 +1276,12 @@ timer = 0;
 			else if (input_check_pressed("left", global.player_lead))
 			{
 				option_volume_sfx = max(option_volume_sfx - 0.05, 0);
-				options[main_menu_pages.options_audio][1][menu_option_data.text] = "SFX Volume: " + string(floor(option_volume_sfx * 100)) + "%";
+                options[main_menu_pages.options_audio][2][menu_option_data.text] = "SFX Volume: " + string(round(option_volume_sfx * 100)) + "%";
 			}
 			else if (input_check_pressed("right", global.player_lead))
 			{
 				option_volume_sfx = min(option_volume_sfx + 0.05, 1);
-				options[main_menu_pages.options_audio][1][menu_option_data.text] = "SFX Volume: " + string(floor(option_volume_sfx * 100)) + "%";
+                options[main_menu_pages.options_audio][2][menu_option_data.text] = "SFX Volume: " + string(round(option_volume_sfx * 100)) + "%";
 			}
 		});
 	#endregion

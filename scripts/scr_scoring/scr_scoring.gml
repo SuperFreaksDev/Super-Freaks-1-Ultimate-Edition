@@ -71,7 +71,7 @@ function game_timer_reset()
 /// @param _y
 function game_timer_draw(_x, _y)
 {
-	var _string = string_format(global.game_timer[game_timer_data.hours], 2, 0) + ":" + string_format(global.game_timer[game_timer_data.minutes], 2, 0) + ":" + string_format(global.game_timer[game_timer_data.seconds], 2, 0) + ":" + string_format(global.game_timer[game_timer_data.ticks], 2, 0);
+    var _string = ((global.game_timer[game_timer_data.hours] > 0) ? (string_format(global.game_timer[game_timer_data.hours], 2, 0) + ":") : "") + string_format(global.game_timer[game_timer_data.minutes], 2, 0) + ":" + string_format(global.game_timer[game_timer_data.seconds], 2, 0);// + ":" + string_format(global.game_timer[game_timer_data.ticks], 2, 0);
 	
 	_string = string_replace_all(_string, " ", "0");
 	draw_text(_x, _y, _string);

@@ -12,7 +12,7 @@ function sfx_play_global(_sound, _loop = false, _priority = 0)
 function volume_sfx_set(_volume)
 {
 	global.audio_settings[audio_data.volume_sfx] = _volume;
-	audio_emitter_gain(global.audio_emitter_sfx, _volume);
+    audio_emitter_gain(global.audio_emitter_sfx, _volume * volume_master_get());
 }
 
 /// @function volume_sfx_get

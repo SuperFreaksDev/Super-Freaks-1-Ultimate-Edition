@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_rect2",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_rect2",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Scripts/Math.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

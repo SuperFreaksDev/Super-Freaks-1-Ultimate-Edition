@@ -109,16 +109,22 @@ var _heart_meter_zoom = _heart_zoom / 100;
 				}
 			#endregion
 			#region Draw Player Info
+                var number_pos_x = 24
+                var number_pos_y = 32
+                var crown_pos_x = 16
+                var crown_pos_y = 16
+                var elastiband_pos_x = 32
+                var elastiband_pos_y = 16
 				draw_set_font(global.font_12);
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_middle);
 				draw_set_color(c_white);
 				for (_list_pos = 0; _list_pos < array_length(_player_list); ++_list_pos)
 				{
-                    _offset = (_list_pos * 128); //(_screen_width / 4)
+                    _offset = (_list_pos * 96); //(_screen_width / 4)
 					_list_thing = _player_list[_list_pos];
 					_player_instance = _list_thing[player_data.instance];
-                    draw_sprite(spr_player_numbers, _list_pos, _view_x1 + 24 + _offset, _view_y1 + 24 + ((_list_pos == global.player_lead) ? 8 : 0));
+                    draw_sprite(spr_player_numbers, _list_pos, _view_x1 + number_pos_x + _offset, _view_y1 + number_pos_y);
 				
 					if (_list_thing[player_data.active] == true)
 					{
@@ -126,11 +132,11 @@ var _heart_meter_zoom = _heart_zoom / 100;
 						
 						draw_sprite(player_animation_get(_player_instance.character_index, player_animations.hud_face), HUDDoDead, _view_x1 + 56 + _offset, _view_y1 + 24);
 						if (_list_pos == global.player_lead)
-							draw_sprite(spr_multiplayer_crown, 0, _view_x1 + 24 + _offset, _view_y1 + 16);
+							draw_sprite(spr_multiplayer_crown_small, 0, _view_x1 + crown_pos_x + _offset, _view_y1 + crown_pos_y);
 						if (_player_instance.rubber_band == true)
-							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 88 + _offset, _view_y1 + 24, 1, 1, 0, c_white, 1);
+							draw_sprite_ext(spr_HUD_elastiband_small, _player_instance.rubber_band_color, _view_x1 + elastiband_pos_x + _offset, _view_y1 + elastiband_pos_y, 1, 1, 0, c_white, 1);
 						else
-							draw_sprite_ext(spr_HUD_elastiband, _player_instance.rubber_band_color, _view_x1 + 88 + _offset, _view_y1 + 24, 1, 1, 0, c_white, 0.5);
+							draw_sprite_ext(spr_HUD_elastiband_small, _player_instance.rubber_band_color, _view_x1 + elastiband_pos_x + _offset, _view_y1 + elastiband_pos_y, 1, 1, 0, c_white, 0.5);
 					}
 					else
 					{
