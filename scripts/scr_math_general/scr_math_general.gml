@@ -60,6 +60,28 @@ function lengthdir(_length, _dir)
     return new vector2(_length, 0).rotated(_dir)
 }
 
+/// @function inverse_lerp
+/// @param {Real} _from
+/// @param {Real} _to
+/// @param {Real} _value
+/// @return {Real}
+function inverse_lerp(_from, _to, _value)
+{
+    return (_value - _from) / (_to - _from);
+}
+
+/// @function remap
+/// @param {Real} _value
+/// @param {Real} _istart
+/// @param {Real} _istop
+/// @param {Real} _ostart
+/// @param {Real} _ostop
+/// @return {Real}
+function remap(_value, _istart, _istop, _ostart, _ostop)
+{
+    return lerp(_ostart, _ostop, inverse_lerp(_istart, _istop, _value));
+}
+
 enum SIDE 
 {
     LEFT = 0,

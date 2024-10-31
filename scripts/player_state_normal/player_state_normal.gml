@@ -116,7 +116,8 @@ function player_state_normal()
 					if (speed_h >= -_speed_run)
 						speed_h = max(speed_h - _speed_acc, -_speed_run);
 					else
-						player_friction_normal(_speed_frc, _speed_frc_air);
+                        if (lock_friction == 0)
+                            player_friction_normal(_speed_frc, _speed_frc_air);
 					face = -1;
 					skid = false;
 				}
@@ -150,38 +151,55 @@ function player_state_normal()
 	#region Jetpack Movement
 		if (jetpack)
 		{
-            var _target_speed = _move.multiply(_speed_run);
+            var _speed_run_jetpack = _speed_run + 0.5;
+            var _target_speed = _move.multiply(_speed_run_jetpack); 
+            var _speed = new vector2(speed_h, speed_v);
             
-            switch (_move.is_equal(new vector2(0, 0)))
+            if (_move.x != 0) 
             {
-                case true:
-                    speed_h *= _speed_frc_air;
-                    speed_v *= _speed_frc_air;
-                    break;
-                case false:
-                    var _speed = new vector2(speed_h, speed_v);
-                    
-                    //if (sign(_move.x) != sign(_speed.x))
-                    //    _speed.x = move_toward(_speed.x, _target_speed.x, _speed_dec);
-                    //else
-                    //    if (_speed_x <= _target_speed.x)
-                    //        _speed.x = move_toward(_speed.x, _target_speed.x, _speed_acc);
-                    
-                    if (_move.dot(_speed) < 0.0)
-                        _speed = _speed.move_toward(_target_speed, _speed_dec);
+                if (sign(_move.x) != sign(_speed.x))
+                    _speed.x = move_toward(_speed.x, _target_speed.x, _speed_dec);
+                else 
+                {
+                    if (_speed.x * sign(_target_speed.x) <= abs(_target_speed.x))
+                        _speed.x = move_toward(_speed.x, _target_speed.x, _speed_acc);
                     else
-                        if _speed.project(_target_speed).rotated(-_target_speed.angle()).x < _target_speed.length()
-                            _speed = _speed.move_toward(_target_speed, _speed_acc);
-                        else
-                            _speed = _speed.multiply(_speed_frc_air)
-                        if (sign(_speed.x) != 0)
-                            face = sign(_speed.x);
-                    
-                    speed_h = _speed.x;
-                    speed_v = _speed.y;
-                    
-                    break;
+                        _speed.x *= _speed_frc_air
+                    if (sign(_speed.x) != 0) 
+                        face = sign(_speed.x); 
+                }
+            } 
+            else 
+                _speed.x *= _speed_frc_air
+            
+            if (_move.y != 0)
+            {
+                if (sign(_move.y) != sign(_speed.y))
+                    _speed.y = move_toward(_speed.y, _target_speed.y, _speed_dec);
+                else
+                {
+                    if (_speed.y * sign(_target_speed.y) <= abs(_target_speed.y))
+                        _speed.y = move_toward(_speed.y, _target_speed.y, _speed_acc);
+                    else
+                        _speed.y *= _speed_frc_air
+                }
             }
+            else
+                _speed.y *= _speed_frc_air
+                    
+                    //if (_move.dot(_speed) < 0.0)
+                    //    _speed = _speed.move_toward(_target_speed, _speed_dec);
+                    //else
+                    //    if _speed.project(_target_speed).rotated(-_target_speed.angle()).x < _target_speed.length()
+                    //        _speed = _speed.move_toward(_target_speed, _speed_acc);
+                    //    else
+                    //        _speed = _speed.multiply(_speed_frc_air)
+                    //    if (sign(_speed.x) != 0)
+                    //        face = sign(_speed.x);
+                    
+            speed_h = _speed.x;
+            speed_v = _speed.y;
+        }
             
 			//switch (_move_v)
 			//{
@@ -212,7 +230,6 @@ function player_state_normal()
 			//		}
 			//		break;
 			//}
-		}
 	#endregion
 	
 	
