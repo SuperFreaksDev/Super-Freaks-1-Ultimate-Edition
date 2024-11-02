@@ -250,9 +250,9 @@ function player_state_normal()
 				if (is_undefined(aura_stored))
 					aura_stored = aura;
 				
-				if (aura_stored > 5)
+				if (aura_stored > 0)
 				{
-					if (jump_strength > 0)
+					if (jump_strength >= 0)
 						instance_create_layer(x - 12 + random(24), y - 12 + random(24), "layer_instances", obj_yorb_collected_single);
 					if (jump_strength < JUMP_STRENGTH_MAX)
 					{
@@ -264,7 +264,7 @@ function player_state_normal()
 			}
 			else if (input_check_released("jump", player_number))
 			{
-				if (jump_strength > 0)
+				if (jump_strength >= 0)
 				{
 					jump_buffer = 0;
 					coyote_time = 0;
