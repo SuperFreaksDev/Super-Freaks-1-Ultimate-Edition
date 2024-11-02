@@ -139,7 +139,8 @@ function player_state_normal()
 					if (speed_h <= _speed_run)
 						speed_h = min(speed_h + _speed_acc, _speed_run);
 					else
-						player_friction_normal(_speed_frc, _speed_frc_air);
+                        if (lock_friction == 0)
+						  player_friction_normal(_speed_frc, _speed_frc_air);
 					face = 1;
 					skid = false;
 				}
@@ -164,7 +165,8 @@ function player_state_normal()
                     if (_speed.x * sign(_target_speed.x) <= abs(_target_speed.x))
                         _speed.x = move_toward(_speed.x, _target_speed.x, _speed_acc);
                     else
-                        _speed.x *= _speed_frc_air
+                        if (lock_friction == 0)
+                            _speed.x *= _speed_frc_air
                     if (sign(_speed.x) != 0) 
                         face = sign(_speed.x); 
                 }
@@ -181,7 +183,8 @@ function player_state_normal()
                     if (_speed.y * sign(_target_speed.y) <= abs(_target_speed.y))
                         _speed.y = move_toward(_speed.y, _target_speed.y, _speed_acc);
                     else
-                        _speed.y *= _speed_frc_air
+                        if (lock_friction == 0)
+                            _speed.y *= _speed_frc_air
                 }
             }
             else
